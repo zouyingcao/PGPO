@@ -77,4 +77,4 @@ Moreover, the bash script ```run_eval.sh``` is used for agent task evaluation (`
 
 ## Acknowledgement
 
-This repo benefits from [ETO](https://github.com/huggingface/peft), [IPR](https://github.com/huggingface/trl) and [FastChat](https://github.com/lm-sys/FastChat). Thanks for their inspiring works.
+This repo benefits from [ETO](https://github.com/huggingface/peft), [IPR](https://github.com/huggingface/trl), [AgentGym](https://github.com/WooooDyy/AgentGym) and [FastChat](https://github.com/lm-sys/FastChat). Thanks for their inspiring works.
