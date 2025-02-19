@@ -1,0 +1,104 @@
+{
+    "meta": {
+        "steps": 10,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 bread using 3 wheat\ncraft 1 hay block using 9 wheat\ncraft 8 cookie using 2 wheat, 1 cocoa beans\ncraft 3 paper using 3 sugar cane\ncraft 1 honey block using 4 honey bottle\ncraft 1 fermented spider eye using 1 spider eye, 1 brown mushroom, 1 sugar\ncraft 1 pumpkin pie using 1 pumpkin, 1 sugar, 1 egg\ncraft 3 sugar using 1 honey bottle\ncraft 1 cake using 3 milk bucket, 2 sugar, 3 wheat, 1 egg\ncraft 1 sugar using 1 sugar cane\n\nGoal: craft cake."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"cake\" not in had_objects: find_flag = get(\"cake\");\nStep 3. if find_flag == False: \"craft 1 cake using 3 milk bucket, 2 sugar, 3 wheat, 1 egg\" = choose_crafting_commands(\"cake\"), needed_ingredients = [\"3 milk bucket\", \"2 sugar\", \"3 wheat\", \"1 egg\"], find_flag = get(\"3 milk bucket\");\nStep 4. if find_flag == False: \"craft 1 milk bucket using 1 milk\" = choose_crafting_commands(\"3 milk bucket\"), needed_ingredients = \"3 milk\", get(\"3 milk\");\nStep 5. for i in range(3): craft 1 milk bucket using 1 milk;\nStep 6. if \"2 sugar\" not in had_objects: find_flag = get(\"2 sugar\");\nStep 7. if find_flag == False: \"craft 3 sugar using 1 honey bottle\" = choose_crafting_commands(\"2 sugar\"), needed_ingredients = \"1 honey bottle\", get(\"1 honey bottle\");\nStep 8. craft 3 sugar using 1 honey bottle;\nStep 9. if \"3 wheat\" not in had_objects: get(\"3 wheat\");\nStep 10. if \"1 egg\" not in had_objects: get(\"1 egg\");\nStep 11. craft 1 cake using 3 milk bucket, 2 sugar, 3 wheat, 1 egg\nI should check if I can get cake directly from the environment or the inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no cake in my inventory. I should try to get it from the environment.\nAction: get cake"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not execute get cake"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get cake directly, I need to craft it. From the crafting commands, I can use: craft 1 cake using 3 milk bucket, 2 sugar, 3 wheat, 1 egg. Ingredients needed: 3 milk bucket, 2 sugar, 3 wheat, 1 egg. Let me check if I have these in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients first. I will start with getting 3 milk buckets.\nAction: get 3 milk bucket"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 3 milk bucket"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the milk buckets. Now, I need to get 2 sugars.\nAction: get 2 sugar"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find sugar"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get sugar directly, I need to craft it. From the crafting commands, I can craft 3 sugar using 1 honey bottle. Let's see if I can get a honey bottle.\nAction: get 1 honey bottle"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 honey bottle"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the honey bottle. Now, I can craft the sugar using the crafting command: craft 3 sugar using 1 honey bottle.\nAction: craft 3 sugar using 1 honey bottle"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 3 minecraft:sugar"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted the sugar. Now, I need to get 3 wheat.\nAction: get 3 wheat"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 3 wheat"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the wheat. Now, I need to get 1 egg to complete the ingredients for the cake.\nAction: get 1 egg"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 egg"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the egg. Now, I have all the necessary ingredients to craft the cake. I can proceed to crafting the cake using the crafting command: craft 1 cake using 3 milk bucket, 2 sugar, 3 wheat, 1 egg.\nAction: craft 1 cake using 3 milk bucket, 2 sugar, 3 wheat, 1 egg"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:cake"
+        }
+    ]
+}

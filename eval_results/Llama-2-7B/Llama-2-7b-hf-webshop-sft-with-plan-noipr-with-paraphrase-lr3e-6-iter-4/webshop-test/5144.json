@@ -1,0 +1,64 @@
+{
+    "meta": {
+        "steps": 5,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i am looking for a medium long sleeve shirts for men, and price lower than 50.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"medium long sleeve shirts for men price < 50.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_size(\"medium\");\nStep 4. select_color(\"brown\");\nStep 5. buy().\nI think I should use the search bar to find medium long sleeve shirts for men within my price range.\nAction: search[medium long sleeve shirts for men price < 50.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for a medium long sleeve shirts for men, and price lower than 50.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B09F96ZPVM [SEP] Graphic Shirt Tunic Women Long Sleeve Graphic Pocket Hoodie plus size coats for women [SEP] $16.99 to $21.99 [SEP] B09JZLNDK1 [SEP] Mens Corduroy Shirt Plain Buttons Cardigan Tops with Pockets Casual Fashion Winter Shirts for Men Thermal Shirt [SEP] $13.99 [SEP] B09RWQXYR7 [SEP] JIUMI Summer Polo Shirts for Men Casual Solid Zipper Turn-Down Collar Herringbone Print Blouse Slim Fit T-Shirts [SEP] $14.69 [SEP] B07S342BBB [SEP] Men Linen Henley Shirts,2019 New Casual Short Sleeve Print Button Up Summer Tee Tops [SEP] $11.6 to $16.99 [SEP] B09QSQ5WN1 [SEP] HGOOGY Men's Fashion Dress Shirt Casual Print Long Sleeve Tops Button Down Shirts Regular fit [SEP] $100.0 [SEP] B09NZT1Q7V [SEP] Men's Fashion Long Sleeve Plain Shirt Casual Button Down T-Shirt Slim Fit Solid Pullover Shirts Blouse Tops [SEP] $9.99 to $29.99 [SEP] B09SV8Y6RQ [SEP] HGOOGY Men's Hemp Shirt Causal Long Sleeve Henley Shirt Button Up Pocket Plain Shirts Cotton Linen Big and Tall Tops S-XXXL [SEP] $100.0 [SEP] B09J4R6DXD [SEP] ZDFER Turn-Down Collar Shirts for Men Casual Stripe Print Tops Long Sleeve Single Breasted Regular Fit Button Down Shirt [SEP] $1.99 to $9.99 [SEP] B09QC9N825 [SEP] GXFC Mens Flannel Shirts Long Sleeve Button Down Plaid Shirt with 2 Pockets Casual Big and Tall Shirts for Men [SEP] $43.99 to $44.99 [SEP] B09NZVBSX7 [SEP] Men's Fashion Stripe Print Shirt Lapel Button Down T-Shirt Casual Slim Fit Long Sleeve Pullover Blouse Tops [SEP] $28.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the option that matches my criteria for a medium long sleeve shirt for men under $50.\nAction: click[B09NZT1Q7V]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for a medium long sleeve shirts for men, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] brown [SEP] dark blue [SEP] sky blue [SEP] size [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] 3x-large [SEP] Men's Fashion Long Sleeve Plain Shirt Casual Button Down T-Shirt Slim Fit Solid Pullover Shirts Blouse Tops [SEP] Price: $9.99 to $29.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the'medium' size option for the long sleeve shirt.\nAction: click[medium]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for a medium long sleeve shirts for men, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] brown [SEP] dark blue [SEP] sky blue [SEP] size [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] 3x-large [SEP] Men's Fashion Long Sleeve Plain Shirt Casual Button Down T-Shirt Slim Fit Solid Pullover Shirts Blouse Tops [SEP] Price: $9.99 to $29.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the'brown' color option for the long sleeve shirt.\nAction: click[brown]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for a medium long sleeve shirts for men, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] brown [SEP] dark blue [SEP] sky blue [SEP] size [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] 3x-large [SEP] Men's Fashion Long Sleeve Plain Shirt Casual Button Down T-Shirt Slim Fit Solid Pullover Shirts Blouse Tops [SEP] Price: $9.99 to $29.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the'Buy Now' button to purchase the medium long sleeve shirt for men within my price range.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B09NZT1Q7V [SEP] options [SEP] {\"color\": \"brown\", \"size\": \"medium\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

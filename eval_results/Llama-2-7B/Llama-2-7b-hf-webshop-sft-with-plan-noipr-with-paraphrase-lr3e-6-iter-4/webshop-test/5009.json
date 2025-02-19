@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i am looking for x-large size socks that contain cotton spandex, and price lower than 40.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"socks with cotton spandex, criteria: x-large size; price lower than 40.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_size(\"x-large\");\nStep 4. buy().\nI think I should use the search bar to find socks that meet my criteria.\nAction: search[cotton spandex socks x-large size price < 40.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for x-large size socks that contain cotton spandex, and price lower than 40.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B001205QJC [SEP] Ames Walker AW Style 129 Men's Micro/Cotton Dress 15 20 Knee High Socks Khaki [SEP] $20.49 [SEP] B001202492 [SEP] Ames Walker AW Style [SEP] $20.49 to $22.99 [SEP] B001205QHY [SEP] Ames Walker AW Style [SEP] $20.49 to $22.99 [SEP] B09NC7BHF7 [SEP] Womens Bathing Suits Push Up Halter Bandage Bikini Floral Printing Swim Bottoms Two Piece Sexy Swimsuits [SEP] $10.99 [SEP] B0051U186E [SEP] Carhartt All-season Cotton Crew Work Socks [SEP] $6.59 to $22.06 [SEP] B07QHTFLM1 [SEP] Khas Essential Comfort Premium Quality Cotton Dress Crew Socks for Men [SEP] $7.99 [SEP] B08FCQX9NS [SEP] Fruit of the Loom Women's 6-Pack SoftSpun Crew Socks, Grey/Multi, Shoe Size: 4-10 [SEP] $14.98 [SEP] B013JJ9CHU [SEP] Fox River Cotton Work Crew Cut Socks Value Pack (3 Pair) [SEP] $13.65 to $31.24 [SEP] B07ZS219J9 [SEP] Men's Cotton 5 Pack Solid Dress Socks, to Fit Shoe Size 6-12 [SEP] $8.98 [SEP] B00ZH6TD0A [SEP] Classic Men's Diabetic Non-Binding Ankle Socks 3-Pack (Big and Tall Available) [SEP] $14.99 to $15.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the product that meets my criteria, which is B001205QJC.\nAction: click[B001205QJC]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for x-large size socks that contain cotton spandex, and price lower than 40.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size [SEP] small [SEP] medium [SEP] large [SEP] x-large [SEP] color [SEP] black [SEP] brown [SEP] khaki [SEP] navy [SEP] Ames Walker AW Style 129 Men's Micro/Cotton Dress 15 20 Knee High Socks Khaki [SEP] Price: $20.49 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'x-large' size option to select the size I need.\nAction: click[x-large]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for x-large size socks that contain cotton spandex, and price lower than 40.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size [SEP] small [SEP] medium [SEP] large [SEP] x-large [SEP] color [SEP] black [SEP] brown [SEP] khaki [SEP] navy [SEP] Ames Walker AW Style 129 Men's Micro/Cotton Dress 15 20 Knee High Socks Khaki [SEP] Price: $20.49 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the socks.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B001205QJC [SEP] options [SEP] {\"size\": \"x-large\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

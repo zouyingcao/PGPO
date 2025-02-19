@@ -1,0 +1,64 @@
+{
+    "meta": {
+        "steps": 5,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i am looking for a men's size 14 sneaker with a synthetic sole, and price lower than 220.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"men's sneaker size 14 synthetic sole price < 220.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_size(\"14\");\nStep 4. select_color(\"01-black\");\nStep 5. buy().\nI think I should use the search bar to find the men's sneaker I need.\nAction: search[men's sneaker size 14 synthetic sole]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for a men's size 14 sneaker with a synthetic sole, and price lower than 220.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B08SPLLMN3 [SEP] ALDO Men's Cowien Sneaker [SEP] $49.09 to $67.34 [SEP] B07MCMZPG3 [SEP] ECCO Men's Kyle Classic Sneaker [SEP] $83.95 to $277.38 [SEP] B08VKWDRZN [SEP] Skechers Men's Work Synergy - Omat Alloy Toe Sneaker, Charcoal [SEP] $89.88 to $193.93 [SEP] B07WS23P8Z [SEP] ECCO Men's Soft 7 Premium Sneaker [SEP] $101.69 to $180.0 [SEP] B07X8WMDVL [SEP] Rockport Men's Total Motion Lite Slipon Sneaker [SEP] $75.99 to $128.53 [SEP] B07HYGRFZF [SEP] Nike Men's Low-Top Sneakers [SEP] $156.23 to $415.0 [SEP] B0714HZ27P [SEP] Creative Recreation Men's Desimo Sneaker [SEP] $44.32 to $117.0 [SEP] B098R34B17 [SEP] Skechers Men's, Overhaul 2.0 Decod Sneaker [SEP] $38.47 to $101.16 [SEP] B08PW7T27T [SEP] NewDenBer Sport Men's Casual Lightweight Slip-On Walking Shoe Sneakers [SEP] $27.99 to $34.99 [SEP] B0864XD775 [SEP] Skechers Men's Court Striker Sneaker [SEP] $44.99 to $110.35"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the ALDO Men's Cowien Sneaker as it fits the criteria.\nAction: click[B08SPLLMN3]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for a men's size 14 sneaker with a synthetic sole, and price lower than 220.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size [SEP] 7 [SEP] 7.5 [SEP] 8 [SEP] 9 [SEP] 9.5 [SEP] 10 [SEP] 10.5 [SEP] 11 [SEP] 12 [SEP] 13 [SEP] 14 [SEP] color [SEP] white [SEP] white | snake [SEP] ALDO Men's Cowien Sneaker [SEP] Price: $49.09 to $67.34 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the size 14 option for the sneaker.\nAction: click[14]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for a men's size 14 sneaker with a synthetic sole, and price lower than 220.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size [SEP] 7 [SEP] 7.5 [SEP] 8 [SEP] 9 [SEP] 9.5 [SEP] 10 [SEP] 10.5 [SEP] 11 [SEP] 12 [SEP] 13 [SEP] 14 [SEP] color [SEP] white [SEP] white | snake [SEP] ALDO Men's Cowien Sneaker [SEP] Price: $49.09 to $67.34 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the black color option for the sneaker.\nAction: click[black]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for a men's size 14 sneaker with a synthetic sole, and price lower than 220.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size [SEP] 7 [SEP] 7.5 [SEP] 8 [SEP] 9 [SEP] 9.5 [SEP] 10 [SEP] 10.5 [SEP] 11 [SEP] 12 [SEP] 13 [SEP] 14 [SEP] color [SEP] white [SEP] white | snake [SEP] ALDO Men's Cowien Sneaker [SEP] Price: $49.09 to $67.34 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the sneaker.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B08SPLLMN3 [SEP] options [SEP] {\"size\": \"14\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

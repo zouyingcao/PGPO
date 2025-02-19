@@ -1,0 +1,88 @@
+{
+    "meta": {
+        "steps": 8,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 6 birch slab using 3 birch planks\ncraft 1 birch fence gate using 4 stick, 2 birch planks\ncraft 1 birch button using 1 birch planks\ncraft 3 birch fence using 2 stick, 4 birch planks\ncraft 1 birch boat using 5 birch planks\ncraft 4 birch planks using 1 birch logs\ncraft 3 birch sign using 6 birch planks, 1 stick\ncraft 1 birch pressure plate using 2 birch planks\ncraft 3 birch door using 6 birch planks\ncraft 4 birch stairs using 6 birch planks\n\nGoal: craft birch door."
+        },
+        {
+            "from": "gpt",
+            "value": "First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"6 birch planks\" not in had_objects: find_flag = get(\"2 birch logs\");\nStep 3. if find_flag == True: for i in range(2): craft 4 birch planks using 1 birch logs;\nStep 4. craft 3 birch door using 6 birch planks\nI should check if I have the necessary ingredients to craft a birch door in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to get the ingredients to craft a birch door.\nAction: get 2 birch logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 birch logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the necessary ingredients, 2 birch logs, to craft a birch door. I should use the crafting command: craft 3 birch door using 6 birch planks.\nAction: craft 3 birch door using 6 birch planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:birch_door"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to craft a birch door using 6 birch planks, but I don't have enough birch planks in my inventory. I should get more birch logs to craft birch planks first.\nAction: get 1 birch logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 birch logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have another birch log which I can use to craft more birch planks. I should use the crafting command: craft 4 birch planks using 1 birch logs.\nAction: craft 4 birch planks using 1 birch logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:birch_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted 4 birch planks. Now I should have enough birch planks to craft a birch door. I should use the crafting command: craft 3 birch door using 6 birch planks.\nAction: craft 3 birch door using 6 birch planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:birch_door"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I still need more birch planks to craft a birch door. I should craft more birch planks using the birch logs I have.\nAction: craft 4 birch planks using 1 birch logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:birch_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted more birch planks. Now I should have enough birch planks to craft a birch door. I should use the crafting command: craft 3 birch door using 6 birch planks.\nAction: craft 3 birch door using 6 birch planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 3 minecraft:birch_door"
+        }
+    ]
+}

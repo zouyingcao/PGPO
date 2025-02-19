@@ -1,0 +1,88 @@
+{
+    "meta": {
+        "steps": 8,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "/home/caozouying.czy/IPR/eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_and_place_simple-Candle-None-Cart-401/trial_T20190909_081908_677973/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a bathtubbasin 1, a cart 1, a garbagecan 1, a handtowelholder 2, a handtowelholder 1, a shelf 4, a shelf 3, a shelf 2, a shelf 1, a sinkbasin 1, a toilet 1, a toiletpaperhanger 1, a towelholder 2, and a towelholder 1.\nYour task is to: put a candle in cart."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. candle_name, location_name = locate_a_candle(candidate_locations);\nStep 2. take_a_candle(candle_name, location_name);\nStep 3. go_to_the_cart();\nStep 4. put_candle_in_cart().\nThe task is to put a candle in the cart. I need to locate a candle first. Shelf 1 is the closest storage unit where I might find a candle.\nAction: go to shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 1, you see a cloth 1, and a toiletpaper 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I did not find a candle on shelf 1, but there are other shelves to check. I should move on to the next shelf to continue searching for a candle.\nAction: go to shelf 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 2, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 2 is empty. There is no candle here. I need to keep looking and proceed to the next shelf.\nAction: go to shelf 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 3, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 3 is also empty. The candle is not here. I must check the last shelf before considering other locations.\nAction: go to shelf 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 4, you see a soapbottle 1, and a toiletpaper 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: No candle on shelf 4 either. I should now look elsewhere in the room, perhaps near the toilet or on the cart, as these are common places where a candle might be placed for convenience.\nAction: go to toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the toilet 1, you see a candle 1, and a spraybottle 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I found a candle on the toilet. This is what I was looking for. I need to pick it up so that I can place it in the cart as instructed.\nAction: take candle 1 from toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the candle 1 from the toilet 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the candle, I need to locate the cart to place the candle in it as per the task description.\nAction: go to cart 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the cart 1, you see a dishsponge 1, a spraybottle 3, and a spraybottle 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am at the cart and need to put the candle in it to complete the task. I should place the candle carefully so that it is secure and does not fall over or cause any safety issues.\nAction: put candle 1 in/on cart 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the candle 1 in/on the cart 1."
+        }
+    ]
+}

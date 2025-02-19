@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] buy me a black flip case for my phone with a glass screen, and price lower than 50.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"black flip case for phone with glass screen, price lower than 50.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_color(\"black\");\nStep 4. buy().\nI need to find a black flip case for my phone that has a glass screen and is under $50. I'll start by searching for these specific criteria.\nAction: search[black flip case for phone with glass screen]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] buy me a black flip case for my phone with a glass screen, and price lower than 50.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B096V4G4ZJ [SEP] Asuwish Compatible with Samsung Galaxy A72 5G/4G Wallet Case Tempered Glass Screen Protector and Leather Flip Cover Card Holder Stand Cell Phone Cases for Glaxay A 72 G5 Gaxaly 72A S72 Women Men Black [SEP] $12.99 [SEP] B0986TVWVD [SEP] Asuwish Compatible with Samsung Galaxy A42 5G Wallet Case Tempered Glass Screen Protector Card Holder Cover Stand Flip Leather Phone Cases for Glaxay A 42 G5 Gaxaly 42A S42 4G 2021 Women Men Red [SEP] $13.99 [SEP] B095LJRYRY [SEP] Asuwish Compatible with LG Aristo 1/Phoenix 3/K4 2017/K8 2017/Risio 2/Rebel 2 LTE Wallet Case and Tempered Glass Screen Protector Flip Cover Card Holder Cell Phone Cases for Fortune LV3 MS210 Black [SEP] $13.99 [SEP] B08JGVNNDC [SEP] Asuwish Compatible with Samsung Galaxy Note 9 Wallet Case and Tempered Glass Screen Protector Leather Flip Cover Card Holder Stand Cell Phone Cases for Galaxies Note9 Gaxaly Glaxay Not S9 Women Red [SEP] $12.99 [SEP] B09J4ZDX3Z [SEP] Asuwish Compatible with ZTE Quest 5 Z3351S Wallet Case with Tempered Glass Screen Protector and Flip Card Holder Cell Phone Cover for ZTE Blade Vantage 2 Z3153V/A3L/A3 Lite/A3 2019/L8 Women Men Black [SEP] $12.99 [SEP] B098SVSFFY [SEP] Asuwish Compatible with Razer Phone 2 Wallet Case and Tempered Glass Screen Protector Leather Flip Cover Card Holder Lanyard Rugged Stand Cell Accessories Phone Cases for RazerPhone2 Women Men Blue [SEP] $12.99 [SEP] B09NVWWBPF [SEP] BAILI Samsung Z Fold 3 Case, Galaxy Z Fold 3 Case with S Pen Holder Protector Leather Cover, 9H Tempered Glass Phone Case for Samsung Galaxy Z Fold 3 5G, Carbon Fiber Color [SEP] $100.0 [SEP] B09JVYMWX4 [SEP] Alcatel TCL A3X (A600DL) Case, Alcatel TCL A3X Wallet Case, with Screen Protector,PU Leather Wrist Strap Card Slots Soft TPU Shockproof Protective Flip Cover Phone Case for Alcatel TCL A3X,Black [SEP] $9.69 [SEP] B099VYTWKC [SEP] Asuwish Compatible with Samsung Galaxy S10 Plus Wallet Case and Tempered Glass Screen Protector Glitter Flip Cover Zipper Phone Cases for Glaxay S10+ Galaxies S10plus 10S Edge S 10 10plus Cases Black [SEP] $16.99 [SEP] B09JJRCBBC [SEP] Asuwish Compatible with iPhone 13 6.1 inch Wallet Case and Tempered Glass Screen Protector Flip Cover Credit Card Holder Cell Phone Cases for iPhone13 5G i i-Phone i13 iPhone13case Women Men Black [SEP] $14.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The search results are in, and there are several options. The first one listed, B096V4G4ZJ, seems to match my criteria for a black flip case with a glass screen and is priced under $50. I'll click on it for more details.\nAction: click[b096v4g4zj]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] buy me a black flip case for my phone with a glass screen, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] blue [SEP] brown [SEP] Asuwish Compatible with Samsung Galaxy A72 5G/4G Wallet Case Tempered Glass Screen Protector and Leather Flip Cover Card Holder Stand Cell Phone Cases for Glaxay A 72 G5 Gaxaly 72A S72 Women Men Black [SEP] Price: $12.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The product details confirm that this case is black and within my budget. It doesn't mention the glass screen protector, but since the price is right, and it seems to fit my needs, I'll go ahead and select the black color option.\nAction: click[black]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] buy me a black flip case for my phone with a glass screen, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] blue [SEP] brown [SEP] Asuwish Compatible with Samsung Galaxy A72 5G/4G Wallet Case Tempered Glass Screen Protector and Leather Flip Cover Card Holder Stand Cell Phone Cases for Glaxay A 72 G5 Gaxaly 72A S72 Women Men Black [SEP] Price: $12.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've confirmed the color and the price, and I'm satisfied with the product. It's time to make the purchase.\nAction: click[buy now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B096V4G4ZJ [SEP] options [SEP] {\"color\": \"black\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

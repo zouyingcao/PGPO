@@ -1,0 +1,104 @@
+{
+    "meta": {
+        "steps": 10,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 iron sword using 1 stick, 2 iron ingot\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 3 dark oak sign using 6 dark oak planks, 1 stick\ncraft 1 white wool using 4 string\ncraft 1 bow using 3 stick, 3 string\ncraft 1 jungle fence gate using 4 stick, 2 jungle planks\ncraft 4 oak planks using 1 oak logs\ncraft 4 jungle planks using 1 jungle logs\ncraft 1 black banner using 6 black wool, 1 stick\ncraft 1 red bed using 3 red wool, 3 planks\ncraft 1 iron shovel using 2 stick, 1 iron ingot\ncraft 1 acacia fence gate using 4 stick, 2 acacia planks\ncraft 4 warped planks using 1 warped stems\ncraft 4 birch planks using 1 birch logs\ncraft 4 stick using 2 planks\ncraft 4 spruce planks using 1 spruce logs\ncraft 4 crimson planks using 1 crimson stems\ncraft 1 chest using 8 planks\ncraft 4 acacia planks using 1 acacia logs\ncraft 1 stick using 2 bamboo\ncraft 1 jukebox using 8 planks, 1 diamond\n\nGoal: craft bow."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"3 stick\" not in had_objects: find_flag_stick = get(\"3 stick\");\nStep 3. if find_flag_stick == False: \"craft 4 stick using 2 planks\" = choose_crafting_commands(\"3 stick\"), needed_ingredients = \"2 planks\", find_plank_flag = get(\"2 planks\");\nStep 4. if find_plank_flag == False: \"craft 4 oak planks using 1 oak logs\" = choose_crafting_commands(\"2 planks\"), needed_ingredients = \"1 oak logs\", get(\"1 oak logs\");\nStep 5. craft 4 oak planks using 1 oak logs;\nStep 6. craft 4 stick using 2 oak planks;\nStep 7. get(\"3 string\");\nStep 8. craft 1 bow using 3 stick, 3 string\nTo craft a bow, I need 3 sticks and 3 strings according to the crafting commands. I should check my inventory to see if I already have these items.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get 3 sticks and 3 strings to craft a bow.\nAction: get 3 stick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I could not find any sticks in the environment. I need to craft them using the crafting command: craft 4 stick using 2 planks. Let's check in the inventory again to see if there are any planks.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get 2 planks to craft sticks. \nAction: get 2 planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find any planks in the environment. I'll need to craft them too. To craft planks, I can use any type of log. I'll check my inventory one more time to see if there are any type of logs.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory doesn't contain any type of logs. So, I'll need to get one. \nAction: get 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 oak logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have oak logs, I can craft oak planks. Then, I can use those planks to craft sticks which are required to craft a bow. \nAction: craft 4 oak planks using 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:oak_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have oak planks, I can use them to craft sticks. Then, I will have all the necessary ingredients to craft a bow.\nAction: craft 4 stick using 2 oak planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have sticks, I need to get strings to craft a bow. \nAction: get 3 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 3 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have strings and sticks, I have all the necessary ingredients to craft a bow.\nAction: craft 1 bow using 3 stick, 3 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:bow"
+        }
+    ]
+}

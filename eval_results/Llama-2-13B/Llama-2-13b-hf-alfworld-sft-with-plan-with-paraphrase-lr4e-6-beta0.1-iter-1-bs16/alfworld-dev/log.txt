@@ -1,0 +1,4 @@
+All tasks done.
+Output saved to outputs/Llama-2-13b-hf-alfworld-sft-with-plan-with-paraphrase-lr4e-6-beta0.1-iter-1-bs16/alfworld-dev
+Average reward: 0.7714
+Success rate: 0.7714

@@ -1,0 +1,88 @@
+{
+    "meta": {
+        "steps": 8,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 4 acacia planks using 1 acacia logs\ncraft 4 jungle planks using 1 jungle logs\ncraft 4 birch planks using 1 birch logs\ncraft 4 bowl using 3 planks\ncraft 1 orange bed using 3 orange wool, 3 planks\ncraft 4 crimson planks using 1 crimson stems\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 1 brown bed using 3 brown wool, 3 planks\ncraft 1 black bed using 3 black wool, 3 planks\ncraft 1 chest using 8 planks\ncraft 4 warped planks using 1 warped stems\ncraft 1 note block using 8 planks, 1 redstone\ncraft 4 oak planks using 1 oak logs\ncraft 4 spruce planks using 1 spruce logs\ncraft 1 cyan bed using 3 cyan wool, 3 planks\ncraft 4 stick using 2 planks\ncraft 1 cartography table using 4 planks, 2 paper\ncraft 1 blue bed using 3 blue wool, 3 planks\n\nGoal: craft bowl."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"bowl\" not in had_objects: find_flag = get(\"bowl\");\nStep 3. if find_flag == False: \"craft 4 bowl using 3 planks\" = choose_crafting_commands(\"bowl\"), needed_ingredients = \"3 planks\", find_flag = get(\"3 planks\");\nStep 4. if find_flag == False: \"craft 4 oak planks using 1 oak logs\" = choose_crafting_commands(\"3 planks\"), needed_ingredients = \"1 oak logs\", get(\"1 oak logs\");\nStep 5. craft 4 oak planks using 1 oak logs;\nStep 6. craft 4 bowl using 3 oak planks\nI should check if I can get a bowl directly from the environment or the inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no bowl in my inventory. I should try to get it from the environment.\nAction: get bowl"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not execute get bowl"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get a bowl directly, I need to craft it. From the crafting commands, I can use: craft 4 bowl using 3 planks. Ingredients needed: 3 planks. I should check if I have the necessary ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are no planks in my inventory. I need to get them from the environment.\nAction: get 3 planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get planks directly, I need to craft them. From the crafting commands, I can craft planks from various types of logs. I should check if I have the necessary logs in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are no logs in my inventory. I need to get them from the environment.\nAction: get 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 oak logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got 1 oak log from the environment. I can use this to craft oak planks which can then be used to craft a bowl.\nAction: craft 4 oak planks using 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:oak_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted oak planks. Now I can use these to craft a bowl.\nAction: craft 4 bowl using 3 oak planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:bowl"
+        }
+    ]
+}

@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i need a three pack of heavy duty swivel clips for my phone, and price lower than 40.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"three pack of heavy duty swivel clips for my phone, and price lower than 40.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_pack(\"pack of 3\");\nStep 4. buy().\nI need to find a three-pack of heavy-duty swivel clips that are suitable for my phone and cost less than $40. I'll start by searching for \"three pack of heavy duty swivel clips\" to see what options are available.\nAction: search[three pack of heavy duty swivel clips]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a three pack of heavy duty swivel clips for my phone, and price lower than 40.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B00VVHZZHO [SEP] Cellet CLIPHDBK Universal Heavy Duty 360 Degree Swivel Belt Clip Holder for Smartphones - Black [SEP] $7.99 [SEP] B07QV1HYVZ [SEP] UTEBIT Heavy Duty Tripod Camera Mount Clip Clamp with 360 Degree Swivel Mini Ballhead 2 Pack Photography Accessories Clamp 1/4'' Screw Black Spring Clamp for DSLR Video Photoshoot Studio [SEP] $15.99 [SEP] B08NX2DJ65 [SEP] EXPERY 2 Pack 8Inch Heavy Duty Bar Stool Swivel Replacement for Recliner Chair, 360 Degree Swivel Replacement Seat Swivel Base, Square Rotating Swivel Plate, Ball Bearing Swivel [SEP] $26.59 [SEP] B07H5G589P [SEP] E-Type Flash Hot Shoe Heavy Duty Clip Clamp Flash Reflector Holder Mount with 360\u00b0 Swivel Ball Head Standard 1/4\" Screw for Light Stand Bracket DSLR Camera Flash Speedlite Tripod-2Pack [SEP] $17.99 [SEP] B07ZTBSKYV [SEP] KinGrow Swivel 2.5 inch Grip Head for Light Stand, Multi Functional Heavy Duty Head Clamp Holder Bracket Adapter with 4, 8, 11, 16mm Mount for Extension Boom Pole, Photographic Equipment [SEP] $25.99 [SEP] B08R6Y7T4D [SEP] VECELO Premium Velvet Suit Heavy Duty-Non Slip & Space-Saving Clothes Hangers with 8 Finger Clips and Tie Rack for Men and Women (60 Pack), Black [SEP] $26.99 [SEP] B09238CZLV [SEP] [3 Items] Covrware Tri Series Case + [2-Pack] Tempered Glass Screen Protector for Moto G Power 2021, Holster Belt Swivel Clip Kickstand Heavy Duty Full Body Armor Shockproof Protective Cover, Black [SEP] $11.99 [SEP] B077RZWXVJ [SEP] Pyle Universal Monitor Speaker Stands - Heavy Duty Studio Speakers Holder 9\u201d Metal Square Platform 26\u201d - 52\u201d Telescopic Height Adjustment & Three-Point Triangle Base Plate w/ Floor Spikes - AZPSTND35 [SEP] $68.31 [SEP] B094FSG29M [SEP] TENCO Compatible with Moto G Power (2021) Case,with Screen Protectors,Heavy Duty Rugged Shockproof Full Body Protection Kickstand Case with Belt Clip Holster for Moto G Power 6.6\u2019\u2019 (2021) (Blue) [SEP] $12.65 [SEP] B09J8VRVD1 [SEP] 2Pack 8Inch Heavy Duty Bar Stool Swivel Plate, Chair Swivel Base with Solid Ring of Ball Bearings, 500lbs Capacity Replacement Swivel Seat Parts Lazy Susan Hardware for Barstools Recliner Chair Boat [SEP] $27.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The search results are displayed, and I see several options. The first one, B00VVHZZHO, is a universal heavy-duty swivel clip that's priced well below $40 at $7.99. This could be a good option to consider.\nAction: click[b00vvhzzho]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a three pack of heavy duty swivel clips for my phone, and price lower than 40.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] style [SEP] 360 swivel [SEP] black [SEP] blue [SEP] clip replacement [SEP] spring clip 3 pack [SEP] swivel clip 3 pack [SEP] Cellet CLIPHDBK Universal Heavy Duty 360 Degree Swivel Belt Clip Holder for Smartphones - Black [SEP] Price: $7.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The product details confirm that this is a three-pack of swivel clips, which is what I need. The price is still within my budget, and there's no rating available, but the description might have the information I need. Since it meets all my requirements, I'll go ahead and purchase this pack.\nAction: click[swivel clip 3 pack]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a three pack of heavy duty swivel clips for my phone, and price lower than 40.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] style [SEP] 360 swivel [SEP] black [SEP] blue [SEP] clip replacement [SEP] spring clip 3 pack [SEP] swivel clip 3 pack [SEP] Cellet CLIPHDBK Universal Heavy Duty 360 Degree Swivel Belt Clip Holder for Smartphones - Black [SEP] Price: $7.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've confirmed the style as a 360-degree swivel, the color is black, and I'm purchasing a three-pack. The price is still good, and I'm ready to make the transaction.\nAction: click[buy now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B00VVHZZHO [SEP] options [SEP] {\"style\": \"swivel clip 3 pack\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

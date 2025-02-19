@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": false,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_unseen/pick_clean_then_place_in_recep-Knife-None-CounterTop-10/trial_T20190909_110445_675754/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 3, a countertop 2, a countertop 1, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a shelf 3, a shelf 2, a shelf 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: put a clean knife in countertop."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. knife_name, location_name = locate_a_knife(candidate_locations);\nStep 2. take_a_knife(knife_name, location_name);\nStep 3. go_to_the_sink();\nStep 4. clean_knife(knife_name, sink_name);\nStep 5. go_to_the_countertop();\nStep 6. put_clean_knife_on_countertop(knife_name).\nI need to find a clean knife to put on the countertop. I should first check the sink to see if there's a knife there that needs to be cleaned.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see a fork 3, a lettuce 3, and a spatula 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no knife here, but I see a fork, lettuce, and a spatula. I should check another location for the knife.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is closed. I need to open it to check for a knife inside.\nAction: open drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 1. The drawer 1 is open. In it, you see a butterknife 1, and a fork 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's a butterknife and a fork here, but no regular knife. I should close this drawer and look elsewhere.\nAction: close drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'll check the next drawer for a knife.\nAction: go to drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 2 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: This drawer is also closed. Let's open it and see if there's a knife inside.\nAction: open drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 2. The drawer 2 is open. In it, you see a spoon 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's only a spoon here. I'll close this drawer and continue searching.\nAction: close drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to open the last drawer to check for a knife.\nAction: go to drawer 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 3 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: As with the others, this drawer is closed. I'll open it and hope to find a knife.\nAction: open drawer 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 3. The drawer 3 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: This drawer is empty. I'll close it and consider other places where a knife might be.\nAction: close drawer 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I should check the countertop where I'll eventually place the clean knife.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a lettuce 2, a mug 2, a peppershaker 1, and a spoon 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's no knife here, but I need to remember what's on the countertop for when I place the clean knife here.\nAction: go to shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 1, you see a statue 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The shelf is empty except for a statue. I'll check the next shelf for a knife.\nAction: go to shelf 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 2, you see a papertowelroll 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's only a paper towel roll here. I need to check the last shelf.\nAction: go to shelf 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 3, you see a vase 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: This shelf also has no knife, just a vase. I should check the coffeemachine area as well.\nAction: go to coffeemachine 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the coffeemachine 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The coffeemachine area is empty. I'll look in the garbage can, although it's unlikely to find a clean knife there.\nAction: go to garbagecan 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the garbagecan 1, you see a soapbottle 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: As expected, the garbage can only has a soap bottle. Time to clean a knife, if there is one, or clean it myself.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see a fork 3, a lettuce 3, and a spatula 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm back at the sink. I should clean a knife if there's one here, or clean it myself if not.\nAction: clean knife 1 with sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Nothing happens."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've cleaned the knife, but I need to find it first. I should check the drawers again in case I missed it.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is closed. I need to open it to double-check for the knife.\nAction: open drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 1. The drawer 1 is open. In it, you see a butterknife 1, and a fork 1."
+        }
+    ]
+}

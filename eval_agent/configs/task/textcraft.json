@@ -1,0 +1,13 @@
+{
+    "task": {
+        "task_class": "TextCraftTask",
+        "filepath": "eval_agent/data"
+    },
+    "env_config": {
+        "env_class": "TextCraftEnv",
+        "instruction_path": "eval_agent/prompt/instructions/textcraft_inst.txt",
+        "icl_path": "eval_agent/prompt/icl_examples/textcraft_icl.json",
+        "icl_format": "conversation",
+        "max_steps": 20
+    }
+}

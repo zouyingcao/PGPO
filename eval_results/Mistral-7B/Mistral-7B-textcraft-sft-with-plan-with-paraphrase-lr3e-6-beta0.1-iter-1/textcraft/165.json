@@ -1,0 +1,112 @@
+{
+    "meta": {
+        "steps": 11,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 3 bone meal using 1 bone\ncraft 1 bone block using 9 bone meal\ncraft 1 white dye using 1 bone meal\n\nGoal: craft bone block."
+        },
+        {
+            "from": "gpt",
+            "value": "First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"9 bone meal\" not in had_objects: find_flag = get(\"9 bone meal\");\nStep 3. if find_flag == False: \"craft 3 bone meal using 1 bone\" = choose_crafting_commands(\"9 bone meal\"), needed_ingredients = \"3 bone\", get(\"3 bone\");\nStep 4. for i in range(3): craft 3 bone meal using 1 bone;\nStep 5. craft 1 bone block using 9 bone meal\nI should check if I have the necessary ingredients to craft a bone block in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to get the ingredients to craft a bone block.\nAction: get 9 bone meal"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find bone meal"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find bone meal in the environment. I need to craft it using bone.\nAction: get 3 bone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 3 bone"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the necessary ingredients, 3 bone, to craft bone meal. I should use the crafting command: craft 3 bone meal using 1 bone.\nAction: craft 3 bone meal using 1 bone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 3 minecraft:bone_meal"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted bone meal. Now I can use it to craft a bone block.\nAction: craft 1 bone block using 9 bone meal"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:bone_block"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to craft a bone block using 9 bone meal, but I don't have enough bone meal. I should get more bone meal.\nAction: get 6 bone meal"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find bone meal"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to get more bone to craft more bone meal in order to craft the bone block.\nAction: get 3 bone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 3 bone"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the necessary ingredients, 3 bone, to craft more bone meal. I should use the crafting command: craft 3 bone meal using 1 bone.\nAction: craft 3 bone meal using 1 bone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 3 minecraft:bone_meal"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted more bone meal. Now I can use it to craft the bone block.\nAction: craft 1 bone block using 9 bone meal"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:bone_block"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I still don't have enough bone meal to craft the bone block. I need to craft more bone meal using the bone I got.\nAction: craft 3 bone meal using 1 bone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 3 minecraft:bone_meal"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted more bone meal. Now I can use it to craft the bone block.\nAction: craft 1 bone block using 9 bone meal"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:bone_block"
+        }
+    ]
+}

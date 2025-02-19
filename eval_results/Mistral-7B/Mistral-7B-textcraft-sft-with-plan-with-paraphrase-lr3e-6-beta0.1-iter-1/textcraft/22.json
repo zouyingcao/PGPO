@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 8 blue stained glass pane using 8 glass pane, 1 blue dye\ncraft 3 blue carpet using 2 blue wool\ncraft 1 light blue wool using 1 light blue dye, 1 white wool\ncraft 2 cyan dye using 1 blue dye, 1 green dye\ncraft 8 green carpet using 8 white carpet, 1 green dye\ncraft 8 lime carpet using 8 white carpet, 1 lime dye\ncraft 8 blue concrete powder using 1 blue dye, 4 sand, 4 gravel\ncraft 3 white carpet using 2 white wool\ncraft 8 blue carpet using 8 white carpet, 1 blue dye\ncraft 1 blue dye using 1 lapis lazuli\ncraft 1 blue dye using 1 cornflower\ncraft 8 light gray carpet using 8 white carpet, 1 light gray dye\ncraft 8 cyan carpet using 8 white carpet, 1 cyan dye\ncraft 1 crossbow using 2 string, 3 stick, 1 iron ingot, 1 tripwire hook\ncraft 1 blue wool using 1 blue dye, 1 white wool\ncraft 1 white wool using 4 string\ncraft 1 magenta wool using 1 magenta dye, 1 white wool\n\nGoal: craft blue carpet."
+        },
+        {
+            "from": "gpt",
+            "value": "First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"2 blue wool\" not in had_objects: find_flag = get(\"2 blue wool\");\nStep 3. if find_flag == False: \"craft 1 blue wool using 1 blue dye, 1 white wool\" = choose_crafting_commands(\"2 blue wool\"), needed_ingredients = [\"2 blue dye\", \"2 white wool\"], find_flag = get(\"2 blue dye\");\nStep 4. if find_flag == False: \"craft 1 blue dye using 1 lapis lazuli\" = choose_crafting_commands(\"2 blue dye\"), needed_ingredients = \"2 lapis lazuli\", get(\"2 lapis lazuli\");\nStep 5. for i in range(2): craft 1 blue dye using 1 lapis lazuli;\nStep 6. find_flag = get(\"2 white wool\");\nStep 7. if find_flag == False: \"craft 1 white wool using 4 string\" = choose_crafting_commands(\"2 white wool\"), needed_ingredients = \"8 string\", get(\"8 string\");\nStep 8. for i in range(2): craft 1 white wool using 4 string;\nStep 9. for i in range(2): craft 1 blue wool using 1 blue dye, 1 white wool;\nStep 10. craft 3 blue carpet using 2 blue wool\nTo craft blue carpet, I need 2 blue wool. To get 2 blue wool, I need to craft 1 blue wool using 1 blue dye and 1 white wool. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have any ingredients in my inventory. I need to get 1 blue dye and 1 white wool to craft 1 blue wool. After crafting 1 blue wool, I need to get another 1 blue dye and 1 white wool to craft another blue wool.\nAction: get 1 blue dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find blue dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find the blue dye in the environment. I see from the crafting commands that I can craft blue dye using lapis lazuli or cornflower. I'll check if I have either of these in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have either lapis lazuli or cornflower in my inventory. I'll try to get lapis lazuli from the environment first.\nAction: get 1 lapis lazuli"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 lapis lazuli"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the lapis lazuli from the environment. I can now craft the blue dye using this lapis lazuli.\nAction: craft 1 blue dye using 1 lapis lazuli"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:blue_dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted the blue dye. Now, I need to get 1 white wool to craft 1 blue wool.\nAction: get 1 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find white wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find the white wool in the environment. I see from the crafting commands that I can craft white wool using 4 strings. I'll check if I have these strings in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [blue dye] (1)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I only have blue dye in my inventory. I need to get 4 strings to craft white wool.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the 4 strings from the environment. I can now craft the white wool using these 4 strings.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted the white wool. Now, I can craft the blue wool using 1 blue dye and 1 white wool.\nAction: craft 1 blue wool using 1 blue dye, 1 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:blue_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted the blue wool. I need to craft another blue wool to have enough for crafting blue carpet.\nAction: get 1 blue dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find blue dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find the blue dye in the environment. I see from the crafting commands that I can craft blue dye using lapis lazuli or cornflower. I'll check if I have either of these in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [blue wool] (1)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I only have blue wool in my inventory. I need to get 1 lapis lazuli or 1 cornflower to craft another blue dye.\nAction: get 1 lapis lazuli"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 lapis lazuli"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the lapis lazuli from the environment. I can now craft another blue dye using this lapis lazuli.\nAction: craft 1 blue dye using 1 lapis lazuli"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:blue_dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted another blue dye. Now, I need to get 1 white wool to craft another blue wool.\nAction: get 1 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find white wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find the white wool in the environment. I see from the crafting commands that I can craft white wool using 4 strings. I'll check if I have these strings in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [blue wool] (1) [blue dye] (1)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I only have blue wool and blue dye in my inventory. I need to get 4 strings to craft white wool.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the 4 strings from the environment. I can now craft the white wool using these 4 strings.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted the white wool. Now, I can craft another blue wool using 1 blue dye and 1 white wool.\nAction: craft 1 blue wool using 1 blue dye, 1 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:blue_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted another blue wool. Now, I should have enough blue wool to craft blue carpet.\nAction: craft 3 blue carpet using 2 blue wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 3 minecraft:blue_carpet"
+        }
+    ]
+}

@@ -1,0 +1,72 @@
+{
+    "meta": {
+        "steps": 6,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i would like a heather blue men's size 4t t shirt with a needle sleeve, and price lower than 40.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"heather blue men's size 4t t shirt needle sleeve price < 40.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_fit_type(\"men\");\nStep 4. select_color(\"heather blue\");\nStep 5. select_size(\"4t\");\nStep 6. buy().\nI think I should use the search bar to find the specific t-shirt I need.\nAction: search[heather blue men's size 4t t shirt needle sleeve price < 40.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i would like a heather blue men's size 4t t shirt with a needle sleeve, and price lower than 40.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B07DC3PVNV [SEP] Funcle T-Shirt Like A Dad Only Cooler Uncle Men Definition [SEP] $15.99 [SEP] B095Y258L3 [SEP] Sonic the Hedgehog 30 Jahre \"Unstoppable\" T-Shirt T-Shirt [SEP] $24.99 [SEP] B08S7Y3LZT [SEP] Rebelution shirt, Bright side of life shirt T-Shirt [SEP] $19.99 [SEP] B07PDTFLQ8 [SEP] Curious George Vintage 4th Birthday Balloons Graphic T-Shirt [SEP] $21.99 [SEP] B0842SF3DX [SEP] 100 days of school shirt unicorn girls costume gift tee T-Shirt [SEP] $15.97 [SEP] B092NH4PT6 [SEP] Ramen Cat Anime Kawaii Neko Japanese T-Shirt [SEP] $16.99 [SEP] B07XDHRS56 [SEP] Dolly Parton Drag Queen T-Shirt [SEP] $19.99 [SEP] B09PD1HSCF [SEP] Funny Valentine's Day Tuxedo Leopard Plaid Outfit Men Boy T-Shirt [SEP] $13.07 [SEP] B0912V3Y6K [SEP] Sorry My Bearded Dragon Ate My Homework T-Shirt T-Shirt [SEP] $15.99 [SEP] B07PRKC2RQ [SEP] Drummer Drums Drumset T-Shirt [SEP] $15.95"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the t-shirt that meets my criteria, which is B07DC3PVNV.\nAction: click[B07DC3PVNV]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i would like a heather blue men's size 4t t shirt with a needle sleeve, and price lower than 40.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] fit type [SEP] men [SEP] women [SEP] youth [SEP] color [SEP] black [SEP] navy [SEP] royal blue [SEP] dark heather [SEP] heather blue [SEP] size [SEP] small [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] 3x-large [SEP] 2t [SEP] 3t [SEP] 4t [SEP] x-small [SEP] Funcle T-Shirt Like A Dad Only Cooler Uncle Men Definition [SEP] Price: $15.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the'men' option under fit type to filter the search results for men's t-shirts.\nAction: click[men]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i would like a heather blue men's size 4t t shirt with a needle sleeve, and price lower than 40.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] fit type [SEP] men [SEP] women [SEP] youth [SEP] color [SEP] black [SEP] navy [SEP] royal blue [SEP] dark heather [SEP] heather blue [SEP] size [SEP] small [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] 3x-large [SEP] 2t [SEP] 3t [SEP] 4t [SEP] x-small [SEP] Funcle T-Shirt Like A Dad Only Cooler Uncle Men Definition [SEP] Price: $15.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the'heather blue' option under color to filter the search results for heather blue men's t-shirts.\nAction: click[heather blue]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i would like a heather blue men's size 4t t shirt with a needle sleeve, and price lower than 40.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] fit type [SEP] men [SEP] women [SEP] youth [SEP] color [SEP] black [SEP] navy [SEP] royal blue [SEP] dark heather [SEP] heather blue [SEP] size [SEP] small [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] 3x-large [SEP] 2t [SEP] 3t [SEP] 4t [SEP] x-small [SEP] Funcle T-Shirt Like A Dad Only Cooler Uncle Men Definition [SEP] Price: $15.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the'4t' option under size to filter the search results for men's t-shirts in size 4T.\nAction: click[4t]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i would like a heather blue men's size 4t t shirt with a needle sleeve, and price lower than 40.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] fit type [SEP] men [SEP] women [SEP] youth [SEP] color [SEP] black [SEP] navy [SEP] royal blue [SEP] dark heather [SEP] heather blue [SEP] size [SEP] small [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] 3x-large [SEP] 2t [SEP] 3t [SEP] 4t [SEP] x-small [SEP] Funcle T-Shirt Like A Dad Only Cooler Uncle Men Definition [SEP] Price: $15.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the'Buy Now' button to purchase the t-shirt that meets my criteria.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B07DC3PVNV [SEP] options [SEP] {\"color\": \"heather blue\", \"fit type\": \"men\", \"size\": \"4t\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

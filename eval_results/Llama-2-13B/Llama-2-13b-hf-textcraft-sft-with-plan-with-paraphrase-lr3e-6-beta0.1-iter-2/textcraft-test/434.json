@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 iron chestplate using 8 iron ingot\ncraft 6 activator rail using 1 redstone torch, 2 stick, 6 iron ingot\ncraft 1 iron axe using 2 stick, 3 iron ingot\ncraft 1 iron pickaxe using 2 stick, 3 iron ingot\ncraft 1 iron boots using 4 iron ingot\ncraft 1 crossbow using 2 string, 3 stick, 1 iron ingot, 1 tripwire hook\ncraft 1 iron ingot using 9 iron nugget\ncraft 1 anvil using 3 iron block, 4 iron ingot\ncraft 1 chain using 1 iron ingot, 2 iron nugget\ncraft 1 iron helmet using 5 iron ingot\ncraft 1 bucket using 3 iron ingot\ncraft 1 piston using 1 redstone, 4 cobblestone, 3 planks, 1 iron ingot\ncraft 1 iron block using 9 iron ingot\n\nGoal: craft anvil."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"3 iron block\" not in had_objects or \"4 iron ingot\" not in had_objects: find_flag = get(\"31 iron ingot\");\nStep 3. if find_flag == True: craft 1 anvil using 3 iron block, 4 iron ingot\nI need to craft an anvil.\nI should check if I have the necessary ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to craft an anvil, but I don't have any of the ingredients in my inventory.\nAction: get 3 iron block, 4 iron ingot"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find iron block, 4 iron ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get the ingredients directly from the environment. I need to craft them.\nAction: craft 1 iron ingot using 9 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:iron_ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to craft an anvil, but I don't have the necessary ingredients to craft iron ingots first.\nAction: get 27 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 27 iron nugget"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have gathered enough iron nuggets to craft iron ingots. Now I need to craft the iron ingots.\nAction: craft 8 iron ingot using 73 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:iron_ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I was not able to craft the iron ingots even though I had more than enough iron nuggets.\nAction: adjust iron nugget amount to 9 each to craft 1 iron ingot"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not execute adjust iron nugget amount to 9 each to craft 1 iron ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: It seems that I cannot adjust the amount of iron nuggets per crafting command. I will need to craft the iron ingots one at a time.\nAction: craft 1 iron ingot using 9 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:iron_ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted one iron ingot. I need three more iron ingots to craft an anvil.\nAction: craft 1 iron ingot using 9 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:iron_ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted another iron ingot. I need to craft one more iron ingot.\nAction: craft 1 iron ingot using 9 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:iron_ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have all the iron ingots needed to craft an anvil. Now I need to gather more iron blocks.\nAction: get 1 iron block"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find iron block"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get the iron block directly from the environment. I need to craft it.\nAction: craft 1 iron block using 9 iron ingot"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:iron_block"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to craft an anvil, but I don't have enough iron ingots to craft an iron block.\nAction: get 81 iron ingot"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find iron ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to gather more iron ingots in order to craft the iron block.\nAction: get 81 iron ingot"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find iron ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am unable to get more iron ingots directly from the environment. It seems that I will have to craft them.\nAction: craft 81 iron ingot using 731 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:iron_ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I was not able to craft the additional iron ingots even though I had more than enough iron nuggets.\nAction: adjust iron nugget amount to 9 each to craft 1 iron ingot"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not execute adjust iron nugget amount to 9 each to craft 1 iron ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: It seems that I cannot adjust the amount of iron nuggets per crafting command. I will need to craft the iron ingots one at a time.\nAction: craft 1 iron ingot using 9 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:iron_ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have run out of iron nuggets, but I still need more iron ingots to craft the iron block.\nAction: get 731 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 731 iron nugget"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have gathered more iron nuggets to craft iron ingots. Now I can continue crafting the iron ingots.\nAction: craft 81 iron ingot using 731 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find a valid recipe for ItemTagWithCount(item_tag=ItemTag(tag=None, item_id='minecraft:iron_ingot'), count=81)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I attempted to craft too many iron ingots at once. I should craft them one at a time.\nAction: craft 1 iron ingot using 9 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:iron_ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted another iron ingot. I need to craft 80 more iron ingots to craft the iron block.\nAction: craft 1 iron ingot using 9 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:iron_ingot"
+        }
+    ]
+}

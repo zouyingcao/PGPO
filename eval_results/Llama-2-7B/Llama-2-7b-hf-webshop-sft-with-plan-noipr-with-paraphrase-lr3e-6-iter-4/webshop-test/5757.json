@@ -1,0 +1,64 @@
+{
+    "meta": {
+        "steps": 5,
+        "reward": 0.25,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i would like some butter flavored popcorn salt that comes in a four pack, and price lower than 30.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"butter flavored popcorn salt four pack price < 30.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_size(\"4 pack\");\nStep 4. select_flavor(\"butter\");\nStep 5. buy().\nI think I should use the search bar to look for the product I need.\nAction: search[butter flavored popcorn salt four pack price < 30.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i would like some butter flavored popcorn salt that comes in a four pack, and price lower than 30.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B01N0QS3LG [SEP] Jolly Time Popcorn Seasoning Salt Movie Theater Butter Powder Shaker for Concession & Cooking, Butter, 6 oz (Pack of 4) [SEP] $21.84 [SEP] B09JNL3XTB [SEP] Blast O Butter Microwave Popcorn Bundle! Includes Four Boxes of Jolly Time Blast O Butter Popcorn and a BELLATAVO Recipe Card. Each Box has Three Bags of Microwave Popcorn. Twelve Bags Total! [SEP] $21.99 [SEP] B00JTLGMQC [SEP] At-The-Movies Popcorn & Coconut Oil Portion Packs-Case of 24 (4oz Kettle) [SEP] $25.95 [SEP] B07L4LT3J8 [SEP] Angie's BOOMCHICKAPOP Real Butter Microwave Popcorn, 3.29 oz. Classic Bags 4-Count (Pack of 6) [SEP] $59.04 [SEP] B084WNJM2Y [SEP] Snappy Butter Burst Flavored Popcorn Kit, Buttery Flavored Theater Salt [SEP] $29.99 [SEP] B01B57X4UY [SEP] Pop Weaver Naks Pak - 8oz Butter Flavored Coconut Oil and Popcorn Packs - For Use in 6oz Popper Popping Machine - 6 Pack [SEP] $19.99 [SEP] B00H727M6O [SEP] Kernel Season's Popcorn Seasoning Mini Jars Variety Pack, 0.9 Ounce (Pack of 8) [SEP] $100.0 [SEP] B07M7XKMX6 [SEP] WW Popcorn Variety Pack - Sea Salt, White Cheddar & Butter Popcorn - Gluten-free, 2 SmartPoints - 6 of Each Flavor (18 Count Total) - Weight Watchers Reimagined [SEP] $42.95 [SEP] B06X6GQGCZ [SEP] Quinn Real Butter & Sea Salt Microwave Popcorn, Non-Gmo, Organic Popcorn Kernels, 3 pack (6 bags) [SEP] $100.0 [SEP] B09JB95RPH [SEP] Gourmet Microwave Popcorn Bundle! Includes Four Boxes of Jolly Time Simply Popped Microwave Popcorn and a BELLATAVO Recipe Card. Each Box has Three Bags of Popcorn. Twelve (12) Bags Total!!! [SEP] $24.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the product that meets my criteria, which is B01N0QS3LG.\nAction: click[B01N0QS3LG]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i would like some butter flavored popcorn salt that comes in a four pack, and price lower than 30.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] Jolly Time Popcorn Seasoning Salt Movie Theater Butter Powder Shaker for Concession & Cooking, Butter, 6 oz (Pack of 4) [SEP] Price: $21.84 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the '4 pack' option to select the pack size I need.\nAction: click[4 pack]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i would like some butter flavored popcorn salt that comes in a four pack, and price lower than 30.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] Jolly Time Popcorn Seasoning Salt Movie Theater Butter Powder Shaker for Concession & Cooking, Butter, 6 oz (Pack of 4) [SEP] Price: $21.84 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'butter' option to select the flavor I need.\nAction: click[butter]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i would like some butter flavored popcorn salt that comes in a four pack, and price lower than 30.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] Jolly Time Popcorn Seasoning Salt Movie Theater Butter Powder Shaker for Concession & Cooking, Butter, 6 oz (Pack of 4) [SEP] Price: $21.84 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the product.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B01N0QS3LG [SEP] options [SEP] {} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.25 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

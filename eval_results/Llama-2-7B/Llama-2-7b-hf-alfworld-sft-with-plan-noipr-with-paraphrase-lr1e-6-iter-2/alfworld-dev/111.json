@@ -1,0 +1,104 @@
+{
+    "meta": {
+        "steps": 10,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "/home/caozouying.czy/IPR/eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_two_obj_and_place-RemoteControl-None-Ottoman-203/trial_T20190906_182952_858723/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a armchair 1, a coffeetable 1, a diningtable 1, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a ottoman 1, a sidetable 1, and a sofa 1.\nYour task is to: find two remotecontrol and put them in ottoman."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. remotecontrol_name_1, location_name_1 = locate_a_remotecontrol(candidate_locations);\nStep 2. take_remotecontrol(remotecontrol_name_1, location_name_1);\nStep 3. go_to_the_ottoman();\nStep 4. put_remotecontrol_in_ottoman(remotecontrol_name_1);\nStep 5. remotecontrol_name_2, location_name_2 = locate_a_remotecontrol(candidate_locations);\nStep 6. take_remotecontrol(remotecontrol_name_2, location_name_2);\nStep 7. go_to_the_ottoman();\nStep 8. put_remotecontrol_in_ottoman(remotecontrol_name_2).\nI need to find two remote controls. The sofa is a common place to find them, so I'll check there first.\nAction: go to sofa 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sofa 1, you see a creditcard 3, a keychain 2, a laptop 3, a laptop 2, a newspaper 2, and a remotecontrol 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I see a remote control on the sofa. I should pick it up to place it in the ottoman as instructed.\nAction: take remotecontrol 2 from sofa 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the remotecontrol 2 from the sofa 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With the remote control in hand, I need to place it in the ottoman to fulfill part of the task.\nAction: go to ottoman 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the ottoman 1, you see a creditcard 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm at the ottoman now. I should place the remote control here and then look for the second one.\nAction: put remotecontrol 2 in/on ottoman 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the remotecontrol 2 in/on the ottoman 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: One remote control is placed. I need to find the second one. The dining table is another common place where items are placed, so I'll check there next.\nAction: go to diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the diningtable 1, you see a book 1, a bowl 3, a bowl 2, a bowl 1, a newspaper 1, a plate 1, a tissuebox 1, and a vase 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The dining table doesn't have a remote control. I should check the side table next, as it's often used to place small items like remote controls.\nAction: go to sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 1, you see a book 2, a houseplant 1, and a watch 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The side table doesn't have a remote control either. I'll check the coffeetable next, as people often use it to watch TV and might leave a remote there.\nAction: go to coffeetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the coffeetable 1, you see a laptop 1, a pencil 2, a pencil 1, a remotecontrol 1, and a vase 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've found the second remote control on the coffeetable. I need to take it so I can place it in the ottoman.\nAction: take remotecontrol 1 from coffeetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the remotecontrol 1 from the coffeetable 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the second remote control, I should return to the ottoman to place it with the first one.\nAction: go to ottoman 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the ottoman 1, you see a creditcard 1, and a remotecontrol 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm back at the ottoman with the second remote control. I'll place it here to complete the task.\nAction: put remotecontrol 1 in/on ottoman 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the remotecontrol 1 in/on the ottoman 1."
+        }
+    ]
+}

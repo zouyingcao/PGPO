@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 beehive using 6 planks, 3 honeycomb\ncraft 1 white bed using 3 white wool, 3 planks\ncraft 1 bookshelf using 6 planks, 3 book\ncraft 1 pink bed using 3 pink wool, 3 planks\ncraft 4 oak planks using 1 oak logs\ncraft 4 birch planks using 1 birch logs\ncraft 1 chest using 8 planks\ncraft 4 crimson planks using 1 crimson stems\ncraft 1 yellow bed using 3 yellow wool, 3 planks\ncraft 1 barrel using 6 planks, 2 wooden slabs\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 1 black bed using 3 black wool, 3 planks\ncraft 1 purple bed using 3 purple wool, 3 planks\ncraft 4 warped planks using 1 warped stems\ncraft 4 acacia planks using 1 acacia logs\ncraft 4 jungle planks using 1 jungle logs\ncraft 4 spruce planks using 1 spruce logs\ncraft 1 orange bed using 3 orange wool, 3 planks\ncraft 1 honeycomb block using 4 honeycomb\n\nGoal: craft beehive."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"beehive\" not in had_objects: find_flag = get(\"beehive\");\nStep 3. if find_flag == False: \"craft 1 beehive using 6 planks, 3 honeycomb\" = choose_crafting_commands(\"beehive\"), needed_ingredients = \"6 planks, 3 honeycomb\";\nStep 4. if \"6 planks\" not in had_objects: find_flag = get(\"6 planks\");\nStep 5. if find_flag == False: \"craft 4 oak planks using 1 oak logs\" = choose_crafting_commands(\"6 planks\"), needed_ingredients = \"2 oak logs\";\nStep 6. Similar to Step 1-5, get_all_needed_ingredients(needed_ingredients);\nStep 7. for log in range(2): craft 4 oak planks using 1 oak log;\nStep 8. if \"3 honeycomb\" not in had_objects: find_flag = get(\"3 honeycomb\");\nStep 9. if find_flag == False: \"craft 1 honeycomb block using 4 honeycomb\" = choose_crafting_commands(\"3 honeycomb\"), needed_ingredients = \"4 honeycomb\";\nStep 10. Similar to Step 1-5, get_all_needed_ingredients(needed_ingredients);\nStep 11. craft 1 honeycomb block using 4 honeycomb;\nStep 12. craft 1 beehive using 6 oak planks, 3 honeycomb block;\nTo craft a beehive, I can either use the crafting command: craft 1 beehive using 6 planks, 3 honeycomb; or I can craft it using 6 oak planks and 3 honeycomb blocks. I need to check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to gather the ingredients to craft a beehive. According to the crafting command, I need 6 planks and 3 honeycomb. I can craft planks using different types of logs. Let's first try to get oak logs from the environment.\nAction: get 2 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 oak logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have oak logs, I can craft oak planks. Then I'll have the required planks to craft a beehive.\nAction: craft 4 oak planks using 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:oak_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have 4 oak planks now. I need 2 more planks to craft a beehive. So, I'll craft planks again using the remaining oak log.\nAction: craft 4 oak planks using 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:oak_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now I have 8 oak planks which is enough to craft a beehive. Let's not need any more logs from the environment and move on to the next step - crafting the honeycomb blocks.\nAction: craft 1 honeycomb block using 4 honeycomb"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:honeycomb_block"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to gather more honeycomb to craft the honeycomb blocks.\nAction: get 4 honeycomb"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 honeycomb"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 4 more honeycomb, I can craft the honeycomb blocks.\nAction: craft 1 honeycomb block using 4 honeycomb"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:honeycomb_block"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted one honeycomb block. I need two more to have enough for crafting the beehive. I will gather more honeycomb.\nAction: get 4 honeycomb"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 honeycomb"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 4 more honeycomb, I can craft another honeycomb block.\nAction: craft 1 honeycomb block using 4 honeycomb"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:honeycomb_block"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted another honeycomb block. I need one more honeycomb block to have enough for crafting the beehive. I will craft the last honeycomb block.\nAction: craft 1 honeycomb block using 4 honeycomb"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:honeycomb_block"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I ran out of honeycomb while trying to craft the last honeycomb block. To craft the beehive, I need to have 3 honeycomb blocks. I will have to gather more honeycomb.\nAction: get 4 honeycomb"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 honeycomb"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 4 more honeycomb, I can craft the last honeycomb block I need.\nAction: craft 1 honeycomb block using 4 honeycomb"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:honeycomb_block"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now I have 3 honeycomb blocks. I also have 8 oak planks. I can now craft a beehive.\nAction: craft 1 beehive using 6 oak planks, 3 honeycomb block"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find a valid recipe for ItemTagWithCount(item_tag=ItemTag(tag=None, item_id='minecraft:beehive'), count=1)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I miscalculated the ingredients. I need 6 planks to craft a beehive. I currently have 8 oak planks, but I should craft 2 more oak planks using the remaining oak log.\nAction: craft 4 oak planks using 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:oak_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I ran out of oak logs while trying to craft more oak planks. To craft the beehive, I need to have 6 planks. I will have to find more logs from the environment.\nAction: get 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 oak logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have another oak log, I can craft more oak planks.\nAction: craft 4 oak planks using 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:oak_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now I have 12 oak planks which is enough to craft a beehive. I also have 3 honeycomb blocks. I can now craft a beehive.\nAction: craft 1 beehive using 6 oak planks, 3 honeycomb block"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find a valid recipe for ItemTagWithCount(item_tag=ItemTag(tag=None, item_id='minecraft:beehive'), count=1)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I miscalculated the ingredients again. I need 6 planks to craft a beehive and I currently have 12 oak planks. However, I should use only 6 of them to give space for the honeycomb blocks.\nAction: craft 1 beehive using 6 oak planks, 3 honeycomb block"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find a valid recipe for ItemTagWithCount(item_tag=ItemTag(tag=None, item_id='minecraft:beehive'), count=1)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I misinterpreted the crafting command. I do not need to specify the number of planks in the command. I should just craft the beehive with the ingredients I have.\nAction: craft 1 beehive using 6 oak planks, 3 honeycomb block"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find a valid recipe for ItemTagWithCount(item_tag=ItemTag(tag=None, item_id='minecraft:beehive'), count=1)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: It seems the crafting command for a beehive is not working. I'll try a different approach and craft the beehive using the individual commands. First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"beehive\" not in had_objects: find_flag = get(\"beehive\");\nStep 3. if find_flag == False: \"craft 1 beehive using 6 oak planks, 3 honeycomb block\" = choose_crafting_commands(\"beehive\"), needed_ingredients = [\"6 oak planks\", \"3 honeycomb block\"];\nStep 4. Similar to Step 1-3, get_all_needed_ingredients(needed_ingredients);\nStep 5. craft 1 beehive using 6 oak planks, 3 honeycomb block\nI should check if I can get a beehive directly from the environment or the inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [oak planks] (12) [honeycomb block] (3)"
+        }
+    ]
+}

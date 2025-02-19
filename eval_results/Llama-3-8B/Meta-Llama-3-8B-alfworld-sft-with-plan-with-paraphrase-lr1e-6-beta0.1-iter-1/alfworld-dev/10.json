@@ -1,0 +1,96 @@
+{
+    "meta": {
+        "steps": 9,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "/home/admin/workspace/aop_lab/ipr_plan/eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_cool_then_place_in_recep-Pot-None-DiningTable-21/trial_T20190909_004531_429065/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 1, a diningtable 3, a diningtable 2, a diningtable 1, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sidetable 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: put a cool pot in diningtable."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. pot_name, location_name = locate_a_pot(candidate_locations);\nStep 2. take_pot(pot_name, location_name);\nStep 3. go_to_fridge();\nStep 4. cool_pot_with_fridge(pot_name);\nStep 5. go_to_diningtable();\nStep 6. put_pot_on_diningtable(pot_name).\nI need to locate the pot that I am supposed to put on the dining table. I will start by checking the nearest stove burner.\nAction: go to stoveburner 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the stoveburner 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is nothing on stoveburner 1. I should check the next stove burner to find the pot.\nAction: go to stoveburner 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the stoveburner 2, you see a pan 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Stoveburner 2 has a pan, not the pot I'm looking for. I'll continue to the next stove burner.\nAction: go to stoveburner 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the stoveburner 3, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Stoveburner 3 is also empty. I need to check the last stove burner for the pot.\nAction: go to stoveburner 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the stoveburner 4, you see a pot 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I found a pot on stoveburner 4. This is the item I need to place on the dining table, but first, I must ensure it's cool to the touch.\nAction: take pot 1 from stoveburner 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the pot 1 from the stoveburner 4."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Before I can put the pot on the dining table, I need to cool it down. The fridge can be used to expedite the cooling process.\nAction: go to fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The fridge 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The fridge is closed. I will need to open it to cool the pot, but for the sake of the task, I'll assume that I can cool the pot using the fridge without opening it.\nAction: cool pot 1 with fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You cool the pot 1 using the fridge 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that the pot is cool, I should place it on a dining table. I'll choose diningtable 1 as it is the first one mentioned.\nAction: go to diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the diningtable 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Diningtable 1 is empty and a suitable place to set down the cool pot. I will complete the task by placing the pot here.\nAction: put pot 1 in/on diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the pot 1 in/on the diningtable 1."
+        }
+    ]
+}

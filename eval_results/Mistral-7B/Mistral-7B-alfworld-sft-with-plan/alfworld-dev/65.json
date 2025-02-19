@@ -1,0 +1,88 @@
+{
+    "meta": {
+        "steps": 8,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_two_obj_and_place-TissueBox-None-Toilet-426/trial_T20190909_044602_338962/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a bathtubbasin 1, a countertop 1, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a handtowelholder 1, a sinkbasin 1, a toilet 1, a toiletpaperhanger 1, a towelholder 2, and a towelholder 1.\nYour task is to: find two tissuebox and put them in toilet."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. tissuebox_name_1, location_name_1 = locate_a_tissuebox(candidate_locations);\nStep 2. take_tissuebox(tissuebox_name_1, location_name_1);\nStep 3. go_to_the_toilet();\nStep 4. put_tissuebox_in_toilet(tissuebox_name_1);\nStep 5. tissuebox_name_2, location_name_2 = locate_a_tissuebox(candidate_locations);\nStep 6. take_tissuebox(tissuebox_name_2, location_name_2);\nStep 7. go_to_the_toilet();\nStep 8. put_tissuebox_in_toilet(tissuebox_name_2).\nI need to find two tissue boxes to complete the task. The first place to check is the countertop 1, as it is a common place to keep such items.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a soapbottle 1, a spraybottle 2, a spraybottle 1, a tissuebox 3, a tissuebox 2, and a tissuebox 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are multiple tissue boxes here. I will take tissuebox 3 first as it is one of the two I need to place in the toilet.\nAction: take tissuebox 3 from countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the tissuebox 3 from the countertop 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am heading to the toilet to place the tissue box as instructed.\nAction: go to toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the toilet 1, you see a candle 1, and a toiletpaper 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are items on the toilet, but there seems to be enough space to place the tissue box without disturbing the other items.\nAction: put tissuebox 3 in/on toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the tissuebox 3 in/on the toilet 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm back at the countertop 1, and I need to pick up the second tissue box, which is tissuebox 2.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a soapbottle 1, a spraybottle 2, a spraybottle 1, a tissuebox 2, and a tissuebox 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have tissuebox 2 now, so I should head back to the toilet to place it alongside the first one.\nAction: take tissuebox 2 from countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the tissuebox 2 from the countertop 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've arrived back at the toilet, and I see the first tissue box where I left it. Now, I'll place the second tissue box here to complete the task.\nAction: go to toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the toilet 1, you see a candle 1, a tissuebox 3, and a toiletpaper 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The task is almost complete. I will put tissuebox 2 in the toilet, ensuring that both tissue boxes are placed properly as per the task instructions.\nAction: put tissuebox 2 in/on toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the tissuebox 2 in/on the toilet 1."
+        }
+    ]
+}

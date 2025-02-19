@@ -1,0 +1,104 @@
+{
+    "meta": {
+        "steps": 10,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_unseen/pick_and_place_simple-Vase-None-Safe-219/trial_T20190908_205246_776817/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a armchair 1, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 1, a garbagecan 1, a safe 1, a shelf 12, a shelf 11, a shelf 10, a shelf 9, a shelf 8, a shelf 7, a shelf 6, a shelf 5, a shelf 4, a shelf 3, a shelf 2, a shelf 1, a sidetable 1, and a sofa 1.\nYour task is to: put a vase in safe."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. vase_name, location_name = locate_a_vase(candidate_locations);\nStep 2. take_a_vase(vase_name, location_name);\nStep 3. go_to_the_safe();\nStep 4. open_safe();\nStep 5. put_vase_in_safe();\nI need to locate the vase to complete the task of putting it in the safe. I will start by checking the nearest shelves for the vase.\nAction: go to shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 1 does not have the vase. I will check the next shelf to see if the vase is there.\nAction: go to shelf 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 2, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 2 is also empty of the vase. I will continue searching the shelves in sequence.\nAction: go to shelf 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Nothing happens."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: No vase on shelf 3 either. I must keep looking on the other shelves.\nAction: go to shelf 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 4, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Still no vase on shelf 4. I'll move on to the next shelf.\nAction: go to shelf 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 5, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 5 doesn't have the vase. I need to persist in checking each shelf.\nAction: go to shelf 6"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 6, you see a vase 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I found a vase on shelf 6. I will take it so I can place it in the safe.\nAction: take vase 2 from shelf 6"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the vase 2 from the shelf 6."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the vase, I need to locate the safe to put the vase in it.\nAction: go to safe 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The safe 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The safe is closed. I need to open it before I can put the vase inside.\nAction: open safe 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the safe 1. The safe 1 is open. In it, you see a keychain 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The safe is now open, and I see there is a keychain inside. I will place the vase in the safe alongside the keychain.\nAction: put vase 2 in/on safe 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the vase 2 in/on the safe 1."
+        }
+    ]
+}

@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i need a kids toothbrush that is orange and good for sensitive teeth, and price lower than 140.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"kids toothbrush orange sensitive teeth price < 140.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_color(\"orange\");\nStep 4. buy().\nI think I should use the search bar to find a kids toothbrush that meets the criteria.\nAction: search[kids toothbrush orange sensitive teeth]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a kids toothbrush that is orange and good for sensitive teeth, and price lower than 140.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B09NSMFF37 [SEP] 2 Packs Kids U-Shaped Manual Training Toothbrush, U-Type Toothbrush Whole Mouth Toothbrush with Soft Silicone Head, 360\u00b0Oral Cleaning Teeth Whitening Gums Massage for Kids 2-7 Years [SEP] $11.99 [SEP] B08PB968J7 [SEP] 2 Pieces 3 Sided Autism Toothbrush Three Bristles for Special Needs Kids Soft Bristles Soft and Gentle Clean Each Tooth to Completely Cover The Toothbrush [SEP] $9.89 [SEP] B09T6LZ3CL [SEP] Kids U Shaped Toothbrush, Food Grade Soft Silicone Brush Head with Fruit Shaped Handle, U-Type Whole Mouth Toothbrush for Kids, Manual 360\u00b0 Oral Care Teeth Brush for Baby and Children Ages 2-6 Purple [SEP] $7.99 [SEP] B09GP9DHHD [SEP] SSZMDLB Kids U Shaped Toothbrush Manual Children's Soft Silicone Toothbrush for Kids Age 2-12 360 Whitening and Cleaning Teeth Care for Your Kids Oral Health [SEP] $100.0 [SEP] B09J4T369C [SEP] 2 Pieces 3 Sided Autism Toothbrush Three Bristles for Special Needs Adult Soft Bristles Soft and Gentle for Complete Tooth and Gum Care (2 Pieces New 2(Kids)) [SEP] $10.89 [SEP] B09F9GZ5KB [SEP] 4 Pieces Kids U Shaped Toothbrush Manual Training Tooth Brush Whitening Massage Toothbrush Whole Mouth Toothbrush for Kids 2-12 Years (Yellow, Green, Orange, Pink, Dinosaur Style) [SEP] $13.49 [SEP] B09GW15ZQ7 [SEP] New Toothbrush with U-Shaped Food Grade Silicone Brush, Cute \u200bU Shape Children's Toothbrush 360 Degree Kids Silicone Teeth Cleaning, Toothbrush Oral Care for 2-12 Age (Yellow) [SEP] $8.49 [SEP] B09R1S4T54 [SEP] SSZMDLB Kids U-Shaped Toothbrush, Manual Training Tooth Brush, Food Grade Soft Silicone Brush Head, Whole Mouth Toothbrush for Kids, 360Degree Oral Teeth Cleaning Design for Toddlers and Children [SEP] $29.5 [SEP] B09T5PR172 [SEP] ZYSZY Kids U Shaped Toothbrush Toddler Soft Silicone Toothbrush 360 Manual U Shaped Toothbrush Cute Cartoon Penguin Handle U-Shaped Toothbrush for 2-12 Years Old,1 Pc,Light Yellow, Large (for 6-12) [SEP] $2.7 [SEP] B09GP36DDR [SEP] Cute \u200bU Shape Children's Toothbrush 360 Degree Kids Silicone Teeth Cleaning Convenient U Type Modeling Manual Toothbrush Oral Care for 2-12 Age (Orange) [SEP] $22.8"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the option that best fits the criteria of being a kids toothbrush that is orange and good for sensitive teeth, and priced below $140.00.\nAction: click[B09GP36DDR]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a kids toothbrush that is orange and good for sensitive teeth, and price lower than 140.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] blue [SEP] orange [SEP] yellow [SEP] Cute \u200bU Shape Children's Toothbrush 360 Degree Kids Silicone Teeth Cleaning Convenient U Type Modeling Manual Toothbrush Oral Care for 2-12 Age (Orange) [SEP] Price: $22.8 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'orange' color option to filter the search results for an orange kids toothbrush.\nAction: click[orange]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a kids toothbrush that is orange and good for sensitive teeth, and price lower than 140.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] blue [SEP] orange [SEP] yellow [SEP] Cute \u200bU Shape Children's Toothbrush 360 Degree Kids Silicone Teeth Cleaning Convenient U Type Modeling Manual Toothbrush Oral Care for 2-12 Age (Orange) [SEP] Price: $22.8 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the orange kids toothbrush that meets the criteria.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B09GP36DDR [SEP] options [SEP] {\"color\": \"orange\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

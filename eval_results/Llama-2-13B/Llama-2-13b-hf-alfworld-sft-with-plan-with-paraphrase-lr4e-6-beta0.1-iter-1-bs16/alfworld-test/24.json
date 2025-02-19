@@ -1,0 +1,80 @@
+{
+    "meta": {
+        "steps": 7,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_unseen/pick_and_place_simple-PepperShaker-None-Drawer-10/trial_T20190906_184021_215264/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 3, a countertop 2, a countertop 1, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a shelf 3, a shelf 2, a shelf 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: put some peppershaker on drawer."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. peppershaker_name, location_name = locate_a_peppershaker(candidate_locations);\nStep 2. take_peppershaker(peppershaker_name, location_name);\nStep 3. go_to_the_drawer();\nStep 4. open_drawer();\nStep 5. put_peppershaker_in_drawer().\nI need to locate a peppershaker to complete the task. I will start by checking the nearest countertops for any peppershakers.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a creditcard 1, and a tomato 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The peppershaker is not on countertop 1, but I should remember that there is a credit card and a tomato here in case I need them later.\nAction: go to countertop 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 2, you see a cellphone 1, a fork 1, a knife 1, a lettuce 1, a saltshaker 2, and a soapbottle 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Countertop 2 has various items, but no peppershaker. I should keep track of the items present in case I need them, but continue searching for the peppershaker.\nAction: go to countertop 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 3, you see a apple 1, a bread 1, a butterknife 2, a butterknife 1, a cup 2, a egg 2, a houseplant 1, a knife 3, a knife 2, a pan 2, a peppershaker 1, and a vase 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have found a peppershaker on countertop 3. I will take it so I can place it in the drawer as instructed.\nAction: take peppershaker 1 from countertop 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the peppershaker 1 from the countertop 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the peppershaker, I need to locate drawer 1 to place the peppershaker in it.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is closed. I need to open it to put the peppershaker inside.\nAction: open drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 1. The drawer 1 is open. In it, you see a dishsponge 2, and a spoon 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is now open, and I see there is a dishsponge and a spoon inside. I will place the peppershaker in the drawer alongside these items.\nAction: put peppershaker 1 in/on drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the peppershaker 1 in/on the drawer 1."
+        }
+    ]
+}

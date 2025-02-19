@@ -1,0 +1,80 @@
+{
+    "meta": {
+        "steps": 7,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_cool_then_place_in_recep-Tomato-None-GarbageCan-6/trial_T20190909_082934_483899/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 15, a cabinet 14, a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 4, a countertop 3, a countertop 2, a countertop 1, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: cool some tomato and put it in garbagecan."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. tomato_name, location_name = locate_a_tomato(candidate_locations);\nStep 2. take_a_tomato(tomato_name, location_name);\nStep 3. go_to_the_fridge();\nStep 4. open_fridge();\nStep 5. cool_tomato_using_fridge(tomato_name);\nStep 6. go_to_the_garbagecan();\nStep 7. put_cooled_tomato_in_garbagecan(tomato_name).\nI need to locate a tomato to complete the task of cooling it and then disposing of it in the garbage can. The task description doesn't specify where the tomato is, so I should look around the room for it.\nAction: go to countertop 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 4, you see a apple 3, a bread 2, a butterknife 1, a cup 1, a kettle 3, a knife 3, a mug 1, a plate 2, a saltshaker 1, a spatula 2, and a tomato 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I'm at countertop 4, I should look for a tomato among the items here.\nAction: take tomato 2 from countertop 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the tomato 2 from the countertop 4."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With the tomato in hand, I need to find a way to cool it. The fridge is typically used to cool food items, so I should head there next.\nAction: go to fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The fridge 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The fridge is closed. I need to open it to access the cooling space inside.\nAction: open fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the fridge 1. The fridge 1 is open. In it, you see a bowl 1, and a lettuce 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The fridge is now open, and I can use it to cool the tomato. This will involve placing the tomato inside the fridge.\nAction: cool tomato 2 with fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You cool the tomato 2 using the fridge 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The tomato is now cooled. The next step is to dispose of it in the garbage can as per the task instructions. I need to locate the garbage can to complete this part of the task.\nAction: go to garbagecan 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the garbagecan 1, you see a tomato 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am at the garbage can and should now dispose of the cooled tomato as instructed. This will involve placing the tomato in or on the garbage can.\nAction: put tomato 2 in/on garbagecan 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the tomato 2 in/on the garbagecan 1."
+        }
+    ]
+}

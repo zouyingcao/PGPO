@@ -1,0 +1,120 @@
+{
+    "meta": {
+        "steps": 12,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_heat_then_place_in_recep-Tomato-None-Fridge-23/trial_T20190909_082320_103350/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 1, a diningtable 1, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: heat some tomato and put it in fridge."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. tomato_name, location_name = locate_a_tomato(candidate_locations);\nStep 2. take_a_tomato(tomato_name, location_name);\nStep 3. go_to_the_microwave();\nStep 4. heat_tomato_using_microwave();\nStep 5. go_to_the_fridge();\nStep 6. put_heated_tomato_in_fridge().\nI need to locate a tomato to heat it up as per the task. The sink basin is a common place for fresh produce, so I should check there first.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see a butterknife 2, a fork 1, and a mug 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are no tomatoes here, just a butterknife, a fork, and a mug. I need to look elsewhere.\nAction: go to microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The microwave 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Before I can use the microwave, I need to check if it's empty or if there's something inside that needs to be removed.\nAction: open microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the microwave 1. The microwave 1 is open. In it, you see a egg 1, and a potato 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are items inside the microwave. I should close it for now since I haven't found a tomato yet, and I don't need to use the microwave at this moment.\nAction: close microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the microwave 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I still need to find a tomato. The garbage can might have discarded items, including a tomato that can be heated and then stored in the fridge.\nAction: go to garbagecan 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the garbagecan 1, you see a apple 1, and a winebottle 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are no tomatoes in the garbage can, only an apple and a wine bottle. I should continue searching elsewhere.\nAction: go to fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The fridge 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The fridge is a likely place to find fresh produce, including tomatoes. I need to open it to look inside.\nAction: open fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the fridge 1. The fridge 1 is open. In it, you see a apple 3, a cup 1, a mug 1, a potato 3, a tomato 4, and a tomato 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are tomatoes in the fridge. I will take one out to heat it up.\nAction: take tomato 3 from fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the tomato 3 from the fridge 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the tomato, I need to use the microwave to heat it. I should go to the microwave.\nAction: go to microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The microwave 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to heat the tomato using the microwave. Since I previously closed the microwave, I'll need to open it again and place the tomato inside to heat it.\nAction: heat tomato 3 with microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You heat the tomato 3 using the microwave 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The tomato is now heated. I need to put it back in the fridge as per the task instructions.\nAction: go to fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The fridge 1 is open. In it, you see a apple 3, a cup 1, a mug 1, a potato 3, and a tomato 4."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The fridge is still open from earlier, so I can easily put the heated tomato inside.\nAction: put tomato 3 in/on fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the tomato 3 in/on the fridge 1."
+        }
+    ]
+}

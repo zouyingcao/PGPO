@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": false,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_unseen/pick_two_obj_and_place-SoapBar-None-GarbageCan-424/trial_T20190909_064309_357168/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a countertop 1, a garbagecan 1, a handtowelholder 2, a handtowelholder 1, a sinkbasin 2, a sinkbasin 1, a toilet 1, a toiletpaperhanger 1, and a towelholder 1.\nYour task is to: put two soapbar in garbagecan."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. soapbar_name_1, location_name_1 = locate_a_soapbar(candidate_locations);\nStep 2. take_soapbar(soapbar_name_1, location_name_1);\nStep 3. soapbar_name_2, location_name_2 = locate_a_soapbar(candidate_locations);\nStep 4. take_soapbar(soapbar_name_2, location_name_2);\nStep 5. go_to_garbagecan();\nStep 6. put_soapbar_in_garbagecan(soapbar_name_1);\nStep 7. put_soapbar_in_garbagecan(soapbar_name_2).\nI need to locate two soap bars to complete the task. I will start by checking the nearest fixtures where soap bars are likely to be found, such as the sink basin.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is nothing on sinkbasin 1. I should check the other sink basin to see if there are any soap bars there.\nAction: go to sinkbasin 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 2, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Sinkbasin 2 is also empty. I will continue searching other areas in the room where a soap bar might be placed, such as near the toilet.\nAction: go to toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the toilet 1, you see a soapbar 2, and a soapbar 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I found two soap bars on the toilet. I will take one of them to put in the garbage can as instructed.\nAction: take soapbar 2 from toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the soapbar 2 from the toilet 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have one soap bar, but I need two. I should take the second soap bar from the toilet as well.\nAction: go to toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Nothing happens."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The second soap bar is not here. I must have already taken it. I will check the garbage can to ensure I haven't mistakenly thrown away a soap bar that could still be used.\nAction: go to garbagecan 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the garbagecan 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The garbage can is empty. I will now check the countertop for any soap bars that might have been discarded but are still usable.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a candle 3, a candle 1, a soapbottle 1, and a spraybottle 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are no soap bars on the countertop. I will check the cabinets next as they are common storage places for such items.\nAction: go to cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The cabinet 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Cabinet 1 is closed. I need to open it to see if there is a soap bar inside.\nAction: open cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the cabinet 1. The cabinet 1 is open. In it, you see a cloth 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no soap bar in cabinet 1, just a cloth. I should close this cabinet and check the next one.\nAction: close cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the cabinet 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Moving on to the next cabinet to continue my search for a soap bar.\nAction: go to cabinet 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The cabinet 2 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Cabinet 2 is also closed. I'll open it to look for a soap bar.\nAction: open cabinet 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the cabinet 2. The cabinet 2 is open. In it, you see a cloth 3, and a soapbottle 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: No soap bar in cabinet 2, only a cloth and a soap bottle. I'll close this cabinet and check the next one.\nAction: close cabinet 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the cabinet 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to keep looking for a soap bar. The next cabinet might have one.\nAction: go to cabinet 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The cabinet 3 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Cabinet 3 is closed. I'll open it and hope to find a soap bar inside.\nAction: open cabinet 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the cabinet 3. The cabinet 3 is open. In it, you see a cloth 1, and a toiletpaper 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: No soap bar in cabinet 3, just a cloth and toilet paper. I'll close this cabinet and check the last one.\nAction: close cabinet 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the cabinet 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The last cabinet could possibly contain a soap bar. I should open it and check.\nAction: go to cabinet 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The cabinet 4 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to open cabinet 4 to see if there's a soap bar inside.\nAction: open cabinet 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the cabinet 4. The cabinet 4 is open. In it, you see a candle 2, a soapbottle 3, and a spraybottle 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: No soap bar in cabinet 4, only a candle, a soap bottle, and a spray bottle. I'll close this cabinet and check the sink basin again just in case.\nAction: close cabinet 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the cabinet 4."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've already checked the sink basin, but I'll look again to be thorough.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see nothing."
+        }
+    ]
+}

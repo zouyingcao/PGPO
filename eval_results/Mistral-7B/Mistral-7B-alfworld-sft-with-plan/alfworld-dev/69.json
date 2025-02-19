@@ -1,0 +1,72 @@
+{
+    "meta": {
+        "steps": 6,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/look_at_obj_in_light-Pillow-None-DeskLamp-323/trial_T20190908_053153_077977/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a bed 2, a bed 1, a desk 1, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 1, a garbagecan 1, a safe 1, a sidetable 2, and a sidetable 1.\nYour task is to: examine the pillow with the desklamp."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. pillow_name, location_name = locate_a_pillow(candidate_locations);\nStep 2. take_a_pillow(pillow_name, location_name);\nStep 3. desklamp_name = find_a_desklamp(candidate_locations);\nStep 4. use_a_desklamp_to_examine(desklamp_name).\nTo examine the pillow with the desklamp, I first need to locate the pillow. I should look around the room to find it.\nAction: go to bed 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the bed 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Bed 1 does not have the pillow. I should check the other bed in case the pillow is there.\nAction: go to bed 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the bed 2, you see a book 1, a cellphone 3, a laptop 1, a pillow 2, a pillow 1, and a teddybear 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I found two pillows on bed 2. I need to pick one to examine with the desklamp.\nAction: take pillow 2 from bed 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the pillow 2 from the bed 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the pillow, I need to find the desklamp to examine it. I should look around the room for the desklamp.\nAction: go to sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 1, you see a cellphone 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Sidetable 1 does not have the desklamp. I should check the other sidetable in the room.\nAction: go to sidetable 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 2, you see a creditcard 2, a desklamp 2, a keychain 3, and a pen 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I found the desklamp on sidetable 2. I should use it to examine the pillow.\nAction: use desklamp 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You turn on the desklamp 2."
+        }
+    ]
+}

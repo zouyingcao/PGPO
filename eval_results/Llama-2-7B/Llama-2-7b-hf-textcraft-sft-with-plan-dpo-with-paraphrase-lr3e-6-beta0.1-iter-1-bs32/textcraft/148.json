@@ -1,0 +1,80 @@
+{
+    "meta": {
+        "steps": 7,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 3 birch fence using 2 stick, 4 birch planks\ncraft 1 birch button using 1 birch planks\ncraft 3 birch door using 6 birch planks\ncraft 4 birch planks using 1 birch logs\ncraft 1 birch fence gate using 4 stick, 2 birch planks\ncraft 1 birch boat using 5 birch planks\ncraft 6 birch slab using 3 birch planks\ncraft 2 birch trapdoor using 6 birch planks\ncraft 1 birch pressure plate using 2 birch planks\ncraft 4 birch stairs using 6 birch planks\n\nGoal: craft birch pressure plate."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"2 birch planks\" not in had_objects: find_flag = get(\"2 birch planks\");\nStep 3. if find_flag == False: \"craft 4 birch planks using 1 birch logs\" = choose_crafting_commands(\"2 birch planks\"), needed_ingredients = \"1 birch logs\", get(needed_ingredients);\nStep 4. craft 4 birch planks using 1 birch logs;\nStep 5. craft 1 birch pressure plate using 2 birch planks\nI should check if I can get birch pressure plate directly from the environment or the inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to get birch pressure plate to craft it.\nAction: get 1 birch pressure plate"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find birch pressure plate"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get birch pressure plate directly, I need to craft it. From the crafting commands, I can use: craft 1 birch pressure plate using 2 birch planks. Ingredients needed: 2 birch planks. I should check if I have the necessary ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to get birch planks to craft birch pressure plate.\nAction: get 2 birch planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find birch planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get birch planks directly, I need to craft it. From the crafting commands, I can use: craft 4 birch planks using 1 birch logs. Ingredients needed: 1 birch logs. I should check if I have the necessary ingredients in my inventory.\nAction: get 1 birch logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 birch logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got birch logs. Now I can craft birch planks.\nAction: craft 4 birch planks using 1 birch logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:birch_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted birch planks. Now I can use these to craft birch pressure plate.\nAction: craft 1 birch pressure plate using 2 birch planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:birch_pressure_plate"
+        }
+    ]
+}

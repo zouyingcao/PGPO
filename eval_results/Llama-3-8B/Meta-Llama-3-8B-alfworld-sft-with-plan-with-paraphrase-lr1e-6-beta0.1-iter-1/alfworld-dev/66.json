@@ -1,0 +1,104 @@
+{
+    "meta": {
+        "steps": 10,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "/home/admin/workspace/aop_lab/ipr_plan/eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_clean_then_place_in_recep-DishSponge-None-Cart-401/trial_T20190907_024634_972453/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a bathtubbasin 1, a cart 1, a garbagecan 1, a handtowelholder 2, a handtowelholder 1, a shelf 4, a shelf 3, a shelf 2, a shelf 1, a sinkbasin 1, a toilet 1, a toiletpaperhanger 1, a towelholder 2, and a towelholder 1.\nYour task is to: put a clean dishsponge in cart."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. dishsponge_name, location_name = locate_a_dishsponge(candidate_locations);\nStep 2. take_dishsponge(dishsponge_name, location_name);\nStep 3. go_to_sinkbasin();\nStep 4. clean_dishsponge(dishsponge_name, sinkbasin_name);\nStep 5. go_to_cart();\nStep 6. put_dishsponge_in_cart(dishsponge_name).\nI need to locate a clean dishsponge to place in the cart. I will start by checking the nearest shelf, which is shelf 1, for any dishsponges.\nAction: go to shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 1, you see a cloth 3, and a soapbar 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 1 does not have a dishsponge; it only has a cloth and a soapbar. I should check the next shelf for a dishsponge.\nAction: go to shelf 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 2, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 2 is empty. There is no dishsponge here. I need to continue searching the remaining shelves.\nAction: go to shelf 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 3, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 3 is also empty. I must check the last shelf, shelf 4, for a dishsponge.\nAction: go to shelf 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 4, you see a toiletpaper 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 4 only has toiletpaper. The dishsponge is not here. I should look elsewhere in the room. The toilet is another place where a dishsponge might be found.\nAction: go to toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the toilet 1, you see a candle 1, a dishsponge 1, a papertowelroll 1, a spraybottle 2, and a spraybottle 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have found a dishsponge on the toilet. I need to pick it up to complete my task.\nAction: take dishsponge 1 from toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the dishsponge 1 from the toilet 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Before placing the dishsponge in the cart, I should ensure it's clean. The sink is the best place to clean the sponge.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am at the sinkbasin, which is the appropriate place to clean the dishsponge. I will proceed to clean it now.\nAction: clean dishsponge 1 with sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You clean the dishsponge 1 using the sinkbasin 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The dishsponge is now clean. I need to locate the cart to place the sponge in it.\nAction: go to cart 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the cart 1, you see a cloth 2, a cloth 1, a soapbottle 1, and a spraybottle 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have reached the cart. It contains other cleaning items, but there is space for the clean dishsponge. I will place the sponge in the cart to complete my task.\nAction: put dishsponge 1 in/on cart 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the dishsponge 1 in/on the cart 1."
+        }
+    ]
+}

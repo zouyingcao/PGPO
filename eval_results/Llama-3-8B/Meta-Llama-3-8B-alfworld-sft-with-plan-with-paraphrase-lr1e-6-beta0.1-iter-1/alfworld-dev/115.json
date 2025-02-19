@@ -1,0 +1,136 @@
+{
+    "meta": {
+        "steps": 14,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "/home/admin/workspace/aop_lab/ipr_plan/eval_agent/data/alfworld/json_2.1.1/valid_seen/look_at_obj_in_light-Statue-None-DeskLamp-216/trial_T20190909_193045_208933/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a armchair 1, a diningtable 1, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 1, a sidetable 3, a sidetable 2, a sidetable 1, and a sofa 1.\nYour task is to: examine the statue with the desklamp."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. desklamp_name, location_name = locate_a_desklamp(candidate_locations);\nStep 2. statue_name, statue_location = locate_a_statue(candidate_locations);\nStep 3. take_statue(statue_name, statue_location);\nStep 4. use_desklamp_to_examine(statue_name, desklamp_name).\nThe task requires me to examine the statue with the desklamp. First, I need to locate the desklamp to ensure it's available for use when I find the statue.\nAction: go to sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 1, you see a desklamp 1, and a statue 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have found the desklamp on sidetable 1, but there is also a statue here. I need to take the statue from this sidetable to examine it with the desklamp.\nAction: take statue 2 from sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the statue 2 from the sidetable 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the statue, I need to use the desklamp to examine it. However, I seem to have moved away from the desklamp after picking up the statue. I need to go back to sidetable 1 where the desklamp is.\nAction: go to sidetable 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 2, you see a houseplant 1, a newspaper 1, a statue 1, a tissuebox 1, and a vase 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am at sidetable 2, but this is not where the desklamp is. I need to go back to sidetable 1 where the desklamp is located to use it for examining the statue.\nAction: go to sidetable 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 3, you see a newspaper 3, a remotecontrol 1, a statue 4, a statue 3, and a tissuebox 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am at sidetable 3, but this is also not where the desklamp is. I need to go back to sidetable 1 where the desklamp is to complete my task.\nAction: go to shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 1, you see a newspaper 2, a vase 3, and a vase 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am at shelf 1, but this is not where the desklamp is. I need to go back to sidetable 1 where the desklamp is to examine the statue with it.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am at drawer 1, but this is not where the desklamp is. I need to go back to sidetable 1 where the desklamp is to use it for examining the statue.\nAction: go to drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 2 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am at drawer 2, but this is not where the desklamp is. I need to go back to sidetable 1 where the desklamp is to examine the statue with the light it provides.\nAction: go to drawer 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 3 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am at drawer 3, but this is not where the desklamp is. I need to go back to sidetable 1 where the desklamp is to use it for examining the statue.\nAction: go to drawer 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 4 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am at drawer 4, but this is not where the desklamp is. I need to go back to sidetable 1 where the desklamp is to examine the statue with the light it provides.\nAction: go to diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the diningtable 1, you see a box 1, and a tissuebox 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am at diningtable 1, but this is not where the desklamp is. I need to go back to sidetable 1 where the desklamp is to use it for examining the statue.\nAction: go to armchair 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the armchair 1, you see a pillow 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am at armchair 1, but this is not where the desklamp is. I need to go back to sidetable 1 where the desklamp is to examine the statue with the light it provides.\nAction: go to sofa 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sofa 1, you see a creditcard 1, a laptop 1, and a remotecontrol 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am at sofa 1, but this is not where the desklamp is. I need to go back to sidetable 1 where the desklamp is to use it for examining the statue.\nAction: go to sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 1, you see a desklamp 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am back at sidetable 1 where the desklamp is. Now, I can use the desklamp to examine the statue as instructed.\nAction: use desklamp 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You turn on the desklamp 1."
+        }
+    ]
+}

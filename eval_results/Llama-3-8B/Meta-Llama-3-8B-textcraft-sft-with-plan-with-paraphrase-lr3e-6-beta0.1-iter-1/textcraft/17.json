@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 black dye using 1 ink sac\ncraft 6 scaffolding using 1 string, 6 bamboo\ncraft 1 black banner using 6 black wool, 1 stick\ncraft 4 oak planks using 1 oak logs\ncraft 1 fletching table using 4 planks, 2 flint\ncraft 1 grindstone using 2 stick, 1 stone slab, 2 planks\ncraft 3 oak fence using 2 stick, 4 oak planks\ncraft 1 white wool using 4 string\ncraft 4 crimson planks using 1 crimson stems\ncraft 1 stick using 2 bamboo\ncraft 4 acacia planks using 1 acacia logs\ncraft 1 cyan wool using 1 cyan dye, 1 white wool\ncraft 4 birch planks using 1 birch logs\ncraft 4 stick using 2 planks\ncraft 1 brown bed using 3 brown wool, 3 planks\ncraft 8 black concrete powder using 1 black dye, 4 sand, 4 gravel\ncraft 1 chest using 8 planks\ncraft 4 spruce planks using 1 spruce logs\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 4 jungle planks using 1 jungle logs\ncraft 1 black dye using 1 wither rose\ncraft 1 fishing rod using 3 stick, 2 string\ncraft 1 black wool using 1 black dye, 1 white wool\ncraft 1 green wool using 1 green dye, 1 white wool\ncraft 4 warped planks using 1 warped stems\n\nGoal: craft black banner."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"black banner\" not in had_objects: find_flag = get(\"black banner\");\nStep 3. if find_flag == False: \"craft 1 black banner using 6 black wool, 1 stick\" = choose_crafting_commands(\"black banner\"), needed_ingredients = [\"6 black wool\", \"1 stick\"], find_flag = get(\"6 black wool\");\nStep 4. if find_flag == False: \"craft 1 black wool using 1 black dye, 1 white wool\" = choose_crafting_commands(\"black wool\"), needed_ingredients = [\"6 black dye\", \"6 white wool\"], get(\"6 white wool\");\nStep 5. for i in range(6): find_flag = get(\"1 black dye\");\nStep 6. if find_flag == False: \"craft 1 black dye using 1 ink sac\" = choose_crafting_commands(\"black dye\"), get(\"6 ink sac\");\nStep 7. for i in range(6): craft 1 black dye using 1 ink sac;\nStep 8. for i in range(6): craft 1 black wool using 1 black dye, 1 white wool;\nStep 9. get(\"1 stick\");\nStep 10. craft 1 black banner using 6 black wool, 1 stick\nTo craft a black banner, I need 6 black wool and 1 stick according to the crafting commands. Black wool can be crafted using black dye and white wool. I need to check my inventory to see if I already have these ingredients.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get black dye, white wool, and a stick to craft the black wool. Then I need 6 of the black wool and 1 stick to craft the black banner. So, I will start by trying to get black dye.\nAction: get 1 black dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find black dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I could not find black dye directly in the environment. I need to craft it. From the crafting commands, I can craft black dye using ink sac or wither rose. I will check my inventory again to see if I have either of those items.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory doesn't contain either an ink sac or a wither rose. I'll try to get an ink sac from the environment first.\nAction: get 1 ink sac"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 ink sac"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have an ink sac now, which I can use to craft black dye. \nAction: craft 1 black dye using 1 ink sac"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:black_dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have black dye, I need to get white wool to craft black wool. \nAction: get 1 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find white wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find white wool in the environment. I'll need to craft it. From the crafting commands, I can craft white wool using 4 strings. I will check my inventory to see if I have strings.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [black dye] (1)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory only contains black dye. I don't have any strings to craft white wool. So, I'll try to get strings from the environment.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the 4 strings, I can craft the white wool I need for the black wool.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have black dye and white wool, I can craft black wool.\nAction: craft 1 black wool using 1 black dye, 1 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:black_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted one black wool. I need to craft five more to have enough for the black banner.\nAction: repeat Step 1-6 five more times"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not execute repeat Step 1-6 five more times"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't execute Step 1-6 multiple times simultaneously. I'll have to repeat the process five more times individually.\nAction: craft 1 black dye using 1 ink sac"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:black_dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I ran out of ink sacs to craft black dye. I need to get more ink sacs.\nAction: get 5 ink sac"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 5 ink sac"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have more ink sacs, I can craft more black dye.\nAction: craft 1 black dye using 1 ink sac"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:black_dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have crafted more black dye, I need to get more white wool to craft black wool.\nAction: get 5 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find white wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find more white wool in the environment. I'll need to craft it again using strings. \nAction: get 20 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 20 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have more strings, I can craft more white wool.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have more white wool and black dye, I can craft more black wool.\nAction: craft 1 black wool using 1 black dye, 1 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:black_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted another black wool. I need to craft four more black wools to have enough for the black banner.\nAction: repeat Step 1-6 four more times"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not execute repeat Step 1-6 four more times"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't execute Step 1-6 multiple times simultaneously. I'll have to repeat the process four more times individually.\nAction: craft 1 black dye using 1 ink sac"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:black_dye"
+        }
+    ]
+}

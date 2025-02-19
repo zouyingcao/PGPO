@@ -1,0 +1,4 @@
+All tasks done.
+Output saved to outputs/Meta-Llama-3-8B-alfworld-sft-with-plan-dpo-with-paraphrase-lr1e-6-beta0.1-iter-1/alfworld
+Average reward: 0.7687
+Success rate: 0.7687

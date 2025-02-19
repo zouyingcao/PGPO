@@ -1,0 +1,72 @@
+{
+    "meta": {
+        "steps": 6,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "/home/admin/workspace/aop_lab/ipr_plan/eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_and_place_simple-Mug-None-Dresser-311/trial_T20190909_152837_739016/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a armchair 2, a armchair 1, a bed 1, a countertop 1, a diningtable 1, a drawer 2, a drawer 1, a dresser 1, a garbagecan 1, a laundryhamper 1, and a sidetable 1.\nYour task is to: put some mug on dresser."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. mug_name, location_name = locate_a_mug(candidate_locations);\nStep 2. take_a_mug(mug_name, location_name);\nStep 3. go_to_the_dresser();\nStep 4. put_mug_on_dresser().\nThe task is to put a mug on the dresser. I need to locate a mug first. The sidetable is a common place where mugs are kept, so I should check there first.\nAction: go to sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 1, you see a keychain 1, a pen 1, and a pencil 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no mug on the sidetable. I need to look elsewhere. The next logical place to check for a mug would be the countertop, as countertops often have mugs on them.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a book 1, a bowl 1, a mirror 1, and a pen 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The countertop doesn't have a mug either. I should continue searching. The dining table is another place where mugs are commonly found, especially if there's been a meal or a drink.\nAction: go to diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the diningtable 1, you see a alarmclock 1, a cd 2, a cellphone 2, a cellphone 1, a mug 1, and a pen 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I found a mug on the dining table. I need to pick it up so that I can place it on the dresser as instructed.\nAction: take mug 1 from diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the mug 1 from the diningtable 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the mug in my possession. Now I need to locate the dresser to complete the task.\nAction: go to dresser 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the dresser 1, you see a cd 1, a remotecontrol 1, and a television 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I will carefully place the mug on the dresser, ensuring it is stable and not likely to be knocked over.\nAction: put mug 1 in/on dresser 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the mug 1 in/on the dresser 1."
+        }
+    ]
+}

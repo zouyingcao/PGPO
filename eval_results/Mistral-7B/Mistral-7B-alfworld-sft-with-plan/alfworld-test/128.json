@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": false,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_unseen/pick_and_place_simple-SaltShaker-None-Drawer-10/trial_T20190909_021613_077537/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 3, a countertop 2, a countertop 1, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a shelf 3, a shelf 2, a shelf 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: put a saltshaker in drawer."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. saltshaker_name, location_name = locate_a_saltshaker(candidate_locations);\nStep 2. take_saltshaker(saltshaker_name, location_name);\nStep 3. go_to_a_drawer();\nStep 4. open_drawer();\nStep 5. put_saltshaker_in_drawer();\nI need to locate the saltshaker to complete the task. I will start by checking the nearest countertop for any saltshakers.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a creditcard 2, a dishsponge 2, and a mug 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The saltshaker is not on countertop 1, but there might be one on another countertop. I should check the next countertop.\nAction: go to countertop 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 2, you see a creditcard 1, a cup 2, a knife 2, a knife 1, a lettuce 1, a papertowelroll 1, a soapbottle 2, a statue 1, a tomato 2, and a tomato 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Countertop 2 also does not have the saltshaker. I'll continue searching the remaining countertop.\nAction: go to countertop 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 3, you see a bread 1, a butterknife 1, a houseplant 1, a potato 1, a spoon 1, and a vase 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The saltshaker is not on countertop 3 either. I should look in the drawers next as they often contain saltshakers and other kitchen items.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 1 is closed. I need to open it to see if the saltshaker is inside.\nAction: open drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 1. The drawer 1 is open. In it, you see a fork 1, and a peppershaker 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The saltshaker is not in drawer 1, but I found a peppershaker. I should close this drawer and check the next one.\nAction: close drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now I'll check drawer 2 for the saltshaker.\nAction: go to drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 2 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 2 is also closed. I'll open it to search for the saltshaker.\nAction: open drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 2. The drawer 2 is open. In it, you see a cellphone 1, and a spatula 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The saltshaker is not in drawer 2 either. I'll close this drawer and continue searching.\nAction: close drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I haven't checked drawer 3 yet. It might contain the saltshaker.\nAction: go to drawer 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 3 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 3 is closed. I'll open it and see if the saltshaker is inside.\nAction: open drawer 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 3. The drawer 3 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 3 is empty. The saltshaker is not here. I should close this drawer and look elsewhere.\nAction: close drawer 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I haven't checked the fridge yet. The saltshaker might be stored there.\nAction: go to fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The fridge 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The fridge is closed. I need to open it to check for the saltshaker inside.\nAction: open fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the fridge 1. The fridge 1 is open. In it, you see a apple 1, a bowl 1, a lettuce 2, a mug 1, and a plate 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The saltshaker is not in the fridge. I should close the fridge and continue searching.\nAction: close fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the fridge 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I haven't checked the countertop 4 area yet. The saltshaker might be there.\nAction: go to countertop 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Nothing happens."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's nothing on countertop 4. I should move on to the next area.\nAction: go to countertop 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Nothing happens."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Countertop 5 is also empty. I need to keep looking.\nAction: go to countertop 6"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Nothing happens."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: No items on countertop 6. I'll check the sink area next, as the saltshaker might be there after being used.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see a spatula 3, a spatula 2, and a spoon 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The sink area doesn't have the saltshaker. I should check the shelves next.\nAction: go to shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 1, you see a mug 3, and a statue 2."
+        }
+    ]
+}

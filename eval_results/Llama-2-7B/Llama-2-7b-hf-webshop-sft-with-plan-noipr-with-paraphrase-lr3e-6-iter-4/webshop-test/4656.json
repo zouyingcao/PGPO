@@ -1,0 +1,64 @@
+{
+    "meta": {
+        "steps": 5,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i am looking for star wars large size navy color bounty hunter wrap around logo raglan baseball t-shirt, and price lower than 50.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"star wars bounty hunter navy raglan baseball t-shirt price < 50.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_size(\"large\");\nStep 4. select_color(\"navy\");\nStep 5. buy().\nI think I should use the search bar to find the specific Star Wars t-shirt I need.\nAction: search[star wars bounty hunter navy raglan baseball t-shirt price < 50.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for star wars large size navy color bounty hunter wrap around logo raglan baseball t-shirt, and price lower than 50.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B082N8FR74 [SEP] Star Wars The Mandalorian Bounty Hunters This is the Way Raglan Baseball Tee [SEP] $27.5 [SEP] B002UHPSSA [SEP] Star Wars Men's The Bounty Hunter [SEP] $11.69 to $23.38 [SEP] B07YQHHK9F [SEP] Star Wars The Mandalorian Bounty Hunter Wrap Around Logo Raglan Baseball Tee [SEP] $32.99 [SEP] B096BK2QSQ [SEP] STAR WARS Mens T-Shirt Boba Fett [SEP] $21.95 [SEP] B07YQHJ1LZ [SEP] Star Wars The Mandalorian Bounty Hunter Stamp T-Shirt [SEP] $22.99 [SEP] B08CRQDLJH [SEP] Star Wars Boba Fett Grime Slime Dripping Paint Art T-Shirt [SEP] $22.99 [SEP] B082JTHL6G [SEP] Star Wars The Mandalorian The Child Painting Raglan Baseball Tee [SEP] $27.5 [SEP] B06XCFFR9W [SEP] Star Wars Men's The Boba Fett Short Sleeve T-Shirt [SEP] $15.39 to $27.32 [SEP] B082B2W5CK [SEP] Star Wars Boba Fett Pixelated 8-Bit T-Shirt [SEP] $22.99 [SEP] B07PJ83RPX [SEP] Star Wars Greedo Shot First Retro T-Shirt T-Shirt [SEP] $22.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the option that matches my criteria, which is B07YQHHK9F.\nAction: click[B07YQHHK9F]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for star wars large size navy color bounty hunter wrap around logo raglan baseball t-shirt, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] fit type [SEP] men [SEP] women [SEP] color [SEP] black | white [SEP] dark heather | white [SEP] navy | white [SEP] size [SEP] small [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] Star Wars The Mandalorian Bounty Hunter Wrap Around Logo Raglan Baseball Tee [SEP] Price: $32.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'large' size option for the t-shirt.\nAction: click[large]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for star wars large size navy color bounty hunter wrap around logo raglan baseball t-shirt, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] fit type [SEP] men [SEP] women [SEP] color [SEP] black | white [SEP] dark heather | white [SEP] navy | white [SEP] size [SEP] small [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] Star Wars The Mandalorian Bounty Hunter Wrap Around Logo Raglan Baseball Tee [SEP] Price: $32.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'navy | white' color option for the t-shirt.\nAction: click[navy | white]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for star wars large size navy color bounty hunter wrap around logo raglan baseball t-shirt, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] fit type [SEP] men [SEP] women [SEP] color [SEP] black | white [SEP] dark heather | white [SEP] navy | white [SEP] size [SEP] small [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] Star Wars The Mandalorian Bounty Hunter Wrap Around Logo Raglan Baseball Tee [SEP] Price: $32.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the t-shirt.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B07YQHHK9F [SEP] options [SEP] {\"color\": \"navy | white\", \"size\": \"large\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

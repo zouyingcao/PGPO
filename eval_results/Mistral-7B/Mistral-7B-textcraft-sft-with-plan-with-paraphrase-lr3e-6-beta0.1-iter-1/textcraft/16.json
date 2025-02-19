@@ -1,0 +1,112 @@
+{
+    "meta": {
+        "steps": 11,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 4 birch planks using 1 birch logs\ncraft 1 brown bed using 3 brown wool, 3 planks\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 4 warped planks using 1 warped stems\ncraft 1 rabbit stew using 1 baked potato, 1 cooked rabbit, 1 bowl, 1 carrot, 1 red mushroom\ncraft 4 stick using 2 planks\ncraft 1 rabbit stew using 1 baked potato, 1 cooked rabbit, 1 bowl, 1 carrot, 1 brown mushroom\ncraft 1 red dye using 1 beetroot\ncraft 4 spruce planks using 1 spruce logs\ncraft 1 mushroom stew using 1 brown mushroom, 1 red mushroom, 1 bowl\ncraft 4 crimson planks using 1 crimson stems\ncraft 4 bowl using 3 planks\ncraft 1 lime bed using 3 lime wool, 3 planks\ncraft 1 beetroot soup using 1 bowl, 6 beetroot\ncraft 1 shield using 6 planks, 1 iron ingot\ncraft 4 acacia planks using 1 acacia logs\ncraft 1 light gray bed using 3 light gray wool, 3 planks\ncraft 4 jungle planks using 1 jungle logs\ncraft 1 pink bed using 3 pink wool, 3 planks\ncraft 4 oak planks using 1 oak logs\n\nGoal: craft beetroot soup."
+        },
+        {
+            "from": "gpt",
+            "value": "First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"1 beetroot soup\" not in had_objects: find_flag = get(\"1 beetroot soup\");\nStep 3. if find_flag == False: \"craft 1 beetroot soup using 1 bowl, 6 beetroot\" = choose_crafting_commands(\"1 beetroot soup\"), needed_ingredients = [\"1 bowl\", \"6 beetroot\"], find_flag = get(\"1 bowl\");\nStep 4. if find_flag == False: \"craft 4 bowl using 3 planks\" = choose_crafting_commands(\"1 bowl\"), needed_ingredients = \"3 planks\", find_flag = get(\"3 planks\");\nStep 5. if find_flag == False: \"craft 4 oak planks using 1 oak logs\" = choose_crafting_commands(\"3 planks\"), needed_ingredients = \"1 oak logs\", get(\"1 oak logs\");\nStep 6. craft 4 oak planks using 1 oak logs;\nStep 7. craft 4 bowl using 3 oak planks;\nStep 8. get(\"6 beetroot\");\nStep 9. craft 1 beetroot soup using 1 bowl, 6 beetroot\nI should check if I can get beetroot soup directly from the environment or the inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no beetroot soup in my inventory. I should try to get it from the environment.\nAction: get beetroot soup"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not execute get beetroot soup"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get beetroot soup directly, I need to craft it. From the crafting commands, I can use: craft 1 beetroot soup using 1 bowl, 6 beetroot. Ingredients needed: 1 bowl, 6 beetroot. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients: 1 bowl, 6 beetroot first. Let's start with getting a bowl.\nAction: get 1 bowl"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find bowl"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot find a bowl directly in the environment. I need to craft it. From the crafting commands, I can craft 4 bowl using 3 planks. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients: 3 planks first. Let's start with getting planks.\nAction: get 3 planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot find planks directly in the environment. I need to craft them. From the crafting commands, I can craft oak planks using oak logs. Let's start with getting oak logs.\nAction: get 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 oak logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got 1 oak logs from the environment. Now I can craft oak planks using this oak log.\nAction: craft 4 oak planks using 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:oak_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted oak planks. Now I can use these to craft a bowl, which is needed to craft beetroot soup.\nAction: craft 4 bowl using 3 oak planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:bowl"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted a bowl. Now, I need to get 6 beetroot to craft beetroot soup.\nAction: get 6 beetroot"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 6 beetroot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got 6 beetroot from the environment. Now I can craft beetroot soup using the bowl and beetroot.\nAction: craft 1 beetroot soup using 1 bowl, 6 beetroot"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:beetroot_soup"
+        }
+    ]
+}

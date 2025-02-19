@@ -1,0 +1,64 @@
+{
+    "meta": {
+        "steps": 5,
+        "reward": 0.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i would like a box of individually wrapped chocolate cereal bars, and price lower than 70.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"individually wrapped chocolate cereal bars, price lower than 70.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_flavor(\"dark chocolate\");\nStep 4. select_size(\"1.9 ounce (pack of 6)\");\nStep 5. buy().\nI think I should use the search bar to find the box of individually wrapped chocolate cereal bars within the price range.\nAction: search[individually wrapped chocolate cereal bars]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i would like a box of individually wrapped chocolate cereal bars, and price lower than 70.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B09RND5D4Y [SEP] White Chocolate King Sized Fruity Cereal Candy Bar, Individually Wrapped Treat Candies, Chocolates for Gifting and Easter Baskets, Pack of 3, 2.75 Ounces [SEP] $11.88 [SEP] B08D6ZG3QY [SEP] Hershey's KitKat 6 Bars Variety Assortment Mix Bundle Pack Chocolate Candy Singles - Milk - White - Mint - Mocha - Lime Pie - Fruity Cereal [SEP] $12.5 [SEP] B095DCYB9Q [SEP] Golden Grahams Soft Baked Bars, 12 ct (Pack of 4) [SEP] $19.8 [SEP] B09NF1PY6F [SEP] Hammond's Midnight Snack Milk Chocolate Candy Bar [SEP] $7.99 [SEP] B002YM58UE [SEP] Special K Protein Bar, Chocolate Peanut Butter, 1.59-Ounce Packages (Pack of 16) [SEP] $36.8 [SEP] B08FSN4G6W [SEP] Rice Krispies Treats Homestyle Marshmallow Snack Bars, Kids Snacks, School Lunch, Chocolate, 6.98oz Box (6 Bars) [SEP] $100.0 [SEP] B09S5JPWTZ [SEP] KIT KAT Chocolate, Crisp Wafers, 1.5-Ounce Candy Bars - Milk, White, Duos Mint & Dark, Duos Mocha & Chocolate, Duos Strawberry & Dark Chocolate, Key Lime Pie, Fruity Cereal - Great For Christmas, Halloween, Holidays, Gifts & More! (Strawberry & Dark Chocolate, 6 Count) [SEP] $13.95 [SEP] B098BTG68C [SEP] Kellogg's Rice Krispies Treats Homestyle Crispy Marshmallow Squares, Chocolate, Lunch Box Snack, 12ct ( 24 total chocolate treats ) ( 2 pack ) [SEP] $28.99 [SEP] B074JH9P3C [SEP] Cinnamon Toast Crunch Cereal Bar, 1.42 Oz (Pack of 96) [SEP] $44.99 [SEP] B074JG4CCS [SEP] Golden Grahams Cereal Bar, 1.42 Oz (Pack of 96) [SEP] $44.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the option that fits the criteria of a box of individually wrapped chocolate cereal bars with a price lower than 70.00 dollars.\nAction: click[B09S5JPWTZ]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i would like a box of individually wrapped chocolate cereal bars, and price lower than 70.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] flavor name [SEP] chocolate [SEP] duos mint & dark chocolate [SEP] duos mocha & chocolate [SEP] fruity cereal - limited edition [SEP] key lime pie - limited edition [SEP] strawberry & dark chocolate [SEP] white chocolate [SEP] size [SEP] 6 count [SEP] 12 count [SEP] KIT KAT Chocolate, Crisp Wafers, 1.5-Ounce Candy Bars - Milk, White, Duos Mint & Dark, Duos Mocha & Chocolate, Duos Strawberry & Dark Chocolate, Key Lime Pie, Fruity Cereal - Great For Christmas, Halloween, Holidays, Gifts & More! (Strawberry & Dark Chocolate, 6 Count) [SEP] Price: $13.95 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'dark chocolate' flavor option to select the desired chocolate.\nAction: click[chocolate]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i would like a box of individually wrapped chocolate cereal bars, and price lower than 70.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] flavor name [SEP] chocolate [SEP] duos mint & dark chocolate [SEP] duos mocha & chocolate [SEP] fruity cereal - limited edition [SEP] key lime pie - limited edition [SEP] strawberry & dark chocolate [SEP] white chocolate [SEP] size [SEP] 6 count [SEP] 12 count [SEP] KIT KAT Chocolate, Crisp Wafers, 1.5-Ounce Candy Bars - Milk, White, Duos Mint & Dark, Duos Mocha & Chocolate, Duos Strawberry & Dark Chocolate, Key Lime Pie, Fruity Cereal - Great For Christmas, Halloween, Holidays, Gifts & More! (Strawberry & Dark Chocolate, 6 Count) [SEP] Price: $13.95 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the '1.9 ounce (pack of 6)' size option to select the desired size.\nAction: click[1.9 ounce (pack of 6)]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i would like a box of individually wrapped chocolate cereal bars, and price lower than 70.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] flavor name [SEP] chocolate [SEP] duos mint & dark chocolate [SEP] duos mocha & chocolate [SEP] fruity cereal - limited edition [SEP] key lime pie - limited edition [SEP] strawberry & dark chocolate [SEP] white chocolate [SEP] size [SEP] 6 count [SEP] 12 count [SEP] KIT KAT Chocolate, Crisp Wafers, 1.5-Ounce Candy Bars - Milk, White, Duos Mint & Dark, Duos Mocha & Chocolate, Duos Strawberry & Dark Chocolate, Key Lime Pie, Fruity Cereal - Great For Christmas, Halloween, Holidays, Gifts & More! (Strawberry & Dark Chocolate, 6 Count) [SEP] Price: $13.95 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the box of individually wrapped chocolate cereal bars.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B09S5JPWTZ [SEP] options [SEP] {\"flavor name\": \"chocolate\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

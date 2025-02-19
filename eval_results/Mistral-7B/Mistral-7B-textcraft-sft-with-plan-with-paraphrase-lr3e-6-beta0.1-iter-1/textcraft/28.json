@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 4 jungle planks using 1 jungle logs\ncraft 1 gray bed using 3 gray wool, 3 planks\ncraft 1 trapped chest using 1 chest, 1 tripwire hook\ncraft 1 soul lantern using 1 soul torch, 8 iron nugget\ncraft 1 fletching table using 4 planks, 2 flint\ncraft 4 spruce planks using 1 spruce logs\ncraft 1 iron trapdoor using 4 iron ingot\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 1 iron ingot using 9 iron nugget\ncraft 4 oak planks using 1 oak logs\ncraft 4 birch planks using 1 birch logs\ncraft 4 warped planks using 1 warped stems\ncraft 1 shulker box using 1 chest, 2 shulker shell\ncraft 1 minecart using 5 iron ingot\ncraft 1 stonecutter using 1 iron ingot, 3 stone\ncraft 1 chest minecart using 1 chest, 1 minecart\ncraft 1 tnt minecart using 1 tnt, 1 minecart\ncraft 1 furnace minecart using 1 furnace, 1 minecart\ncraft 4 crimson planks using 1 crimson stems\ncraft 4 acacia planks using 1 acacia logs\ncraft 1 chest using 8 planks\ncraft 1 iron pickaxe using 2 stick, 3 iron ingot\n\nGoal: craft chest minecart."
+        },
+        {
+            "from": "gpt",
+            "value": "First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"1 chest minecart\" not in had_objects: find_flag = get(\"1 chest minecart\");\nStep 3. if find_flag == False: \"craft 1 chest minecart using 1 chest, 1 minecart\" = choose_crafting_commands(\"1 chest minecart\"), needed_ingredients = [\"1 chest\", \"1 minecart\"], find_flag = get(\"1 chest\");\nStep 4. if find_flag == False: \"craft 1 chest using 8 planks\" = choose_crafting_commands(\"1 chest\"), needed_ingredients = \"8 planks\", find_plank_flag = get(\"8 planks\");\nStep 5. if find_plank_flag == False: \"craft 4 jungle planks using 1 jungle logs\" = choose_crafting_commands(\"8 planks\"), needed_ingredients = \"2 jungle logs\", get(\"2 jungle logs\");\nStep 6. for i in range(2): craft 4 jungle planks using 1 jungle logs;\nStep 7. if \"1 minecart\" not in had_objects: find_minecart_flag = get(\"1 minecart\");\nStep 7. if find_minecart_flag == False: \"craft 1 minecart using 5 iron ingot\" = choose_crafting_commands(\"1 minecart\"), needed_ingredients = \"5 iron ingot\", get(\"5 iron ingot\");\nStep 8. craft 1 minecart using 5 iron ingot;\nStep 9. craft 1 chest minecart using 1 chest, 1 minecart\nI should check if I can get a chest minecart directly from the environment or the inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no chest minecart in my inventory. I should try to get it from the environment.\nAction: get 1 chest minecart"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find chest minecart"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get a chest minecart directly, I need to craft it. From the crafting commands, I can use: craft 1 chest minecart using 1 chest, 1 minecart. Ingredients needed: 1 chest, 1 minecart. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients: 1 chest, 1 minecart first. Let's start with getting a chest.\nAction: get 1 chest"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find chest"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get a chest directly, I need to craft it. From the crafting commands, I can craft a chest using: craft 1 chest using 8 planks. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients: 8 planks first. Let's start with getting these planks.\nAction: get 8 planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get planks directly, I need to craft them. From the crafting commands, I can craft jungle planks using: craft 4 jungle planks using 1 jungle logs. I should check if I have these ingredients in my inventory.\nAction: get 1 jungle logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 jungle logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got 1 jungle log. Now I can craft jungle planks using this jungle log.\nAction: craft 4 jungle planks using 1 jungle logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:jungle_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted 4 jungle planks. Now I need to craft a chest using these planks.\nAction: craft 1 chest using 8 jungle planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:chest"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to craft a chest using 8 planks, but I don't have enough jungle planks. I need to get more jungle logs to craft more planks.\nAction: get 1 jungle logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 jungle logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got 1 more jungle log. Now I can craft more jungle planks using this jungle log.\nAction: craft 4 jungle planks using 1 jungle logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:jungle_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted more jungle planks. Now I can proceed to craft the chest using the required 8 planks.\nAction: craft 1 chest using 8 jungle planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:chest"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted the chest. Now, I need to craft a minecart. To craft a minecart, I need 5 iron ingots. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [chest] (1)"
+        },
+        {
+            "from": "gpt",
+            "value": ""
+        },
+        {
+            "from": "human",
+            "value": "Observation: Invalid format. The input must contains 'Action: '"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The input does not contain an action, it's in the wrong format. I'll try again to craft the chest minecart using the correct syntax.\nAction: craft 1 chest minecart using 1 chest, 1 minecart"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:chest_minecart"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm not able to craft the chest minecart because I'm missing some of the required items. I'll check my inventory to see what I have.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [chest] (1)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I only have the chest in my inventory. I need the minecart to craft the chest minecart. I'll try to get the minecart.\nAction: get 1 minecart"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find minecart"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm not able to get the minecart. I'll need to craft it. To craft a minecart, I need 5 iron ingots. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [chest] (1)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I only have the chest in my inventory. I need the 5 iron ingots to craft the minecart. I'll try to get the iron ingots.\nAction: get 5 iron ingot"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find iron ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm not able to get the iron ingots. I'll need to craft them. To craft iron ingots, I need iron nuggets. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [chest] (1)"
+        }
+    ]
+}

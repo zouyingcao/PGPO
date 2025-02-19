@@ -1,0 +1,80 @@
+{
+    "meta": {
+        "steps": 7,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/look_at_obj_in_light-Vase-None-DeskLamp-303/trial_T20190907_150418_457594/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 1, a garbagecan 1, a shelf 12, a shelf 11, a shelf 10, a shelf 9, a shelf 8, a shelf 7, a shelf 6, a shelf 5, a shelf 4, a shelf 3, a shelf 2, a shelf 1, and a sidetable 1.\nYour task is to: look at vase under the desklamp."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. desklamp_location = locate_a_desklamp(candidate_locations);\nStep 2. vase_location = locate_a_vase(candidate_locations);\nStep 3. take_a_vase(vase_location);\nStep 4. use_a_desklamp_to_examine(vase).\nThe task is to look at the vase under the desklamp. First, I need to locate the desklamp to determine where I should be looking for the vase.\nAction: go to sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 1, you see a alarmclock 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The desklamp is not on the sidetable. I should check the shelves next, starting with the one closest to me.\nAction: go to shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 1 is empty. I'll move on to the next shelf.\nAction: go to shelf 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 2, you see a pen 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Only a pen here on shelf 2. I need to continue searching the shelves.\nAction: go to shelf 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 3, you see a vase 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I found a vase on shelf 3. I should take it so I can place it under the desklamp to complete the task.\nAction: take vase 1 from shelf 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the vase 1 from the shelf 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With the vase in hand, I need to find the desklamp, which is most likely on the desk.\nAction: go to desk 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the desk 1, you see a desklamp 1, a laptop 1, a mug 3, a pencil 2, and a vase 4."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I see the desklamp on the desk. I will use it to complete the task by placing the vase under it.\nAction: use desklamp 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You turn on the desklamp 1."
+        }
+    ]
+}

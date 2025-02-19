@@ -1,0 +1,4 @@
+All tasks done.
+Output saved to outputs/Meta-Llama-3-8B-alfworld-sft-with-plan/alfworld-dev
+Average reward: 0.7500
+Success rate: 0.7500

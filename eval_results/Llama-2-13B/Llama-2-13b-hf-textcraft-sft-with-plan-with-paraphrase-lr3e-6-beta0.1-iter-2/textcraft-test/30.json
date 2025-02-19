@@ -1,0 +1,88 @@
+{
+    "meta": {
+        "steps": 8,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 polished blackstone button using 1 polished blackstone\ncraft 6 polished blackstone slab using 3 polished blackstone\ncraft 1 chiseled polished blackstone using 2 polished blackstone slab\ncraft 4 blackstone stairs using 6 blackstone\ncraft 6 polished blackstone wall using 6 polished blackstone\ncraft 1 polished blackstone pressure plate using 2 polished blackstone\ncraft 4 polished blackstone bricks using 4 polished blackstone\ncraft 6 blackstone wall using 6 blackstone\ncraft 6 blackstone slab using 3 blackstone\ncraft 4 polished blackstone using 4 blackstone\ncraft 4 polished blackstone stairs using 6 polished blackstone\n\nGoal: craft chiseled polished blackstone."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"chiseled polished blackstone\" not in had_objects: find_flag = get(\"chiseled polished blackstone\");\nStep 3. if find_flag == False: \"craft 1 chiseled polished blackstone using 2 polished blackstone slab\" = choose_crafting_commands(\"chiseled polished blackstone\"), needed_ingredients = \"2 polished blackstone slab\";\nStep 4. if \"polished blackstone slab\" not in had_objects: find_flag = get(\"polished blackstone slab\");\nStep 5. if find_flag == False: \"craft 6 polished blackstone slab using 3 polished blackstone\" = choose_crafting_commands(\"polished blackstone slab\"), needed_ingredients = \"3 polished blackstone\";\nStep 6. if \"polished blackstone\" not in had_objects: find_flag = get(\"polished blackstone\");\nStep 7. if find_flag == False: \"craft 4 polished blackstone using 4 blackstone\" = choose_crafting_commands(\"polished blackstone\"), needed_ingredients = \"4 blackstone\";\nStep 8. if \"blackstone\" not in had_objects: find_flag = get(\"blackstone\");\nStep 9. collect_all_needed_ingredients(needed_ingredients);\nStep 10. craft 4 polished blackstone using 4 blackstone;\nStep 11. craft 6 polished blackstone slab using 3 polished blackstone;\nStep 12. craft 1 chiseled polished blackstone using 2 polished blackstone slab.\nTo craft chiseled polished blackstone, the recipe requires 2 polished blackstone slabs. I should check my inventory to see if I have any.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have any items in my inventory. I will need to craft the polished blackstone slabs first in order to craft the chiseled polished blackstone.\nAction: craft 6 polished blackstone slab using 3 polished blackstone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:polished_blackstone_slab"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to get the polished blackstone first in order to craft the polished blackstone slabs.\nAction: get 3 polished blackstone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find polished blackstone"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find polished blackstone in the environment. I need to craft it using the recipe: craft 4 polished blackstone using 4 blackstone. I should check my inventory for blackstone.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have blackstone in my inventory either. I will need to get blackstone from the environment first in order to craft polished blackstone.\nAction: get 4 blackstone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 blackstone"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 4 blackstone, I can craft polished blackstone using the recipe: craft 4 polished blackstone using 4 blackstone.\nAction: craft 4 polished blackstone using 4 blackstone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:polished_blackstone"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have polished blackstone, I can use it to craft polished blackstone slabs. I need 2 polished blackstone slabs to craft chiseled polished blackstone.\nAction: craft 6 polished blackstone slab using 3 polished blackstone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 6 minecraft:polished_blackstone_slab"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 2 polished blackstone slabs, I can use them to craft chiseled polished blackstone.\nAction: craft 1 chiseled polished blackstone using 2 polished blackstone slab"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:chiseled_polished_blackstone"
+        }
+    ]
+}

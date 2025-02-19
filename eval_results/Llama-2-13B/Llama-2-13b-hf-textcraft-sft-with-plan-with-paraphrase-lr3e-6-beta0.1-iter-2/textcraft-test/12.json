@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 6 andesite slab using 3 andesite\ncraft 1 quartz block using 4 quartz\ncraft 2 andesite using 1 diorite, 1 cobblestone\ncraft 1 granite using 1 diorite, 1 quartz\ncraft 1 observer using 1 quartz, 2 redstone, 6 cobblestone\ncraft 4 cobblestone stairs using 6 cobblestone\ncraft 4 polished andesite using 4 andesite\ncraft 1 comparator using 3 redstone torch, 1 quartz, 3 stone\ncraft 2 diorite using 2 quartz, 2 cobblestone\ncraft 6 cobblestone slab using 3 cobblestone\ncraft 4 diorite stairs using 6 diorite\ncraft 6 cobblestone wall using 6 cobblestone\ncraft 1 dispenser using 1 redstone, 7 cobblestone, 1 bow\n\nGoal: craft andesite slab."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"3 andesite\" not in had_objects: find_flag = get(\"3 andesite\");\nStep 3. if find_flag == False: \"craft 2 andesite using 1 diorite, 1 cobblestone\" = choose_crafting_commands(\"3 andesite\"), needed_ingredients = \"1 diorite, 1 cobblestone\", find_flag = get(\"1 diorite\");\nStep 4. if find_flag == False: \"craft 2 diorite using 2 quartz, 2 cobblestone\" = choose_crafting_commands(\"1 diorite\"), needed_ingredients = \"2 quartz, 2 cobblestone\", find_flag = get(\"2 quartz\");\nStep 5. if find_flag == False: \"craft 1 quartz using 1 quartzite\" = choose_crafting_commands(\"2 quartz\"), needed_ingredients = \"2 quartzite\", find_flag = get(\"2 quartzite\");\nStep 6. if find_flag == True: for i in range(2): craft 1 quartz using 1 quartzite;\nStep 7. if find_flag == False: \"craft 2 cobblestone using 1 quartz, 1 cobblestone\" = choose_crafting_commands(\"2 cobblestone\"), needed_ingredients = \"1 quartz, 1 cobblestone\", find_flag = get(\"1 quartz\");\nStep 8. if find_flag == False: \"craft 1 quartz using 1 quartzite\" = choose_crafting_commands(\"1 quartz\"), needed_ingredients = \"1 quartzite\", find_flag = get(\"1 quartzite\");\nStep 9. if find_flag == True: craft 1 quartz using 1 quartzite;\nStep 10. if find_flag == False: craft 2 cobblestone using 1 quartz, 1 cobblestone;\nStep 11. craft 2 andesite using 1 diorite, 1 cobbl"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Invalid format. The input must contains 'Action: '"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: OK. I'll follow your instructions and try my best to solve the task. \nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are no items in my inventory. I need to get the ingredients to craft an andesite slab.\nAction: get 3 andesite"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find andesite"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get andesite directly from the environment. I need to craft it. The crafting command is: craft 2 andesite using 1 diorite, 1 cobblestone. Ingredients needed: 1 diorite, 1 cobblestone. Input assumption: I have the ingredients needed in my inventory. Let me verify this first.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are no items in my inventory. I need to get the ingredients to craft an andesite slab.\nAction: get 1 diorite"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find diorite"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get diorite directly from the environment. I need to craft it. The crafting command is: craft 2 diorite using 2 quartz, 2 cobblestone. Ingredients needed: 2 quartz, 2 cobblestone. Input assumption: I have the ingredients needed in my inventory. Let me verify this first.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are no items in my inventory. I need to get the ingredients to craft an andesite slab.\nAction: get 2 quartz"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 quartz"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the quartz needed for crafting diorite. Now, I need to get the cobblestone.\nAction: get 2 cobblestone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 cobblestone"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 2 quartz and 2 cobblestone, I can craft diorite.\nAction: craft 2 diorite using 2 quartz, 2 cobblestone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 2 minecraft:diorite"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the diorite, I need to get the cobblestone to craft the andesite.\nAction: get 1 cobblestone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 cobblestone"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 1 diorite and 1 cobblestone, I can craft andesite.\nAction: craft 2 andesite using 1 diorite, 1 cobblestone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 2 minecraft:andesite"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the andesite, I can craft the andesite slab.\nAction: craft 6 andesite slab using 3 andesite"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:andesite_slab"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I do not have enough andesite to craft an andesite slab. I need 3 andesite and I only have 2. I need to get more andesite.\nAction: get 1 andesite"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find andesite"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get andesite directly from the environment. I need to craft it. The crafting command is: craft 2 andesite using 1 diorite, 1 cobblestone. Ingredients needed: 1 diorite, 1 cobblestone. I will need to obtain these ingredients again.\nAction: get 1 diorite"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find diorite"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get diorite directly from the environment. I need to craft it. The crafting command is: craft 2 diorite using 2 quartz, 2 cobblestone. Ingredients needed: 2 quartz, 2 cobblestone. I will need to obtain these ingredients again.\nAction: get 2 quartz"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 quartz"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the quartz needed for crafting diorite. Now, I need to get the cobblestone.\nAction: get 2 cobblestone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 cobblestone"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 2 quartz and 2 cobblestone, I can craft diorite.\nAction: craft 2 diorite using 2 quartz, 2 cobblestone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 2 minecraft:diorite"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the diorite, I need to get the cobblestone to craft more andesite.\nAction: get 1 cobblestone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 cobblestone"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 1 diorite and 1 cobblestone, I can craft andesite.\nAction: craft 2 andesite using 1 diorite, 1 cobblestone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 2 minecraft:andesite"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have enough andesite, I can craft the andesite slab.\nAction: craft 6 andesite slab using 3 andesite"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 6 minecraft:andesite_slab"
+        }
+    ]
+}

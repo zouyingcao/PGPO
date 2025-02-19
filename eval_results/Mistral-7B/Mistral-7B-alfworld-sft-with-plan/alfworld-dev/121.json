@@ -1,0 +1,96 @@
+{
+    "meta": {
+        "steps": 9,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_cool_then_place_in_recep-Apple-None-GarbageCan-2/trial_T20190906_195943_081289/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 2, a countertop 1, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 6, a stoveburner 5, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: put a cool apple in garbagecan."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. apple_name, location_name = locate_an_apple(candidate_locations);\nStep 2. take_apple(apple_name, location_name);\nStep 3. go_to_fridge();\nStep 4. open_fridge();\nStep 5. cool_apple_with_fridge(apple_name);\nStep 6. go_to_garbagecan();\nStep 7. put_apple_in_garbagecan(apple_name).\nI need to locate an apple to complete the task. I will start by checking the nearest countertop for any apples.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a bread 2, a egg 3, a fork 1, a knife 1, a lettuce 1, a pan 2, a pan 1, a plate 1, a pot 3, a spoon 1, a window 3, and a window 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no apple on countertop 1, but there are other items here. I should check the next countertop to see if there's an apple there.\nAction: go to countertop 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 2, you see a apple 1, a bowl 1, a bread 1, a cellphone 3, a ladle 3, a peppershaker 1, a pot 2, a potato 1, a soapbottle 2, and a spoon 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have found an apple on countertop 2. I will take it so I can proceed to cool it as per the task instructions.\nAction: take apple 1 from countertop 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the apple 1 from the countertop 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the apple, I need to cool it. The fridge is typically used to cool items, so I will go there next.\nAction: go to fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The fridge 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The fridge is closed. I need to open it to cool the apple inside.\nAction: open fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the fridge 1. The fridge 1 is open. In it, you see a egg 2, a plate 2, a potato 2, and a tomato 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have opened the fridge, but I realize I don't need to place the apple inside to cool it. I should close the fridge to conserve energy and proceed with cooling the apple externally.\nAction: close fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the fridge 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With the fridge closed, I can now cool the apple by holding it against the fridge's exterior, which is a common method for cooling food items quickly.\nAction: cool apple 1 with fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You cool the apple 1 using the fridge 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The apple is now cool. The final step is to dispose of it in the garbage can as instructed.\nAction: go to garbagecan 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the garbagecan 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am at the garbage can and ready to complete the task by putting the cool apple inside it.\nAction: put apple 1 in/on garbagecan 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the apple 1 in/on the garbagecan 1."
+        }
+    ]
+}

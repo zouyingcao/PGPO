@@ -1,0 +1,168 @@
+{
+    "meta": {
+        "steps": 18,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/look_at_obj_in_light-KeyChain-None-DeskLamp-327/trial_T20190906_202601_548273/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 1, a garbagecan 1, a shelf 5, a shelf 4, a shelf 3, a shelf 2, and a shelf 1.\nYour task is to: examine the keychain with the desklamp."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. desklamp_name, location_name = locate_a_desklamp(candidate_locations);\nStep 2. keychain_name = find_a_keychain(location_name);\nStep 3. take_a_keychain(keychain_name, location_name);\nStep 4. use_a_desklamp_to_examine(keychain_name, desklamp_name).\nThe task requires me to examine the keychain with the desklamp. First, I need to locate the desklamp to find the keychain.\nAction: go to shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 1, you see a bowl 1, a keychain 2, and a pen 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have found a keychain on shelf 1. I need to pick it up so I can examine it with the desklamp.\nAction: take keychain 2 from shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the keychain 2 from the shelf 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am looking for the desklamp, which is likely to be on a desk or a dresser. The desk is a logical place to start searching.\nAction: go to desk 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the desk 1, you see a book 1, and a laptop 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The desklamp is not on the desk. I should check the drawers of the desk as the keychain might be stored inside one of them.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 1 is closed. I need to open it to check for the keychain inside.\nAction: open drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 1. The drawer 1 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is empty. I should close it and continue searching the other drawers.\nAction: close drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to systematically check each drawer for the desklamp or the keychain.\nAction: go to drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 2 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 2 is also closed. I'll open it to see if the keychain or desklamp is inside.\nAction: open drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 2. The drawer 2 is open. In it, you see a cd 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is only a cd in drawer 2, no keychain or desklamp. I should close this drawer and continue my search.\nAction: close drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I must continue the search by moving on to the next drawer.\nAction: go to drawer 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 3 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 3 is closed. I'll open it to check for the keychain or desklamp.\nAction: open drawer 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 3. The drawer 3 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: This drawer is empty as well. I'll close it and keep looking.\nAction: close drawer 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to persist in checking each drawer for the keychain or desklamp.\nAction: go to drawer 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 4 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 4 is closed. I'll open it and hope to find the keychain or desklamp inside.\nAction: open drawer 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 4. The drawer 4 is open. In it, you see a creditcard 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's only a credit card in drawer 4. I'll close this drawer and continue the search.\nAction: close drawer 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 4."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I should check the dresser next, as it's another place where the desklamp or keychain might be.\nAction: go to dresser 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the dresser 1, you see a cd 3, a cellphone 1, a desklamp 1, a keychain 3, a pencil 3, and a pencil 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've found the desklamp on the dresser, along with a keychain. I need to pick up the keychain to examine it with the desklamp.\nAction: take keychain 3 from dresser 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Nothing happens."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the keychain, I should use the desklamp to examine it as instructed.\nAction: use desklamp 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You turn on the desklamp 1."
+        }
+    ]
+}

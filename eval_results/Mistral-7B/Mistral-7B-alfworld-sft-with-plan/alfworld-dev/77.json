@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": false,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_two_obj_and_place-Newspaper-None-Drawer-224/trial_T20190911_101248_326533/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a armchair 1, a cabinet 1, a drawer 21, a drawer 20, a drawer 19, a drawer 18, a drawer 17, a drawer 16, a drawer 15, a drawer 14, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 1, a garbagecan 1, a sidetable 5, a sidetable 4, a sidetable 3, a sidetable 2, a sidetable 1, and a sofa 1.\nYour task is to: put two newspaper in drawer."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. newspaper_1, location_1 = locate_a_newspaper(candidate_locations);\nStep 2. take_newspaper(newspaper_1, location_1);\nStep 3. newspaper_2, location_2 = locate_a_newspaper(candidate_locations);\nStep 4. take_newspaper(newspaper_2, location_2);\nStep 5. go_to_a_drawer();\nStep 6. open_drawer();\nStep 7. put_newspaper_in_drawer(newspaper_1);\nStep 8. put_newspaper_in_drawer(newspaper_2).\nI need to locate two newspapers to complete the task. I will start by checking the nearest surfaces which could hold such items, such as side tables.\nAction: go to sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 1, you see a desklamp 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no newspaper on sidetable 1, only a desklamp. I should check the next likely place where a newspaper might be found.\nAction: go to sidetable 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 2, you see a creditcard 1, and a statue 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Sidetable 2 also does not have a newspaper; it has a credit card and a statue. I'll continue searching the remaining side tables.\nAction: go to sidetable 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 3, you see a statue 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Sidetable 3 only has a statue. No newspaper here either. I must keep looking.\nAction: go to sidetable 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 4, you see a box 1, and a keychain 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Sidetable 4 has a box and a keychain, but no newspaper. I'll move on to the next one.\nAction: go to sidetable 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 5, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Sidetable 5 is empty. There are no newspapers here. I should now check other places where a newspaper might be, such as the dresser.\nAction: go to dresser 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the dresser 1, you see a book 1, a box 2, a newspaper 2, a remotecontrol 2, a remotecontrol 1, and a television 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: On the dresser, I've found a newspaper among other items. I'll take this one and look for another.\nAction: take newspaper 2 from dresser 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the newspaper 2 from the dresser 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With one newspaper in hand, I need to find a second one. I'll recheck the side tables starting from sidetable 1.\nAction: go to sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 1, you see a desklamp 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: As before, there's still no newspaper on sidetable 1. I'll continue my search.\nAction: go to sidetable 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 2, you see a creditcard 1, and a statue 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Sidetable 2 also remains unchanged, with no newspaper. I'll move on to the next one.\nAction: go to sidetable 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 3, you see a statue 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Sidetable 3 has not changed; the statue is still there, and no newspaper. I'll keep looking.\nAction: go to sidetable 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 4, you see a box 1, and a keychain 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Sidetable 4 hasn't been affected by my previous observation; the box and keychain are still there, and no newspaper. I'll check the last side table.\nAction: go to sidetable 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 5, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Sidetable 5 is still empty as expected. I'll now check the dresser again since that's where I found the first newspaper.\nAction: go to dresser 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the dresser 1, you see a book 1, a box 2, a remotecontrol 2, a remotecontrol 1, and a television 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The dresser no longer has a newspaper, so I should check the drawers next, starting with drawer 1.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the drawer 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 1 is empty. I'll continue searching the drawers systematically.\nAction: go to drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 2 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 2 is closed. I need to open it to check for a newspaper inside.\nAction: open drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 2. The drawer 2 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is empty. I'll close it and move on to the next one.\nAction: close drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'll check drawer 3 now for a newspaper.\nAction: go to drawer 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 3 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 3 is also closed. I'll open it to see if the newspaper is inside.\nAction: open drawer 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 3. The drawer 3 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: This drawer is empty as well. I'll close it and continue my search.\nAction: close drawer 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 3."
+        }
+    ]
+}

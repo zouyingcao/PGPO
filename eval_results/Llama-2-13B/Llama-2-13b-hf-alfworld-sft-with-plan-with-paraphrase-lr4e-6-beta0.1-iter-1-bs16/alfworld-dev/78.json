@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": false,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_two_obj_and_place-Spatula-None-Drawer-13/trial_T20190908_183331_203888/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 26, a cabinet 25, a cabinet 24, a cabinet 23, a cabinet 22, a cabinet 21, a cabinet 20, a cabinet 19, a cabinet 18, a cabinet 17, a cabinet 16, a cabinet 15, a cabinet 14, a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 3, a countertop 2, a countertop 1, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: put two spatula in drawer."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. spatula_name, location_name = locate_a_spatula(candidate_locations);\nStep 2. take_spatula(spatula_name, location_name);\nStep 3. go_to_the_drawer(drawer_number);\nStep 4. open_drawer(drawer_number);\nStep 5. put_spatula_in_drawer(spatula_name, drawer_number);\nStep 6. spatula_name, location_name = locate_a_spatula(candidate_locations);\nStep 7. take_spatula(spatula_name, location_name);\nStep 8. go_to_the_drawer(drawer_number);\nStep 9. open_drawer(drawer_number);\nStep 10. put_spatula_in_drawer(spatula_name, drawer_number).\nI need to locate a spatula to put in the drawer. The sink basin is a common place where utensils might be left after being used or washed.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see a apple 1, a lettuce 2, a spoon 2, and a spoon 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no spatula here on the sink basin, but I should check other locations where a spatula might be stored, such as near the stove where cooking utensils are often kept.\nAction: go to stoveburner 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the stoveburner 1, you see a pot 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The stoveburner does not have a spatula either. I should continue searching in other areas where utensils might be kept, such as drawers.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is closed. I need to open it to check for a spatula inside.\nAction: open drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 1. The drawer 1 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is empty. I should close it and look elsewhere for the spatula.\nAction: close drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I will check the next stoveburner in case the spatula was misplaced or is being used on another burner.\nAction: go to stoveburner 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the stoveburner 2, you see a pot 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: This stoveburner also does not have the spatula. I should continue searching other areas, such as the countertop, where utensils might be left after being used.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a bread 1, a butterknife 1, a fork 1, a lettuce 3, a lettuce 1, a pencil 1, a peppershaker 1, a plate 1, a spatula 1, a spoon 3, and a winebottle 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have found a spatula on the countertop. I will take it to put it in the drawer as instructed.\nAction: take spatula 1 from countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the spatula 1 from the countertop 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With the spatula in hand, I need to put it in the drawer where I found it to be misplaced or to join other utensils.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Before I can put the spatula in the drawer, I need to open it again.\nAction: open drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 1. The drawer 1 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that the drawer is open, I can place the spatula inside.\nAction: put spatula 1 in/on drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the spatula 1 in/on the drawer 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have placed one spatula in the drawer, but the task requires two. I need to find another spatula.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see a apple 1, a lettuce 2, a spoon 2, and a spoon 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are still no spatulas here. I should check the stoveburners again in case I missed one there.\nAction: go to stoveburner 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the stoveburner 1, you see a pot 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: As before, there is no spatula on this stoveburner. I will check the other burners again.\nAction: go to stoveburner 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the stoveburner 2, you see a pot 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: This stoveburner also has no spatula. I will continue to check the other burners.\nAction: go to stoveburner 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the stoveburner 3, you see a pan 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: No spatula on this stoveburner either. I will check the last burner.\nAction: go to stoveburner 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the stoveburner 4, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The last stoveburner is empty. I should check the garbage can, as sometimes utensils that are mistakenly thrown away can be retrieved.\nAction: go to garbagecan 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the garbagecan 1, you see a tomato 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no spatula in the garbage can. I should check the countertops again since I found the first spatula there.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a bread 1, a butterknife 1, a fork 1, a lettuce 3, a lettuce 1, a pencil 1, a peppershaker 1, a plate 1, a spoon 3, and a winebottle 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have not found another spatula on the countertop. I should check the drawers again, as I might have missed one in my haste to complete the task.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 1 is open. In it, you see a spatula 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I see the spatula I placed here earlier. I need to take it out to find a place to put it back where it belongs.\nAction: take spatula 1 from drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the spatula 1 from the drawer 1."
+        }
+    ]
+}

@@ -1,0 +1,4 @@
+All tasks done.
+Output saved to outputs/Llama-2-13b-hf-webshop-sft-with-plan-with-paraphrase-lr3e-6-beta0.1-iter-4/webshop-test
+Average reward: 0.7369
+Success rate: 0.9950

@@ -1,0 +1,80 @@
+{
+    "meta": {
+        "steps": 7,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "/home/caozouying.czy/IPR/eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_heat_then_place_in_recep-Cup-None-Cabinet-22/trial_T20190907_173251_960848/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 20, a cabinet 19, a cabinet 18, a cabinet 17, a cabinet 16, a cabinet 15, a cabinet 14, a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 3, a countertop 2, a countertop 1, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: put a hot cup in cabinet."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. cup_name, location_name = locate_a_cup(candidate_locations);\nStep 2. take_a_cup(cup_name, location_name);\nStep 3. go_to_the_microwave();\nStep 4. heat_cup_with_microwave(cup_name);\nStep 5. go_to_the_cabinet();\nStep 6. put_cup_in_cabinet(cup_name).\nI need to find a cup to put in the cabinet. The sink basin is a common place where cups are left after use or washing.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see a apple 2, a cup 4, a cup 3, and a spatula 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are several items on the sink basin, including multiple cups. I should take one of these cups to heat it up as the task requires.\nAction: take cup 3 from sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the cup 3 from the sinkbasin 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the cup, I need to heat it. The microwave is a suitable appliance for heating things quickly.\nAction: go to microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The microwave 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Before I can heat the cup, I need to make sure the microwave is ready to use. It's closed, so I'll need to open it and place the cup inside.\nAction: heat cup 3 with microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You heat the cup 3 using the microwave 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The cup is now hot, and I need to place it in a cabinet. Cabinet 1 is the first one I see, so I'll use that.\nAction: go to cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The cabinet 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: To put the cup inside, I need to open the cabinet. However, the observation indicates that it's currently closed, so I'll need to open it before I can place the cup inside.\nAction: open cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the cabinet 1. The cabinet 1 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The cabinet is open and empty, which is perfect for placing the hot cup inside without any obstructions.\nAction: put cup 3 in/on cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the cup 3 in/on the cabinet 1."
+        }
+    ]
+}

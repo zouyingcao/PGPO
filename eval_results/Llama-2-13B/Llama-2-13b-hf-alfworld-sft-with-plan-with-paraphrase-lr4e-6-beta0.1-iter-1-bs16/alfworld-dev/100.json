@@ -1,0 +1,112 @@
+{
+    "meta": {
+        "steps": 11,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_and_place_simple-Watch-None-SideTable-222/trial_T20190909_051813_197569/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a armchair 1, a coffeetable 1, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a sidetable 3, a sidetable 2, a sidetable 1, a sofa 2, a sofa 1, and a tvstand 1.\nYour task is to: put some watch on sidetable."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. watch_name, location_name = locate_a_watch(candidate_locations);\nStep 2. take_a_watch(watch_name, location_name);\nStep 3. go_to_a_sidetable();\nStep 4. put_watch_on_sidetable().\nThe task is to put a watch on a sidetable. I need to locate a watch first. I should check the nearest surfaces where a watch might typically be placed, such as sidetables or tables.\nAction: go to tvstand 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the tvstand 1, you see a remotecontrol 3, a statue 2, a statue 1, and a television 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am at the tvstand now, but I don't see a watch here. I should check the next likely place, which is the sidetable, as sidetables are common places to keep watches.\nAction: go to sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 1, you see a newspaper 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've arrived at sidetable 1, but there's only a newspaper here. I need to continue searching for a watch. The next sidetable might have it.\nAction: go to sidetable 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 2, you see a creditcard 1, and a remotecontrol 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Sidetable 2 also doesn't have a watch. I should check the last sidetable to cover all my options in this area.\nAction: go to sidetable 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 3, you see a creditcard 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Sidetable 3 doesn't have a watch either. I should now check other places where a watch might be kept, such as drawers or the coffeetable.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 1 is closed. I need to open it to see if the watch is inside.\nAction: open drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 1. The drawer 1 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is empty. I should close it and continue searching elsewhere.\nAction: close drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I should check the coffeetable next, as it's another common place where watches might be placed.\nAction: go to coffeetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the coffeetable 1, you see a laptop 1, a watch 2, and a watch 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've found two watches on the coffeetable. I need to take one of them to complete the task.\nAction: take watch 1 from coffeetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the watch 1 from the coffeetable 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the watch, I need to return to sidetable 1 to place the watch there as instructed.\nAction: go to sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 1, you see a newspaper 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm back at sidetable 1. I should put the watch here to complete the task.\nAction: put watch 1 in/on sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the watch 1 in/on the sidetable 1."
+        }
+    ]
+}

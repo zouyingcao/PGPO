@@ -1,0 +1,64 @@
+{
+    "meta": {
+        "steps": 5,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i want gray startogoo twin low bunk bed with wood frame, and price lower than 360.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"Startogoo twin low bunk bed with wood frame gray color price < 360.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_color(\"gray\");\nStep 4. select_color(\"twin low\");\nStep 5. buy().\nI need to find a Startogoo twin low bunk bed with a wood frame in gray color and ensure it's under $360. I'll start by searching for the company name and product type.\nAction: search[startogoo twin low bunk bed]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i want gray startogoo twin low bunk bed with wood frame, and price lower than 360.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B09M6TRN3W [SEP] STARTOGOO Twin Low Bunk Bed with Slide, Ladder & Guardrail for Kids, Teens, Space-Saving, Bedroom, No Box Spring Needed, White [SEP] $349.0 [SEP] B09M6W62XL [SEP] STARTOGOO Twin Low Bunk Bed with Slide, Ladder & Guardrail for Kids, Teens, Space-Saving, Bedroom, No Box Spring Needed, Gray [SEP] $359.99 [SEP] B09NNFT9S2 [SEP] STARTOGOO Twin Size Wood Loft Bunk Bed with Slide, Stairs, Safety Rail and Storage Shelves for Kids, Bedframe Suitable Teens Girls Boys, No Box Spring Needed, Gray [SEP] $349.0 [SEP] B09QM4CMT8 [SEP] STARTOGOO Twin Over Twin Floor Bunk Beds, Low Wood Bunkbed with Guard Rails & Ladder for Children Kids Boys Girls Dormitory Bedroom, No Box Spring Needed Grey, Rectangular [SEP] $100.0 [SEP] B09JWH3M9H [SEP] STARTOGOO Twin Over Full Bunk Bed with Storage Shelves, Stairs and Guard Rail, Solid Wood Bunkbeds Convertible Adults Bedframe for Kids, Bedroom, Dorm, Gray [SEP] $100.0 [SEP] B09BJ4WQBJ [SEP] STARTOGOO Bunk Bed Twin with Trundle and Staircase, Solid Wood Bunkbeds for Kids, Teens, Adults, Girls, Boys, Espresso [SEP] $100.0 [SEP] B09JWFVKLR [SEP] STARTOGOO Twin Over Full Bunk Bed with Storage Shelves, Stairs and Guard Rail, Solid Wood Bunkbeds Convertible Adults Bedframe for Kids, Bedroom, Dorm, Espresso, Gray 5 [SEP] $579.0 [SEP] B09P6Y6MMW [SEP] Longrune Twin Over Twin Bunk Bed with Slide and Ladder for Kids Bedroom,Convertible Bunkbed,Solid Pinewood Bedframe,No Box Spring Needed,Space Saving Design,79.2\" L\u00d783.4\" W\u00d749.2\" H,White [SEP] $295.99 [SEP] B09QZPKF8N [SEP] Longrune Twin Over Twin Bunk Bed with Slide & Ladder & Safety Guardrails,Metal Structure Bedframe,No Box Spring Needed,for Kids Bedroom,77.9\"x92\"x53.9\", Black [SEP] $359.99 [SEP] B08XNC7CMM [SEP] Low Bunk Beds Twin Over Twin, Wood Twin Bunk Bed Frame with Safety Rail Ladder for Kids Bedroom, Pink Loft Bed for Boys Girls Toddlers [SEP] $259.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The search results are displayed, and I see several options. B09M6TRN3W is a STARTOGOO twin low bunk bed with slide and ladder, and it's priced under $360. This could be the right one, so I'll check it out first.\nAction: click[b09m6trn3w]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i want gray startogoo twin low bunk bed with wood frame, and price lower than 360.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] style [SEP] full bunk bed with twin size trundle [SEP] full over twin & twin bunkbeds [SEP] l-shaped twin loft bed w |  slide [SEP] l-shaped twin loft bed with slide [SEP] metal triple twin bunk bed [SEP] twin & twin floor bunk bed [SEP] twin & twin low bunk bed w |  slide [SEP] twin loft bed w |  desk & storage shelves [SEP] twin loft bunk bed w |  slide & storage sh... [SEP] twin low loft bed w |  storage staircas [SEP] twin metal loft bed w |  desk, bookcase, s... [SEP] twin over full bunk bed w |  trundle [SEP] twin over full bunk bed with trundle [SEP] twin over twin & twin bunk bed w |  drawer... [SEP] twin over twin & twin bunkbeds [SEP] twin over twin bunk bed w |  trundle [SEP] twin over twin floor bunk bed w |  slide [SEP] twin over twin low bunk bed [SEP] twin over twin low bunk bed w |  slide [SEP] twin size loft bed [SEP] twin size loft bed w |  desk [SEP] twin over full w |  twin [SEP] loft bed w |  long desk & bookcase [SEP] metal loft bed w |  desk & storage shelves [SEP] wood triple bunk bed w |  ladder and slide [SEP] color [SEP] white [SEP] gray 2 [SEP] gray 3 [SEP] grey [SEP] black [SEP] black 5 [SEP] white 5 [SEP] black 2 [SEP] brown [SEP] white 3 [SEP] espresso [SEP] black 3 [SEP] dark grey [SEP] gray 21 [SEP] gray 5 [SEP] white 2 [SEP] brown 2 [SEP] STARTOGOO Twin Low Bunk Bed with Slide, Ladder & Guardrail for Kids, Teens, Space-Saving, Bedroom, No Box Spring Needed, White [SEP] Price: $349.0 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I'm looking at the details for B09M6TRN3W, I need to confirm that the color is gray to match the instruction.\nAction: click[gray 2]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i want gray startogoo twin low bunk bed with wood frame, and price lower than 360.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] style [SEP] full bunk bed with twin size trundle [SEP] full over twin & twin bunkbeds [SEP] l-shaped twin loft bed w |  slide [SEP] l-shaped twin loft bed with slide [SEP] metal triple twin bunk bed [SEP] twin & twin floor bunk bed [SEP] twin & twin low bunk bed w |  slide [SEP] twin loft bed w |  desk & storage shelves [SEP] twin loft bunk bed w |  slide & storage sh... [SEP] twin low loft bed w |  storage staircas [SEP] twin metal loft bed w |  desk, bookcase, s... [SEP] twin over full bunk bed w |  trundle [SEP] twin over full bunk bed with trundle [SEP] twin over twin & twin bunk bed w |  drawer... [SEP] twin over twin & twin bunkbeds [SEP] twin over twin bunk bed w |  trundle [SEP] twin over twin floor bunk bed w |  slide [SEP] twin over twin low bunk bed [SEP] twin over twin low bunk bed w |  slide [SEP] twin size loft bed [SEP] twin size loft bed w |  desk [SEP] twin over full w |  twin [SEP] loft bed w |  long desk & bookcase [SEP] metal loft bed w |  desk & storage shelves [SEP] wood triple bunk bed w |  ladder and slide [SEP] color [SEP] white [SEP] gray 2 [SEP] gray 3 [SEP] grey [SEP] black [SEP] black 5 [SEP] white 5 [SEP] black 2 [SEP] brown [SEP] white 3 [SEP] espresso [SEP] black 3 [SEP] dark grey [SEP] gray 21 [SEP] gray 5 [SEP] white 2 [SEP] brown 2 [SEP] STARTOGOO Twin Low Bunk Bed with Slide, Ladder & Guardrail for Kids, Teens, Space-Saving, Bedroom, No Box Spring Needed, White [SEP] Price: $349.0 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The color is correct, but I need to make sure it's the right style - it should be a twin low bunk bed with slide and ladder as specified in the instruction.\nAction: click[twin & twin low bunk bed w |  slide]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i want gray startogoo twin low bunk bed with wood frame, and price lower than 360.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] style [SEP] full bunk bed with twin size trundle [SEP] full over twin & twin bunkbeds [SEP] l-shaped twin loft bed w |  slide [SEP] l-shaped twin loft bed with slide [SEP] metal triple twin bunk bed [SEP] twin & twin floor bunk bed [SEP] twin & twin low bunk bed w |  slide [SEP] twin loft bed w |  desk & storage shelves [SEP] twin loft bunk bed w |  slide & storage sh... [SEP] twin low loft bed w |  storage staircas [SEP] twin metal loft bed w |  desk, bookcase, s... [SEP] twin over full bunk bed w |  trundle [SEP] twin over full bunk bed with trundle [SEP] twin over twin & twin bunk bed w |  drawer... [SEP] twin over twin & twin bunkbeds [SEP] twin over twin bunk bed w |  trundle [SEP] twin over twin floor bunk bed w |  slide [SEP] twin over twin low bunk bed [SEP] twin over twin low bunk bed w |  slide [SEP] twin size loft bed [SEP] twin size loft bed w |  desk [SEP] twin over full w |  twin [SEP] loft bed w |  long desk & bookcase [SEP] metal loft bed w |  desk & storage shelves [SEP] wood triple bunk bed w |  ladder and slide [SEP] color [SEP] white [SEP] gray 2 [SEP] gray 3 [SEP] grey [SEP] black [SEP] black 5 [SEP] white 5 [SEP] black 2 [SEP] brown [SEP] white 3 [SEP] espresso [SEP] black 3 [SEP] dark grey [SEP] gray 21 [SEP] gray 5 [SEP] white 2 [SEP] brown 2 [SEP] STARTOGOO Twin Low Bunk Bed with Slide, Ladder & Guardrail for Kids, Teens, Space-Saving, Bedroom, No Box Spring Needed, White [SEP] Price: $349.0 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Everything checks out \u2013 it's the right style, color, and within the budget. I'm ready to make the purchase.\nAction: click[buy now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B09M6TRN3W [SEP] options [SEP] {\"color\": \"gray 2\", \"style\": \"twin \\u0026 twin low bunk bed w |  slide\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

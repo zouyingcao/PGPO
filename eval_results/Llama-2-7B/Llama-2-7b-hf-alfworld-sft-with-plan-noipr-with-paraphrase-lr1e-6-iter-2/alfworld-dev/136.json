@@ -1,0 +1,120 @@
+{
+    "meta": {
+        "steps": 12,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "/home/caozouying.czy/IPR/eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_two_obj_and_place-AlarmClock-None-Dresser-305/trial_T20190907_165826_194855/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 1, a garbagecan 1, a laundryhamper 1, and a shelf 1.\nYour task is to: put two alarmclock in dresser."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. alarmclock_name_1, location_name_1 = locate_an_alarmclock(candidate_locations);\nStep 2. take_an_alarmclock(alarmclock_name_1, location_name_1);\nStep 3. go_to_the_dresser();\nStep 4. put_alarmclock_in_dresser(alarmclock_name_1);\nStep 5. alarmclock_name_2, location_name_2 = locate_an_alarmclock(candidate_locations);\nStep 6. take_an_alarmclock(alarmclock_name_2, location_name_2);\nStep 7. go_to_the_dresser();\nStep 8. put_alarmclock_in_dresser(alarmclock_name_2).\nI need to locate two alarm clocks to place in the dresser. The task description doesn't specify where the alarm clocks are, so I should start by searching the room. The shelf is a common place for small items like alarm clocks, so I'll check there first.\nAction: go to shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 1, you see a keychain 2, a keychain 1, a mug 1, and a pen 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The alarm clocks are not on the shelf. I see other items like keychains and a mug, but no alarm clocks. I should continue searching the room.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is closed. I need to open it to see if the alarm clocks are inside.\nAction: open drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 1. The drawer 1 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is empty. There's nothing here that I need for my task. I should close it and keep looking elsewhere.\nAction: close drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I haven't found the alarm clocks yet. The desk is another common place for alarm clocks to be. I'll check there next.\nAction: go to desk 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the desk 1, you see a alarmclock 3, a alarmclock 2, a alarmclock 1, a book 1, a bowl 2, a bowl 1, a cd 2, a creditcard 1, and a pen 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've found multiple alarm clocks on the desk. I only need two for the task, so I'll take alarmclock 3 first.\nAction: take alarmclock 3 from desk 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the alarmclock 3 from the desk 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have one alarm clock. Now I need to place it in the dresser as instructed.\nAction: go to dresser 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the dresser 1, you see a cd 3, a cellphone 1, and a desklamp 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm at the dresser. I should place the alarm clock I'm holding inside it.\nAction: put alarmclock 3 in/on dresser 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the alarmclock 3 in/on the dresser 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need one more alarm clock to complete the task. I'll go back to the desk to get another one.\nAction: go to desk 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the desk 1, you see a alarmclock 2, a alarmclock 1, a book 1, a bowl 2, a bowl 1, a cd 2, a creditcard 1, and a pen 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Here are the remaining alarm clocks. I'll take alarmclock 1 to have two alarm clocks as required.\nAction: take alarmclock 1 from desk 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the alarmclock 1 from the desk 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With the second alarm clock in hand, I need to return to the dresser to place it with the first one.\nAction: go to dresser 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the dresser 1, you see a alarmclock 3, a cd 3, a cellphone 1, and a desklamp 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm back at the dresser. I'll place the second alarm clock inside to complete the task.\nAction: put alarmclock 1 in/on dresser 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the alarmclock 1 in/on the dresser 1."
+        }
+    ]
+}

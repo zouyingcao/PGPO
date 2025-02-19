@@ -1,0 +1,72 @@
+{
+    "meta": {
+        "steps": 6,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_clean_then_place_in_recep-Lettuce-None-CounterTop-16/trial_T20190909_051630_092360/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 27, a cabinet 26, a cabinet 25, a cabinet 24, a cabinet 23, a cabinet 22, a cabinet 21, a cabinet 20, a cabinet 19, a cabinet 18, a cabinet 17, a cabinet 16, a cabinet 15, a cabinet 14, a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 2, a countertop 1, a diningtable 1, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: put a clean lettuce in countertop."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. locate_lettuce(candidate_locations);\nStep 2. take_lettuce(lettuce_name, location_name);\nStep 3. go_to_sink();\nStep 4. clean_lettuce(lettuce_name, sink_name);\nStep 5. go_to_countertop();\nStep 6. put_lettuce_on_countertop(lettuce_name, countertop_name).\nI need to locate a clean lettuce to place on the countertop. The dining table is a common place where food items are placed, so I should check there first for any lettuce.\nAction: go to diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the diningtable 1, you see a bowl 3, a bowl 2, a cup 1, a dishsponge 2, a dishsponge 1, a egg 1, a knife 1, a lettuce 2, a lettuce 1, a mug 1, a papertowelroll 1, a plate 1, a spoon 1, and a winebottle 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I'm at the dining table, I see various items including two lettuces. I should take one of the lettuces to clean it before placing it on the countertop.\nAction: take lettuce 2 from diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the lettuce 2 from the diningtable 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With the lettuce in hand, I need to clean it. The sink is the appropriate place to wash vegetables, so I'll head there next.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see a apple 3, a apple 2, and a spatula 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm at the sink now. I should use it to clean the lettuce thoroughly to ensure it's ready for use.\nAction: clean lettuce 2 with sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You clean the lettuce 2 using the sinkbasin 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The lettuce is now clean. The next step is to place it on the countertop as instructed. I'll go to the nearest countertop to complete this task.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a apple 1, a bowl 1, a bread 1, a glassbottle 1, a houseplant 2, a houseplant 1, a pan 1, a saltshaker 1, and a winebottle 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've arrived at countertop 1. It's time to place the clean lettuce here, making sure it's ready for use and not obstructing any other items.\nAction: put lettuce 2 in/on countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the lettuce 2 in/on the countertop 1."
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+{
+    "meta": {
+        "steps": 5,
+        "reward": 0.8,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i need a water proof watch band for a 42 millimeter apple watch.  i want a green one, and price lower than 30.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"water proof watch band for 42 millimeter Apple Watch, criteria: green; price lower than 30.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_color(\"green\");\nStep 4. select_size(\"42mm | 44mm\");\nStep 5. buy().\nI need to find a water-resistant watch band for a 42mm Apple Watch that is green and costs less than $30. I'll start by searching for these specific criteria.\nAction: search[42mm apple watch band water proof green]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a water proof watch band for a 42 millimeter apple watch.  i want a green one, and price lower than 30.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B0943YM662 [SEP] Blduzn Compatible with Apple Watch Bands 38mm 40mm, Soft Silicone Sport Wristbands Replacement Strap with Classic Clasp Compatible with iWatch Series SE 6 5 4 3 2 1 for Women Men, Deep Grey [SEP] $6.88 [SEP] B0815TTM3G [SEP] Moonooda Glitter Watch Band Compatible with Apple Watch Band 38mm 40mm 42mm 44mm, Bling Strap Women Men Wristband Replacement for iWatch Series 6 SE 5 4 3 2 1 [SEP] $8.99 [SEP] B0918CY4W9 [SEP] Haiyi Tech Clear Watch Band for Apple Watch 42mm 44mm,Transparent Clear Soft Silicone Sports iWatch Band Strap for Apple Watch Series 654321SE (Black) [SEP] $6.98 [SEP] B08QD6XDXB [SEP] Bandiction Compatible with Apple Watch Series 3 42mm Series 5 44mm iWatch Bands 42mm 44mm 45mm, Soft Silicone Sport Replacement Strap Compatible for iWatch SE Series 7 6 5 4 3 2 1 Sport Edition [SEP] $6.99 [SEP] B09BCMBCP2 [SEP] Aifen Bands Compatible with Apple Watch 38mm 40mm 41mm 42mm 44mm 45mm, Soft Silicone Replacement Sport Strap for iWatch Series 7 6 5 4 3 2 1 SE Women Men [SEP] $5.59 to $7.99 [SEP] B09K751BQP [SEP] KingofKings Sport Watch Bands Compatible with Apple Watch Band 45mm 44mm 42mm 41mm 40mm 38mm for Women Men, Soft Silicone Replacement Strap Wristband for iWatch Series 7 6 5 4 3 2 1 SE Clover [SEP] $6.98 [SEP] B084F7LMHN [SEP] Grit & Grazia Top Grain Leather Apple Watch Band Compatible w/ 38mm 40mm 41mm 42mm 44mm 45mm Series 7 6 5 4 3 2 1 SE iWatch, Diamond Patten Apple Watch Replacement Strap (Black + Black, 38mm/40mm/41mm) [SEP] $29.99 [SEP] B09743QNKP [SEP] Braided Solo Loop Bands Compatible with Apple Watch 38mm 40mm 42mm 44mm Women Men, [2 Pack]-Adjustable Braided Solo Loop Stretchable Elastics Sport Wristband for iWatch Series 6/SE/5/4/3/2/1 [SEP] $8.99 [SEP] B0922XMDH3 [SEP] YUEGOO Adjustable Braided Solo Loop Compatible with Apple Watch Band 42mm 44mm ,Soft Stretch Band Sport Elastics Replacement Strap Compatible for iWatch Series SE 6/5/4/3/2/1 Rainbow [SEP] $8.99 [SEP] B08NPGLH8D [SEP] Relting Solo Loop Strap Compatible with Apple Watch iWatch Bands 45mm 44mm 42mm 41mm 40mm 38mm,No Clasps,Buckles, Or Overlapping Parts Soft Silicone Band for Apple Watch Series7/6/5/4/3/2/1/SE [SEP] $8.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The search results are displayed. Blduzn's compatible band for the Apple Watch is within my price range and seems to be a good match. I'll click on it for more details.\nAction: click[b0943ym662]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a water proof watch band for a 42 millimeter apple watch.  i want a green one, and price lower than 30.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] black | olive green [SEP] deep green [SEP] deep grey [SEP] lavender [SEP] lavender | wine red [SEP] light blue [SEP] light blue | pink [SEP] light grey [SEP] mango yellow [SEP] midnight blue [SEP] muted teal [SEP] olive green [SEP] pink [SEP] purple [SEP] white [SEP] wine red [SEP] size [SEP] 38mm | 40mm [SEP] 42mm | 44mm [SEP] Blduzn Compatible with Apple Watch Bands 38mm 40mm, Soft Silicone Sport Wristbands Replacement Strap with Classic Clasp Compatible with iWatch Series SE 6 5 4 3 2 1 for Women Men, Deep Grey [SEP] Price: $6.88 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I've clicked on the product, I need to select the green color option to match my requirement.\nAction: click[olive green]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a water proof watch band for a 42 millimeter apple watch.  i want a green one, and price lower than 30.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] black | olive green [SEP] deep green [SEP] deep grey [SEP] lavender [SEP] lavender | wine red [SEP] light blue [SEP] light blue | pink [SEP] light grey [SEP] mango yellow [SEP] midnight blue [SEP] muted teal [SEP] olive green [SEP] pink [SEP] purple [SEP] white [SEP] wine red [SEP] size [SEP] 38mm | 40mm [SEP] 42mm | 44mm [SEP] Blduzn Compatible with Apple Watch Bands 38mm 40mm, Soft Silicone Sport Wristbands Replacement Strap with Classic Clasp Compatible with iWatch Series SE 6 5 4 3 2 1 for Women Men, Deep Grey [SEP] Price: $6.88 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've selected the green color. Next, I need to ensure that the size is correct for my 42mm Apple Watch.\nAction: click[42mm | 44mm]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a water proof watch band for a 42 millimeter apple watch.  i want a green one, and price lower than 30.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] black | olive green [SEP] deep green [SEP] deep grey [SEP] lavender [SEP] lavender | wine red [SEP] light blue [SEP] light blue | pink [SEP] light grey [SEP] mango yellow [SEP] midnight blue [SEP] muted teal [SEP] olive green [SEP] pink [SEP] purple [SEP] white [SEP] wine red [SEP] size [SEP] 38mm | 40mm [SEP] 42mm | 44mm [SEP] Blduzn Compatible with Apple Watch Bands 38mm 40mm, Soft Silicone Sport Wristbands Replacement Strap with Classic Clasp Compatible with iWatch Series SE 6 5 4 3 2 1 for Women Men, Deep Grey [SEP] Price: $6.88 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Everything looks good\u2014the color is green, and the size is correct for my Apple Watch. The price is also within my budget. I'm ready to make the purchase.\nAction: click[buy now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B0943YM662 [SEP] options [SEP] {\"color\": \"olive green\", \"size\": \"42mm | 44mm\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.8 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

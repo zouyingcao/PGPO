@@ -1,0 +1,128 @@
+{
+    "meta": {
+        "steps": 13,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "/home/admin/workspace/aop_lab/ipr_plan/eval_agent/data/alfworld/json_2.1.1/valid_seen/look_at_obj_in_light-Laptop-None-DeskLamp-328/trial_T20190908_201550_622420/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 2, a drawer 1, a garbagecan 1, a shelf 1, and a sidetable 1.\nYour task is to: look at laptop under the desklamp."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. desklamp_name, desklamp_location = locate_a_desklamp(candidate_locations);\nStep 2. laptop_name, laptop_location = locate_a_laptop(candidate_locations);\nStep 3. take_laptop(laptop_name, laptop_location);\nStep 4. go_to_desklamp_location(desklamp_location);\nStep 5. use_desklamp_to_examine_laptop(desklamp_name, laptop_name).\nThe task is to look at the laptop under the desklamp. First, I need to locate the desklamp to determine where I should take the laptop to.\nAction: go to sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 1, you see a alarmclock 1, a creditcard 2, and a pencil 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The sidetable does not have the desklamp or the laptop. I should continue searching the room for the desklamp and the laptop.\nAction: go to shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 1, you see a mug 1, and a tissuebox 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The shelf also does not have the desklamp or the laptop. I need to keep looking around the room.\nAction: go to garbagecan 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the garbagecan 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: As expected, the garbagecan does not contain the desklamp or the laptop. I should move on to the next piece of furniture.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is closed. I need to open it to see if the desklamp or the laptop is inside.\nAction: open drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 1. The drawer 1 is open. In it, you see a creditcard 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer contains a creditcard, but not the desklamp or the laptop. I should close the drawer and continue searching.\nAction: close drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to check the second drawer as well, as the desklamp or the laptop might be inside.\nAction: go to drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 2 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: This drawer is also closed. I'll open it to check its contents.\nAction: open drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 2. The drawer 2 is open. In it, you see a cd 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer has a cd, but not what I'm looking for. I'll close it and move on.\nAction: close drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The desk is another place where the desklamp and the laptop could be. I should go there and check.\nAction: go to desk 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the desk 1, you see a cellphone 2, a cellphone 1, a desklamp 1, a keychain 1, a laptop 1, a pen 2, a pen 1, a pencil 1, a tissuebox 3, and a tissuebox 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've found the desklamp and the laptop on the desk. I need to take the laptop to look at it under the desklamp.\nAction: take laptop 1 from desk 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the laptop 1 from the desk 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the laptop, I should go back to the desk where the desklamp is located.\nAction: go to desk 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Nothing happens."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm at the desk with the desklamp. I should now use the desklamp to look at the laptop as instructed.\nAction: use desklamp 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You turn on the desklamp 1."
+        }
+    ]
+}

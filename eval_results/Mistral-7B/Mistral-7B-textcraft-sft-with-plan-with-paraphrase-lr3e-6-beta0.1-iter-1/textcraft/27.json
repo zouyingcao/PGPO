@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 beehive using 6 planks, 3 honeycomb\ncraft 4 bowl using 3 planks\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 4 oak planks using 1 oak logs\ncraft 1 light gray banner using 6 light gray wool, 1 stick\ncraft 4 crimson planks using 1 crimson stems\ncraft 4 birch planks using 1 birch logs\ncraft 4 acacia planks using 1 acacia logs\ncraft 4 spruce planks using 1 spruce logs\ncraft 1 crafting table using 4 planks\ncraft 1 stick using 2 bamboo\ncraft 1 white bed using 3 white wool, 3 planks\ncraft 1 purple bed using 3 purple wool, 3 planks\ncraft 1 redstone torch using 1 stick, 1 redstone\ncraft 1 rabbit stew using 1 baked potato, 1 cooked rabbit, 1 bowl, 1 carrot, 1 red mushroom\ncraft 4 jungle planks using 1 jungle logs\ncraft 4 warped planks using 1 warped stems\ncraft 1 bookshelf using 6 planks, 3 book\ncraft 4 stick using 2 planks\ncraft 1 fishing rod using 3 stick, 2 string\ncraft 1 carrot on a stick using 1 fishing rod, 1 carrot\ncraft 1 loom using 2 planks, 2 string\n\nGoal: craft carrot on a stick."
+        },
+        {
+            "from": "gpt",
+            "value": "First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"carrot on a stick\" not in had_objects: find_flag = get(\"carrot on a stick\");\nStep 3. if find_flag == False: \"craft 1 carrot on a stick using 1 fishing rod, 1 carrot\" = choose_crafting_commands(\"carrot on a stick\"), needed_ingredients = [\"1 fishing rod\", \"1 carrot\"], find_flag = get(\"1 fishing rod\");\nStep 4. if find_flag == False: \"craft 1 fishing rod using 3 stick, 2 string\" = choose_crafting_commands(\"1 fishing rod\"), needed_ingredients = [\"3 stick\", \"2 string\"], find_flag = get(\"3 stick\");\nStep 5. if find_flag == False: \"craft 4 stick using 2 bamboo\" = choose_crafting_commands(\"3 stick\"), needed_ingredients = \"2 bamboo\", get(\"2 bamboo\");\nStep 6. for i in range(2): craft 4 stick using 2 bamboo;\nStep 7. if \"2 string\" not in had_objects: get(\"2 string\");\nStep 8. craft 1 fishing rod using 3 stick, 2 string;\nStep 9. if \"1 carrot\" not in had_objects: get(\"1 carrot\");\nStep 10. craft 1 carrot on a stick using 1 fishing rod, 1 carrot\nI should check if I can get carrot on a stick directly from the environment or the inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no carrot on a stick in my inventory. I should try to get it from the environment.\nAction: get carrot on a stick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not execute get carrot on a stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get carrot on a stick directly, I need to craft it. From the crafting commands, I can use: craft 1 carrot on a stick using 1 fishing rod, 1 carrot. Ingredients needed: 1 fishing rod, 1 carrot. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients: 1 fishing rod, 1 carrot first.\nAction: get 1 fishing rod"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find fishing rod"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot find the fishing rod directly. I need to craft it. From the crafting commands, I can craft a fishing rod using: craft 1 fishing rod using 3 stick, 2 string. Ingredients needed: 3 stick, 2 string. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients: 3 stick, 2 string first.\nAction: get 3 stick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot find the sticks directly. I need to craft them. From the crafting commands, I can craft 4 sticks using 2 bamboo. I should check if I have bamboo in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredient: 2 bamboo first.\nAction: get 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 bamboo"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the bamboo, I can craft the sticks needed for crafting the fishing rod.\nAction: craft 4 stick using 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the sticks, I need to get the string to craft the fishing rod.\nAction: get 2 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have both the sticks and string, I can craft the fishing rod needed to craft the carrot on a stick.\nAction: craft 1 fishing rod using 3 stick, 2 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:fishing_rod"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I thought I had enough of each item to craft the fishing rod, but I wasn't able to craft it. I'll check my inventory again to confirm what I have.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [stick] (1) [string] (2)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I see that I only have one stick in my inventory. I need three sticks to craft a fishing rod. I'll have to get more bamboo to craft more sticks.\nAction: get 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 bamboo"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have more bamboo, I can craft more sticks needed for crafting the fishing rod.\nAction: craft 4 stick using 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have enough sticks, I need to get more string to craft the fishing rod.\nAction: get 2 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have both the sticks and string, I can craft the fishing rod needed to craft the carrot on a stick.\nAction: craft 1 fishing rod using 3 stick, 2 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:fishing_rod"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I thought I had enough of each item to craft the fishing rod, but I wasn't able to craft it. There might be a problem with the crafting command. Let's try crafting a fishing rod again using exactly the same items.\nAction: craft 1 fishing rod using 3 stick, 2 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:fishing_rod"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's a problem with the crafting command. I have the exact same items as the last crafting attempt, but I'm not able to craft the fishing rod. It's possible there's a problem with the inventory. Let's try to inventory the items again.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [stick] (2) [string] (4)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The inventory appears to be fine. Let's try crafting the fishing rod again.\nAction: craft 1 fishing rod using 3 stick, 2 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:fishing_rod"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's a problem with the crafting command or inventory. I'll check my inventory again to be sure.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [stick] (2) [string] (4)"
+        }
+    ]
+}

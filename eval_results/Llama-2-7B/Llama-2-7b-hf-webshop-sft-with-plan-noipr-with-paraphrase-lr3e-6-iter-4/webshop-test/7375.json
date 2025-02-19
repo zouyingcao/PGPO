@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 0.07500000000000001,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i want a ready to use storage basket that saves space. pick a large bronze colored one, and price lower than 60.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"large bronze storage basket ready to use space saving price < 60.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_color(\"bronze\");\nStep 4. buy().\nI think I should use the search bar to find a large bronze colored storage basket that meets the criteria.\nAction: search[large bronze storage basket ready to use space saving price < 60.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i want a ready to use storage basket that saves space. pick a large bronze colored one, and price lower than 60.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B01MRDVYAO [SEP] 2 Pack - SimpleHouseware Under Shelf Basket, Bronze [SEP] $20.97 [SEP] B08ZXYBWSH [SEP] Over The Door Hook with Mesh Basket 5 Hooks Hanger Organizer for Towels, Hats, Handbags, Coats Storage Rack Shelf with Detachable Hanger for Kitchen Bathroom Bedroom Pantry Entryway, Bronze [SEP] $20.99 [SEP] B0937DNQBC [SEP] HAKZEON Set of 3 Paper Rope Storage Baskets, Natural Paper Rope Woven Baskets with Liner, Multipurpose Paper Rope Organizing Baskets for Storing Small Household Items, Gray [SEP] $25.99 [SEP] B07BNSJLNY [SEP] mDesign Metal Over Cabinet Kitchen Storage Organizer Holder or Basket - Hang Over Cabinet Doors in Kitchen/Pantry - Holds Bakeware, Cookbook, Cleaning Supplies - Bronze [SEP] $17.99 [SEP] B00CYTAEBU [SEP] Spectrum Diversified Grid Storage Basket, Over The Cabinet, Steel Wire Sink Organization for Kitchen & Bathroom, Large, Bronze [SEP] $12.87 [SEP] B07NSH6K37 [SEP] del Hutson Designs DHD5018dw Barb Rustic Farmhouse Solid Wood Living Room Console Sofa Accent Table with Pedestal Base, Large, Dark Walnut [SEP] $100.0 [SEP] B07V4NY2JR [SEP] mDesign Metal Wall Mount Cabinet Kitchen Storage Organizer Holder or Basket - Hang in Kitchen/Pantry - Holds Plastic Shopping Bags - Bronze [SEP] $19.99 [SEP] B09F5YS7D7 [SEP] Coffee Pod Holder- Large Capacity Espresso Coffee Pod Organizer Metal Coffee Capsule Storage Basket for Kitchen Counter Coffee Bar Coffee Pod Storage (Brown\uff09 [SEP] $18.99 to $16.99 [SEP] B00CYTADQQ [SEP] Spectrum Grid Storage Basket, Over The Cabinet, Steel Wire Sink Organization for Kitchen & Bathroom, Medium, Bronze [SEP] $8.26 [SEP] B07HPRZJDT [SEP] Collapsible Basket-Space Saving Pop Up Handbasket for Supplies, Dishes, Drinks, and More-Foldable Multiuse Carrying/Storage Bin by Lavish Home (Red) [SEP] $17.77"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the option that matches the criteria of a large bronze colored storage basket ready to use and priced below $60.00.\nAction: click[B01MRDVYAO]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i want a ready to use storage basket that saves space. pick a large bronze colored one, and price lower than 60.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] bronze [SEP] white [SEP] size [SEP] 1 pack [SEP] 2 pack [SEP] 2 Pack - SimpleHouseware Under Shelf Basket, Bronze [SEP] Price: $20.97 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'bronze' color option to select the color I want.\nAction: click[bronze]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i want a ready to use storage basket that saves space. pick a large bronze colored one, and price lower than 60.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] bronze [SEP] white [SEP] size [SEP] 1 pack [SEP] 2 pack [SEP] 2 Pack - SimpleHouseware Under Shelf Basket, Bronze [SEP] Price: $20.97 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the storage basket.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B01MRDVYAO [SEP] options [SEP] {\"color\": \"bronze\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.07500000000000001 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

@@ -1,0 +1,136 @@
+{
+    "meta": {
+        "steps": 14,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_and_place_simple-Egg-None-Microwave-4/trial_T20190906_234406_356490/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 3, a countertop 2, a countertop 1, a diningtable 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: put some egg on microwave."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. egg_name, location_name = locate_an_egg(candidate_locations);\nStep 2. take_an_egg(egg_name, location_name);\nStep 3. go_to_the_microwave();\nStep 4. open_microwave();\nStep 5. put_egg_in_microwave();\nI need to locate an egg to complete the task of putting some egg on the microwave. The dining table is a common place where food items are placed, so I should check there first.\nAction: go to diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the diningtable 1, you see a apple 3, a bread 3, a bread 2, a bread 1, a butterknife 3, a cup 3, a fork 1, a ladle 1, a lettuce 2, a pan 1, a peppershaker 3, a potato 2, and a spatula 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The dining table has various items, but I need to find an egg. I should look for the egg in a place where it might be stored or left out. The fridge is a likely place to find eggs.\nAction: go to fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The fridge 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The fridge is closed. I need to open it to see if there are any eggs inside.\nAction: open fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the fridge 1. The fridge 1 is open. In it, you see a bowl 2, a bowl 1, a lettuce 1, a mug 2, a mug 1, and a pot 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've opened the fridge and looked inside, but there are no eggs here. I should close the fridge as it's good practice to keep it closed when not in use.\nAction: close fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the fridge 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Since there are no eggs in the fridge, I need to find an egg elsewhere. I should check the dining table again in case I missed an egg there.\nAction: go to diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the diningtable 1, you see a apple 3, a bread 3, a bread 2, a bread 1, a butterknife 3, a cup 3, a fork 1, a ladle 1, a lettuce 2, a pan 1, a peppershaker 3, a potato 2, and a spatula 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are still no eggs on the dining table. I should look for the egg in other places where it might be, such as the countertop.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The countertop is empty. I need to continue searching for the egg. The next logical place to look is the microwave, as it's part of the task to put an egg there.\nAction: go to microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The microwave 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The microwave is closed. I need to open it to check if there's an egg inside.\nAction: open microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the microwave 1. The microwave 1 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The microwave is empty. I need to close it and keep looking for the egg.\nAction: close microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the microwave 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I haven't checked the garbage can yet. Although it's unlikely, there might be an egg there.\nAction: go to garbagecan 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the garbagecan 1, you see a dishsponge 1, and a egg 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's an egg on the garbage can. I should take it to complete the task.\nAction: take egg 1 from garbagecan 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the egg 1 from the garbagecan 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the egg, I need to put it in the microwave as instructed. I should go back to the microwave.\nAction: go to microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The microwave 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The microwave is closed again. I need to open it to place the egg inside.\nAction: open microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the microwave 1. The microwave 1 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The microwave is open and empty, ready for me to place the egg inside to complete the task.\nAction: put egg 1 in/on microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the egg 1 in/on the microwave 1."
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+{
+    "meta": {
+        "steps": 5,
+        "reward": 0.8,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i'm interested in one pack of 20-inch hair extensions that are easy to apply, and price lower than 50.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"hair extensions criterias: one pack of 20-inch hair extensions that are easy to apply, and price lower than 50.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_size(\"20 inch\");\nStep 4. select_color(\"#6#\");\nStep 5. buy().\nI need to find one pack of 20-inch hair extensions that are easy to apply and cost less than $50. I'll start by searching for these specific criteria.\nAction: search[20-inch hair extensions easy to apply]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm interested in one pack of 20-inch hair extensions that are easy to apply, and price lower than 50.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B079DGPVNX [SEP] SWACC 12 Pcs Multi-Colors Party Highlights Clip on in Hair Extensions Colored Hair Streak Synthetic Hairpieces (20-Inch Curly, 6 Pcs Teal + 6 Pcs Blue) [SEP] $9.99 [SEP] B099K9Z9L2 [SEP] Clip in Hair Extensions 20\" Double Weft 100% Remy Human Hair Grade 8A Quality Thick Long Soft Silky Straight 7pcs 16clips for Women 70grams Chocolate Brown/Light Blonde #4/27 Color [SEP] $43.99 [SEP] B074PQ6R9V [SEP] Remeehi 20pcs Kinky Curly Remy Skin Weft Tape on in Human Hair Hair Extensions 60g (26\" 613#) [SEP] $89.0 [SEP] B01HKMVTXC [SEP] SWACC Women 20 Inches Curly Full Head 7 Separate Pieces Heat Resistance Synthetic Hair Clip in Hair Extensions (Grey) [SEP] $12.99 [SEP] B07ZHVW6S2 [SEP] Tape in Hair Extensions, Moresoo Human Hair Extensions Tape in Seamless Hair Extensions 20 Inch Color #1B Off Black Mixed #18 Ash Blonde with #60 Blonde Straight Extensions Tape Ins 50G/20Pcs Per Pack [SEP] $69.99 [SEP] B0812C83V3 [SEP] RINBOOOL Ombre Balayage Tape In Hair Extensions,18 Inch 40 Gram,Real Natural Remy Human Hair,Long Seamless Straight,Black Rooted Fading To Teal Green Highlighted Black,20pcs/Pack [SEP] $47.99 [SEP] B09BD2ZR3J [SEP] Remy Human Hair Extensions 8pcs 110G/3.88oz 18 Clips in Natural Hair Extensions Blonde Human Hair Long Straight Hairpieces Remy Real Hair Extensions Clips in for Women 22 Inch (Platinum Blonde, 60) [SEP] $39.99 [SEP] B085XZS7DJ [SEP] Moresoo Human Hair Clip in Extensions for Women 22inch Black Hair Extensions Clip in Full Head Thick Clip on Hair Extensions Human Hair Black 7Pieces 120Grams Clip ins [SEP] $114.99 [SEP] B09F3G4XXB [SEP] 14-20 Inch Straight Hair Tinsel Strands Extensions Human Hair Fusion Hair Extension Black Pre Bonded Keratin Hair Extensions Stick Tip Extensions 53g/50root/pack,16inch [SEP] $64.88 [SEP] B097PPDD7T [SEP] NNA 15Inch Remy Human Hair Clip in Extensions for Women Thick to Ends Dark Brown(4) 7Pieces 70grams 613 [SEP] $24.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are several options available, but I need to find one that fits all the criteria. The SWACC Women 20 Inches Curly Full Head seems to be a good match and is well within the budget.\nAction: click[b01hkmvtxc]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm interested in one pack of 20-inch hair extensions that are easy to apply, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] 1b-off black [SEP] chestnut brown-6# [SEP] dark brown-4# [SEP] dark brown | medium auburn mixed-4 | 30# [SEP] dark honey blonde | bleach blonde highlights-16h613 [SEP] dirty brown | bleach blonde highlights-12h613 [SEP] grey [SEP] light blonde-613# [SEP] medium ash brown-8# [SEP] natural black | dark auburn mixed-2 | 33# [SEP] natural black | medium auburn mixed-2 | 30# [SEP] natural color close to black-2# [SEP] platinum blonde-60# [SEP] strawberry blonde | bleach blonde highlights-27h613 [SEP] SWACC Women 20 Inches Curly Full Head 7 Separate Pieces Heat Resistance Synthetic Hair Clip in Hair Extensions (Grey) [SEP] Price: $12.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I've selected a potential match, I need to confirm the size is 20 inches as required.\nAction: click[20 inch]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm interested in one pack of 20-inch hair extensions that are easy to apply, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] 1b-off black [SEP] chestnut brown-6# [SEP] dark brown-4# [SEP] dark brown | medium auburn mixed-4 | 30# [SEP] dark honey blonde | bleach blonde highlights-16h613 [SEP] dirty brown | bleach blonde highlights-12h613 [SEP] grey [SEP] light blonde-613# [SEP] medium ash brown-8# [SEP] natural black | dark auburn mixed-2 | 33# [SEP] natural black | medium auburn mixed-2 | 30# [SEP] natural color close to black-2# [SEP] platinum blonde-60# [SEP] strawberry blonde | bleach blonde highlights-27h613 [SEP] SWACC Women 20 Inches Curly Full Head 7 Separate Pieces Heat Resistance Synthetic Hair Clip in Hair Extensions (Grey) [SEP] Price: $12.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The size is correct, but I also need to choose a color. The natural color close to black-2# seems like a good option as it's versatile and easy to match with other hair colors.\nAction: click[natural color close to black-2#]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm interested in one pack of 20-inch hair extensions that are easy to apply, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] 1b-off black [SEP] chestnut brown-6# [SEP] dark brown-4# [SEP] dark brown | medium auburn mixed-4 | 30# [SEP] dark honey blonde | bleach blonde highlights-16h613 [SEP] dirty brown | bleach blonde highlights-12h613 [SEP] grey [SEP] light blonde-613# [SEP] medium ash brown-8# [SEP] natural black | dark auburn mixed-2 | 33# [SEP] natural black | medium auburn mixed-2 | 30# [SEP] natural color close to black-2# [SEP] platinum blonde-60# [SEP] strawberry blonde | bleach blonde highlights-27h613 [SEP] SWACC Women 20 Inches Curly Full Head 7 Separate Pieces Heat Resistance Synthetic Hair Clip in Hair Extensions (Grey) [SEP] Price: $12.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Everything looks good\u2014the size is 20 inches, the color is natural color close to black-2#, and the price is well below $50. I'm ready to make the purchase.\nAction: click[buy now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B01HKMVTXC [SEP] options [SEP] {\"color\": \"natural color close to black-2#\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.8 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

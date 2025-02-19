@@ -1,0 +1,104 @@
+{
+    "meta": {
+        "steps": 10,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_unseen/pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163408_914117/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a armchair 1, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 1, a garbagecan 1, a safe 1, a shelf 12, a shelf 11, a shelf 10, a shelf 9, a shelf 8, a shelf 7, a shelf 6, a shelf 5, a shelf 4, a shelf 3, a shelf 2, a shelf 1, a sidetable 1, and a sofa 1.\nYour task is to: put two pillow in sofa."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. pillow_name_1, location_name_1 = locate_a_pillow(candidate_locations);\nStep 2. take_pillow(pillow_name_1, location_name_1);\nStep 3. go_to_the_sofa();\nStep 4. put_pillow_on_sofa(pillow_name_1);\nStep 5. pillow_name_2, location_name_2 = locate_a_pillow(candidate_locations);\nStep 6. take_pillow(pillow_name_2, location_name_2);\nStep 7. go_to_the_sofa();\nStep 8. put_pillow_on_sofa(pillow_name_2).\nI need to locate a pillow to place on the sofa. The task description mentions a pillow, so I will check the armchair first as it's a common place to find pillows.\nAction: go to armchair 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the armchair 1, you see a cellphone 2, a pillow 2, and a pillow 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I see two pillows on the armchair. I will take one of them to place on the sofa. Pillow 2 seems to be the one I need for the task.\nAction: take pillow 2 from armchair 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the pillow 2 from the armchair 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the pillow, I need to go to the sofa to place it there as instructed.\nAction: go to sofa 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sofa 1, you see a newspaper 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've arrived at the sofa. Before placing the pillow, I notice there's a newspaper on it. I'll need to be careful to place the pillow without disturbing the newspaper.\nAction: put pillow 2 in/on sofa 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the pillow 2 in/on the sofa 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With the pillow placed, I need to ensure everything is in order. The newspaper is still there, so I'll check if the pillow is comfortable and properly placed without covering the newspaper.\nAction: go to sofa 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Nothing happens."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm back at the sofa to observe the placement of the pillow. Everything seems to be in its place, and the task is almost complete.\nAction: put pillow 2 in/on sofa 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Nothing happens."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to retrieve the second pillow to fulfill the task requirement of placing two pillows on the sofa. I'll go back to the armchair where I found the first pillow.\nAction: go to armchair 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the armchair 1, you see a cellphone 2, and a pillow 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The second pillow is still here. I'll take pillow 1 to pair with the one I already have on the sofa.\nAction: take pillow 1 from armchair 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the pillow 1 from the armchair 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With the second pillow in hand, I need to return to the sofa to place it alongside the first one.\nAction: go to sofa 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sofa 1, you see a newspaper 3, and a pillow 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've arrived back at the sofa with the second pillow. I see the first pillow and the newspaper are still there. I'll place this pillow carefully to complete the task.\nAction: put pillow 1 in/on sofa 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the pillow 1 in/on the sofa 1."
+        }
+    ]
+}

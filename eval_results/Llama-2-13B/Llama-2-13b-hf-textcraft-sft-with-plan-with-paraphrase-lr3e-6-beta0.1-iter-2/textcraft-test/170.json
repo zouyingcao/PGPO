@@ -1,0 +1,160 @@
+{
+    "meta": {
+        "steps": 17,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 6 brick wall using 6 bricks\ncraft 4 brick stairs using 6 bricks\ncraft 6 brick slab using 3 bricks\ncraft 1 flower pot using 3 brick\ncraft 1 bricks using 4 brick\n\nGoal: craft brick stairs."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"6 bricks\" not in had_objects: find_flag = get(\"6 bricks\");\nStep 3. if find_flag == False: \"craft 1 bricks using 4 brick\" = choose_crafting_commands(\"6 bricks\"), needed_ingredients = \"24 brick\";\nStep 4. Similar to Step 1-3, get_all_needed_ingredients(needed_ingredients);\nStep 5. for i in range(6): craft 1 bricks using 4 brick;\nStep 6. craft 4 brick stairs using 6 bricks\nTo craft brick stairs, I need 6 bricks according to the crafting command. I should check my inventory to see if I have the necessary bricks.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have any bricks in my inventory. I need to get bricks to craft the brick stairs.\nAction: get 6 bricks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get bricks directly from the environment, I need to craft them. According to the crafting command, I can craft 1 bricks using 4 brick. I need to check if I have bricks in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have bricks in my inventory. I need to get bricks first in order to craft the brick stairs.\nAction: get 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 brick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 4 bricks, I can craft 1 brick using these 4 bricks.\nAction: craft 1 bricks using 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted one bricks. I need to craft 5 more bricks to have enough for the brick stairs.\nAction: get 20 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 20 brick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 20 bricks, I can craft 5 bricks using these 20 bricks.\nAction: craft 5 bricks using 20 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find a valid recipe for ItemTagWithCount(item_tag=ItemTag(tag=None, item_id='minecraft:bricks'), count=5)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I attempted to craft 5 bricks at once and it wasn't successful. Perhaps I can only craft one brick at a time. I'll craft one bricks using 4 bricks.\nAction: craft 1 bricks using 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted another bricks. I need to craft 4 more bricks to have enough for the brick stairs.\nAction: get 8 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 8 brick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 8 bricks, I can craft another bricks using these 8 bricks.\nAction: craft 1 bricks using 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted a third bricks. I need to craft 3 more bricks to have enough for the brick stairs.\nAction: get 12 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 12 brick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 12 bricks, I can craft another bricks using these 12 bricks.\nAction: craft 1 bricks using 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted a fourth bricks. I need to craft 2 more bricks to have enough for the brick stairs.\nAction: get 24 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 24 brick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 24 bricks, I can craft another bricks using these 24 bricks.\nAction: craft 1 bricks using 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted a fifth bricks. I need to craft 1 more brick to have enough for the brick stairs.\nAction: get 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 brick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 4 more bricks, I can craft another bricks using these 4 bricks.\nAction: craft 1 bricks using 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 6 bricks, I have enough to craft the brick stairs.\nAction: craft 4 brick stairs using 6 bricks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:brick_stairs"
+        }
+    ]
+}

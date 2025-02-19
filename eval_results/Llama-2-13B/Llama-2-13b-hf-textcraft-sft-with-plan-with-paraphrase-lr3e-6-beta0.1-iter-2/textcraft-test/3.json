@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 1 lectern using 4 wooden slabs, 1 bookshelf\ncraft 1 grindstone using 2 stick, 1 stone slab, 2 planks\ncraft 1 writable book using 1 book, 1 ink sac, 1 feather\ncraft 1 leather using 4 rabbit hide\ncraft 1 mojang banner pattern using 1 paper, 1 enchanted golden apple\ncraft 4 warped planks using 1 warped stems\ncraft 1 purple bed using 3 purple wool, 3 planks\ncraft 4 birch planks using 1 birch logs\ncraft 4 acacia planks using 1 acacia logs\ncraft 4 oak planks using 1 oak logs\ncraft 2 tripwire hook using 1 planks, 1 stick, 1 iron ingot\ncraft 4 spruce planks using 1 spruce logs\ncraft 1 composter using 7 wooden slabs\ncraft 1 bookshelf using 6 planks, 3 book\ncraft 1 leather boots using 4 leather\ncraft 1 skull banner pattern using 1 paper, 1 wither skeleton skull\ncraft 4 jungle planks using 1 jungle logs\ncraft 1 leather horse armor using 7 leather\ncraft 1 wooden hoe using 2 stick, 2 planks\ncraft 4 crimson planks using 1 crimson stems\ncraft 3 paper using 3 sugar cane\ncraft 1 book using 3 paper, 1 leather\n\nGoal: craft lectern."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"lectern\" not in had_objects: find_flag = get(\"lectern\");\nStep 3. if find_flag == False: \"craft 1 lectern using 4 wooden slabs, 1 bookshelf\" = choose_crafting_commands(\"lectern\"), needed_ingredients = \"4 wooden slabs, 1 bookshelf\";\nStep 4. if \"4 wooden slabs\" not in had_objects: find_flag = get(\"4 wooden slabs\");\nStep 5. if find_flag == False: \"craft 4 wooden slabs using 1 dark oak logs\" = choose_crafting_commands(\"4 wooden slabs\"), needed_ingredients = \"1 dark oak logs\";\nStep 6. if \"1 dark oak logs\" not in had_objects: find_flag = get(\"1 dark oak logs\");\nStep 7. if find_flag == True: craft 4 wooden slabs using 1 dark oak logs;\nStep 8. if \"1 bookshelf\" not in had_objects: find_flag = get(\"1 bookshelf\");\nStep 9. if find_flag == False: \"craft 1 bookshelf using 6 planks, 3 book\" = choose_crafting_commands(\"1 bookshelf\"), needed_ingredients = \"6 planks, 3 book\";\nStep 10. if \"6 planks\" not in had_objects: find_flag = get(\"6 planks\");\nStep 11. if find_flag == False: \"craft 4 planks using 1 dark oak logs\" = choose_crafting_commands(\"6 planks\"), needed_ingredients = \"1 dark oak logs\";\nStep 12. if \"1 dark oak logs\" not in had_objects: find_flag = get(\"1 dark oak logs\");\nStep 13. if find_flag == True: craft 4 planks using 1 dark oak logs;\nStep 14. if \"3 books\" not in had_objects: find_flag = get(\"3 books\");\nStep 15. if find_flag =="
+        },
+        {
+            "from": "human",
+            "value": "Observation: Invalid format. The input must contains 'Action: '"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: OK. I'll follow your instructions and try my best to solve the task. \nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are no items in my inventory. I should try to get the necessary ingredients to craft a lectern.\nAction: get 4 wooden slabs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 wooden slabs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the wooden slabs now. I need to get the remaining ingredients to craft a lectern.\nAction: get 1 bookshelf, 1 book"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find bookshelf, 1 book"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get the bookshelf and book directly. I need to craft them. To craft a bookshelf, I need 6 planks and 3 books. To craft a book, I need 3 paper and 1 leather. I should first check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [wooden slabs] (4)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are no other items in my inventory. I should try to get the necessary ingredients to craft a bookshelf and a book.\nAction: get 6 planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get the planks directly. I need to craft them. To craft planks, I can use any type of logs. I'll check if I have any type of logs in the environment.\nAction: get 1 dark oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 dark oak logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have dark oak logs now. I can use these to craft planks which are required to craft a bookshelf.\nAction: craft 4 dark oak planks using 1 dark oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:dark_oak_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted dark oak planks. I can use these planks to craft a bookshelf. However, before that, I should first craft a book as I need one to go with the bookshelf.\nAction: craft 1 book using 3 paper, 1 leather"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:book"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot craft a book without the required items. I need 3 paper and 1 leather. I should check if I have these in the environment.\nAction: get 3 paper, 1 leather"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find paper, 1 leather"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get the paper and leather directly. I need to craft them. I'll start by crafting paper which doesn't require many resources.\nAction: craft 3 paper using 3 sugar cane"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:paper"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot craft paper without the required items. I need 3 sugar cane. I should check if I have these in the environment.\nAction: get 3 sugar cane"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 3 sugar cane"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the sugar cane now. I can use these to craft paper. However, before that, I should first craft leather as I need one to go with the book.\nAction: craft 1 leather using 4 rabbit hide"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:leather"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot craft leather without the required items. I need 4 rabbit hide. I should check if I have these in the environment.\nAction: get 4 rabbit hide"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 rabbit hide"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the rabbit hide now. I can use these to craft leather. Once I have crafted leather, I can use it to craft a book.\nAction: craft 1 leather using 4 rabbit hide"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:leather"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted leather. Now I can use this leather to craft a book. In addition, I have already crafted dark oak planks. I can use these planks to craft a bookshelf.\nAction: craft 1 book using 3 paper, 1 leather"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:book"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I made a mistake, I need to craft a book using 3 paper and 1 leather, not the other way around. I should check my inventory first before taking any further action.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [wooden slabs] (4) [dark oak planks] (4) [sugar cane] (3) [leather] (1)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the necessary items in my inventory to craft a book. I will now proceed to crafting the book.\nAction: craft 1 book using 3 paper, 1 leather"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:book"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm surprised that I still can't craft a book. It seems that I may have misunderstood the crafting instructions. I need to craft a book using 3 paper and 1 leather. I should check my inventory again to ensure I have the necessary items.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [wooden slabs] (4) [dark oak planks] (4) [sugar cane] (3) [leather] (1)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the necessary items in my inventory to craft a book. I will now proceed to crafting the book.\nAction: craft 1 book using 3 paper, 1 leather"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:book"
+        }
+    ]
+}

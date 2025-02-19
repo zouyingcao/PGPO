@@ -1,0 +1,144 @@
+{
+    "meta": {
+        "steps": 15,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_unseen/pick_two_obj_and_place-ToiletPaper-None-Cabinet-424/trial_T20190906_202926_527010/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a countertop 1, a garbagecan 1, a handtowelholder 2, a handtowelholder 1, a sinkbasin 2, a sinkbasin 1, a toilet 1, a toiletpaperhanger 1, and a towelholder 1.\nYour task is to: find two toiletpaper and put them in cabinet."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. toiletpaper_name_list, location_list = locate_two_toiletpapers(candidate_locations);\nStep 2. take_toiletpaper(toiletpaper_name_list[0], location_list[0]);\nStep 3. go_to_the_cabinet(cabinet_number);\nStep 4. open_cabinet(cabinet_number);\nStep 5. put_toiletpaper_in_cabinet(toiletpaper_name_list[0], cabinet_number);\nStep 6. close_cabinet(cabinet_number);\nStep 7. take_toiletpaper(toiletpaper_name_list[1], location_list[1]);\nStep 8. go_to_the_cabinet(cabinet_number);\nStep 9. open_cabinet(cabinet_number);\nStep 10. put_toiletpaper_in_cabinet(toiletpaper_name_list[1], cabinet_number).\nI need to find two rolls of toilet paper to put in a cabinet. The toiletpaperhanger is a logical first place to check for toilet paper.\nAction: go to toiletpaperhanger 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the toiletpaperhanger 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no toilet paper on the toiletpaperhanger. I should look for toilet paper in other likely locations, such as near the toilet.\nAction: go to toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the toilet 1, you see a soapbar 3, a soapbar 2, and a toiletpaper 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I found a roll of toilet paper on the toilet. I will take it to fulfill part of the task.\nAction: take toiletpaper 3 from toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the toiletpaper 3 from the toilet 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With one roll of toilet paper in hand, I need to place it in a cabinet. Cabinet 1 is the first cabinet I see, so I will try there.\nAction: go to cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The cabinet 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The cabinet is closed. I need to open it to put the toilet paper inside.\nAction: open cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the cabinet 1. The cabinet 1 is open. In it, you see a candle 2, and a cloth 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The cabinet is now open, and I see there's space to place the toilet paper inside along with the other items.\nAction: put toiletpaper 3 in/on cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the toiletpaper 3 in/on the cabinet 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that the toilet paper is in the cabinet, I should close it to keep the contents tidy and secure.\nAction: close cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the cabinet 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I still need one more roll of toilet paper to complete the task. I should check the toiletpaperhanger again just in case I missed something the first time.\nAction: go to toiletpaperhanger 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the toiletpaperhanger 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: As expected, the toiletpaperhanger is still empty. I need to look elsewhere again.\nAction: go to toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the toilet 1, you see a soapbar 3, and a soapbar 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's no additional toilet paper on the toilet. I should search in new places where it might be stored or discarded.\nAction: go to garbagecan 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the garbagecan 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The garbage can is empty, which is good because it means there's no unused toilet paper here. I'll continue searching in other storage areas like the countertop.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a candle 3, a candle 1, a soapbottle 1, a spraybottle 2, and a toiletpaper 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've found another roll of toilet paper on the countertop. This is the second roll I need to complete the task.\nAction: take toiletpaper 1 from countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the toiletpaper 1 from the countertop 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With the second roll of toilet paper in hand, I need to place it in the same cabinet as the first one to keep them together.\nAction: go to cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The cabinet 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The cabinet is closed again. I'll need to open it to place the second roll of toilet paper inside.\nAction: open cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the cabinet 1. The cabinet 1 is open. In it, you see a candle 2, a cloth 1, and a toiletpaper 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The cabinet is open, and I can see the first roll of toilet paper and the other items. I will place the second roll here to complete the task.\nAction: put toiletpaper 1 in/on cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the toiletpaper 1 in/on the cabinet 1."
+        }
+    ]
+}

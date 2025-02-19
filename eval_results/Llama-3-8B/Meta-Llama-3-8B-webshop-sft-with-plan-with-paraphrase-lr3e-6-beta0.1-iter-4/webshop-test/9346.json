@@ -1,0 +1,64 @@
+{
+    "meta": {
+        "steps": 5,
+        "reward": 0.6666666666666666,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i'm looking for a pair of classic fit silver gray scrub bottoms in large petite with an elastic waistband and drawstring closure, and price lower than 60.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"scrub bottoms large petite silver gray classic fit elastic waistband drawstring closure price < 60.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_size(\"large petite\");\nStep 4. select_color(\"silver gray\");\nStep 5. buy().\nI think I should use the search bar to find the specific pair of scrub bottoms I need.\nAction: search[scrub bottoms large petite silver gray classic fit elastic waistband drawstring closure price < 60.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for a pair of classic fit silver gray scrub bottoms in large petite with an elastic waistband and drawstring closure, and price lower than 60.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B07HFHDJNN [SEP] Cherokee Workwear Revolution Tech Women Scrubs Pant Mid Rise Straight Leg Drawstring WW235AB [SEP] $35.98 to $40.98 [SEP] B08MH5RW9L [SEP] Carhartt Women's Cargo [SEP] $25.84 to $40.99 [SEP] B07CQH856K [SEP] IMAGE BY ALEXANDERS UNIFORMS IM1300 Yoga Style Waistband Scrub Pant for Women | Perfect for Medical, Dental, Veterinary [SEP] $23.45 to $25.45 [SEP] B074KNFGZ7 [SEP] Dickies Dynamix Women Scrubs Pant Mid Rise Straight Leg Drawstring DK130 [SEP] $26.23 to $39.99 [SEP] B00GT36KMO [SEP] Adar Universal Scrubs for Women - Tapered Utility Cargo Scrub Pants [SEP] $21.69 to $24.69 [SEP] B07HFH36Q4 [SEP] Workwear Revolution Tech Women Scrubs Pant Mid Rise Straight Leg Drawstring WW235ABP, S Petite, Navy [SEP] $35.98 [SEP] B08363S4SC [SEP] HeartSoul Women Scrubs Pant Natural Rise Moderate Flare HS085 [SEP] $18.95 to $34.98 [SEP] B0116LT4W6 [SEP] Cherokee Women's Ww Flex W Certainty Midrise Flare Drawstring Pant [SEP] $8.98 to $30.75 [SEP] B091TXVYVZ [SEP] Maryia Harem Pants for Women Capri Flower Print Comfy Palazzo Pajama Drawstring Elastic Waist Embroidery Sweatpants [SEP] $11.85 [SEP] B002BWGIJC [SEP] Landau Unisex Reversible V-Neck Scrub Top-7502 [SEP] $6.71 to $27.93"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the option that matches my criteria, which is B07HFHDJNN.\nAction: click[B07HFHDJNN]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for a pair of classic fit silver gray scrub bottoms in large petite with an elastic waistband and drawstring closure, and price lower than 60.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size [SEP] xx-small petite [SEP] xx-small [SEP] x-small tall [SEP] x-small petite [SEP] x-small [SEP] small [SEP] small petite [SEP] small tall [SEP] medium [SEP] medium petite [SEP] medium tall [SEP] large [SEP] large petite [SEP] large tall [SEP] x-large [SEP] x-large petite [SEP] x-large tall [SEP] xx-large plus [SEP] xx-large plus petite [SEP] xx-large plus tall [SEP] 3x-large plus [SEP] 4x-large plus [SEP] 5x-large plus [SEP] color [SEP] white [SEP] eggplant [SEP] teal blue [SEP] hunter green [SEP] ciel blue [SEP] navy [SEP] pewter [SEP] wine [SEP] royal [SEP] black [SEP] Cherokee Workwear Revolution Tech Women Scrubs Pant Mid Rise Straight Leg Drawstring WW235AB [SEP] Price: $35.98 to $40.98 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'large petite' option to select the size I need.\nAction: click[large petite]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for a pair of classic fit silver gray scrub bottoms in large petite with an elastic waistband and drawstring closure, and price lower than 60.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size [SEP] xx-small petite [SEP] xx-small [SEP] x-small tall [SEP] x-small petite [SEP] x-small [SEP] small [SEP] small petite [SEP] small tall [SEP] medium [SEP] medium petite [SEP] medium tall [SEP] large [SEP] large petite [SEP] large tall [SEP] x-large [SEP] x-large petite [SEP] x-large tall [SEP] xx-large plus [SEP] xx-large plus petite [SEP] xx-large plus tall [SEP] 3x-large plus [SEP] 4x-large plus [SEP] 5x-large plus [SEP] color [SEP] white [SEP] eggplant [SEP] teal blue [SEP] hunter green [SEP] ciel blue [SEP] navy [SEP] pewter [SEP] wine [SEP] royal [SEP] black [SEP] Cherokee Workwear Revolution Tech Women Scrubs Pant Mid Rise Straight Leg Drawstring WW235AB [SEP] Price: $35.98 to $40.98 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the'silver gray' color option to select the color I need.\nAction: click[pewter]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for a pair of classic fit silver gray scrub bottoms in large petite with an elastic waistband and drawstring closure, and price lower than 60.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size [SEP] xx-small petite [SEP] xx-small [SEP] x-small tall [SEP] x-small petite [SEP] x-small [SEP] small [SEP] small petite [SEP] small tall [SEP] medium [SEP] medium petite [SEP] medium tall [SEP] large [SEP] large petite [SEP] large tall [SEP] x-large [SEP] x-large petite [SEP] x-large tall [SEP] xx-large plus [SEP] xx-large plus petite [SEP] xx-large plus tall [SEP] 3x-large plus [SEP] 4x-large plus [SEP] 5x-large plus [SEP] color [SEP] white [SEP] eggplant [SEP] teal blue [SEP] hunter green [SEP] ciel blue [SEP] navy [SEP] pewter [SEP] wine [SEP] royal [SEP] black [SEP] Cherokee Workwear Revolution Tech Women Scrubs Pant Mid Rise Straight Leg Drawstring WW235AB [SEP] Price: $35.98 to $40.98 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the scrub bottoms that meet my criteria.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B07HFHDJNN [SEP] options [SEP] {\"color\": \"pewter\", \"size\": \"large petite\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.6666666666666666 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

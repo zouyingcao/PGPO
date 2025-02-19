@@ -1,0 +1,88 @@
+{
+    "meta": {
+        "steps": 8,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_cool_then_place_in_recep-WineBottle-None-DiningTable-17/trial_T20190908_024426_412044/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 20, a cabinet 19, a cabinet 18, a cabinet 17, a cabinet 16, a cabinet 15, a cabinet 14, a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 2, a countertop 1, a diningtable 2, a diningtable 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: cool some winebottle and put it in diningtable."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. locate_winebottle(candidate_locations);\nStep 2. take_winebottle(winebottle_name, location_name);\nStep 3. go_to_fridge();\nStep 4. open_fridge();\nStep 5. cool_winebottle_using_fridge();\nStep 6. close_fridge();\nStep 7. go_to_diningtable();\nStep 8. put_cooled_winebottle_on_diningtable().\nI need to locate a wine bottle to cool. I will start by checking the nearest dining table.\nAction: go to diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the diningtable 1, you see a bowl 2, a bread 1, a butterknife 1, a dishsponge 1, a kettle 1, a spatula 2, a spatula 1, a tomato 1, and a winebottle 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have found a wine bottle on diningtable 1. I should pick it up to proceed with the task.\nAction: take winebottle 1 from diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the winebottle 1 from the diningtable 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: To cool the wine bottle, I need to place it in the fridge. I will go to the fridge now.\nAction: go to fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The fridge 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The fridge is closed. I need to open it to place the wine bottle inside.\nAction: open fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the fridge 1. The fridge 1 is open. In it, you see a apple 2, a bowl 3, a cup 2, and a potato 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have opened the fridge, but I realize I don't need to place the wine bottle inside since the task only specifies to cool it, not to store it. I should close the fridge to maintain its internal temperature.\nAction: close fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the fridge 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The wine bottle needs to be cooled, but the task does not specify how long it needs to be cooled. Since I cannot complete the task of storing the wine bottle in the fridge, I will simulate the cooling process by holding the wine bottle close to the fridge.\nAction: cool winebottle 1 with fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You cool the winebottle 1 using the fridge 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The wine bottle is now \"cooled,\" and I need to place it on a dining table. I will return to diningtable 1 to complete this part of the task.\nAction: go to diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the diningtable 1, you see a bowl 2, a bread 1, a butterknife 1, a dishsponge 1, a kettle 1, a spatula 2, a spatula 1, and a tomato 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am back at diningtable 1, and I will now place the cooled wine bottle on the table to finish the task.\nAction: put winebottle 1 in/on diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the winebottle 1 in/on the diningtable 1."
+        }
+    ]
+}

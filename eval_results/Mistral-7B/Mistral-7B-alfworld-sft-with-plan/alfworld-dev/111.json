@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": false,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_two_obj_and_place-RemoteControl-None-Ottoman-203/trial_T20190906_182952_858723/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a armchair 1, a coffeetable 1, a diningtable 1, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a ottoman 1, a sidetable 1, and a sofa 1.\nYour task is to: find two remotecontrol and put them in ottoman."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. remotecontrol_name_1, location_name_1 = locate_a_remotecontrol(candidate_locations);\nStep 2. take_remotecontrol(remotecontrol_name_1, location_name_1);\nStep 3. remotecontrol_name_2, location_name_2 = locate_a_remotecontrol(candidate_locations);\nStep 4. take_remotecontrol(remotecontrol_name_2, location_name_2);\nStep 5. go_to_the_ottoman();\nStep 6. put_remotecontrol_in_ottoman(remotecontrol_name_1);\nStep 7. put_remotecontrol_in_ottoman(remotecontrol_name_2).\nI need to find two remote controls and place them in the ottoman. I'll start by looking around the room, checking common places where remote controls might be found, such as on sofas and tables.\nAction: go to sofa 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sofa 1, you see a creditcard 3, a keychain 2, a laptop 3, a laptop 2, a newspaper 2, and a remotecontrol 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I see a remote control on the sofa. I should pick it up as it's one of the items I need to complete my task.\nAction: take remotecontrol 2 from sofa 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the remotecontrol 2 from the sofa 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With one remote control in hand, I need to find the second one. The dining table is another place where items are often placed, so I'll check there next.\nAction: go to diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the diningtable 1, you see a book 1, a bowl 3, a bowl 2, a bowl 1, a newspaper 1, a plate 1, a tissuebox 1, and a vase 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's no remote control on the dining table. I should continue searching other areas, such as side tables, which are common places to keep remote controls.\nAction: go to sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 1, you see a book 2, a houseplant 1, and a watch 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The sidetable doesn't have a remote control either. I'll check the ottoman next, as it's part of the task to place two remote controls there.\nAction: go to ottoman 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the ottoman 1, you see a creditcard 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The ottoman doesn't have a remote control. I'll check the drawer 1 next, as drawers are common storage places for remote controls.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is closed. I need to open it to see if there's a remote control inside.\nAction: open drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 1. The drawer 1 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is empty. I'll close it and continue searching elsewhere.\nAction: close drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'll check drawer 2 next, as I haven't looked in this drawer yet.\nAction: go to drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 2 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: This drawer is also closed. I'll open it to check for a remote control.\nAction: open drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 2. The drawer 2 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: This drawer is empty as well. I'll close it and keep looking.\nAction: close drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 3 is another place where items are often stored. I'll check there for a remote control.\nAction: go to drawer 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the drawer 3, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's nothing on top of drawer 3. I need to open it to see if the remote control is inside.\nAction: go to drawer 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 4 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've already checked drawer 4, but I seem to have circled back to it. I need to be more systematic in my search.\nAction: go to drawer 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 5 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 5 is also closed. I'll open it to ensure I haven't missed the remote control.\nAction: open drawer 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 5. The drawer 5 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: This drawer is empty as well. I'll close it and continue my search.\nAction: close drawer 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 5."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've already checked drawer 6, but I seem to have returned here. I need to be more focused on finding the remote controls.\nAction: go to drawer 6"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 6 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 6 is closed. I'll open it to check for the second remote control.\nAction: open drawer 6"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 6. The drawer 6 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: No remote control in this drawer either. I'll close it and move on.\nAction: close drawer 6"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 6."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've already checked drawer 7, but I seem to have come back to it. I need to be more systematic in my search.\nAction: go to drawer 7"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 7 is closed."
+        }
+    ]
+}

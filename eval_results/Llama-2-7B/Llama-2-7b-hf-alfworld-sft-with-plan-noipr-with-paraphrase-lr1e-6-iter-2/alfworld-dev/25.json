@@ -1,0 +1,72 @@
+{
+    "meta": {
+        "steps": 6,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "/home/caozouying.czy/IPR/eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_clean_then_place_in_recep-ButterKnife-None-CounterTop-8/trial_T20190909_105559_983897/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 18, a cabinet 17, a cabinet 16, a cabinet 15, a cabinet 14, a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 4, a countertop 3, a countertop 2, a countertop 1, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: put a clean butterknife in countertop."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. butterknife_name, location_name = locate_a_butterknife(candidate_locations);\nStep 2. take_butterknife(butterknife_name, location_name);\nStep 3. go_to_sink();\nStep 4. clean_butterknife(butterknife_name, sink_name);\nStep 5. go_to_countertop();\nStep 6. put_butterknife_on_countertop(butterknife_name).\nI need to locate a butterknife to place on the countertop. I will start by checking the nearest countertop to see if there's a butterknife there.\nAction: go to countertop 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 2, you see a bread 1, a butterknife 1, a egg 1, a knife 2, a knife 1, a mug 3, a pen 1, a sink 1, a spatula 3, a spatula 2, and a spraybottle 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have found a butterknife on countertop 2. I need to pick it up so that I can clean it before placing it on the countertop as instructed.\nAction: take butterknife 1 from countertop 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the butterknife 1 from the countertop 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the butterknife, I should clean it. The sink is the place to wash utensils, so I will go there next.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The sink is empty, which is perfect for cleaning the butterknife without any obstructions. I'll proceed to clean the butterknife now.\nAction: clean butterknife 1 with sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You clean the butterknife 1 using the sinkbasin 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The butterknife is now clean, and I need to place it on a countertop. I'll go back to countertop 1 since it was the first one I checked and it's part of the task to put a clean butterknife on a countertop.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a cup 1, a houseplant 1, a lettuce 1, a soapbottle 1, a spatula 1, and a spoon 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm at countertop 1, and I need to place the clean butterknife here in a manner that is neat and accessible.\nAction: put butterknife 1 in/on countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the butterknife 1 in/on the countertop 1."
+        }
+    ]
+}

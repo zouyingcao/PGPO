@@ -1,0 +1,64 @@
+{
+    "meta": {
+        "steps": 5,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i'm looking for a black short-sleeve men's v-neck shirt that i can wear to the gym for my workouts. it would be great if the size were a medium, and price lower than 40.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"men's black short-sleeve v-neck shirt for the gym medium size price < 40.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_color(\"black\");\nStep 4. select_size(\"medium\");\nStep 5. buy().\nI think I should use the search bar to find the specific men's v-neck shirt I need for the gym.\nAction: search[men's black short-sleeve v-neck shirt for the gym medium size price < 40.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for a black short-sleeve men's v-neck shirt that i can wear to the gym for my workouts. it would be great if the size were a medium, and price lower than 40.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B09T6YHR2G [SEP] Shirts for Men,Men's Casual Short Sleeve Button Up T-Shirts Summer Solid Color T-Shirt Tops Beach Loose Comfy Blouse [SEP] $1.99 [SEP] B09RZZ8XJJ [SEP] Graphic T-Shirts for Men,Men's Summer Tops Casual 3D Printed T-Shirts Crewneck Workout Athletic Slim Fit Blouses [SEP] $8.99 [SEP] B09SHP7FBQ [SEP] Graphic Tees for Men,Men's Casual Round Neck T-Shirt Short Sleeve Tops Abstract Printed Slim Fit Workout Blouses [SEP] $13.39 [SEP] B092VK6S1F [SEP] Mens Muscle Short Sleeve T Shirt Turtleneck Slim Fit Basic Tops Gym Workout Athletic Tee Shirt Top Blouse(A) [SEP] $9.99 [SEP] B09RPPQKFX [SEP] Yowein\ud83c\udf89 Polo Shirts,3D Graphic Skull Animal Printed White V Neck T Shirt Workout Gym Bodybuilding Muscle Trend Casual [SEP] $20.47 to $23.74 [SEP] B09R9ZXR8J [SEP] T Shirts for Men Graphic,Men's Summer Tops Fashion Suit Fake Two Piece Tee Shirts Casual Round Neck Tops Blouses [SEP] $16.39 [SEP] B09PYZCYJY [SEP] Summer Short Sleeve Tops for Women Heart Printed O-Neck T Shirts Valentines Casual Workout Shirts Blouse [SEP] $11.99 to $12.99 [SEP] B09RPDGRFZ [SEP] Yowein\ud83c\udf89 Men's Graphic Tees,Medium Tall Mens Shirts Basic V-Neck Casual Contrast Collar Short Sleeve Long Sleeve Shirt [SEP] $15.12 to $18.18 [SEP] B09R7JW9WG [SEP] Funny T Shirts for Men,Mens Short Sleeve Tops Fashion Suit Fake Two Piece Tee Shirts Casual Round Neck Tops Blouses [SEP] $8.59 [SEP] B09QM8Z4L4 [SEP] T-Shirt for Men,Mens Casual Summer Short Sleeve Tops Fashion Printed Crewneck Sweatshirts Funny Workout Tees Blouses [SEP] $6.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the option that matches the description of a black short-sleeve men's v-neck shirt for the gym.\nAction: click[B092VK6S1F]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for a black short-sleeve men's v-neck shirt that i can wear to the gym for my workouts. it would be great if the size were a medium, and price lower than 40.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] green [SEP] white [SEP] gray [SEP] size [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] 3x-large [SEP] Mens Muscle Short Sleeve T Shirt Turtleneck Slim Fit Basic Tops Gym Workout Athletic Tee Shirt Top Blouse(A) [SEP] Price: $9.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'black' color option to filter the search results for a black men's v-neck shirt.\nAction: click[black]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for a black short-sleeve men's v-neck shirt that i can wear to the gym for my workouts. it would be great if the size were a medium, and price lower than 40.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] green [SEP] white [SEP] gray [SEP] size [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] 3x-large [SEP] Mens Muscle Short Sleeve T Shirt Turtleneck Slim Fit Basic Tops Gym Workout Athletic Tee Shirt Top Blouse(A) [SEP] Price: $9.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the'medium' size option to filter the search results for a medium-sized men's v-neck shirt.\nAction: click[medium]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for a black short-sleeve men's v-neck shirt that i can wear to the gym for my workouts. it would be great if the size were a medium, and price lower than 40.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] green [SEP] white [SEP] gray [SEP] size [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] 3x-large [SEP] Mens Muscle Short Sleeve T Shirt Turtleneck Slim Fit Basic Tops Gym Workout Athletic Tee Shirt Top Blouse(A) [SEP] Price: $9.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the black short-sleeve men's v-neck shirt.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B092VK6S1F [SEP] options [SEP] {\"color\": \"black\", \"size\": \"medium\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

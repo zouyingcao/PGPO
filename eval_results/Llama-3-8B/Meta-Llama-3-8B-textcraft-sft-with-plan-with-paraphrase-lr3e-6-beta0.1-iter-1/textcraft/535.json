@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 purple bed using 3 purple wool, 3 planks\ncraft 1 item frame using 8 stick, 1 leather\ncraft 1 repeater using 2 redstone torch, 1 redstone, 3 stone\ncraft 4 oak planks using 1 oak logs\ncraft 6 activator rail using 1 redstone torch, 2 stick, 6 iron ingot\ncraft 4 acacia planks using 1 acacia logs\ncraft 6 scaffolding using 1 string, 6 bamboo\ncraft 1 jukebox using 8 planks, 1 diamond\ncraft 1 redstone block using 9 redstone\ncraft 1 stick using 2 bamboo\ncraft 4 warped planks using 1 warped stems\ncraft 4 stick using 2 planks\ncraft 1 target using 1 hay block, 4 redstone\ncraft 4 spruce planks using 1 spruce logs\ncraft 1 redstone torch using 1 stick, 1 redstone\ncraft 1 spruce fence gate using 4 stick, 2 spruce planks\ncraft 1 bookshelf using 6 planks, 3 book\ncraft 4 crimson planks using 1 crimson stems\ncraft 1 chest using 8 planks\ncraft 4 jungle planks using 1 jungle logs\ncraft 4 birch planks using 1 birch logs\ncraft 4 dark oak planks using 1 dark oak logs\n\nGoal: craft repeater."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"repeater\" not in had_objects: find_flag = get(\"repeater\");\nStep 3. if find_flag == False: \"craft 1 repeater using 2 redstone torch, 1 redstone, 3 stone\" = choose_crafting_commands(\"repeater\"), needed_ingredients = [\"2 redstone torch\", \"1 redstone\", \"3 stone\"], get(\"3 stone\");\nStep 4. find_torch_flag = get(\"2 redstone torch\");\nStep 5. if find_torch_flag == False: \"craft 1 redstone torch using 1 stick, 1 redstone\" = choose_crafting_commands(\"2 redstone torch\"), needed_ingredients_torch = [\"2 stick\", \"2 redstone\"], get(\"2 stick\");\nStep 6. get(\"2 redstone\");\nStep 7. for i in range(2): craft 1 redstone torch using 1 stick, 1 redstone;\nStep 8. get(\"1 redstone\");\nStep 9. craft 1 repeater using 2 redstone torch, 1 redstone, 3 stone\nI should check if I can get a repeater directly from the environment or the inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no repeater in my inventory. I should try to get it from the environment.\nAction: get repeater"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not execute get repeater"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get a repeater directly, I need to craft it. From the crafting commands, I can use: craft 1 repeater using 2 redstone torch, 1 redstone, 3 stone. Ingredients needed: 2 redstone torch, 1 redstone, 3 stone. Let me check if I have these in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients first. I will start by getting stone.\nAction: get 3 stone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 3 stone"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have obtained the stone. Now, I need to get the remaining ingredients for the repeater, which are 2 redstone torches and 1 redstone.\nAction: get 2 redstone torch"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find redstone torch"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get the redstone torch directly, I need to craft it. From the crafting commands, I can craft a redstone torch using 1 stick, 1 redstone. So, I'll need to get these two ingredients for each torch.\nAction: get 2 stick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get the sticks directly, I need to craft them. From the crafting commands, I can craft a stick using 2 bamboo. So, I'll need to get bamboo.\nAction: get 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 bamboo"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have obtained the bamboo. Now, I can craft the sticks needed for crafting the redstone torch.\nAction: craft 2 stick using 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the sticks, I need to get the other ingredient for the redstone torch which is redstone.\nAction: get 1 redstone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 redstone"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have both ingredients, I can craft the redstone torch.\nAction: craft 1 redstone torch using 1 stick, 1 redstone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:redstone_torch"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted one redstone torch, but I need a total of two for the repeater. So, I need to repeat the above steps to get another one.\nAction: get 2 stick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get the sticks directly, I need to craft them again. Backtrack to Step 5. I should have stored the bamboo I had earlier. \nAction: get 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 bamboo"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have obtained the bamboo. Now, I can craft the sticks needed for crafting the second redstone torch.\nAction: craft 2 stick using 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have crafted another stick, I need to get the other ingredient for the second redstone torch which is redstone.\nAction: get 1 redstone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 redstone"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have both ingredients, I can craft the second redstone torch.\nAction: craft 1 redstone torch using 1 stick, 1 redstone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:redstone_torch"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have crafted the second redstone torch, I have all the ingredients needed for the repeater, which are 2 redstone torches, 1 redstone, and 3 stone. \nAction: craft 1 repeater using 2 redstone torch, 1 redstone, 3 stone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:repeater"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I thought I had all the necessary ingredients to craft the repeater, but I was not able to craft it. I believe I'm missing something. Let's check the inventory again to confirm.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [stone] (3) [redstone torch] (2)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I only have stone and redstone torches in my inventory. I'm missing the redstone and sticks needed to craft the redstone torches. Let's try to get these.\nAction: get 1 redstone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 redstone"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have obtained the redstone. Now, I need to get the sticks needed to craft the redstone torches.\nAction: get 2 stick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find any sticks in the environment. I may need to craft them again using bamboo. Let's check if we have any bamboo.\nAction: get 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 bamboo"
+        }
+    ]
+}

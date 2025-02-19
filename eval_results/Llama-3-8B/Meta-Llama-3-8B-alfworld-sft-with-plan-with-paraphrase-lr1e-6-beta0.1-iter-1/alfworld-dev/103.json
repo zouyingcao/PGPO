@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": false,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": "/home/admin/workspace/aop_lab/ipr_plan/eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_and_place_simple-Book-None-Sofa-229/trial_T20190907_042856_259139/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a armchair 1, a coffeetable 1, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 1, a garbagecan 1, a sidetable 3, a sidetable 2, a sidetable 1, and a sofa 1.\nYour task is to: put a book in sofa."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. book_name, location_name = locate_a_book(candidate_locations);\nStep 2. take_a_book(book_name, location_name);\nStep 3. go_to_the_sofa();\nStep 4. put_book_in_sofa();\nThe task is to put a book in the sofa. I need to locate a book first. The dresser is a common place where books are kept in a bedroom, so I should check there first.\nAction: go to dresser 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the dresser 1, you see a creditcard 1, a remotecontrol 3, a remotecontrol 1, a statue 1, and a television 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am at the dresser now, but I don't see any books here, only a credit card, remote controls, a statue, and a television. I need to look elsewhere for a book.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm at drawer 1 now. Drawers often contain smaller items and not books, but I should check inside to make sure I don't miss anything.\nAction: open drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 1. The drawer 1 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is open now, but it's empty. There's no book here. I should close it and continue searching for a book in the other drawers.\nAction: close drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 1 had nothing. I should check drawer 2 next for the book.\nAction: go to drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 2 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm at drawer 2 now. Let's open it and see if the book is inside.\nAction: open drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 2. The drawer 2 is open. In it, you see a cellphone 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's only a cellphone in drawer 2, no book. I'll close this drawer and move on to the next one.\nAction: close drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 2 didn't have the book. I should try drawer 3 next.\nAction: go to drawer 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 3 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm at drawer 3 now. I need to open it to check for the book.\nAction: open drawer 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 3. The drawer 3 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 3 is empty. The book isn't here. I'll close this drawer and check the last one.\nAction: close drawer 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 3 had nothing. The last drawer to check is drawer 4.\nAction: go to drawer 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 4 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm at drawer 4 now. This is the last place to check for the book.\nAction: open drawer 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 4. The drawer 4 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 4 is also empty. No book here. I should close it and look elsewhere, perhaps on top of other furniture.\nAction: close drawer 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 4."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawers didn't have the book. The coffee table is another place where books are often placed, so I should check there next.\nAction: go to coffeetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the coffeetable 1, you see a box 1, a keychain 1, a pencil 2, a statue 2, and a tissuebox 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm at the coffee table now, but there's no book here, just a box, a keychain, a pencil, a statue, and a tissue box. I need to continue searching.\nAction: go to armchair 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the armchair 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm at the armchair now. It's empty, which is good because it means there's space for the book once I find it. I should keep looking.\nAction: go to sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 1, you see a houseplant 1, a pen 2, a pen 1, a pencil 1, and a remotecontrol 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm at sidetable 1 now. There are various items here, but no book. I need to check the other sidetables.\nAction: go to sidetable 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 2, you see a laptop 1, a pencil 3, and a statue 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm at sidetable 2 now. This sidetable also doesn't have the book, just a laptop, a pencil, and a statue. I'll check the last sidetable.\nAction: go to sidetable 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 3, you see a book 1, a pen 3, a tissuebox 3, and a tissuebox 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've found a book on sidetable 3. This is what I need to complete the task.\nAction: take book 1 from sidetable 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the book 1 from the sidetable 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the book now. I need to go to the sofa to place the book there as instructed.\nAction: go to sofa 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sofa 1, you see a keychain 3, a keychain 2, and a pillow 1."
+        }
+    ]
+}

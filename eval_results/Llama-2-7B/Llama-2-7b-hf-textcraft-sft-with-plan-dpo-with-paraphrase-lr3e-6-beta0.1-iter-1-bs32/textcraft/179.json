@@ -1,0 +1,128 @@
+{
+    "meta": {
+        "steps": 13,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 4 stick using 2 planks\ncraft 4 spruce planks using 1 spruce logs\ncraft 4 arrow using 1 stick, 1 flint, 1 feather\ncraft 1 soul campfire using 3 logs, 3 stick, 1 soul fire base blocks\ncraft 1 orange banner using 6 orange wool, 1 stick\ncraft 4 birch planks using 1 birch logs\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 1 white banner using 6 white wool, 1 stick\ncraft 4 warped planks using 1 warped stems\ncraft 3 birch fence using 2 stick, 4 birch planks\ncraft 1 bookshelf using 6 planks, 3 book\ncraft 1 stick using 2 bamboo\ncraft 4 oak planks using 1 oak logs\ncraft 1 gray bed using 3 gray wool, 3 planks\ncraft 4 jungle planks using 1 jungle logs\ncraft 1 wooden shovel using 2 stick, 1 planks\ncraft 1 brown bed using 3 brown wool, 3 planks\ncraft 4 crimson planks using 1 crimson stems\ncraft 4 acacia planks using 1 acacia logs\ncraft 1 light gray bed using 3 light gray wool, 3 planks\ncraft 1 campfire using 3 logs, 3 stick, 1 coals\n\nGoal: craft campfire."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"campfire\" not in had_objects: find_flag = get(\"campfire\");\nStep 3. if find_flag == False: \"craft 1 campfire using 3 logs, 3 stick, 1 coals\" = choose_crafting_commands(\"campfire\"), needed_ingredients = [\"3 logs\", \"3 stick\", \"1 coals\"], find_flag = get(\"3 logs\");\nStep 4. if find_flag == False: \"craft 4 oak planks using 1 oak logs\" = choose_crafting_commands(\"3 logs\"), needed_ingredients = \"1 oak logs\", get(\"1 oak logs\");\nStep 5. craft 4 oak planks using 1 oak logs;\nStep 6. get(\"3 stick\");\nStep 7. get(\"1 coals\");\nStep 8. craft 1 campfire using 3 logs, 3 stick, 1 coals\nI should check if I can get campfire directly from the environment or the inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no campfire in my inventory. I should try to get it from the environment.\nAction: get campfire"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not execute get campfire"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get campfire directly, I need to craft it. From the crafting commands, I can use: craft 1 campfire using 3 logs, 3 stick, 1 coals. Ingredients needed: 3 logs, 3 stick, 1 coals. I should check if I have these in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients: 3 logs, 3 stick, 1 coals first.\nAction: get 3 logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 3 logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the logs. Now, I need to get the sticks and coals.\nAction: get 3 stick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find the sticks. I'll need to craft them. From the crafting commands, I can craft 4 sticks using 2 planks. Ingredients needed: 2 planks. I should check if I have these in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [logs] (3)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have any planks in my inventory. I should try to get some from the environment.\nAction: get 2 planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find the planks. I'll need to craft them. From the crafting commands, I can craft 4 planks using 1 log. Ingredients needed: 1 log. I should check if I have these in my inventory.\nAction: get 1 log"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find log"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find the log. I'll need to craft it. From the crafting commands, I can craft 4 oak planks using 1 oak logs. Ingredients needed: 1 oak logs. I should check if I have these in my inventory.\nAction: get 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 oak logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the oak logs. Now, I can craft the oak planks which can then be used to craft the sticks.\nAction: craft 4 oak planks using 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:oak_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted the oak planks. Now, I can use these to craft the sticks.\nAction: craft 4 stick using 2 oak planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted the sticks. Now, I need to get the coals to craft the campfire.\nAction: get 1 coals"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 coals"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the coals. Now, I can craft the campfire.\nAction: craft 1 campfire using 3 logs, 3 stick, 1 coals"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:campfire"
+        }
+    ]
+}

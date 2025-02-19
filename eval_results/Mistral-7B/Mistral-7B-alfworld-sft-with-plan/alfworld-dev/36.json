@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": false,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_heat_then_place_in_recep-Plate-None-Cabinet-1/trial_T20190908_070946_578973/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 3, a countertop 2, a countertop 1, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a shelf 3, a shelf 2, a shelf 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: put a hot plate in cabinet."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. hot_plate_name, location_name = locate_a_hot_plate(candidate_locations);\nStep 2. take_hot_plate(hot_plate_name, location_name);\nStep 3. go_to_a_cabinet();\nStep 4. open_cabinet();\nStep 5. put_hot_plate_in_cabinet();\nI need to find a hot plate to put in a cabinet. I'll start by checking the kitchen appliances and surfaces where a hot plate might be located.\nAction: go to toaster 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the toaster 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The toaster is not where a hot plate would be, but it's good to confirm that nothing is on it. Now, I should check the stove burners for a hot plate.\nAction: go to stoveburner 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the stoveburner 1, you see a kettle 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's a kettle on stoveburner 1, but no hot plate. I need to keep looking.\nAction: go to stoveburner 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Nothing happens."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Stoveburner 2 is empty. I'll continue searching the other burners for a hot plate.\nAction: go to stoveburner 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the stoveburner 3, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: This burner is also empty. I have one more burner to check.\nAction: go to stoveburner 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Nothing happens."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The last burner is empty as well. I'll check the sink area next, as sometimes hot plates are left there after use.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see a apple 1, a bowl 2, a egg 1, a potato 2, a spoon 3, and a tomato 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The sink has various items but no hot plate. I'll check the shelves next, as hot plates are often stored there.\nAction: go to shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 1, you see a mug 1, a peppershaker 2, a peppershaker 1, and a saltshaker 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 1 has some items, but no hot plate. I'll check the next shelf.\nAction: go to shelf 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 2, you see a glassbottle 1, a pot 1, and a vase 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 2 also doesn't have a hot plate. I'll check the last shelf.\nAction: go to shelf 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 3, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 3 is empty. The microwave is another place where a hot plate might be found, as people sometimes use it to heat water on plates.\nAction: go to microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The microwave 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The microwave is closed. I need to open it to see if there's a hot plate inside.\nAction: open microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the microwave 1. The microwave 1 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The microwave is empty. I'll close it and continue my search elsewhere.\nAction: close microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the microwave 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I haven't checked the garbage can. Although it's unlikely, there might be a hot plate on or near it.\nAction: go to garbagecan 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the garbagecan 1, you see a apple 2, and a dishsponge 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's no hot plate on the garbage can, just an apple and a dish sponge. The fridge is another place where a hot plate might be stored, especially if it's used for food storage.\nAction: go to fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The fridge 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The fridge is closed. I need to open it to look for a hot plate inside.\nAction: open fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the fridge 1. The fridge 1 is open. In it, you see a bowl 1, a mug 3, and a potato 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Inside the fridge, there's no hot plate, just a bowl, a mug, and a potato. I'll close the fridge and continue my search.\nAction: close fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the fridge 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The countertop is another common place where a hot plate might be found, especially if it's used for cooking.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a butterknife 2, a dishsponge 1, a fork 1, a glassbottle 2, a knife 1, a lettuce 1, a mug 2, a pan 1, and a saltshaker 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's no hot plate on the countertop, but there are various kitchen utensils and food items. I'll check the next countertop.\nAction: go to countertop 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 2, you see a bread 1, a butterknife 3, a creditcard 2, a cup 1, a dishsponge 3, a houseplant 1, a plate 2, a soapbottle 1, a spatula 1, and a tomato 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Countertop 2 has various items, but no hot plate. I'll check the last countertop.\nAction: go to countertop 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 3, you see a book 1, a fork 2, a knife 2, a papertowelroll 1, a plate 3, a plate 1, a soapbottle 2, a spatula 2, a spoon 2, a spoon 1, a statue 1, a tomato 1, a vase 2, and a winebottle 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: No hot plate on countertop 3 either. The coffee machine is another place where a hot plate might be found, as it's used for making coffee.\nAction: go to coffeemachine 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the coffeemachine 1, you see nothing."
+        }
+    ]
+}

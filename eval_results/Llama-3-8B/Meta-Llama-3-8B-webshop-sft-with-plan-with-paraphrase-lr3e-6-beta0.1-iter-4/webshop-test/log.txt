@@ -1,0 +1,4 @@
+All tasks done.
+Output saved to outputs/Meta-Llama-3-8B-webshop-sft-with-plan-with-paraphrase-lr3e-6-beta0.1-iter-4/webshop-test
+Average reward: 0.7230
+Success rate: 0.9850

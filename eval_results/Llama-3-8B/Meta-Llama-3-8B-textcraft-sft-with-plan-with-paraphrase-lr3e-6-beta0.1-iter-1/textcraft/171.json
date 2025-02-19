@@ -1,0 +1,120 @@
+{
+    "meta": {
+        "steps": 12,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 flower pot using 3 brick\ncraft 4 brick stairs using 6 bricks\ncraft 1 bricks using 4 brick\ncraft 6 brick slab using 3 bricks\ncraft 6 brick wall using 6 bricks\n\nGoal: craft brick wall."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"6 bricks\" not in had_objects: find_flag = get(\"6 bricks\");\nStep 3. if find_flag == False: \"craft 1 bricks using 4 brick\" = choose_crafting_commands(\"6 bricks\"), needed_ingredients = \"24 brick\", get(\"24 brick\");\nStep 4. for i in range(6): craft 1 bricks using 4 brick;\nStep 5. craft 6 brick wall using 6 bricks\nTo craft a brick wall, I need 6 bricks. I should check if I have enough bricks in my inventory. \nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have any bricks in my inventory. I need to get them from the environment. \nAction: get 6 bricks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get bricks directly from the environment. I need to craft them. The crafting command for that is: craft 1 bricks using 4 brick. I should check if I have enough brick in my inventory. \nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have any brick in my inventory. I need to get them from the environment. \nAction: get 24 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 24 brick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have obtained 24 brick from the environment. Now I can craft bricks using these bricks. \nAction: craft 6 bricks using 24 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find a valid recipe for ItemTagWithCount(item_tag=ItemTag(tag=None, item_id='minecraft:bricks'), count=6)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've made an error in executing the crafting command. I should craft 1 brick at a time using 4 brick each. \nAction: craft 1 bricks using 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted 1 brick successfully. I need to repeat this process 5 more times to get enough bricks for the brick wall.\nAction: craft 1 bricks using 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted another brick successfully. I need to repeat this process 4 more times to get enough bricks for the brick wall.\nAction: craft 1 bricks using 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted yet another brick successfully. I need to repeat this process 3 more times to get enough bricks for the brick wall.\nAction: craft 1 bricks using 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted yet another brick successfully. I need to repeat this process 2 more times to get enough bricks for the brick wall.\nAction: craft 1 bricks using 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted yet another brick successfully. I need to repeat this process 1 more time to get enough bricks for the brick wall.\nAction: craft 1 bricks using 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted the final brick I needed. Now I have enough bricks to craft the brick wall.\nAction: craft 6 brick wall using 6 bricks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 6 minecraft:brick_wall"
+        }
+    ]
+}

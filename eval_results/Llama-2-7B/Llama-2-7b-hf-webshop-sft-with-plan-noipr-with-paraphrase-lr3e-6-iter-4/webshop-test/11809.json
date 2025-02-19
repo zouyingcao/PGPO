@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i am looking for heavy duty folding table of black granite color, and price lower than 190.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"heavy duty folding table black granite color price < 190.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_color(\"black\");\nStep 4. buy().\nI think I should use the search bar to find the heavy-duty folding table I need.\nAction: search[heavy duty folding table black granite color price < 190.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for heavy duty folding table of black granite color, and price lower than 190.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B09BK2WGGX [SEP] Correll 30\"x72\" Commercial Duty Folding Table, Gray Granite Melamine Top, Made in The USA, Portable, Strong Steel Apron CBZF3072M-15 [SEP] $179.59 [SEP] B07XHCCNY4 [SEP] Flash Furniture 8' Bi-Fold Granite White Plastic Event/Training Folding Table Set with 10 Folding Chairs [SEP] $388.49 [SEP] B01B5OQ7CE [SEP] Correll CST2436-15 - Adjustable Standing Height Table/Work Station, 24\"x36\", Gray Granite, Adjusts from 34\" - 42\", Perfect for Sitting or Standing [SEP] $371.25 [SEP] B09CQHFHPP [SEP] Correll 30\"x60\" Commercial Folding Table, Height Adjestable (22\"-32\") Blue Light Weight, Waterproof, Virtually Indestructible Blow Molded Plastic Top, Steel Ladder Frame, Made in The USA [SEP] $229.25 [SEP] B09P5MGS8Z [SEP] 4 Foot Round Heavy-Duty Granite White Plastic Folding Table, Table Foldable Outdoor Tables for Party Dining Table Console Table Fold Up Table Pub Table Folding Commercial Folding Table White Top [SEP] $194.99 [SEP] B09P5NZWGZ [SEP] 7 Pack! 5 Foot Round Heavy-Duty Granite White Plastic Folding Table, Table Foldable Outdoor Tables for Party Dining Table Console Table Fold Up Table Pub Table Folding Commercial Folding Table White [SEP] $1999.99 [SEP] B09P5PVKRP [SEP] 5 Foot Round Heavy-Duty Granite White Plastic Folding Table, Table Foldable Outdoor Tables for Party Dining Table Console Table Fold Up Table Pub Table Folding Commercial Folding Table White Top [SEP] $549.99 [SEP] B09P5P69JF [SEP] 5-Foot Round Heavy-Duty Granite White Plastic Folding Table, Outdoor/Indoor Foldable Party Table Picknick Table Commercial Folding Table Wedding Folding Table Dining Table Console Table [SEP] $549.99 [SEP] B09P5NTKYS [SEP] 2 Pack! 5-Feet (150 cm) Round Heavy-Duty Granite White Plastic Folding Table, Console Table Party Tables for Events Portable Folding Bar White Wedding Folding Table Table Foldable Outdoor [SEP] $809.99 [SEP] B09P5QQHHZ [SEP] 6 Pack! 5-Feet (150 cm) Round Heavy-Duty Granite White Plastic Folding Table, Console Table Party Tables for Events Portable Folding Bar White Wedding Folding Table Table Foldable Outdoor [SEP] $1769.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the Correll 30\"x72\" Commercial Duty Folding Table, Gray Granite Melamine Top, Made in The USA, which is priced at $179.59.\nAction: click[B09BK2WGGX]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for heavy duty folding table of black granite color, and price lower than 190.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size [SEP] 18\"x48\" [SEP] 18\"x60\" [SEP] 18\"x72\" [SEP] 18\"x96\" [SEP] 24\"x48\" [SEP] 24\"x48\" (th) [SEP] 24\"x60\" [SEP] 24\"x72 [SEP] 24\"x96\" [SEP] 30\"x48\" [SEP] 30\"x60\" [SEP] 30\"x72\" [SEP] 30\"x96\" [SEP] 36\"x72\" [SEP] 36\"x96\" [SEP] 48\" round [SEP] 60\" round [SEP] color [SEP] black granite [SEP] gray granite [SEP] medium oak [SEP] walnut [SEP] Correll 30\"x72\" Commercial Duty Folding Table, Gray Granite Melamine Top, Made in The USA, Portable, Strong Steel Apron CBZF3072M-15 [SEP] Price: $179.59 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'black granite' color option to find the heavy-duty folding table I need.\nAction: click[black granite]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for heavy duty folding table of black granite color, and price lower than 190.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size [SEP] 18\"x48\" [SEP] 18\"x60\" [SEP] 18\"x72\" [SEP] 18\"x96\" [SEP] 24\"x48\" [SEP] 24\"x48\" (th) [SEP] 24\"x60\" [SEP] 24\"x72 [SEP] 24\"x96\" [SEP] 30\"x48\" [SEP] 30\"x60\" [SEP] 30\"x72\" [SEP] 30\"x96\" [SEP] 36\"x72\" [SEP] 36\"x96\" [SEP] 48\" round [SEP] 60\" round [SEP] color [SEP] black granite [SEP] gray granite [SEP] medium oak [SEP] walnut [SEP] Correll 30\"x72\" Commercial Duty Folding Table, Gray Granite Melamine Top, Made in The USA, Portable, Strong Steel Apron CBZF3072M-15 [SEP] Price: $179.59 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the Correll 30\"x72\" Commercial Duty Folding Table in black granite color.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B09BK2WGGX [SEP] options [SEP] {\"color\": \"black granite\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

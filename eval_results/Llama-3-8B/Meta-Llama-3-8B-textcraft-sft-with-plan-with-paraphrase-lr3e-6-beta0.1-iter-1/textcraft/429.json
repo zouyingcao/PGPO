@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 2 purple dye using 1 blue dye, 1 red dye\ncraft 8 red stained glass using 8 glass, 1 red dye\ncraft 2 red dye using 1 rose bush\ncraft 1 blue wool using 1 blue dye, 1 white wool\ncraft 2 pink dye using 1 red dye, 1 white dye\ncraft 1 brown banner using 6 brown wool, 1 stick\ncraft 4 jungle planks using 1 jungle logs\ncraft 8 purple carpet using 8 white carpet, 1 purple dye\ncraft 1 red dye using 1 beetroot\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 8 red concrete powder using 1 red dye, 4 sand, 4 gravel\ncraft 4 acacia planks using 1 acacia logs\ncraft 1 purple wool using 1 purple dye, 1 white wool\ncraft 8 blue stained glass using 8 glass, 1 blue dye\ncraft 1 stick using 2 bamboo\ncraft 1 purple banner using 6 purple wool, 1 stick\ncraft 1 blue dye using 1 lapis lazuli\ncraft 1 blue dye using 1 cornflower\ncraft 1 white wool using 4 string\ncraft 4 crimson planks using 1 crimson stems\ncraft 4 birch planks using 1 birch logs\ncraft 1 lime banner using 6 lime wool, 1 stick\ncraft 3 white carpet using 2 white wool\ncraft 4 stick using 2 planks\ncraft 4 spruce planks using 1 spruce logs\ncraft 4 warped planks using 1 warped stems\ncraft 2 lead using 4 string, 1 slime ball\ncraft 1 red dye using 1 red tulip\ncraft 1 red dye using 1 poppy\ncraft 4 oak planks using 1 oak logs\n\nGoal: craft purple banner."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. \"craft 1 purple banner using 6 purple wool, 1 stick\" = choose_crafting_commands(\"purple banner\"), needed_objects = [\"6 purple wool\", \"1 stick\"], had_objects = inventory();\nStep 2. if \"6 purple wool\" not in had_objects: find_flag_purple_wool = get(\"6 purple wool\");\nStep 3. if find_flag_purple_wool == False: \"craft 1 purple wool using 1 purple dye, 1 white wool\" = choose_crafting_commands(\"6 purple wool\"), needed_ingredients_purple_wool = [\"6 purple dye\", \"6 white wool\"], find_flag_purple_dye = get(\"6 purple dye\");\nStep 4. if find_flag_purple_dye == False: \"craft 2 purple dye using 1 blue dye, 1 red dye\" = choose_crafting_commands(\"6 purple dye\"), needed_ingredients_purple_dye = [\"3 blue dye\", \"3 red dye\"], find_flag_blue_dye = get(\"3 blue dye\");\nStep 5. if find_flag_blue_dye == False: \"craft 1 blue dye using 1 lapis lazuli\" = choose_crafting_commands(\"3 blue dye\"), needed_ingredients_blue_dye = \"3 lapis lazuli\", get(\"3 lapis lazuli\");\nStep 6. for i in range(3): craft 1 blue dye using 1 lapis lazuli;\nStep 7. find_flag_red_dye = get(\"3 red dye\");\nStep 8. if find_flag_red_dye == False: \"craft 2 red dye using 1 rose bush\" = choose_crafting_commands(\"3 red dye\"), needed_ingredients_red_dye = \"3 rose bush\", get(\"3 rose bush\");\nStep 9. for i in range(3): craft 2 red dye using 1 rose bush;\nStep 10. for i in range(3): craft 2 purple dye using 1 blue dye, 1 red dye;\nStep 11. find_flag_white_wool = get(\"6 white wool\");\nStep 12. if find_flag_white_wool == False: \"craft 1 white wool using 4 string\" = choose_crafting_commands(\"6 white wool\"), needed_ingredients_white_wool = \"24 string\", get(\"24 string\");\nStep 13. for i in range("
+        },
+        {
+            "from": "human",
+            "value": "Observation: Invalid format. The input must contains 'Action: '"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I should follow the instructions and try my best to solve the task.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to gather the ingredients to craft a purple banner.\nAction: get 6 purple wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find purple wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get purple wool directly, I need to craft it. The crafting command for purple wool is: craft 1 purple wool using 1 purple dye, 1 white wool. Therefore, I need 1 purple dye and 1 white wool.\nAction: get 1 purple dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find purple dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get purple dye directly, I need to craft it. The crafting command for purple dye is: craft 2 purple dye using 1 blue dye, 1 red dye. Therefore, I need 1 blue dye and 1 red dye.\nAction: get 1 blue dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find blue dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get blue dye directly, I need to craft it. The crafting command for blue dye is: craft 1 blue dye using 1 lapis lazuli. Therefore, I need 1 lapis lazuli.\nAction: get 1 lapis lazuli"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 lapis lazuli"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the lapis lazuli. Now I can craft the blue dye needed for the purple dye.\nAction: craft 1 blue dye using 1 lapis lazuli"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:blue_dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Next, I need to get red dye. \nAction: get 1 red dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find red dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get red dye directly, I need to craft it. The crafting command for red dye is: craft 2 red dye using 1 rose bush. Therefore, I need 1 rose bush.\nAction: get 1 rose bush"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 rose bush"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the rose bush. Now I can craft the red dye needed for the purple dye.\nAction: craft 2 red dye using 1 rose bush"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 2 minecraft:red_dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have both blue dye and red dye, I can craft purple dye.\nAction: craft 2 purple dye using 1 blue dye, 1 red dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 2 minecraft:purple_dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Next, I need to get white wool. \nAction: get 1 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find white wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get white wool directly, I need to craft it. The crafting command for white wool is: craft 1 white wool using 4 string. Therefore, I need 4 string.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the string. Now I can craft the white wool needed for the purple wool.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have white wool and purple dye, I can craft purple wool.\nAction: craft 1 purple wool using 1 purple dye, 1 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:purple_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to gather more purple wool to craft a purple banner.\nAction: get 5 purple wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find purple wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get more purple wool directly, I need to craft it. Therefore, I need more purple dye and white wool.\nAction: get 1 purple dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find purple dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get more purple dye directly, I need to craft it. The crafting command for purple dye is: craft 2 purple dye using 1 blue dye, 1 red dye. Therefore, I need 1 blue dye and 1 red dye.\nAction: get 1 blue dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find blue dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get more blue dye directly, I need to craft it. The crafting command for blue dye is: craft 1 blue dye using 1 lapis lazuli. Therefore, I need 1 lapis lazuli.\nAction: get 1 lapis lazuli"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 lapis lazuli"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the lapis lazuli. Now I can craft the blue dye needed for more purple dye.\nAction: craft 1 blue dye using 1 lapis lazuli"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:blue_dye"
+        }
+    ]
+}

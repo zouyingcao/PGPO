@@ -1,0 +1,64 @@
+{
+    "meta": {
+        "steps": 5,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_unseen/look_at_obj_in_light-Mug-None-DeskLamp-308/trial_T20190908_201444_037645/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 2, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a laundryhamper 1, a safe 1, a shelf 6, a shelf 5, a shelf 4, a shelf 3, a shelf 2, and a shelf 1.\nYour task is to: examine the mug with the desklamp."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. desklamp_name, location_name = locate_a_desklamp(candidate_locations);\nStep 2. mug_name, location_name = locate_a_mug(candidate_locations);\nStep 3. take_a_mug(mug_name, location_name);\nStep 4. use_a_desklamp_to_examine(desklamp_name).\nThe task requires me to examine a mug with the desklamp. First, I need to locate the desklamp to determine where I should be looking for the mug.\nAction: go to shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 1, you see a alarmclock 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have arrived at shelf 1, but I do not see a desklamp here, only an alarm clock. I should check the next shelf for the desklamp.\nAction: go to shelf 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 2, you see a mug 1, and a pencil 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now at shelf 2, I observe a mug here. This could be the mug I need to examine with the desklamp. I should take it so I can use it with the desklamp once I find it.\nAction: take mug 1 from shelf 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the mug 1 from the shelf 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With the mug in hand, I need to continue searching for the desklamp. The next shelf to check is shelf 3.\nAction: go to shelf 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 3, you see a bowl 1, and a desklamp 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have reached shelf 3 and found a desklamp here. Now, I should use the desklamp to examine the mug I have taken from shelf 2.\nAction: use desklamp 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You turn on the desklamp 1."
+        }
+    ]
+}

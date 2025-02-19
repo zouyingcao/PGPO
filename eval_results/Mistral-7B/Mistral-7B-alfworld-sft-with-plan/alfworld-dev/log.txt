@@ -1,0 +1,4 @@
+All tasks done.
+Output saved to outputs/Mistral-7B-v0.1-alfworld-sft-with-plan/alfworld-dev
+Average reward: 0.7500
+Success rate: 0.7500

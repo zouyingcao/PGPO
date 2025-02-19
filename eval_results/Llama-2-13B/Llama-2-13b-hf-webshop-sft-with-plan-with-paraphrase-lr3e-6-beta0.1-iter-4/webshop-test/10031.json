@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i'm looking for a wireless bluetooth speaker, preferable blue color, and price lower than 170.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"wireless bluetooth speaker blue color price < 170.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_color(\"blue\");\nStep 4. buy().\nI think I should use the search bar to find a wireless Bluetooth speaker that meets the criteria.\nAction: search[wireless Bluetooth speaker blue color price < 170.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for a wireless bluetooth speaker, preferable blue color, and price lower than 170.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B01N59R01N [SEP] Gear4 Espresso Cup Portable Wireless Universal 3.0 Bluetooth Speaker (Blue) [SEP] $19.99 [SEP] B009AXVM6E [SEP] JBL Flip Portable Stereo Speaker with Wireless Bluetooth Connection (Black) [SEP] $59.99 [SEP] B097R2QTCJ [SEP] YUUAND Mini Wireless Speaker Bluetooth Subwoofer USB Card Small Speaker Fast Connection, One Size [SEP] $0.99 [SEP] B0921BWKT4 [SEP] QFX BT-60-BL 4\" Bluetooth Speaker with LED Lights - Blue [SEP] $19.49 [SEP] B087CQGJ62 [SEP] QFX BT-1956-BL On The Go Light + Sound Speaker - Blue [SEP] $28.03 [SEP] B00TT3SNHG [SEP] Cinderella Carriage Bluetooth Speaker, Stylish Speakers Bluetooth Wireless for Audio Streaming, Ideal Portable Speaker, Perfect Cinderella Accessories for Girls [SEP] $44.99 [SEP] B00IZDIO8Y [SEP] QFX CS-27BTWH Portable Bluetooth Speaker with AUX-In - White [SEP] $14.52 [SEP] B094JBS3V8 [SEP] Yehouanoou Bluetooth Speaker, IP6 Waterproof, HD Sound and Rich Stereo Bass, Long Playtime Portable Bluetooth Speaker with Suction Cup & Sturdy Hook for Outdoor, Cycling, Pool,Beach, Home (White) [SEP] $24.99 [SEP] B094JDQRD2 [SEP] Yehouanoou Bluetooth Speaker, IP6 Waterproof, HD Sound and Rich Stereo Bass, Long Playtime Portable Bluetooth Speaker with Suction Cup & Sturdy Hook for Outdoor, Cycling, Pool,Beach, Home (Orange) [SEP] $24.99 [SEP] B01MXSMZ3O [SEP] Gear4 Espresso Cup Portable Wireless Universal 3.0 Bluetooth Speaker (Cyan) [SEP] $19.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the JBL Flip Portable Stereo Speaker with Wireless Bluetooth Connection (Black) as it meets the criteria.\nAction: click[B009AXVM6E]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for a wireless bluetooth speaker, preferable blue color, and price lower than 170.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] blue [SEP] green [SEP] JBL Flip Portable Stereo Speaker with Wireless Bluetooth Connection (Black) [SEP] Price: $59.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'blue' color option to filter the search results for a blue wireless Bluetooth speaker.\nAction: click[blue]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for a wireless bluetooth speaker, preferable blue color, and price lower than 170.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] blue [SEP] green [SEP] JBL Flip Portable Stereo Speaker with Wireless Bluetooth Connection (Black) [SEP] Price: $59.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the JBL Flip Portable Stereo Speaker.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B009AXVM6E [SEP] options [SEP] {\"color\": \"blue\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 8 gray carpet using 8 white carpet, 1 gray dye\ncraft 1 pink wool using 1 pink dye, 1 white wool\ncraft 8 brown terracotta using 8 terracotta, 1 brown dye\ncraft 1 brown bed using 1 white bed, 1 brown dye\ncraft 6 scaffolding using 1 string, 6 bamboo\ncraft 3 brown carpet using 2 brown wool\ncraft 1 white wool using 4 string\ncraft 1 cyan wool using 1 cyan dye, 1 white wool\ncraft 1 brown dye using 1 cocoa beans\ncraft 8 brown carpet using 8 white carpet, 1 brown dye\ncraft 3 white carpet using 2 white wool\ncraft 8 green carpet using 8 white carpet, 1 green dye\ncraft 1 brown wool using 1 brown dye, 1 white wool\ncraft 1 purple wool using 1 purple dye, 1 white wool\ncraft 1 red wool using 1 red dye, 1 white wool\ncraft 1 blue wool using 1 blue dye, 1 white wool\n\nGoal: craft brown carpet."
+        },
+        {
+            "from": "gpt",
+            "value": "First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"brown carpet\" not in had_objects: find_flag = get(\"brown carpet\");\nStep 3. if find_flag == False: \"craft 8 brown carpet using 8 white carpet, 1 brown dye\" = choose_crafting_commands(\"brown carpet\"), needed_ingredients = [\"8 white carpet\", \"1 brown dye\"], find_white_carpet_flag = get(\"8 white carpet\");\nStep 4. if find_white_carpet_flag == False: \"craft 3 white carpet using 2 white wool\" = choose_crafting_commands(\"8 white carpet\"), needed_ingredients = \"8 white wool\", find_white_wool_flag = get(\"8 white wool\");\nStep 5. if find_white_wool_flag == False: \"craft 1 white wool using 4 string\" = choose_crafting_commands(\"8 white wool\"), needed_ingredients = \"32 string\", get(\"32 string\");\nStep 6. for i in range(8): craft 1 white wool using 4 string;\nStep 7. if \"1 brown dye\" not in had_objects: find_flag = get(\"1 brown dye\");\nStep 8. if find_flag == False: \"craft 1 brown dye using 1 cocoa beans\" = choose_crafting_commands(\"1 brown dye\"), needed_ingredients = \"1 cocoa beans\", get(\"1 cocoa beans\");\nStep 9. craft 1 brown dye using 1 cocoa beans;\nStep 10. craft 8 brown carpet using 8 white carpet, 1 brown dye\nI should check if I can get brown carpet directly from the environment or the inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no brown carpet in my inventory. I should try to get it from the environment.\nAction: get brown carpet"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not execute get brown carpet"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get brown carpet directly, I need to craft it. From the crafting commands, I can use: craft 8 brown carpet using 8 white carpet, 1 brown dye. Ingredients needed: 8 white carpet, 1 brown dye. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients: 8 white carpet and 1 brown dye first. Let's start with getting white carpet.\nAction: get 8 white carpet"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find white carpet"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get white carpet directly, I need to craft it. From the crafting commands, I can craft 3 white carpet using 2 white wool. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients: 2 white wool first. Let's start with getting white wool.\nAction: get 2 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find white wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get white wool directly, I need to craft it. From the crafting commands, I can craft 1 white wool using 4 string. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients: 4 string first. Let's start with getting string.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the ingredients: 4 string. I will use the crafting command: craft 1 white wool using 4 string\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted 1 white wool. Now, I need to craft 3 white carpet using 2 white wool.\nAction: craft 3 white carpet using 2 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:white_carpet"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to craft 3 white carpet using 2 white wool but I don't have enough white wool. I should get another white wool.\nAction: get 1 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find white wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to craft 3 white carpet using 2 white wool but I don't have enough white wool. I should craft 1 white wool using 4 string first.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to craft 1 white wool using 4 string first in order to have enough white wool to craft 3 white carpet.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to craft 1 white wool using 4 string first in order to have enough white wool to craft 3 white carpet.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the ingredients: 4 string. I will use the crafting command: craft 1 white wool using 4 string\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted 1 white wool. Now, I need to craft 3 white carpet using 2 white wool.\nAction: craft 3 white carpet using 2 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 3 minecraft:white_carpet"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted 3 white carpet. Now, I need to check if I have the ingredients to craft 1 brown dye in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [white carpet] (3)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have white carpet in my inventory. I need to craft brown dye using cocoa beans to turn this white carpet into brown carpet.\nAction: get 1 cocoa beans"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 cocoa beans"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the ingredient: 1 cocoa beans. I will use the crafting command: craft 1 brown dye using 1 cocoa beans\nAction: craft 1 brown dye using 1 cocoa beans"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:brown_dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted 1 brown dye. Now, I can craft the brown carpet using the white carpet and brown dye.\nAction: craft 8 brown carpet using 8 white carpet, 1 brown dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:brown_carpet"
+        }
+    ]
+}

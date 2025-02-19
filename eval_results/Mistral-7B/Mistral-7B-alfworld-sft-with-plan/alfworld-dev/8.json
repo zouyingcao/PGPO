@@ -1,0 +1,88 @@
+{
+    "meta": {
+        "steps": 8,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_and_place_simple-SoapBottle-None-Cabinet-414/trial_T20190908_110131_524518/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a bathtubbasin 1, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a countertop 2, a countertop 1, a drawer 1, a garbagecan 1, a handtowelholder 1, a sinkbasin 1, a toilet 1, a toiletpaperhanger 1, and a towelholder 1.\nYour task is to: put some soapbottle on cabinet."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. soapbottle_name, location_name = locate_a_soapbottle(candidate_locations);\nStep 2. take_soapbottle(soapbottle_name, location_name);\nStep 3. go_to_a_cabinet();\nStep 4. open_cabinet();\nStep 5. put_soapbottle_in_cabinet().\nThe task requires me to place a soap bottle on a cabinet. I need to locate a soap bottle first.\nAction: go to toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the toilet 1, you see a candle 1, and a soapbar 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am at the toilet now, but I do not see a soap bottle here. I should look elsewhere for a soap bottle.\nAction: go to garbagecan 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the garbagecan 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The garbage can is empty and there is no soap bottle here. I need to continue searching for a soap bottle.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the drawer 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is also empty. I must keep looking for the soap bottle.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a candle 2, a sink 1, and a soapbottle 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have found a soap bottle on countertop 1. I should pick it up so I can place it on a cabinet.\nAction: take soapbottle 1 from countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the soapbottle 1 from the countertop 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the soap bottle, I need to find a suitable cabinet to place it on.\nAction: go to cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The cabinet 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am at cabinet 1, but it is closed. I need to open it to see if there is space inside for the soap bottle.\nAction: open cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the cabinet 1. The cabinet 1 is open. In it, you see a dishsponge 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The cabinet is now open and I see there is a dishsponge inside. There seems to be enough space to place the soap bottle here without cluttering the cabinet.\nAction: put soapbottle 1 in/on cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the soapbottle 1 in/on the cabinet 1."
+        }
+    ]
+}

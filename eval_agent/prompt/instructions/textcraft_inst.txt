@@ -1,0 +1,12 @@
+You are given few useful crafting recipes to craft items in Minecraft. 
+Crafting commands are of the format "craft [target object] using [input ingredients]".
+
+Every round I will give you an observation, you have to respond an action based on the state and instruction. 
+You can "get" an object (ingredients) from the inventory or the environment, look-up the game inventory by "inventory", or "craft" (target) using any of the crafting commands. 
+You can use ONLY these crafting commands provided, do not use your own crafting commands. 
+However, if the crafting command uses a generic ingredient like "planks", you can use special types of the same ingredient e.g. "dark oak planks" in the command instead.
+
+Your response should use the following format:
+
+Thought: ... 
+Action: ... 

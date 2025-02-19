@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 4 warped planks using 1 warped stems\ncraft 1 wooden pickaxe using 2 stick, 3 planks\ncraft 4 jungle planks using 1 jungle logs\ncraft 6 activator rail using 1 redstone torch, 2 stick, 6 iron ingot\ncraft 1 redstone lamp using 4 redstone, 1 glowstone\ncraft 4 acacia planks using 1 acacia logs\ncraft 1 iron ingot using 9 iron nugget\ncraft 4 bowl using 3 planks\ncraft 4 oak planks using 1 oak logs\ncraft 1 chest using 8 planks\ncraft 4 stick using 2 planks\ncraft 1 wooden hoe using 2 stick, 2 planks\ncraft 1 stick using 2 bamboo\ncraft 1 smithing table using 4 planks, 2 iron ingot\ncraft 1 redstone torch using 1 stick, 1 redstone\ncraft 1 red bed using 3 red wool, 3 planks\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 1 compass using 4 iron ingot, 1 redstone\ncraft 1 brown bed using 3 brown wool, 3 planks\ncraft 4 birch planks using 1 birch logs\ncraft 4 crimson planks using 1 crimson stems\ncraft 1 crimson fence gate using 4 stick, 2 crimson planks\ncraft 4 spruce planks using 1 spruce logs\n\nGoal: craft activator rail."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"activator rail\" not in had_objects: find_flag = get(\"activator rail\");\nStep 3. if find_flag == False: \"craft 6 activator rail using 1 redstone torch, 2 stick, 6 iron ingot\" = choose_crafting_commands(\"activator rail\"), needed_ingredients = [\"1 redstone torch\", \"2 stick\", \"6 iron ingot\"], find_touch_flag = get(\"1 redstone torch\");\nStep 4. if find_touch_flag == False: \"craft 1 redstone torch using 1 stick, 1 redstone\" = choose_crafting_commands(\"1 redstone torch\"), needed_ingredients = [\"1 stick\", \"1 redstone\"], find_stick_flag = get(\"1 stick\");\nStep 5. if find_stick_flag == False: \"craft 1 stick using 2 bamboo\" = choose_crafting_commands(\"1 stick\"), needed_ingredients = [\"2 bamboo\"], get(\"2 bamboo\");\nStep 6. craft 1 stick using 2 bamboo;\nStep 7. get(\"1 redstone\");\nStep 8. craft 1 redstone torch using 1 stick, 1 redstone;\nStep 9. get(\"2 stick\");\nStep 10. get(\"6 iron ingot\");\nStep 11. craft 6 activator rail using 1 redstone torch, 2 stick, 6 iron ingot\nI cannot get activator rail directly, I need to craft it. From the crafting commands, I can use: craft 6 activator rail using 1 redstone torch, 2 stick, 6 iron ingot. Ingredients needed: 1 redstone torch, 2 stick, 6 iron ingot. Let me check if I have these in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have any of the ingredients in my inventory. I'll have to get them. Let's start with getting 1 redstone torch.\nAction: get 1 redstone torch"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find redstone torch"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get redstone torch directly, I need to craft it. From the crafting commands, I can craft a redstone torch using 1 stick, 1 redstone. I should check if I have these ingredients in my inventory. \nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have any of the ingredients in my inventory to craft a redstone torch. I'll have to get them. Let's start with getting 1 stick.\nAction: get 1 stick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get stick directly, I need to craft it. From the crafting commands, I can craft a stick using 2 bamboo. I should get 2 bamboo to craft a stick.\nAction: get 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 bamboo"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got 2 bamboo. Now I can craft a stick using these 2 bamboo.\nAction: craft 1 stick using 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted a stick. Now I need to get 1 redstone to craft a redstone torch.\nAction: get 1 redstone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 redstone"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got 1 redstone. Now I can craft a redstone torch using this stick and redstone.\nAction: craft 1 redstone torch using 1 stick, 1 redstone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:redstone_torch"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted a redstone torch, the first ingredient for the activator rail. Now, I need to get 2 sticks.\nAction: get 2 stick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get the sticks directly but I can craft them. From the crafting commands, I can craft a stick using 2 bamboo. \nAction: get 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 bamboo"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got 2 bamboo. Now I can craft 2 sticks using these 2 bamboo.\nAction: craft 2 stick using 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: One stick has been crafted successfully. But, I need two sticks for the crafting of activator rail. So, I need to get 2 more bamboo to craft another stick.\nAction: get 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 bamboo"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got 2 bamboo. Now I can craft another stick using these 2 bamboo.\nAction: craft 1 stick using 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 2 sticks, the second ingredient for the activator rail has been gathered. Finally, I need to get 6 iron ingots. \nAction: get 6 iron ingot"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find iron ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get the iron ingots directly but I can craft them. From the crafting commands, I can craft an iron ingot using 9 iron nuggets. \nAction: get 9 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 9 iron nugget"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got 9 iron nuggets. Now I can craft 1 iron ingot using these 9 iron nuggets.\nAction: craft 1 iron ingot using 9 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:iron_ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted 1 iron ingot. However, I need a total of 6 iron ingots for the crafting of activator rail. So, I need to get 6 more iron nuggets to craft additional iron ingots.\nAction: get 54 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 54 iron nugget"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got 54 iron nuggets. Now I can craft 6 iron ingots using these 54 iron nuggets.\nAction: craft 6 iron ingot using 54 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find a valid recipe for ItemTagWithCount(item_tag=ItemTag(tag=None, item_id='minecraft:iron_ingot'), count=6)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I attempted to craft 6 iron ingots at once, but it seems I can only craft them one at a time. I'll start by crafting another iron ingot.\nAction: craft 1 iron ingot using 9 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:iron_ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted another iron ingot. I need to craft 5 more iron ingots to have enough for the activator rail.\nAction: craft 1 iron ingot using 9 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:iron_ingot"
+        }
+    ]
+}

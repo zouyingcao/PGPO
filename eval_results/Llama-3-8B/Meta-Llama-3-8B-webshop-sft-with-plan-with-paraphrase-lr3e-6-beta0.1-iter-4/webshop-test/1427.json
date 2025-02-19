@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i am looking for a 3.25 ounce (pack of 3) of protein serving jerky, and price lower than 40.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"3.25 ounce pack of 3 protein serving jerky price < 40.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_size(\"3.25 ounce (pack of 3)\");\nStep 4. buy().\nI think I should use the search bar to find the protein serving jerky I need.\nAction: search[3.25 ounce pack of 3 protein serving jerky price < 40.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for a 3.25 ounce (pack of 3) of protein serving jerky, and price lower than 40.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B002OFZLOE [SEP] Jack Link's Beef Jerky, Peppered, 3.25-Ounce Bags (Pack of 4) [SEP] $100.0 [SEP] B00P7NYM7M [SEP] Oberto Specialty Meats Teriyaki Beef Jerky, 3.25 Ounce (Pack of 8) [SEP] $59.99 [SEP] B07L3LXDP4 [SEP] Oberto All Natural Teriyaki Beef Jerky, 3.25-Ounce Bag (Pack of 8) [SEP] $100.0 [SEP] B0977H69D1 [SEP] Bridgford Sweet Baby Ray's Original Beef Jerky 3.25oz, 3.25 OZ [SEP] $24.99 [SEP] B005FQAQJO [SEP] Oberto All-Natural Original Beef Jerky, 3.25 Ounce (Pack of 4) [SEP] $36.98 [SEP] B005FQAJWS [SEP] Oberto All-Natural Teriyaki Turkey Jerky, 3.25 Ounce (Pack of 4) [SEP] $33.0 [SEP] B07R3KJ2CY [SEP] Trail\u2019s Best Original Hickory Smoked Beef Jerky 3 Ounce Pack (3 count) [SEP] $13.98 [SEP] B072YXYML2 [SEP] Jack Link Beef Jerky Sweet & Hot - 3.25 Ounce Bag, 1 Count (JERKYS) [SEP] $15.28 [SEP] B000LKU3A6 [SEP] Primal Spirit Vegan Jerky \u2013 \u201cClassic Flavor\u201d \u2013 Teriyaki, 10 g. Plant Based Protein, Certified Non-GMO, No Preservatives, Sports Friendly Packaging (24 Pack, 1 oz) [SEP] $33.99 [SEP] B000LKU3K6 [SEP] Primal Spirit Vegan Jerky \u2013 \u201cClassic Flavor\u201d \u2013 Hickory Smoked, 10 g. Plant Based Protein, Certified Non-GMO, No Preservatives, Sports Friendly Packaging (24 Pack, 1 oz) [SEP] $33.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the option that meets my criteria, which is B0977H69D1.\nAction: click[B0977H69D1]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for a 3.25 ounce (pack of 3) of protein serving jerky, and price lower than 40.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] flavor name [SEP] honey bbq [SEP] original [SEP] peppered [SEP] sweet n spicy [SEP] sweet teriyaki [SEP] variety pack [SEP] size [SEP] 3.25 ounce (pack of 2) [SEP] 3.25 ounce (pack of 3) [SEP] 3.25 ounce (pack of 4) [SEP] 3.25 ounce (pack of 5) [SEP] Bridgford Sweet Baby Ray's Original Beef Jerky 3.25oz, 3.25 OZ [SEP] Price: $24.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the '3.25 ounce (pack of 3)' option to select the size I need.\nAction: click[3.25 ounce (pack of 3)]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for a 3.25 ounce (pack of 3) of protein serving jerky, and price lower than 40.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] flavor name [SEP] honey bbq [SEP] original [SEP] peppered [SEP] sweet n spicy [SEP] sweet teriyaki [SEP] variety pack [SEP] size [SEP] 3.25 ounce (pack of 2) [SEP] 3.25 ounce (pack of 3) [SEP] 3.25 ounce (pack of 4) [SEP] 3.25 ounce (pack of 5) [SEP] Bridgford Sweet Baby Ray's Original Beef Jerky 3.25oz, 3.25 OZ [SEP] Price: $24.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the protein serving jerky.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B0977H69D1 [SEP] options [SEP] {\"size\": \"3.25 ounce (pack of 3)\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

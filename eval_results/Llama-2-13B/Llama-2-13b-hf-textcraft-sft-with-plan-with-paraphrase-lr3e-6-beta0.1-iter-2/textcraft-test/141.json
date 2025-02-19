@@ -1,0 +1,88 @@
+{
+    "meta": {
+        "steps": 8,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 4 birch planks using 1 birch logs\ncraft 4 spruce planks using 1 spruce logs\ncraft 4 crimson planks using 1 crimson stems\ncraft 4 acacia planks using 1 acacia logs\ncraft 1 composter using 7 wooden slabs\ncraft 1 purple bed using 3 purple wool, 3 planks\ncraft 1 wooden sword using 1 stick, 2 planks\ncraft 1 barrel using 6 planks, 2 wooden slabs\ncraft 1 lectern using 4 wooden slabs, 1 bookshelf\ncraft 1 pink bed using 3 pink wool, 3 planks\ncraft 1 wooden shovel using 2 stick, 1 planks\ncraft 1 chest using 8 planks\ncraft 4 warped planks using 1 warped stems\ncraft 4 stick using 2 planks\ncraft 4 oak planks using 1 oak logs\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 4 jungle planks using 1 jungle logs\ncraft 1 gray bed using 3 gray wool, 3 planks\ncraft 1 daylight detector using 3 quartz, 3 glass, 3 wooden slabs\n\nGoal: craft barrel."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"6 planks\" and \"2 wooden slabs\" not in had_objects: find_flag = get(\"6 planks\");\nStep 3. if find_flag == False: \"craft 4 oak planks using 1 oak logs\" = choose_crafting_commands(\"6 planks\"), needed_ingredients = \"2 oak logs\";\nStep 4. Similar to Step 1-3, get_all_needed_ingredients(needed_ingredients);\nStep 5. for log in range(2): craft 4 oak planks using 1 oak log;\nStep 6. if \"2 wooden slabs\" not in had_objects: find_flag = get(\"2 wooden slabs\");\nStep 7. if find_flag == False: \"craft 1 composter using 7 wooden slabs\" = choose_crafting_commands(\"2 wooden slabs\"), needed_ingredients = \"7 wooden slabs\";\nStep 8. Similar to Step 1-3, get_all_needed_ingredients(needed_ingredients);\nStep 9. craft 1 composter using 7 wooden slabs;\nStep 10. craft 1 barrel using 6 planks, 2 wooden slabs\nTo craft a barrel, according to the crafting commands, I need 6 planks and 2 wooden slabs. I should first check my inventory to see if I have these items.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have the necessary items in my inventory to craft a barrel. I'll need to gather the required materials. Let's start by getting 6 planks.\nAction: get 6 planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find planks in the environment. I'll need to craft them. According to the crafting commands, I can make oak planks from oak logs.\nAction: get 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 oak logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have oak logs, I can craft oak planks.\nAction: craft 4 oak planks using 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:oak_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have 4 oak planks now. I need 2 more planks to craft a barrel. I can make more planks from the remaining oak log.\nAction: get 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 oak logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have more oak logs, I can craft more oak planks.\nAction: craft 4 oak planks using 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:oak_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now I have 8 oak planks which is enough to craft a barrel. Next, I need to get 2 wooden slabs. Let's check if I can get them from the environment.\nAction: get 2 wooden slabs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 wooden slabs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Great, I have the 2 wooden slabs that I needed. Now I have all the necessary items to craft a barrel.\nAction: craft 1 barrel using 6 oak planks, 2 wooden slabs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:barrel"
+        }
+    ]
+}

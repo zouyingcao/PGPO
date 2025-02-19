@@ -1,0 +1,48 @@
+{
+    "meta": {
+        "steps": 3,
+        "reward": 0.6,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i am looking for an easy to assemble queen size box spring that has memory foam, and price lower than 280.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"easy to assemble queen size box spring with memory foam, price lower than 280.00 dollars\");\nStep 2. click(selected_item);\nStep 3. buy().\nI think I should use the search bar to find the queen size box spring with memory foam that meets my criteria.\nAction: search[easy to assemble queen size box spring with memory foam price < 280.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for an easy to assemble queen size box spring that has memory foam, and price lower than 280.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B071G8T81J [SEP] Best Price Mattress 11\" Memory Foam Mattress & 14\" Premium Metal Bed Frame Set, King [SEP] $100.0 [SEP] B075VBGR4B [SEP] ZINUS Wen Wood Deluxe Platform Bed Frame with Headboard / Solid Wood Foundation / Wood Slat Support / No Box Spring Needed / Easy Assembly, Queen [SEP] $323.98 [SEP] B01E69PD02 [SEP] Best Price Mattress 8\" Memory Foam Mattress and 14\" Premium Steel Bed Frame/Foundation Set, Queen [SEP] $100.0 [SEP] B01E69PEVU [SEP] Best Price Mattress 10\" Memory Foam Mattress and 14\" Premium Steel Bed Frame/Foundation Set, Queen [SEP] $100.0 [SEP] B075GVFJBT [SEP] Zinus Santiago Wood Cottage Style Platform Bed with Headboard / No Box Spring Needed / Wood Slat Support - Queen,OLB-SWPBHT-12Q,Black [SEP] $280.0 [SEP] B01E69PC58 [SEP] Best Price Mattress 8\" Memory Foam Mattress and 14\" Premium Steel Bed Frame/Foundation Set, Twin [SEP] $100.0 [SEP] B01E69PDHA [SEP] Best Price Mattress 8\" Memory Foam Mattress & 14\" Premium Steel Bed Frame/Foundation Set, King [SEP] $100.0 [SEP] B01E69PDWA [SEP] Best Price Mattress 10\" Memory Foam 14\" Premium Steel Bed Frame/Foundation Set, Twin Mattress, White [SEP] $100.0 [SEP] B07N73R4FY [SEP] ZINUS Owen Wood Platform Bed Frame / Solid Wood Mattress Foundation / No Box Spring Needed / Wood Slat Support / Easy Assembly, Twin [SEP] $219.99 [SEP] B00DJEBP1W [SEP] Best Price Mattress 7\" Gel Memory Foam Mattress and Bed Frame Set, Queen [SEP] $100.0"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the option that fits my criteria, which is B01E69PD02.\nAction: click[B01E69PD02]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for an easy to assemble queen size box spring that has memory foam, and price lower than 280.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] Best Price Mattress 8\" Memory Foam Mattress and 14\" Premium Steel Bed Frame/Foundation Set, Queen [SEP] Price: $100.0 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the queen size box spring with memory foam that meets my criteria.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B01E69PD02 [SEP] options [SEP] {} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.6 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

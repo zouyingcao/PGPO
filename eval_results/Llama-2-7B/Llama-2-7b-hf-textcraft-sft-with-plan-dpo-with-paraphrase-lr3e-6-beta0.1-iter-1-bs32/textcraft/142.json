@@ -1,0 +1,112 @@
+{
+    "meta": {
+        "steps": 11,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 beehive using 6 planks, 3 honeycomb\ncraft 1 honeycomb block using 4 honeycomb\ncraft 1 barrel using 6 planks, 2 wooden slabs\ncraft 1 black bed using 3 black wool, 3 planks\ncraft 4 oak planks using 1 oak logs\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 1 pink bed using 3 pink wool, 3 planks\ncraft 4 warped planks using 1 warped stems\ncraft 1 yellow bed using 3 yellow wool, 3 planks\ncraft 1 white bed using 3 white wool, 3 planks\ncraft 4 crimson planks using 1 crimson stems\ncraft 1 orange bed using 3 orange wool, 3 planks\ncraft 1 chest using 8 planks\ncraft 4 acacia planks using 1 acacia logs\ncraft 4 birch planks using 1 birch logs\ncraft 4 spruce planks using 1 spruce logs\ncraft 4 jungle planks using 1 jungle logs\ncraft 1 purple bed using 3 purple wool, 3 planks\ncraft 1 bookshelf using 6 planks, 3 book\n\nGoal: craft beehive."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"6 planks\" not in had_objects: find_flag = get(\"6 planks\");\nStep 3. if find_flag == False: \"craft 4 oak planks using 1 oak logs\" = choose_crafting_commands(\"6 planks\"), get(\"1 oak logs\");\nStep 4. craft 4 oak planks using 1 oak logs;\nStep 5. if \"3 honeycomb\" not in had_objects: get(\"3 honeycomb\");\nStep 6. craft 1 beehive using 6 planks, 3 honeycomb\nI need to craft a beehive. I should check if I have the necessary ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have any ingredients in my inventory. I need to get the necessary ingredients to craft a beehive.\nAction: get 6 planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find planks in the environment. I need to craft them. According to the crafting commands, I can craft 4 oak planks using 1 oak logs. I should try to get oak logs from the environment.\nAction: get 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 oak logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got 1 oak log from the environment. I can now craft oak planks which are required to craft a beehive.\nAction: craft 4 oak planks using 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:oak_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted oak planks. Now, I need to get 3 honeycombs to craft a beehive.\nAction: get 3 honeycomb"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 3 honeycomb"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got 3 honeycombs from the environment. Now, I have all the necessary ingredients to craft a beehive.\nAction: craft 1 beehive using 6 planks, 3 honeycomb"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:beehive"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I was unable to craft a beehive. It seems I may not have enough planks. I'll check my inventory again to confirm.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [oak planks] (4) [honeycomb] (3)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have 4 oak planks and 3 honeycombs. According to the crafting command, I need 6 planks and 3 honeycombs to craft a beehive. I need more planks. Let's try to get more oak logs from the environment.\nAction: get 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 oak logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got another oak log from the environment. I can now craft more oak planks which are required to craft a beehive.\nAction: craft 4 oak planks using 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:oak_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted more oak planks. Now, I have enough planks to craft a beehive. I should also have enough honeycombs. Let's verify this.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [oak planks] (8) [honeycomb] (3)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have 8 oak planks and 3 honeycombs. Now, I have all the necessary ingredients to craft a beehive.\nAction: craft 1 beehive using 6 oak planks, 3 honeycomb"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:beehive"
+        }
+    ]
+}

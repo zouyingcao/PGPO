@@ -1,0 +1,4 @@
+All tasks done.
+Output saved to outputs/Llama-2-13b-hf-textcraft-sft-with-plan-with-paraphrase-lr3e-6-beta0.1-iter-2/textcraft-test
+Average reward: 0.4800
+Success rate: 0.4800

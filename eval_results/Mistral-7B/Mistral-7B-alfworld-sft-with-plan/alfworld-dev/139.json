@@ -1,0 +1,88 @@
+{
+    "meta": {
+        "steps": 8,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_and_place_simple-WineBottle-None-Shelf-7/trial_T20190907_200154_378982/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 2, a countertop 1, a diningtable 1, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a shelf 3, a shelf 2, a shelf 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: put some winebottle on shelf."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. winebottle_name, location_name = locate_a_winebottle(candidate_locations);\nStep 2. take_winebottle(winebottle_name, location_name);\nStep 3. go_to_shelf();\nStep 4. put_winebottle_on_shelf().\nThe task is to place a wine bottle on a shelf. I need to locate a wine bottle first.\nAction: go to garbagecan 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the garbagecan 1, you see a potato 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I see a potato on the garbage can, but no wine bottle here. I should check another location where a wine bottle might be found.\nAction: go to fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The fridge 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The fridge is closed. Wine bottles are often stored in a fridge, so I should open it to see if there's a wine bottle inside.\nAction: open fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the fridge 1. The fridge 1 is open. In it, you see a cup 1, a egg 2, a egg 1, a lettuce 1, a plate 3, a potato 1, and a tomato 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no wine bottle in the fridge. I should close the fridge to maintain its temperature and continue searching for a wine bottle elsewhere.\nAction: close fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the fridge 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I haven't checked the dining table yet. It's a common place to find a wine bottle.\nAction: go to diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the diningtable 1, you see a apple 1, a book 1, a bread 2, a bread 1, a butterknife 1, a dishsponge 3, a dishsponge 2, a fork 2, a houseplant 1, a kettle 1, a knife 1, a saltshaker 2, a spatula 1, a tomato 2, and a winebottle 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I found a wine bottle on the dining table. I need to take it so I can place it on a shelf as instructed.\nAction: take winebottle 1 from diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the winebottle 1 from the diningtable 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the wine bottle. Now I need to find an appropriate shelf to place it on.\nAction: go to shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 1, you see a soapbottle 1, and a vase 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 1 has a soap bottle and a vase on it. I should check if there is space to place the wine bottle here without causing clutter.\nAction: put winebottle 1 in/on shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the winebottle 1 in/on the shelf 1."
+        }
+    ]
+}

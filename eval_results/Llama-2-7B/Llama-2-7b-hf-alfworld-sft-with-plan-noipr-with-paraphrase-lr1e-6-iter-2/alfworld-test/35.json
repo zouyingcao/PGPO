@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": false,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": "/home/caozouying.czy/IPR/eval_agent/data/alfworld/json_2.1.1/valid_unseen/pick_two_obj_and_place-Pillow-None-Sofa-219/trial_T20190907_163327_486300/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a armchair 1, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 1, a garbagecan 1, a safe 1, a shelf 12, a shelf 11, a shelf 10, a shelf 9, a shelf 8, a shelf 7, a shelf 6, a shelf 5, a shelf 4, a shelf 3, a shelf 2, a shelf 1, a sidetable 1, and a sofa 1.\nYour task is to: put two pillow in sofa."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. pillow_name_1, location_name_1 = locate_a_pillow(candidate_locations);\nStep 2. take_a_pillow(pillow_name_1, location_name_1);\nStep 3. pillow_name_2, location_name_2 = locate_a_pillow(candidate_locations);\nStep 4. take_a_pillow(pillow_name_2, location_name_2);\nStep 5. go_to_the_sofa();\nStep 6. put_pillow_on_sofa(pillow_name_1);\nStep 7. put_pillow_on_sofa(pillow_name_2).\nI need to locate two pillows to place on the sofa. The armchair is a common place where pillows might be found, so I should check there first.\nAction: go to armchair 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the armchair 1, you see a pillow 2, and a pillow 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I see two pillows on the armchair. I will take one of them, pillow 2, to start completing the task.\nAction: take pillow 2 from armchair 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the pillow 2 from the armchair 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have pillow 2 now. I need one more pillow to fulfill the task. I should look around for another pillow. The dresser is another piece of furniture where pillows might be kept.\nAction: go to dresser 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the dresser 1, you see a laptop 1, a newspaper 3, a newspaper 2, a remotecontrol 1, a statue 1, a tissuebox 3, and a tissuebox 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are no pillows on the dresser. I should continue searching other areas. The side table is nearby and could potentially have a pillow.\nAction: go to sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 1, you see a cellphone 1, and a newspaper 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no pillow on the side table. I should keep looking. The shelves are also a common place for pillows, so I'll check shelf 1 next.\nAction: go to shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 1 is empty. I'll move on to the next shelf to find another pillow.\nAction: go to shelf 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 2, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 2 is also empty. I need to continue my search. I'll check shelf 3 next.\nAction: go to shelf 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Nothing happens."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's nothing on shelf 3. I must keep looking. I'll proceed to shelf 4.\nAction: go to shelf 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 4, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 4 doesn't have any pillows. I'll check shelf 5 next.\nAction: go to shelf 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 5, you see a watch 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Only a watch is on shelf 5. I need to find another pillow. I'll move on to shelf 6.\nAction: go to shelf 6"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 6, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 6 is empty. I'll continue my search on shelf 7.\nAction: go to shelf 7"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 7, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: No pillows on shelf 7. I'll keep looking. I'll try shelf 8 next.\nAction: go to shelf 8"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 8, you see a box 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's only a box on shelf 8. I need to find another pillow. I'll check shelf 9.\nAction: go to shelf 9"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 9, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 9 is empty. I'll move on to shelf 10.\nAction: go to shelf 10"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 10, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: No pillows on shelf 10. I'll continue my search. I'll try shelf 11 next.\nAction: go to shelf 11"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 11, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 11 is also empty. I'll check shelf 12 next.\nAction: go to shelf 12"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 12, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 12 doesn't have any pillows. I should look elsewhere. The safe is another piece of furniture where items are often stored, so I'll check there next.\nAction: go to safe 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The safe 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The safe is closed. I need to open it to see if there are any pillows inside.\nAction: open safe 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the safe 1. The safe 1 is open. In it, you see a keychain 1, and a vase 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are no pillows in the safe, just a keychain and a vase. I should close the safe and continue my search.\nAction: close safe 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the safe 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I haven't checked the bed yet. People often leave pillows there, so I'll look there next.\nAction: go to bed 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Nothing happens."
+        }
+    ]
+}

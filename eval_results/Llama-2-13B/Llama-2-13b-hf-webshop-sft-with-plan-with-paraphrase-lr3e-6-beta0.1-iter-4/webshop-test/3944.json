@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 0.03333333333333333,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i need a 15 feet coaxial cable that is compatible with apple tv, and price lower than 90.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"15 feet coaxial cable that is compatible with apple tv and price lower than 90.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_size(\"15 feet\");\nStep 4. buy().\nI need to find a 15 feet coaxial cable that is compatible with Apple TV and costs less than $90. I'll start by searching for \"15 feet coaxial cable\" to see the available options.\nAction: search[15 feet coaxial cable]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a 15 feet coaxial cable that is compatible with apple tv, and price lower than 90.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B07DVTSR2K [SEP] Digital Audio Cable - Digital Coaxial Cable with RCA Connections, 75 Ohm - Low and HGH Frequency RG6 Coax - Subwoofer Cable - (S/PDIF) White RCA Cable, 15 Feet [SEP] $12.97 [SEP] B08M3MPD7S [SEP] GTOTd Digital Optical Audio Toslink Cable for Sound Bar TV -15 Feet -with Female to Female Audio Extension Cable Coupler Connector Adapter Digital Optical Extension [SEP] $9.99 [SEP] B07HXHCP45 [SEP] Digital Coaxial Cable Kit with Universal Ends -RG6 Coax Cable and six (6) Piece Adapter Kit Includes Male Female RCA BNC F81, and Barrel Connectors - Black, 15 Feet [SEP] $15.47 [SEP] B07DVS17ZH [SEP] Digital Audio Cable - Digital Coaxial Cable with RCA Connections, 75 Ohm - Low and HGH Frequency RG6 Coax - Subwoofer Cable - (S/PDIF) White RCA Cable, 35 Feet [SEP] $16.97 [SEP] B06W5B4QFZ [SEP] GE RG6 Coaxial Cable, 6 Ft. F-Type Connectors, Double Shielded Coax, Input output, Low Loss Coax, Ideal for TV Antenna, DVR, VCR, Satellite Receiver, Cable Box, Home Theater, Black, 33626 [SEP] $6.99 [SEP] B00DI891RO [SEP] KabelDirekt \u2013 Digital Coaxial Audio Video Cable \u2013 15 feet (Satellite Cable Connectors, Male F Connector Pin, Coax Cables for Satellite Television \u2013 Pro Series) [SEP] $12.99 [SEP] B002DN4U8U [SEP] GE RG6 Coaxial Cable, 50 ft. F-Type Connectors, Double Shielded Coax, Input Output, Low Loss Coax, Ideal for TV Antenna, DVR, VCR, Satellite Receiver, Cable Box, Home Theater, White, 33605 [SEP] $18.59 [SEP] B06WGY31BQ [SEP] GE RG6 Coaxial Cable, 25 Ft. F-Type Connectors, Double Shielded Coax, Input output, Low Loss Coax, Ideal for TV Antenna, DVR, VCR, Satellite Receiver, Cable Box, Home Theater, Black, 33598 [SEP] $10.12 [SEP] B019SSZF9A [SEP] TNP Digital Audio RCA Composite Video Coaxial Cable (15 Feet) Gold Plated Dual Shielded RCA to RCA Male Connectors AV Wire Cord Plug for S/PDIF Home Theater, HDTV & Hi-Fi Systems (Black) [SEP] $11.99 [SEP] B07DVQSMRX [SEP] 125 Feet Direct Burial Coaxial Cable 70 Ohm RF RG6 Coax Cable Rubber Boot - Outdoor Connectors - (Orange) - Designed for Waterproof and to Be Buried [SEP] $34.97"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are several options, but I need to find one that specifically mentions compatibility with Apple TV. The first option, B07DVTSR2K, seems to be a coaxial cable and is within my budget. I'll check this one out first.\nAction: click[b07dvtsr2k]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a 15 feet coaxial cable that is compatible with apple tv, and price lower than 90.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size [SEP] 3 feet (0.9 meter) [SEP] 6 feet (1.8 meter) [SEP] 10 feet (3 meter) [SEP] 12 feet (3.6 meter) [SEP] 15 feet (4.5 meter) [SEP] 20 feet (6 meter) [SEP] 25 feet (7.5 meter) [SEP] 30 feet (9 meter) [SEP] 35 feet (10.5 meter) [SEP] 40 feet (12 meter) [SEP] 50 feet (15 meter) [SEP] 75 feet (23 meter) [SEP] 100 feet (30 meter) [SEP] 125 feet (38 meter) [SEP] 150 feet (45 meter) [SEP] 200 feet (61 meter) [SEP] color [SEP] black [SEP] white [SEP] Digital Audio Cable - Digital Coaxial Cable with RCA Connections, 75 Ohm - Low and HGH Frequency RG6 Coax - Subwoofer Cable - (S/PDIF) White RCA Cable, 15 Feet [SEP] Price: $12.97 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I've clicked on the product, I need to confirm the size to make sure it's 15 feet as required.\nAction: click[15 feet (4.5 meter)]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a 15 feet coaxial cable that is compatible with apple tv, and price lower than 90.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size [SEP] 3 feet (0.9 meter) [SEP] 6 feet (1.8 meter) [SEP] 10 feet (3 meter) [SEP] 12 feet (3.6 meter) [SEP] 15 feet (4.5 meter) [SEP] 20 feet (6 meter) [SEP] 25 feet (7.5 meter) [SEP] 30 feet (9 meter) [SEP] 35 feet (10.5 meter) [SEP] 40 feet (12 meter) [SEP] 50 feet (15 meter) [SEP] 75 feet (23 meter) [SEP] 100 feet (30 meter) [SEP] 125 feet (38 meter) [SEP] 150 feet (45 meter) [SEP] 200 feet (61 meter) [SEP] color [SEP] black [SEP] white [SEP] Digital Audio Cable - Digital Coaxial Cable with RCA Connections, 75 Ohm - Low and HGH Frequency RG6 Coax - Subwoofer Cable - (S/PDIF) White RCA Cable, 15 Feet [SEP] Price: $12.97 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The size is correct, and the price is within my budget. It's time to finalize the purchase by clicking the 'Buy Now' button.\nAction: click[buy now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B07DVTSR2K [SEP] options [SEP] {\"size\": \"15 feet (4.5 meter)\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.03333333333333333 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

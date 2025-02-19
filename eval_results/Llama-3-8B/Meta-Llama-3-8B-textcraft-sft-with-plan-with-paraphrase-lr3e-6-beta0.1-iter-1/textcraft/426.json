@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 4 polished diorite using 4 diorite\ncraft 1 daylight detector using 3 quartz, 3 glass, 3 wooden slabs\ncraft 4 polished andesite using 4 andesite\ncraft 2 andesite using 1 diorite, 1 cobblestone\ncraft 6 polished andesite slab using 3 polished andesite\ncraft 4 polished andesite stairs using 6 polished andesite\ncraft 6 andesite slab using 3 andesite\ncraft 1 quartz block using 4 quartz\ncraft 1 dispenser using 1 redstone, 7 cobblestone, 1 bow\ncraft 1 piston using 1 redstone, 4 cobblestone, 3 planks, 1 iron ingot\ncraft 2 diorite using 2 quartz, 2 cobblestone\ncraft 1 granite using 1 diorite, 1 quartz\ncraft 4 andesite stairs using 6 andesite\ncraft 1 observer using 1 quartz, 2 redstone, 6 cobblestone\n\nGoal: craft polished andesite stairs."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"polished andesite stairs\" not in had_objects: find_flag = get(\"polished andesite stairs\");\nStep 3. if find_flag == False: \"craft 4 polished andesite stairs using 6 polished andesite\" = choose_crafting_commands(\"polished andesite stairs\"), needed_ingredients = \"6 polished andesite\", find_flag = get(\"6 polished andesite\");\nStep 4. if find_flag == False: \"craft 4 polished andesite using 4 andesite\" = choose_crafting_commands(\"6 polished andesite\"), needed_ingredients = \"8 andesite\", get(\"8 andesite\");\nStep 5. for i in range(2): craft 4 polished andesite using 4 andesite;\nStep 6. craft 4 polished andesite stairs using 6 polished andesite\nTo craft polished andesite stairs, I first need to have polished andesite. I don't know my current inventory, so I should check what's in it.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to craft polished andesite using the crafting command: craft 4 polished andesite using 4 andesite. For this, I need 4 andesite. I should check if I can get andesite directly from the environment or the inventory.\nAction: get 4 andesite"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find andesite"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get andesite directly, I need to craft it. Andesite can be crafted using the crafting command: craft 2 andesite using 1 diorite, 1 cobblestone. For this, I need 1 diorite and 1 cobblestone. I should check if these ingredients are in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get 1 diorite and 1 cobblestone to craft andesite, which I can then use to craft polished andesite. I should try to get these ingredients.\nAction: get 1 diorite, 1 cobblestone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find diorite, 1 cobblestone"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get diorite and cobblestone directly, I need to craft them. Diorite can be crafted using the crafting command: craft 2 diorite using 2 quartz, 2 cobblestone. For this, I need 2 quartz and 2 cobblestone. I should check if these ingredients are in my inventory. \nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get 2 quartz and 2 cobblestone to craft diorite, which I can then use to craft andesite, which I can then use to craft polished andesite. I should try to get these ingredients.\nAction: get 2 quartz, 2 cobblestone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find quartz, 2 cobblestone"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get quartz and cobblestone directly, I need to craft them. Quartz can be crafted using the crafting command: craft 1 quartz block using 4 quartz. For this, I need 4 quartz. I should check if these ingredients are in my inventory. \nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get 4 quartz to craft quartz blocks, which I can then use to craft diorite, which I can then use to craft andesite, which I can then use to craft polished andesite. I should try to get these ingredients.\nAction: get 4 quartz"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 quartz"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have obtained 4 quartz. Now I can craft quartz blocks using the crafting command: craft 1 quartz block using 4 quartz.\nAction: craft 1 quartz block using 4 quartz"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:quartz_block"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted a quartz block. Now I need to get 2 cobblestone to craft diorite, which I can then use to craft andesite, which I can then use to craft polished andesite. \nAction: get 2 cobblestone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 cobblestone"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have obtained 2 cobblestone. Now I can craft diorite using the crafting command: craft 2 diorite using 2 quartz, 2 cobblestone.\nAction: craft 2 diorite using 2 quartz, 2 cobblestone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:diorite"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't craft diorite. I think I am missing some of the ingredients. Let me check my inventory again to confirm what I have.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [quartz block] (1) [cobblestone] (2)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have a quartz block and cobblestone in my inventory. The crafting command for diorite requires quartz and cobblestone. Perhaps I can craft diorite again with the quartz block instead of quartz.\nAction: craft 2 diorite using 2 quartz block, 2 cobblestone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:diorite"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I still couldn't craft diorite. It seems like I don't have enough resources yet. I need to gather more quartz and cobblestone.\nAction: get 2 quartz"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 quartz"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have obtained more quartz. Now I need to get more cobblestone to craft diorite, which I can then use to craft andesite, which I can then use to craft polished andesite.\nAction: get 2 cobblestone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 cobblestone"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have obtained the required ingredients - 2 quartz and 2 cobblestone. Now I can craft diorite using the crafting command: craft 2 diorite using 2 quartz, 2 cobblestone.\nAction: craft 2 diorite using 2 quartz, 2 cobblestone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 2 minecraft:diorite"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted diorite. Now I can use it to craft andesite, which I can then use to craft polished andesite. \nAction: craft 2 andesite using 1 diorite, 1 cobblestone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 2 minecraft:andesite"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted andesite. Now I can use it to craft polished andesite, which I can then use to craft polished andesite stairs.\nAction: craft 4 polished andesite using 4 andesite"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:polished_andesite"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't craft polished andesite. I think I am missing some of the ingredients. Let me check my inventory to confirm what I have.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [quartz block] (1) [cobblestone] (1) [diorite] (1) [andesite] (2)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have a quartz block, cobblestone, diorite, and andesite in my inventory. The crafting command for polished andesite requires andesite. Perhaps I can craft polished andesite again with one of the andesite items.\nAction: craft 4 polished andesite using 4 andesite"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:polished_andesite"
+        }
+    ]
+}

@@ -1,0 +1,144 @@
+{
+    "meta": {
+        "steps": 15,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_heat_then_place_in_recep-Apple-None-DiningTable-26/trial_T20190907_060234_011675/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 2, a countertop 1, a diningtable 2, a diningtable 1, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: heat some apple and put it in diningtable."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. apple_name, location_name = locate_an_apple(candidate_locations);\nStep 2. take_an_apple(apple_name, location_name);\nStep 3. go_to_the_microwave();\nStep 4. heat_apple_using_microwave();\nStep 5. go_to_the_diningtable();\nStep 6. put_heated_apple_on_diningtable().\nI need to locate an apple to heat up. The task description doesn't specify where the apple is, so I should look around the room for it.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a butterknife 1, and a mug 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The apple is not on countertop 1, but I should continue searching the room as there might be another apple on another countertop.\nAction: go to countertop 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 2, you see a bowl 2, and a knife 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Countertop 2 also does not have an apple. I should keep looking in other places where an apple might be found, such as the fridge or the dining table.\nAction: go to fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The fridge 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The fridge is closed, and I haven't checked inside yet. There might be an apple in the fridge, so I should open it to check.\nAction: open fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the fridge 1. The fridge 1 is open. In it, you see a bowl 1, a cup 1, a egg 1, a lettuce 1, a plate 1, and a tomato 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've looked inside the fridge and there's no apple here, just other food items. I should close the fridge since I won't be taking anything out of it right now.\nAction: close fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the fridge 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I haven't checked the dining table yet. There might be an apple on the dining table, so I should go there to look for it.\nAction: go to diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the diningtable 1, you see a bread 2, a bread 1, a butterknife 2, a dishsponge 1, a fork 1, a potato 1, and a spatula 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The dining table doesn't have an apple either. Since I haven't found an apple in any of the places I've checked, I should consider looking in other storage areas like drawers or on other dining tables.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is closed, and I haven't checked inside. There might be an apple in the drawer, so I should open it to see.\nAction: open drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 1. The drawer 1 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is empty. I should close it and continue searching for an apple elsewhere.\nAction: close drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I still need to find an apple. I should check the other dining table to see if there's one there.\nAction: go to diningtable 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the diningtable 2, you see a apple 1, a bread 3, a cup 3, a egg 3, a peppershaker 2, a soapbottle 2, and a soapbottle 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've found an apple on diningtable 2. I should take it so I can heat it up as per the task instructions.\nAction: take apple 1 from diningtable 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the apple 1 from the diningtable 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the apple, I need to heat it. The microwave is a quick way to heat food, so I should use it for the apple.\nAction: go to microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The microwave 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The microwave is closed. I need to open it to place the apple inside and then use it to heat the apple.\nAction: heat apple 1 with microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You heat the apple 1 using the microwave 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The apple is now heated. I should bring it to the dining table where I can place it down as instructed.\nAction: go to diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the diningtable 1, you see a bread 2, a bread 1, a butterknife 2, a dishsponge 1, a fork 1, a potato 1, and a spatula 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm at the dining table. I should place the heated apple here to complete the task.\nAction: put apple 1 in/on diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the apple 1 in/on the diningtable 1."
+        }
+    ]
+}

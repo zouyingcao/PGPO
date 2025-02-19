@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 0.8,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i am looking for chair provides optimal support throughout your workday with height adjustable and lumbar support of vari essential task chair in grey color, and price lower than 220.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"essential task chair grey height adjustable lumbar support price < 220.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_color(\"grey\");\nStep 4. buy().\nI think I should use the search bar to find the essential task chair I need.\nAction: search[essential task chair grey height adjustable lumbar support price < 220.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for chair provides optimal support throughout your workday with height adjustable and lumbar support of vari essential task chair in grey color, and price lower than 220.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B06XR93PK9 [SEP] OFM Essentials Collection Mesh Back Chair with Adjustable Arms, in Black [SEP] $126.38 [SEP] B01G2ELLMI [SEP] OFM ESS Collection 3-Paddle Ergonomic Mesh High-Back Task Chair with Arms and Lumbar Support, 30.25in. D x 25.75in. W x 41in. - 44.50in. H, Black [SEP] $218.99 [SEP] B089G2X12B [SEP] Brenton Studio\u00ae Dexie Quilted Fabric Low-Back Task Chair, Navy [SEP] $100.0 [SEP] B089G39FGB [SEP] Brenton Studio\u00ae Dexie Quilted Fabric Low-Back Task Chair, Gray [SEP] $100.0 [SEP] B074SRKX9H [SEP] HON HVST141 Task Chair, with Height Arms, Adjustable Lumbar, Black [SEP] $288.79 [SEP] B08LKQGRKM [SEP] Office Chair Desk Chair Computer Chair with Arms Lumbar Support Swivel Rolling Ergonomic High Back Mesh Task Chair for Men(Grey) [SEP] $124.99 [SEP] B00HFT9KI2 [SEP] HON Exposure Mesh Task Computer Chair with 2-Way Adjustable Arms for Office Desk, Black (HVL721), Back [SEP] $259.98 [SEP] B09F8NBV7H [SEP] Office Chair, Ergonomic Office Chair Lumbar Support Home Office Desk Chair Computer Chair Mesh Swivel Chair Task Chair Study Chair Mid Back Office Chair with Wheels and arms, Adjustable Height, Grey [SEP] $78.41 [SEP] B06Y3P6CST [SEP] Sadie High-Back Leather Office/Computer Chair - Ergonomic Adjustable Swivel Chair with Lumbar Support (HVST331) [SEP] $255.18 [SEP] B071KWC3GQ [SEP] OFM Essentials Collection Mesh Seat Ergonomic Office Chair with Lumbar Support, in Black [SEP] $100.0"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the OFM Essentials Collection Mesh Back Chair with Adjustable Arms, in Black as it meets the criteria.\nAction: click[B06XR93PK9]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for chair provides optimal support throughout your workday with height adjustable and lumbar support of vari essential task chair in grey color, and price lower than 220.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] style [SEP] task chair [SEP] task stool [SEP] OFM Essentials Collection Mesh Back Chair with Adjustable Arms, in Black [SEP] Price: $126.38 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'grey' color option to filter the search results.\nAction: click[task chair]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for chair provides optimal support throughout your workday with height adjustable and lumbar support of vari essential task chair in grey color, and price lower than 220.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] style [SEP] task chair [SEP] task stool [SEP] OFM Essentials Collection Mesh Back Chair with Adjustable Arms, in Black [SEP] Price: $126.38 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the OFM Essentials Collection Mesh Back Chair with Adjustable Arms in Black.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B06XR93PK9 [SEP] options [SEP] {\"style\": \"task chair\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.8 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

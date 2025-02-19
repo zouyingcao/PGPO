@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i am looking for whitening massage manual easy use toothbrush with handle for boy with color d, and price lower than 40.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"whitening massage manual easy use toothbrush with handle for boy with color d, and price lower than 40.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_color(\"d\");\nStep 4. buy().\nI need to find a whitening massage manual toothbrush that is easy to use and comes with a handle suitable for a boy, preferably in color d. It should also be under $40.\nAction: search[whitening massage manual toothbrush boy color d]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for whitening massage manual easy use toothbrush with handle for boy with color d, and price lower than 40.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B09RN5DYSD [SEP] Dinosaur U-shape Toothbrush for Kids, 360\u00b0 Thorough Cleansing Whitening Massage Manual Toothbrush with Soft Silicone Brush Head, Gifts for Boy [SEP] $7.99 [SEP] B09PH37ZHC [SEP] 4 Pack Kids U Shaped Toothbrush Whitening Massage Toothbrush with Silicone Brush Head U Type Whole Mouth Toothbrush Half Circle Toothbrush for Kids 360 Degree Manual Toothbrushes for Toddlers Age 2-12 [SEP] $10.99 [SEP] B09NNY2WLP [SEP] Toothbrushes Electric Oral for Kids Adult,Children's U-Shaped Electric Toothbrush 360\u00b0 Thorough Cleaning, Whitening and Massage Toothbrush U-Shaped Shape,Manual Toothbrushes Medium [SEP] $8.44 [SEP] B09RMW1R7Y [SEP] Children U Shape Toothbrush, Kids U-shape Whole Mouth Toothbrush for Cleansing Whitening Massage, Soft Silicone Brush Head for Training Tooth [SEP] $7.99 [SEP] B09P3WWJBT [SEP] Simayixx Toothbrush Kids Toothbrush Children Manual Toothbrush Set Soft Silicone Soft Contoured Bristles For Age 2-12 And Above Boys And Girls Cute Colorful Toothbrush(D) [SEP] $9.23 [SEP] B09P3YH8NC [SEP] Simayixx Toothbrush Children\u2019s U-shape Toothbrush For 360\u00b0 Thorough Deep Cleansing Whitening Massage Toothbrush Good For Baby's Teeth(D) [SEP] $5.46 [SEP] B09R7VD4F5 [SEP] Children\u2019s U-shape Toothbrush 360\u00b0 Thorough Cleansing Whitening Massage Toothbrush, Food Grade Soft Silicone Brush Head Manual Toothbrush [SEP] $6.99 [SEP] B09MJFXY7B [SEP] U-shaped Toothbrush for Children, Manual Toothbrush with Bristles Food Grade Silicone Toothbrush Head, 360\u00b0 Cleansing Whitening Massage Toothbrush [SEP] $4.99 [SEP] B09JC88H2L [SEP] Kids U Shaped Toothbrush 360 Degree Toddler Whole Mouth Toothbrush Oral Teeth Cleaning Soft Silicone Massage Toothbrush with Handle for Kids Baby Toddler Boys Girls, 2 Sizes (24) [SEP] $16.99 [SEP] B09H4123PS [SEP] Children\u2019s U-Shaped Toothbrush for 360\u00b0 Thorough Cleansing Whitening Massage Soft Silicone Toothbrush U-Type Modeling Toothbrush for Kids (B) [SEP] $1.39"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The search results are in, and there are several options. The first one listed, B09RN5DYSD, is a dinosaur-themed U-shape toothbrush that seems to fit the criteria and is well under the $40 limit.\nAction: click[b09rn5dysd]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for whitening massage manual easy use toothbrush with handle for boy with color d, and price lower than 40.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] a [SEP] b [SEP] c [SEP] d [SEP] Dinosaur U-shape Toothbrush for Kids, 360\u00b0 Thorough Cleansing Whitening Massage Manual Toothbrush with Soft Silicone Brush Head, Gifts for Boy [SEP] Price: $7.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The product details are now visible. It's available in color d, which is what I was instructed to find. The price is also within the budget. I should select the color option to confirm it's the right choice.\nAction: click[d]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for whitening massage manual easy use toothbrush with handle for boy with color d, and price lower than 40.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] a [SEP] b [SEP] c [SEP] d [SEP] Dinosaur U-shape Toothbrush for Kids, 360\u00b0 Thorough Cleansing Whitening Massage Manual Toothbrush with Soft Silicone Brush Head, Gifts for Boy [SEP] Price: $7.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've selected the color d, and the toothbrush still meets all the requirements. It's time to finalize the purchase by clicking the 'Buy Now' button.\nAction: click[buy now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B09RN5DYSD [SEP] options [SEP] {\"color\": \"d\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

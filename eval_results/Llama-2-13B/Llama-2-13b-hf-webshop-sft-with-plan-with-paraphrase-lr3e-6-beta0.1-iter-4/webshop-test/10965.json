@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 0.5,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i want to find long-lasting eau de toilette from chanel, and price lower than 130.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"long-lasting Chanel eau de toilette and price lower than 130.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_size(\"2.7 oz (pack of 1)\");\nStep 4. buy().\nI think I should use the search bar to look for the Chanel eau de toilette I need.\nAction: search[Chanel eau de toilette long-lasting]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i want to find long-lasting eau de toilette from chanel, and price lower than 130.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B00AVS1BIQ [SEP] Electric Blue, version of Bleu de Chanel Eau de Toilette Spray for Men [SEP] $9.95 [SEP] B007LKKULG [SEP] Chanel No. 5 L'eau by Chanel Eau De Toilette Spray 3.4 oz for Women [SEP] $100.0 [SEP] B00ZQRHWPS [SEP] Perfect Scents Fragrances | Inspired by Chanel's Chanel No. 5 | Women\u2019s Eau de Toilette | Vegan, Paraben Free | Never Tested on Animals | 2.5 Fluid Ounces [SEP] $9.99 [SEP] B000WZL0XO [SEP] Coco Mademoiselle by Chanel for Women, Eau De Parfum Spray, 1.7 Ounce [SEP] $100.0 [SEP] B00BH4OO82 [SEP] CHANEL Bleu De Chanel Eau De Toilette Travel Spray & Two Refills for Men - 3x20ml/0.7oz, [SEP] $112.0 [SEP] B0044QZK2Y [SEP] CHANEL Bleu Eau De Toilettes Spray for Men, 3.4 Ounce [SEP] $100.0 [SEP] B005MJ7VX8 [SEP] Set of 3 - Chance Eau Fraiche By Chanel for Women, Eau De Toilette Spray 0.05 Sampler [SEP] $24.9 [SEP] B00ESJ3KCY [SEP] Chance Eau Fraiche by Chanel for Women Eau De Toilette Spray 3.4 Ounc [SEP] $162.96 [SEP] B0042KFHDY [SEP] Chanel Bleu De Chanel Paris Eau de Toilette Spray for Men, 1.7 Fluid Ounce [SEP] $100.0 [SEP] B0971QPL1T [SEP] Vocal Performance | Eau de Parfum For Men | Inspired by Chanel Bleu De Chanel | 2.5 FL. OZ. Perfume | Vegan, Paraben & Phthalate Free | Never Tested on Animals [SEP] $24.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the Chanel No. 5 L'eau by Chanel Eau De Toilette Spray 3.4 oz for Women as it meets the criteria of being long-lasting and within the price range.\nAction: click[B007LKKULG]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i want to find long-lasting eau de toilette from chanel, and price lower than 130.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] Chanel No. 5 L'eau by Chanel Eau De Toilette Spray 3.4 oz for Women [SEP] Price: $100.0 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the '2.7 oz (pack of 1)' option to select the size I need for the Chanel No. 5 L'eau by Chanel Eau De Toilette Spray.\nAction: click[2.7 oz (pack of 1)]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i want to find long-lasting eau de toilette from chanel, and price lower than 130.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] Chanel No. 5 L'eau by Chanel Eau De Toilette Spray 3.4 oz for Women [SEP] Price: $100.0 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the Chanel No. 5 L'eau by Chanel Eau De Toilette Spray.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B007LKKULG [SEP] options [SEP] {} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.5 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

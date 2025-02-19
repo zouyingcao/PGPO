@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": false,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_unseen/pick_two_obj_and_place-PepperShaker-None-Drawer-10/trial_T20190912_221141_608117/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 3, a countertop 2, a countertop 1, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a shelf 3, a shelf 2, a shelf 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: find two peppershaker and put them in drawer."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. locate_peppershakers(candidate_locations);\nStep 2. take_peppershaker(peppershaker_1, location_1);\nStep 3. take_peppershaker(peppershaker_2, location_2);\nStep 4. go_to_drawer(drawer_1);\nStep 5. open_drawer(drawer_1);\nStep 6. put_peppershaker_in_drawer(peppershaker_1, drawer_1);\nStep 7. close_drawer(drawer_1);\nStep 8. go_to_drawer(drawer_2);\nStep 9. open_drawer(drawer_2);\nStep 10. put_peppershaker_in_drawer(peppershaker_2, drawer_2).\nI need to locate the peppershakers. I'll start by checking the nearest countertop for any items.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a egg 1, and a potato 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The peppershakers are not on countertop 1, but I see an egg and a potato. I should check the next countertop.\nAction: go to countertop 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 2, you see a apple 1, a bread 2, a bread 1, a butterknife 2, a butterknife 1, a glassbottle 2, a papertowelroll 1, a potato 1, and a soapbottle 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Countertop 2 also doesn't have the peppershakers, but there are various kitchen items here. I'll move on to the next countertop.\nAction: go to countertop 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 3, you see a butterknife 3, a cellphone 1, a fork 1, a houseplant 1, a knife 2, a knife 1, a lettuce 2, a peppershaker 4, a pot 2, a statue 2, and a statue 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've found one of the peppershakers on countertop 3. I'll take this one and continue searching for another.\nAction: take peppershaker 4 from countertop 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the peppershaker 4 from the countertop 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With one peppershaker in hand, I need to find the second one. I'll recheck the previous countertops in case I missed it.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a egg 1, and a potato 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: As before, there's no peppershaker on countertop 1. I'll revisit countertop 2.\nAction: go to countertop 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 2, you see a apple 1, a bread 2, a bread 1, a butterknife 2, a butterknife 1, a glassbottle 2, a papertowelroll 1, a potato 1, and a soapbottle 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Countertop 2 still doesn't have the peppershaker. I'll check countertop 3 again.\nAction: go to countertop 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 3, you see a butterknife 3, a cellphone 1, a fork 1, a houseplant 1, a knife 2, a knife 1, a lettuce 2, a pot 2, a statue 2, and a statue 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The peppershaker I took earlier was the only item of interest on countertop 3. Now, I'll check drawer 1 for the second peppershaker.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 1 is closed. I need to open it to see if the peppershaker is inside.\nAction: open drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 1. The drawer 1 is open. In it, you see a creditcard 1, and a spatula 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The peppershaker is not in drawer 1, only a credit card and a spatula. I should close this drawer and check another one.\nAction: close drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'll try looking in drawer 2 for the second peppershaker.\nAction: go to drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 2 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 2 is also closed. I'll open it to search for the peppershaker.\nAction: open drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 2. The drawer 2 is open. In it, you see a saltshaker 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: No peppershaker in drawer 2, just a saltshaker. I'll close this drawer and continue searching.\nAction: close drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I haven't checked drawer 3 yet. The peppershaker might be there.\nAction: go to drawer 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 3 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 3 is closed. I'll open it and see if the peppershaker is inside.\nAction: open drawer 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 3. The drawer 3 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 3 is empty. I'll close it and check the next drawer.\nAction: close drawer 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I haven't checked the countertop 4 area for the peppershaker. I should do that before moving on to the drawers.\nAction: go to countertop 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Nothing happens."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's nothing on countertop 4. I'll revisit the previous countertops to ensure I didn't miss anything.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a egg 1, and a potato 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: As before, there's no peppershaker on countertop 1. I'll recheck countertop 2.\nAction: go to countertop 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 2, you see a apple 1, a bread 2, a bread 1, a butterknife 2, a butterknife 1, a glassbottle 2, a papertowelroll 1, a potato 1, and a soapbottle 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Countertop 2 still doesn't have the peppershaker. I'll revisit countertop 3.\nAction: go to countertop 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 3, you see a butterknife 3, a cellphone 1, a fork 1, a houseplant 1, a knife 2, a knife 1, a lettuce 2, a pot 2, a statue 2, and a statue 1."
+        }
+    ]
+}

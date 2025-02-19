@@ -1,0 +1,160 @@
+{
+    "meta": {
+        "steps": 17,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 6 nether brick slab using 3 nether bricks\ncraft 4 nether brick stairs using 6 nether bricks\ncraft 1 red nether bricks using 2 nether wart, 2 nether brick\ncraft 6 nether brick wall using 6 nether bricks\ncraft 1 chiseled nether bricks using 2 nether brick slab\ncraft 6 nether brick fence using 4 nether bricks, 2 nether brick\ncraft 1 nether bricks using 4 nether brick\n\nGoal: craft chiseled nether bricks."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"chiseled nether bricks\" not in had_objects: find_flag = get(\"chiseled nether bricks\");\nStep 3. if find_flag == False: \"craft 1 chiseled nether bricks using 2 nether brick slab\" = choose_crafting_commands(\"chiseled nether bricks\"), needed_ingredients = \"2 nether brick slab\", find_flag = get(\"2 nether brick slab\");\nStep 4. if find_flag == False: \"craft 6 nether brick slab using 3 nether bricks\" = choose_crafting_commands(\"2 nether brick slab\"), needed_ingredients = \"3 nether bricks\", find_nether_bricks_flag = get(\"3 nether bricks\");\nStep 5. if find_nether_bricks_flag == False: \"craft 1 nether bricks using 4 nether brick\" = choose_crafting_commands(\"3 nether bricks\"), needed_ingredients = \"12 nether brick\", get(\"12 nether brick\");\nStep 6. for i in range(3): craft 1 nether bricks using 4 nether brick;\nStep 7. craft 1 chiseled nether bricks using 2 nether brick slab\nI should check if I can get chiseled nether bricks directly from the environment or the inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are no chiseled nether bricks in my inventory. I should try to get them from the environment.\nAction: get chiseled nether bricks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not execute get chiseled nether bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get chiseled nether bricks directly, I need to craft them. From the crafting commands, I can use: craft 1 chiseled nether bricks using 2 nether brick slab. Ingredients needed: 2 nether brick slab. Let me check if I have these in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients: 2 nether brick slab first. \nAction: get 2 nether brick slab"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find nether brick slab"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get nether brick slab directly, I need to craft them. From the crafting commands, I can craft 6 nether brick slab using 3 nether bricks. Ingredients needed: 3 nether bricks. Let me check if I have these in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients: 3 nether bricks first. \nAction: get 3 nether bricks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find nether bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get nether bricks directly, I need to craft them. From the crafting commands, I can craft 1 nether bricks using 4 nether brick. Ingredients needed: 4 nether brick. Let me check if I have these in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients: 4 nether brick first. \nAction: get 4 nether brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 nether brick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 4 nether brick, I can craft nether bricks. \nAction: craft 1 nether bricks using 4 nether brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:nether_bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 1 nether bricks, I can use it to craft nether brick slab. \nAction: craft 6 nether brick slab using 3 nether bricks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:nether_brick_slab"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to craft nether brick slab but I don't have enough nether bricks. I need 3 nether bricks but I only have 1. I need to get 2 more nether bricks.\nAction: get 2 nether bricks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find nether bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get nether bricks directly but I can craft them using 4 nether brick. I should get 8 nether brick to craft 2 more nether bricks.\nAction: get 8 nether brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 8 nether brick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 8 nether brick, I can craft 2 more nether bricks.\nAction: craft 2 nether bricks using 8 nether brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find a valid recipe for ItemTagWithCount(item_tag=ItemTag(tag=None, item_id='minecraft:nether_bricks'), count=2)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I attempted to craft 2 nether bricks at once and it wasn't successful. Perhaps I can only craft 1 nether brick at a time. I will craft one more nether brick and repeat the crafting process.\nAction: craft 1 nether bricks using 4 nether brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:nether_bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted a second nether brick successfully. I need to craft one more nether brick to have the required amount for crafting nether brick slab.\nAction: craft 1 nether bricks using 4 nether brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:nether_bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have crafted 3 nether bricks total, I can proceed to craft the nether brick slab.\nAction: craft 6 nether brick slab using 3 nether bricks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 6 minecraft:nether_brick_slab"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the nether brick slab, I can use it to craft the chiseled nether bricks.\nAction: craft 1 chiseled nether bricks using 2 nether brick slab"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:chiseled_nether_bricks"
+        }
+    ]
+}

@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": false,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_clean_then_place_in_recep-Cloth-None-Cabinet-405/trial_T20190907_080903_889497/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a bathtubbasin 1, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a countertop 1, a garbagecan 1, a handtowelholder 2, a handtowelholder 1, a sinkbasin 1, a toilet 1, a toiletpaperhanger 1, and a towelholder 1.\nYour task is to: put a clean cloth in cabinet."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. cloth_name, location_name = locate_a_cloth(candidate_locations);\nStep 2. take_cloth(cloth_name, location_name);\nStep 3. go_to_sink();\nStep 4. clean_cloth(cloth_name, sink_name);\nStep 5. go_to_cabinet(cabinet_name);\nStep 6. open_cabinet(cabinet_name);\nStep 7. put_cloth_in_cabinet(cloth_name, cabinet_name).\nI need to locate a clean cloth to put in a cabinet. The task description mentions a countertop, which is a common place where cloths are kept in a room like this.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a candle 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I see a candle on the countertop, but no cloth here. I should look elsewhere for the cloth.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's nothing on the sinkbasin. I need to continue searching for the cloth.\nAction: go to cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The cabinet 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The cabinet is closed. I need to open it to see if there's a cloth inside.\nAction: open cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the cabinet 1. The cabinet 1 is open. In it, you see a soapbottle 2, and a soapbottle 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are soap bottles inside this cabinet, but no cloth. I should close this cabinet and keep looking.\nAction: close cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the cabinet 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I should check the next cabinet for the cloth.\nAction: go to cabinet 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The cabinet 2 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: This cabinet is also closed. I'll open it to check for the cloth.\nAction: open cabinet 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the cabinet 2. The cabinet 2 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: This cabinet is empty. I'll close it and move on to the next one.\nAction: close cabinet 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the cabinet 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to continue my search for the cloth in the next cabinet.\nAction: go to cabinet 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The cabinet 3 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Another closed cabinet. I'll open it and hope to find the cloth inside.\nAction: open cabinet 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the cabinet 3. The cabinet 3 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: No cloth here either. I'll close this cabinet and check the next one.\nAction: close cabinet 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the cabinet 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I must keep looking for the cloth in the remaining cabinets.\nAction: go to cabinet 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Nothing happens."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's nothing on top of cabinet 4. I need to open it to search inside.\nAction: go to cabinet 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The cabinet 5 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The last cabinet is also closed. I'll open it and hope to find the cloth.\nAction: open cabinet 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the cabinet 5. The cabinet 5 is open. In it, you see a candle 1, and a soapbottle 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: No cloth here, just a candle and a soap bottle. I'll close this cabinet and check the sink basin again.\nAction: close cabinet 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the cabinet 5."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I should verify the sink basin again before moving on to other areas.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The sink basin is still empty. Time to check the garbage can for the cloth.\nAction: go to garbagecan 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the garbagecan 1, you see a spraybottle 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The garbage can has a spray bottle but no cloth. I'll check the countertop again since that's a common place for cloths.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a candle 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The countertop still only has a candle. I need to continue my search elsewhere.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've already checked the sink basin and it's empty. I should look in the cabinets where cloths are usually stored.\nAction: go to cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The cabinet 1 is closed."
+        }
+    ]
+}

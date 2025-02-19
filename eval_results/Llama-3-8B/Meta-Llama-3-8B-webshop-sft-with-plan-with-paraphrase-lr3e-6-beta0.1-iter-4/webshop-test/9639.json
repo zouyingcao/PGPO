@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i need an eli mason old fashioned cocktail mixer of 20 fl oz in size, and price lower than 50.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"Eli Mason old fashioned cocktail mixer 20 fl oz price < 50.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_size(\"20 fl oz\");\nStep 4. buy().\nI think I should use the search bar to look for the Eli Mason old fashioned cocktail mixer in the specified criteria.\nAction: search[Eli Mason old fashioned cocktail mixer 20 fl oz price < 50.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need an eli mason old fashioned cocktail mixer of 20 fl oz in size, and price lower than 50.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B01N1K5RCF [SEP] Eli Mason Old Fashioned Cocktail Mixer - All-natural Old Fashioned Cocktail Syrup - Uses Real Cane Sugar & Proprietary Blend Of Cocktail Bitters - Made In USA, Small Batch Cocktail Mixes - 10 Ounces [SEP] $19.99 [SEP] B07X3QQ3Z1 [SEP] Eli Mason Rich Simple Syrup - All-natural Cocktail Mixer & Beverage Sweetener - Uses Real Cane Sugar & Proprietary Blend Of Cocktail Bitters - Made In USA, Small Batch Cocktail Mixes - 2 x 10 Ounces [SEP] $27.99 [SEP] B076NVPW1Y [SEP] Gary's Old Fashioned Mix, Premium Non Alcoholic Cocktail Mixer, Old Wisconsin Tradition Drink Mixer, 64 Cocktails Per Mixer Bottle (32 fl oz) - Gary's Premium Cocktails [SEP] $21.99 [SEP] B095838QMG [SEP] Cocktail Crate Old Fashioned Drink Mixer | Award-Winning Craft Cocktail Mixer for Classic Old Fashioned - Premium Cocktail Syrup Handcrafted with Aromatic Bitters & Demerara Sugar | 12oz - 2 pack [SEP] $19.99 [SEP] B08GJ6XXSH [SEP] (3 Pack) LAVA All Natural Michelada Mix Craft Cocktail Mixer, Real Tomatoes, Ancho Chile Peppers, Tamarind, Keto Low Carb, Vegan, No Preservatives, Just Add Beer, No Junk, 1-Liter (33.8oz) Glass Bottle [SEP] $46.99 [SEP] B0848FR6YM [SEP] LAVA Premium Spicy Jalape\u00f1o Margarita Mix by LAVA Craft Cocktail Co., Made with Real Jalape\u00f1os, Agave Nectar, Key Limes, Lots of Flavor and Ready to Use, 1-Liter (33.8oz) Glass Bottle [SEP] $16.99 [SEP] B07B27SJZC [SEP] Gary's Classic Muddled Old Fashioned Mix, Premium Non Alcoholic Cocktail Mixer, Old Wisconsin Tradition Drink Mixer, 64 Cocktails Per Bottle (32 fl oz) - Gary's Premium Cocktails [SEP] $21.99 [SEP] B00QR2WDFU [SEP] Bittermilk Cocktail Mixer Variety Pack - Six Bottles Includes Bittermilk No.1 No.2 No.3 No.4 No.5 No.6 [SEP] $107.79 [SEP] B08MS5B85M [SEP] (3 Pack) LAVA Premium Strawberry Margarita Mix Strawberry Daiquiri Mix, Made with Real Strawberries, Agave, Key Lime, No Artificial Sweeteners, Lots of Flavor, Ready to Use [SEP] $46.99 [SEP] B07S388824 [SEP] WithCo Ellis Old Fashioned Craft Cocktail Mixer (makes 32 Cocktails) with Madagascar Vanilla, Orange, and Bitters Just Add Bourbon or Whiskey [SEP] $24.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the option that matches the criteria of an Eli Mason old fashioned cocktail mixer of 20 fl oz in size and price lower than 50.00 dollars.\nAction: click[B01N1K5RCF]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need an eli mason old fashioned cocktail mixer of 20 fl oz in size, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] flavor [SEP] demerara [SEP] grenadine [SEP] mint julep [SEP] old fashioned [SEP] peach [SEP] rich simple [SEP] spiced simple [SEP] variety mint julep & peach [SEP] variety old fashioned & demerara [SEP] variety top three [SEP] size [SEP] 2 bottles [SEP] 10 fl oz (pack of 1) [SEP] 20 fl oz (pack of 2) [SEP] 10 fl oz (pack of 2) [SEP] 3 bottles [SEP] Eli Mason Old Fashioned Cocktail Mixer - All-natural Old Fashioned Cocktail Syrup - Uses Real Cane Sugar & Proprietary Blend Of Cocktail Bitters - Made In USA, Small Batch Cocktail Mixes - 10 Ounces [SEP] Price: $19.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the '20 fl oz (pack of 2)' option to select the size I need.\nAction: click[20 fl oz (pack of 2)]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need an eli mason old fashioned cocktail mixer of 20 fl oz in size, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] flavor [SEP] demerara [SEP] grenadine [SEP] mint julep [SEP] old fashioned [SEP] peach [SEP] rich simple [SEP] spiced simple [SEP] variety mint julep & peach [SEP] variety old fashioned & demerara [SEP] variety top three [SEP] size [SEP] 2 bottles [SEP] 10 fl oz (pack of 1) [SEP] 20 fl oz (pack of 2) [SEP] 10 fl oz (pack of 2) [SEP] 3 bottles [SEP] Eli Mason Old Fashioned Cocktail Mixer - All-natural Old Fashioned Cocktail Syrup - Uses Real Cane Sugar & Proprietary Blend Of Cocktail Bitters - Made In USA, Small Batch Cocktail Mixes - 10 Ounces [SEP] Price: $19.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the Eli Mason old fashioned cocktail mixer.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B01N1K5RCF [SEP] options [SEP] {\"size\": \"20 fl oz (pack of 2)\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

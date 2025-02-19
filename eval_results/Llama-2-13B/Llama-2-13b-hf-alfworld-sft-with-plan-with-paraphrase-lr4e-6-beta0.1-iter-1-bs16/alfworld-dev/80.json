@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_and_place_simple-Candle-None-Toilet-407/trial_T20190909_055248_059513/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a bathtubbasin 1, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a countertop 1, a garbagecan 1, a handtowelholder 1, a sinkbasin 2, a sinkbasin 1, a toilet 1, a toiletpaperhanger 1, and a towelholder 1.\nYour task is to: put a candle in toilet."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. candle_name, location_name = locate_a_candle(candidate_locations);\nStep 2. take_a_candle(candle_name, location_name);\nStep 3. go_to_the_toilet();\nStep 4. put_candle_in_toilet().\nI need to locate a candle to complete the task of putting a candle in the toilet. The first place to check for a candle is the countertop, as it often holds various items that are used in the bathroom.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a candle 4, a candle 3, a mirror 1, a soapbottle 2, a soapbottle 1, and a toiletpaper 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I am at countertop 1, I see multiple items including two candles. I will choose candle 3 to complete the task.\nAction: take candle 3 from countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the candle 3 from the countertop 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With candle 3 in hand, I need to move to the toilet to place the candle in it as instructed.\nAction: go to toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the toilet 1, you see a spraybottle 2, and a spraybottle 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am now at toilet 1 and I see that there are spray bottles on it, but my task is to put the candle in the toilet. I will proceed with placing the candle in or on the toilet as per the task description.\nAction: put candle 3 in/on toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the candle 3 in/on the toilet 1."
+        }
+    ]
+}

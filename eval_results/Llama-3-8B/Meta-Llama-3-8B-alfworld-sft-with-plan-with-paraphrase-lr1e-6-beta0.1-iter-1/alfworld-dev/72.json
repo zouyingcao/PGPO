@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": false,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": "/home/admin/workspace/aop_lab/ipr_plan/eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_two_obj_and_place-Pan-None-CounterTop-14/trial_T20190907_012519_974044/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 2, a countertop 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: find two pan and put them in countertop."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. pan1_name, location1_name = locate_a_pan(candidate_locations);\nStep 2. take_pan(pan1_name, location1_name);\nStep 3. go_to_countertop();\nStep 4. put_pan_on_countertop();\nStep 5. pan2_name, location2_name = locate_a_pan(candidate_locations);\nStep 6. take_pan(pan2_name, location2_name);\nStep 7. go_to_countertop();\nStep 8. put_pan_on_countertop().\nI need to find two pans for the task. I'll start by checking the nearest cabinet, which is cabinet 1.\nAction: go to cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the cabinet 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Cabinet 1 is empty. I'll move on to the next cabinet, which is cabinet 2, to continue searching for a pan.\nAction: go to cabinet 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the cabinet 2, you see a soapbottle 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Cabinet 2 contains a soapbottle, but no pan. I need to keep looking. The next cabinet is cabinet 3.\nAction: go to cabinet 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The cabinet 3 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Cabinet 3 is closed. I need to open it to see if there's a pan inside.\nAction: open cabinet 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the cabinet 3. The cabinet 3 is open. In it, you see a plate 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Inside cabinet 3, there's only a plate. I'll close this cabinet and check the next one, cabinet 4.\nAction: close cabinet 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the cabinet 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now I'll try cabinet 4 to find a pan.\nAction: go to cabinet 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The cabinet 4 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Cabinet 4 is also closed. I'll open it to check for a pan.\nAction: open cabinet 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the cabinet 4. The cabinet 4 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Cabinet 4 is empty. I'll close it and continue my search with cabinet 5.\nAction: close cabinet 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the cabinet 4."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Cabinet 5 is the next option. Hopefully, I'll find a pan there.\nAction: go to cabinet 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The cabinet 5 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to open cabinet 5 to see if there's a pan inside.\nAction: open cabinet 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the cabinet 5. The cabinet 5 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Cabinet 5 is empty as well. I'll close it and move on to cabinet 6.\nAction: close cabinet 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the cabinet 5."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Cabinet 6 is my next option. I need to find a pan, so I'll keep looking.\nAction: go to cabinet 6"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the cabinet 6, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Cabinet 6 is also empty. I'll proceed to cabinet 7 to continue the search.\nAction: go to cabinet 7"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the cabinet 7, you see a soapbottle 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Cabinet 7 has a soapbottle, but no pan. I'll check cabinet 8 next.\nAction: go to cabinet 8"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The cabinet 8 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Cabinet 8 is closed. I need to open it to check for a pan.\nAction: open cabinet 8"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the cabinet 8. The cabinet 8 is open. In it, you see a peppershaker 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Inside cabinet 8, there's a peppershaker, but no pan. I'll close this cabinet and check the countertop, which is a common place for pans to be.\nAction: close cabinet 8"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the cabinet 8."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Countertop 1 is the first countertop I'll check for a pan.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a apple 1, a bowl 2, a bowl 1, a bread 1, a knife 2, a ladle 1, a lettuce 1, a soapbottle 3, a spatula 1, and a spoon 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Countertop 1 has various items, but no pan. I'll check countertop 2 next.\nAction: go to countertop 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 2, you see a bread 2, a butterknife 1, a dishsponge 1, a fork 1, a knife 1, a mug 1, a peppershaker 3, a peppershaker 2, and a saltshaker 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Countertop 2 also doesn't have a pan. I'll check the stoveburners next, as that's another common place where pans are found.\nAction: go to stoveburner 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the stoveburner 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Stoveburner 1 is empty. I'll check the next stoveburner, which is stoveburner 2.\nAction: go to stoveburner 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the stoveburner 2, you see a pan 1."
+        }
+    ]
+}

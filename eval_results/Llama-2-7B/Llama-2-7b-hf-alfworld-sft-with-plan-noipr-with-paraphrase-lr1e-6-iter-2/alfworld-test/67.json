@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "/home/caozouying.czy/IPR/eval_agent/data/alfworld/json_2.1.1/valid_unseen/look_at_obj_in_light-Book-None-DeskLamp-308/trial_T20190908_144951_587345/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 2, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a laundryhamper 1, a safe 1, a shelf 6, a shelf 5, a shelf 4, a shelf 3, a shelf 2, and a shelf 1.\nYour task is to: examine the book with the desklamp."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. book_name, location_name = locate_a_book(candidate_locations);\nStep 2. take_a_book(book_name, location_name);\nStep 3. desklamp_name = find_a_desklamp(candidate_locations);\nStep 4. use_a_desklamp_to_examine(desklamp_name).\nThe task requires me to examine a book with the desklamp. First, I need to locate a book.\nAction: go to bed 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the bed 1, you see a book 1, a cellphone 1, a laptop 2, a laptop 1, a pillow 2, and a pillow 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I am at bed 1, I should look for a book here as beds often have books on them for night reading.\nAction: take book 1 from bed 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the book 1 from the bed 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With book 1 in hand, I need to find a desklamp to examine the book under. Desklamps are typically used for reading and examining books.\nAction: go to desk 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the desk 1, you see a alarmclock 1, a creditcard 1, a desklamp 1, a laptop 3, and a mug 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have arrived at desk 1 and I see a desklamp here. I should use the desklamp to illuminate the book for examination.\nAction: use desklamp 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You turn on the desklamp 1."
+        }
+    ]
+}

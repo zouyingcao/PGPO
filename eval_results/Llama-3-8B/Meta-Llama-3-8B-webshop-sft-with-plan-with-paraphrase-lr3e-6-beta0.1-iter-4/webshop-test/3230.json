@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 0.6666666666666666,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i'm looking for sugar-free double mocha cappuccino mix, and price lower than 30.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"sugar-free double mocha cappuccino mix, and price lower than 30.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_flavor(\"double mocha cappuccino\");\nStep 4. buy().\nI think I should use the search bar to find the sugar-free double mocha cappuccino mix within the price range.\nAction: search[sugar-free double mocha cappuccino mix]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for sugar-free double mocha cappuccino mix, and price lower than 30.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B0049W9M5E [SEP] Hills Bros Instant Sugar-Free Double Mocha Cappuccino Mix, Easy to Use, Enjoy Coffeehouse Flavor from Home, Frothy and 8 g of Carbs, 12 Oz [SEP] $3.17 [SEP] B003SD83GE [SEP] Hills Bros. Instant Cappuccino Mix, English Toffee Cappuccino Mix \u2013 Easy to Use and Convenient \u2013 Frothy, Decadent Cappuccino with a Buttery Toffee Flavor (16 Ounces, Pack of 1) [SEP] $2.29 [SEP] B005Z6AK2C [SEP] Hills Bros Instant White Chocolate Caramel Decadent Cappuccino Mix, Easy to Use, Enjoy Coffeehouse Flavor from Home, Frothy, 16 Oz [SEP] $3.12 [SEP] B0183RU25O [SEP] Hills Bros Instant Salted Caramel Cappuccino Mix, Easy to Use and Convenient, Enjoy Coffeehouse Flavor from Home, 14 Oz [SEP] $3.17 [SEP] B0767D882Z [SEP] Hills Bros Sugar Free Double Mocha Cappuccino Beverage Mix, 12 oz - Pack of 2 [SEP] $14.94 [SEP] B0767DWVL7 [SEP] Hills Bros Sugar Free Double Mocha Cappuccino Beverage Mix, 12 oz - Pack of 4 [SEP] $29.99 [SEP] B08FRL8D45 [SEP] Jordan\u2019s Skinny Syrups | Caramel Collection Syrup Trio| 12.7oz Bottles - Pack of 3 & Classic Coffee Syrup Trio | Sugar Free 3 Pack | Salted Caramel, Vanilla, Mocha | (3) 12.7 oz Bottles [SEP] $28.97 [SEP] B076VHQFS4 [SEP] Jordan's Skinny Mixes Sugar Free Flavoring Syrup, Salted Caramel Mocha, 25.5 Fl Oz [SEP] $9.99 [SEP] B00A64MBBG [SEP] Jordan's Skinny Mixes Syrups Mocha, Sugar Free Coffee Flavoring Syrup, 25.4 Fl Oz [SEP] $9.99 [SEP] B08FRKGWXW [SEP] Jordan\u2019s Skinny Syrups | Sugar Free Salted Caramel Coffee Syrup, 25.4 Fl Oz (Pack of 2) Packaging may Vary & Sugar Free Mocha Coffee Syrup | 750ml/25.4oz Bottle [SEP] $23.26"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the option that fits the criteria of sugar-free double mocha cappuccino mix and price lower than 30.00 dollars. \nAction: click[B0049W9M5E]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for sugar-free double mocha cappuccino mix, and price lower than 30.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] flavor name [SEP] decaf french vanilla [SEP] fat-free french vanilla [SEP] french vanilla [SEP] sugar-free double mocha [SEP] white chocolate caramel [SEP] double mocha [SEP] limited edition holiday 3-pack [SEP] classic cappuccino [SEP] salted caramel [SEP] hazelnut [SEP] english toffee [SEP] size [SEP] 1 pound (pack of 1) [SEP] 1 pound (pack of 3) [SEP] 1 pound (pack of 6) [SEP] 3 piece assortment [SEP] 12 ounce (pack of 1) [SEP] 12 ounce (pack of 2) [SEP] 12 ounce (pack of 3) [SEP] 12 ounce (pack of 6) [SEP] 14 ounce (pack of 1) [SEP] 14 ounce (pack of 6) [SEP] 16 ounce (pack of 1) [SEP] 16 ounce (pack of 3) [SEP] 16 ounce (pack of 6) [SEP] Hills Bros Instant Sugar-Free Double Mocha Cappuccino Mix, Easy to Use, Enjoy Coffeehouse Flavor from Home, Frothy and 8 g of Carbs, 12 Oz [SEP] Price: $3.17 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'double mocha' option to select the flavor I need.\nAction: click[sugar-free double mocha]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for sugar-free double mocha cappuccino mix, and price lower than 30.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] flavor name [SEP] decaf french vanilla [SEP] fat-free french vanilla [SEP] french vanilla [SEP] sugar-free double mocha [SEP] white chocolate caramel [SEP] double mocha [SEP] limited edition holiday 3-pack [SEP] classic cappuccino [SEP] salted caramel [SEP] hazelnut [SEP] english toffee [SEP] size [SEP] 1 pound (pack of 1) [SEP] 1 pound (pack of 3) [SEP] 1 pound (pack of 6) [SEP] 3 piece assortment [SEP] 12 ounce (pack of 1) [SEP] 12 ounce (pack of 2) [SEP] 12 ounce (pack of 3) [SEP] 12 ounce (pack of 6) [SEP] 14 ounce (pack of 1) [SEP] 14 ounce (pack of 6) [SEP] 16 ounce (pack of 1) [SEP] 16 ounce (pack of 3) [SEP] 16 ounce (pack of 6) [SEP] Hills Bros Instant Sugar-Free Double Mocha Cappuccino Mix, Easy to Use, Enjoy Coffeehouse Flavor from Home, Frothy and 8 g of Carbs, 12 Oz [SEP] Price: $3.17 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the sugar-free double mocha cappuccino mix.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B0049W9M5E [SEP] options [SEP] {\"flavor name\": \"sugar-free double mocha\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.6666666666666666 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

@@ -1,0 +1,48 @@
+{
+    "meta": {
+        "steps": 3,
+        "reward": 0.5,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i need a bottle of fresh breath mouth wash for bad breath and oral hygeine, and price lower than 50.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"fresh breath mouth wash for bad breath and oral hygeine, and price lower than 50.00 dollars\");\nStep 2. click(selected_item);\nStep 3. buy().\nI think I should use the search bar to look for the mouth wash I need.\nAction: search[fresh breath mouth wash bad breath oral hygeine price < 50.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a bottle of fresh breath mouth wash for bad breath and oral hygeine, and price lower than 50.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B095C4HSVY [SEP] 1 Pack of 10 PCS Fruit Flavor Fresh Mouth Wash, Dental Care Wash Oral Care Fresh Breath Fruit Month Rinse Flavored Month Remove Bad Smell Mouth Wash Mouth Rinse, 11ml/ pc (Grape) [SEP] $17.99 [SEP] B09BCMB84D [SEP] 1 PC Refreshing Mouth Wash, Dental Care Wash Oral Care Fresh Breath Month Rinse Flavored Month Remove Bad Smell Mouth Wash Mouth Rinse, 450ml. (Rum Cherry) [SEP] $32.99 [SEP] B09F5QHRQ6 [SEP] 1 PC Active Peptide Refreshing Mouth Wash, Dental Care Wash Oral Care Fresh Breath Month Rinse Flavored Month Remove Bad Smell Mouth Wash Mouth Rinse, 450ml. (Green- Lemon Mint) [SEP] $29.99 [SEP] B08PDCQ5XP [SEP] F Fityle 5Pcs Naturally Bamboo Black Activated Charcoal Whitening Toothpaste,Good Oral Hygeine [SEP] $9.74 [SEP] B08PF2J7WY [SEP] F Fityle 2Pcs Naturally Bamboo Black Activated Charcoal Whitening Toothpaste,Good Oral Hygeine [SEP] $10.99 [SEP] B09PDVR77G [SEP] Yuanl Tongue Scraper for Adults Stainless Steel Tounge Scrappers Fresh Breath Tongue Cleaner Easy to Clean Better Than Plastic Reduce Bad Breath Reusable Fight Bad Breath Healthy Oral Care [SEP] $5.49 [SEP] B09NB3SSZB [SEP] Bad Breath Spray, Bad Breath Removal Long Lasting Refreshing Mouth Cleaner Spray 10ml Leave Freshness Feeling Peach Flavor for Daily Use for All People [SEP] $9.09 [SEP] B09CL66F5R [SEP] Travel Mouthwash for Kids, Orange Mouthwash Packets Alcohol Free for Bad Breath, Dry Mouth, Oral Rinse, Portable Mouth Wash Travel Size 0.37 oz, 20 Single Packs [SEP] $14.99 [SEP] B09M5H6P6N [SEP] Breath Refreshing Spray, Keep Mouth Clean Mouth Cleaner Spray Portable for Daily Use [SEP] $100.0 [SEP] B09N38GVWJ [SEP] Oral Care Spray, Keep Mouth Clean Remove Bad Breath 10ml Bad Breath Spray Long Lasting Refreshing for Daily Use [SEP] $8.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the mouth wash option that meets my requirements.\nAction: click[B095C4HSVY]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a bottle of fresh breath mouth wash for bad breath and oral hygeine, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] grape [SEP] lemon [SEP] mint [SEP] mix [SEP] orange [SEP] peach [SEP] 1 Pack of 10 PCS Fruit Flavor Fresh Mouth Wash, Dental Care Wash Oral Care Fresh Breath Fruit Month Rinse Flavored Month Remove Bad Smell Mouth Wash Mouth Rinse, 11ml/ pc (Grape) [SEP] Price: $17.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the mouth wash.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B095C4HSVY [SEP] options [SEP] {} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.5 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 4 acacia planks using 1 acacia logs\ncraft 1 iron ingot using 9 iron nugget\ncraft 1 chest minecart using 1 chest, 1 minecart\ncraft 1 grindstone using 2 stick, 1 stone slab, 2 planks\ncraft 4 spruce planks using 1 spruce logs\ncraft 1 minecart using 5 iron ingot\ncraft 3 iron door using 6 iron ingot\ncraft 4 warped planks using 1 warped stems\ncraft 1 purple bed using 3 purple wool, 3 planks\ncraft 1 tnt minecart using 1 tnt, 1 minecart\ncraft 4 stick using 2 planks\ncraft 1 hopper minecart using 1 hopper, 1 minecart\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 4 jungle planks using 1 jungle logs\ncraft 1 chest using 8 planks\ncraft 1 lantern using 1 torch, 8 iron nugget\ncraft 4 crimson planks using 1 crimson stems\ncraft 4 oak planks using 1 oak logs\ncraft 1 hopper using 1 chest, 5 iron ingot\ncraft 1 red bed using 3 red wool, 3 planks\ncraft 1 cartography table using 4 planks, 2 paper\ncraft 4 birch planks using 1 birch logs\ncraft 1 white bed using 3 white wool, 3 planks\n\nGoal: craft hopper minecart."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"hopper\" not in had_objects: find_flag_hopper = get(\"hopper\");\nStep 3. if find_flag_hopper == False: \"craft 1 hopper using 1 chest, 5 iron ingot\" = choose_crafting_commands(\"hopper\"), needed_ingredients = [\"1 chest\", \"5 iron ingot\"], find_flag_chest = get(\"chest\");\nStep 4. if find_flag_chest == False: \"craft 1 chest using 8 planks\" = choose_crafting_commands(\"chest\"), needed_ingredients_chest = \"8 planks\", find_plank_flag = get(\"planks\");\nStep 5. if find_plank_flag == False: \"craft 4 planks using 1 oak logs\" = choose_crafting_commands(\"planks\"), needed_ingredients_planks = \"2 oak logs\", get(\"2 oak logs\");\nStep 6. for i in range(2): craft 4 oak planks using 1 oak logs;\nStep 7. craft 1 chest using 8 oak planks;\nStep 8. get(\"5 iron ingot\");\nStep 9. craft 1 hopper using 1 chest, 5 iron ingot;\nStep 10. get(\"minecart\");\nStep 11. craft 1 hopper minecart using 1 hopper, 1 minecart\nTo craft a hopper minecart, I need a hopper and a minecart according to the crafting commands. I don't know if I have these items in my inventory, so I should check.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have any items in my inventory. I need to get a hopper and a minecart to craft a hopper minecart. I will start by trying to get a hopper.\nAction: get 1 hopper"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find hopper"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get a hopper directly from the environment. According to the crafting commands, I can craft a hopper using a chest and 5 iron ingots. I should check if these ingredients are in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have any of the ingredients to craft a hopper in my inventory. I need to start by gathering these materials.\nAction: get 1 chest"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find chest"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get a chest directly from the environment. According to the crafting commands, I can craft a chest using 8 planks. I should check if planks are in my inventory.\nAction: get 8 planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get planks directly from the environment. According to the crafting commands, I can craft planks using various types of logs. I should try getting oak logs, as they can be used to craft planks.\nAction: get 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 oak logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got 1 oak log from the environment which I can use to craft planks. According to the crafting commands, I can craft 4 oak planks using 1 oak log.\nAction: craft 4 oak planks using 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:oak_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted 4 oak planks but according to the crafting commands, I need 8 planks to craft a chest. So I need to get more oak logs.\nAction: get 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 oak logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got another oak log from the environment which I can use to craft planks. According to the crafting commands, I can craft 4 oak planks using 1 oak log.\nAction: craft 4 oak planks using 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:oak_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 8 oak planks, I can craft a chest. After crafting the chest, I will need 5 iron ingots and a hopper to craft a hopper minecart. I should first check my inventory to see if I already have these items.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [oak planks] (8)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I only have oak planks in my inventory. I don't have the other items needed to craft a hopper. I should try to get these items from the environment, starting with the iron ingots.\nAction: get 5 iron ingot"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find iron ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get iron ingots directly from the environment. According to the crafting commands, I can craft iron ingots using iron nuggets. I should try to get iron nuggets from the environment.\nAction: get 45 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 45 iron nugget"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have enough iron nuggets, I can craft the iron ingots needed for the hopper. After crafting the iron ingots, I will still need a chest and a hopper to craft a hopper minecart. I should first check my inventory to see if I already have these items.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [oak planks] (8) [iron nugget] (45)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have iron nuggets in my inventory, which I can use to craft iron ingots. I still need a chest and a hopper to craft a hopper minecart. I should try to get these items from the environment, starting with the chest.\nAction: get 1 chest"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find chest"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get a chest directly from the environment. According to the crafting commands, I can craft a chest using 8 planks. I should check if planks are in my inventory.\nAction: get 8 planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get planks directly from the environment. According to the crafting commands, I can craft planks using various types of logs. I should try getting oak logs, as they can be used to craft planks.\nAction: get 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 oak logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got 1 oak log from the environment which I can use to craft planks. According to the crafting commands, I can craft 4 oak planks using 1 oak log.\nAction: craft 4 oak planks using 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:oak_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted 4 oak planks but according to the crafting commands, I need 8 planks to craft a chest. So I need to get more oak logs.\nAction: get 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 oak logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got another oak log from the environment which I can use to craft planks. According to the crafting commands, I can craft 4 oak planks using 1 oak log.\nAction: craft 4 oak planks using 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:oak_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 8 oak planks, I can craft a chest. After crafting the chest, I will need 5 iron ingots and a hopper to craft a hopper minecart. I should first check my inventory to see if I already have these items.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [oak planks] (16) [iron nugget] (45)"
+        }
+    ]
+}

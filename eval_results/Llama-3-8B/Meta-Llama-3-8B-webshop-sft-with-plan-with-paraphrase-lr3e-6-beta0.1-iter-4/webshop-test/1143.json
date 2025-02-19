@@ -1,0 +1,64 @@
+{
+    "meta": {
+        "steps": 5,
+        "reward": 0.6,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i need a water proof watch band for a 42 millimeter apple watch.  i want a green one, and price lower than 30.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"water proof watch band for a 42 millimeter apple watch, criterias: green color; price lower than 30.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_color(\"green\");\nStep 4. select_size(\"42mm\");\nStep 5. buy().\nI need to find a waterproof watch band for a 42 millimeter Apple Watch that is green and costs less than $30. I'll start by searching for these specific criteria.\nAction: search[water proof watch band for a 42 millimeter apple watch, criterias: green color; price lower than 30.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a water proof watch band for a 42 millimeter apple watch.  i want a green one, and price lower than 30.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B0918CY4W9 [SEP] Haiyi Tech Clear Watch Band for Apple Watch 42mm 44mm,Transparent Clear Soft Silicone Sports iWatch Band Strap for Apple Watch Series 654321SE (Black) [SEP] $6.98 [SEP] B084F7LMHN [SEP] Grit & Grazia Top Grain Leather Apple Watch Band Compatible w/ 38mm 40mm 41mm 42mm 44mm 45mm Series 7 6 5 4 3 2 1 SE iWatch, Diamond Patten Apple Watch Replacement Strap (Black + Black, 38mm/40mm/41mm) [SEP] $29.99 [SEP] B09BVM2YJN [SEP] [8 Pack] Sport Band Compatible with Apple Watch Bands 38mm 40mm 41mm 42mm 44mm 45mm Women Men,Soft Silicone Waterproof Replacement Strap Wristband for iWatch Series 7 SE 6 5 4 3 2 1 [SEP] $18.98 [SEP] B09D3ZDYGL [SEP] MODERNITY Silicone solo loop watch band compatible with apple watch 38mm 40mm 41mm 42mm 44mm 45mm, Soft and Stretchable Silicone Band for IWatch 7/6/SE/5/4/3/2/1 [SEP] $9.49 to $9.99 [SEP] B08ZXJWZXY [SEP] V-MORO Compatible with Apple Watch 45mm 44mm 42mm Bands Multilayer Wrap Bracelet for Women Suede Leather with Handmade Boho Bead Strap Replacement for iWatch Series 7/6/5/4/3/2/1/SE,Fit for 5.1\"-5.9\" Wrist(Small) [SEP] $16.99 [SEP] B09357TSJS [SEP] WareWel - Stainless Steel Apple Watch Compatible Bands for Men & Women Quick Install Replacement Apple Watch Bracelet Bands Premium Finish & Sturdy Closure 38mm 40mm 42mm 44mm [SEP] $14.98 to $24.99 [SEP] B098ZL98HT [SEP] Gilden Extra-Long Black Waterproof Polyurethane Smart Watch Band 017270-SMART, fits Apple Apple Watch [SEP] $21.49 [SEP] B09F8RNCSJ [SEP] Sunnywoo Slim Sport Silicone Band Compatible for Apple Watch Bands 38mm 40mm 41mm 42mm 44mm 45mm iWatch Series 7 6 5 SE 4 3 2 1 Strap,Soft Thin Narrow Women Men Cute Replacement Wristband [SEP] $5.98 [SEP] B09CZBY6MT [SEP] Metal Magnetic Band Compatible with Apple Watch Band 38mm 40mm 41mm 42mm 44mm 45mm Adjustable Mesh Loop Strap Stainless Steel Replacement Wristband for iWatch SE Series 7 6 5 4 3 2 1 for Women Men [SEP] $5.99 [SEP] B0943YM662 [SEP] Blduzn Compatible with Apple Watch Bands 38mm 40mm, Soft Silicone Sport Wristbands Replacement Strap with Classic Clasp Compatible with iWatch Series SE 6 5 4 3 2 1 for Women Men, Deep Grey [SEP] $6.88"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are several options available, but I need to find one that is green and within my budget. The first option, B0918CY4W9, is clear and within the price range, so I'll check this one out first.\nAction: click[b0918cy4w9]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a water proof watch band for a 42 millimeter apple watch.  i want a green one, and price lower than 30.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] green [SEP] orange [SEP] transparent [SEP] Haiyi Tech Clear Watch Band for Apple Watch 42mm 44mm,Transparent Clear Soft Silicone Sports iWatch Band Strap for Apple Watch Series 654321SE (Black) [SEP] Price: $6.98 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The product details are displayed, and I see there are multiple color options. I need to make sure I select the green option to meet the criteria.\nAction: click[green]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a water proof watch band for a 42 millimeter apple watch.  i want a green one, and price lower than 30.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] green [SEP] orange [SEP] transparent [SEP] Haiyi Tech Clear Watch Band for Apple Watch 42mm 44mm,Transparent Clear Soft Silicone Sports iWatch Band Strap for Apple Watch Series 654321SE (Black) [SEP] Price: $6.98 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I've selected the green color, I need to confirm the size to ensure it fits my 42 millimeter Apple Watch.\nAction: click[42mm]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a water proof watch band for a 42 millimeter apple watch.  i want a green one, and price lower than 30.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] green [SEP] orange [SEP] transparent [SEP] Haiyi Tech Clear Watch Band for Apple Watch 42mm 44mm,Transparent Clear Soft Silicone Sports iWatch Band Strap for Apple Watch Series 654321SE (Black) [SEP] Price: $6.98 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Everything looks good\u2014the band is green, fits my size, and is within my budget. I'm ready to make the purchase.\nAction: click[buy now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B0918CY4W9 [SEP] options [SEP] {\"color\": \"green\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.6 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

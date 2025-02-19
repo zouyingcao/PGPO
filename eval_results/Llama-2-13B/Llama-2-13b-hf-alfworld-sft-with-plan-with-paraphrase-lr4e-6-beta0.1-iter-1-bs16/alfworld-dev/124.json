@@ -1,0 +1,144 @@
+{
+    "meta": {
+        "steps": 15,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_two_obj_and_place-Watch-None-Dresser-205/trial_T20190907_182211_592010/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a armchair 2, a armchair 1, a diningtable 1, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 1, a garbagecan 1, a ottoman 1, a sidetable 3, a sidetable 2, a sidetable 1, and a sofa 1.\nYour task is to: put two watch in dresser."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. locate_first_watch(candidate_locations);\nStep 2. take_first_watch(watch_name, location_name);\nStep 3. go_to_dresser();\nStep 4. put_first_watch_in_dresser();\nStep 5. locate_second_watch(candidate_locations);\nStep 6. take_second_watch(watch_name, location_name);\nStep 7. go_to_dresser();\nStep 8. put_second_watch_in_dresser();\nI need to locate two watches to place in the dresser. I'll start by checking the nearest surfaces which could hold small items like watches.\nAction: go to sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 1, you see a remotecontrol 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's only a remote control here on sidetable 1. I need to continue searching for watches on other surfaces.\nAction: go to sidetable 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 2, you see a statue 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Sidetable 2 only has a statue. I'll move on to the next sidetable to continue my search for watches.\nAction: go to sidetable 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 3, you see a desklamp 1, and a houseplant 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: On sidetable 3, there's a desklamp and a houseplant, but no watches. I should check other places where watches might be kept, such as drawers.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 1 is closed. I need to open it to see if there are any watches inside.\nAction: open drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 1. The drawer 1 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is empty. I'll close it and continue searching elsewhere.\nAction: close drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'll check the ottoman next, as it's another place where small items like watches might be placed.\nAction: go to ottoman 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the ottoman 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The ottoman is empty. I'll move on to the dining table, which often serves as a place to keep various items.\nAction: go to diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the diningtable 1, you see a laptop 3, a laptop 2, a remotecontrol 3, a statue 3, a statue 2, a watch 2, and a watch 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've found two watches on the dining table. I'll take one of them to place in the dresser.\nAction: take watch 1 from diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the watch 1 from the diningtable 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With watch 1 in hand, I need to go to the dresser to place the watch inside.\nAction: go to dresser 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the dresser 1, you see a television 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'll put watch 1 in the dresser. Then I need to go back and get the second watch from the dining table.\nAction: put watch 1 in/on dresser 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the watch 1 in/on the dresser 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm back at the dining table to retrieve the second watch.\nAction: go to diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the diningtable 1, you see a laptop 3, a laptop 2, a remotecontrol 3, a statue 3, a statue 2, and a watch 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have watch 2 now. I'll take it to the dresser to place it alongside watch 1.\nAction: take watch 2 from diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the watch 2 from the diningtable 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm at the dresser again and I see watch 1 where I left it. Now I'll place watch 2 here as well.\nAction: go to dresser 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the dresser 1, you see a television 1, and a watch 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With both watches in the dresser, my task is complete. I'll make sure they're placed neatly together.\nAction: put watch 2 in/on dresser 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the watch 2 in/on the dresser 1."
+        }
+    ]
+}

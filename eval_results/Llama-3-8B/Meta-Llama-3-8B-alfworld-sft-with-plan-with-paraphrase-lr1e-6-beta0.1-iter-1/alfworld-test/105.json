@@ -1,0 +1,120 @@
+{
+    "meta": {
+        "steps": 12,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "/home/admin/workspace/aop_lab/ipr_plan/eval_agent/data/alfworld/json_2.1.1/valid_unseen/look_at_obj_in_light-CD-None-DeskLamp-308/trial_T20190908_142046_281296/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 2, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a laundryhamper 1, a safe 1, a shelf 6, a shelf 5, a shelf 4, a shelf 3, a shelf 2, and a shelf 1.\nYour task is to: examine the cd with the desklamp."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. desklamp_name, cd_name, location_name = locate_a_desklamp_and_cd(candidate_locations);\nStep 2. take_cd(cd_name, location_name);\nStep 3. use_desklamp_to_examine(cd_name, desklamp_name).\nThe task is to examine the CD with the desklamp. First, I need to locate the desklamp and the CD. I remember seeing a desklamp on one of the shelves, but I should check all shelves systematically to find the CD as well.\nAction: go to shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 1, you see a mug 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The CD is not on shelf 1, but I should keep looking. The desklamp might be here, so I'll remember its location.\nAction: go to shelf 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 2, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 2 is empty. I need to continue searching the other shelves for the CD.\nAction: go to shelf 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 3, you see a desklamp 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I found the desklamp on shelf 3, but no CD here. I should check the remaining shelves for the CD.\nAction: go to shelf 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 4, you see a alarmclock 1, and a pencil 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The CD is not on shelf 4. I'll keep looking on the other shelves.\nAction: go to shelf 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 5, you see a creditcard 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 5 doesn't have the CD either. I'll check the last shelf.\nAction: go to shelf 6"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 6, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 6 is also empty. The CD must be elsewhere. I should check other places in the room, like the desks or the safe.\nAction: go to safe 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The safe 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The safe is closed. The CD might be inside, so I should open it and check.\nAction: open safe 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the safe 1. The safe 1 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The safe is empty. The CD is not here. I should close the safe to keep the room tidy.\nAction: close safe 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the safe 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I haven't checked the desks yet. The CD could be on one of them.\nAction: go to desk 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the desk 1, you see a cd 2, a creditcard 2, and a desklamp 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I found the CD on desk 1, along with a desklamp. I need to take the CD so I can examine it with the desklamp.\nAction: take cd 2 from desk 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the cd 2 from the desk 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the CD, I should use the desklamp on the desk to examine it as instructed.\nAction: use desklamp 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You turn on the desklamp 1."
+        }
+    ]
+}

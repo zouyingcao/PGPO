@@ -1,0 +1,104 @@
+{
+    "meta": {
+        "steps": 10,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 8 orange concrete powder using 1 orange dye, 4 sand, 4 gravel\ncraft 8 light blue concrete powder using 1 light blue dye, 4 sand, 4 gravel\ncraft 8 white concrete powder using 1 white dye, 4 sand, 4 gravel\ncraft 8 brown concrete powder using 1 brown dye, 4 sand, 4 gravel\ncraft 8 red concrete powder using 1 red dye, 4 sand, 4 gravel\ncraft 1 brown wool using 1 brown dye, 1 white wool\ncraft 8 cookie using 2 wheat, 1 cocoa beans\ncraft 8 brown stained glass pane using 8 glass pane, 1 brown dye\ncraft 8 brown stained glass using 8 glass, 1 brown dye\ncraft 8 yellow concrete powder using 1 yellow dye, 4 sand, 4 gravel\ncraft 8 purple concrete powder using 1 purple dye, 4 sand, 4 gravel\ncraft 1 brown dye using 1 cocoa beans\n\nGoal: craft brown concrete powder."
+        },
+        {
+            "from": "gpt",
+            "value": "First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"brown concrete powder\" not in had_objects: find_flag = get(\"brown concrete powder\");\nStep 3. if find_flag == False: \"craft 8 brown concrete powder using 1 brown dye, 4 sand, 4 gravel\" = choose_crafting_commands(\"brown concrete powder\"), needed_ingredients = [\"1 brown dye\", \"4 sand\", \"4 gravel\"], get(\"1 brown dye\");\nStep 4. find_flag = get(\"4 sand\");\nStep 5. find_flag = get(\"4 gravel\");\nStep 6. if find_flag == False: for i in range(2): repeat Step 5-6;\nStep 7. craft 8 brown concrete powder using 1 brown dye, 4 sand, 4 gravel\nI should check if I can get brown concrete powder directly from the environment or the inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no brown concrete powder in my inventory. I should try to get it from the environment.\nAction: get brown concrete powder"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not execute get brown concrete powder"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get brown concrete powder directly, I need to craft it. From the crafting commands, I can use: craft 8 brown concrete powder using 1 brown dye, 4 sand, 4 gravel. Ingredients needed: 1 brown dye, 4 sand, 4 gravel. Input assumption: I have the ingredients needed in my inventory. Let me verify this first.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I do not have the ingredients needed to craft brown concrete powder. I should get the ingredients: 1 brown dye, 4 sand, 4 gravel.\nAction: get 1 brown dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find brown dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot find brown dye directly in the environment. I need to craft it. From the crafting commands, I can craft 1 brown dye using 1 cocoa beans. Let me verify if I have cocoa beans in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I do not have cocoa beans needed to craft brown dye. I should get the cocoa beans.\nAction: get 1 cocoa beans"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 cocoa beans"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the cocoa beans. Now I can craft the brown dye using the crafting command: craft 1 brown dye using 1 cocoa beans.\nAction: craft 1 brown dye using 1 cocoa beans"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:brown_dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted the brown dye. Now, I need to get the remaining ingredients: 4 sand, 4 gravel to craft brown concrete powder.\nAction: get 4 sand"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 sand"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the sand. Now, I need to get the remaining ingredient: 4 gravel to craft brown concrete powder.\nAction: get 4 gravel"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 gravel"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got all the ingredients: 1 brown dye, 4 sand, 4 gravel. Now I can craft brown concrete powder using the crafting command: craft 8 brown concrete powder using 1 brown dye, 4 sand, 4 gravel.\nAction: craft 8 brown concrete powder using 1 brown dye, 4 sand, 4 gravel"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 8 minecraft:brown_concrete_powder"
+        }
+    ]
+}

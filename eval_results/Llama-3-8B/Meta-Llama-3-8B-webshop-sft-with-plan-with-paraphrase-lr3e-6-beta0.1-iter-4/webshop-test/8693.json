@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 0.6,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i'm interested in one pack of 20-inch hair extensions that are easy to apply, and price lower than 50.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"hair extensions easy to apply 20-inch pack price < 50.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_size(\"20 inch\");\nStep 4. buy().\nI think I should use the search bar to find the hair extensions I need.\nAction: search[hair extensions easy to apply 20-inch pack price < 50.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm interested in one pack of 20-inch hair extensions that are easy to apply, and price lower than 50.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B01HKMVTXC [SEP] SWACC Women 20 Inches Curly Full Head 7 Separate Pieces Heat Resistance Synthetic Hair Clip in Hair Extensions (Grey) [SEP] $12.99 [SEP] B07ZHVW6S2 [SEP] Tape in Hair Extensions, Moresoo Human Hair Extensions Tape in Seamless Hair Extensions 20 Inch Color #1B Off Black Mixed #18 Ash Blonde with #60 Blonde Straight Extensions Tape Ins 50G/20Pcs Per Pack [SEP] $69.99 [SEP] B079DGPVNX [SEP] SWACC 12 Pcs Multi-Colors Party Highlights Clip on in Hair Extensions Colored Hair Streak Synthetic Hairpieces (20-Inch Curly, 6 Pcs Teal + 6 Pcs Blue) [SEP] $9.99 [SEP] B085XZS7DJ [SEP] Moresoo Human Hair Clip in Extensions for Women 22inch Black Hair Extensions Clip in Full Head Thick Clip on Hair Extensions Human Hair Black 7Pieces 120Grams Clip ins [SEP] $114.99 [SEP] B09BD2ZR3J [SEP] Remy Human Hair Extensions 8pcs 110G/3.88oz 18 Clips in Natural Hair Extensions Blonde Human Hair Long Straight Hairpieces Remy Real Hair Extensions Clips in for Women 22 Inch (Platinum Blonde, 60) [SEP] $39.99 [SEP] B0812C83V3 [SEP] RINBOOOL Ombre Balayage Tape In Hair Extensions,18 Inch 40 Gram,Real Natural Remy Human Hair,Long Seamless Straight,Black Rooted Fading To Teal Green Highlighted Black,20pcs/Pack [SEP] $47.99 [SEP] B07ZNF8BP3 [SEP] Moresoo Tape in Hair Extensions Real Human Hair 12 Inch Remy Tape in Hair Glue on 20pcs Darkest Brown to Blonde Highlighted Hair Extensions for Short Hair 30g Unprocessed Hair Extensions [SEP] $25.99 [SEP] B081RGMDVY [SEP] Hetto Brown U Tip Hair Extensions Real Human Hair Utips Extensions #4 Dark Brown 18 Inch Pre Bonded Hot Fusion Remy U Tips Hair Extensions 50g 50 Strands [SEP] $48.99 [SEP] B07SCJ6QLR [SEP] Moresoo Human Hair Extensions Tape in Blonde Highlight Tape in Hair Extensions 24 Inch Seamless Hair Extensions 20pcs Colored #14 Mix with #613 Bleach Blonde Invisible Double Side Tape 50g [SEP] $83.99 [SEP] B01IF2XE34 [SEP] 18\"Clip in Remy Human Hair Extensions Double Weft Thick to Ends Bleach Blonde(#613) 6pieces 70Grams/2.45oz [SEP] $48.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the option that meets my requirements, which is B07ZHVW6S2.\nAction: click[B07ZHVW6S2]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm interested in one pack of 20-inch hair extensions that are easy to apply, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size [SEP] 12 inch (pack of 1) [SEP] 14 inch (pack of 1) [SEP] 16 inch (pack of 1) [SEP] 18 inch (pack of 1) [SEP] 20 inch (pack of 1) [SEP] 22 inch (pack of 1) [SEP] 24 inch (pack of 1) [SEP] color [SEP] #1 [SEP] #1b [SEP] #1b | 18 | 60 [SEP] #1b | 4 | 14 [SEP] #1b | silver | 1b [SEP] #2 [SEP] #2 | 27 | 613 [SEP] #2 | 6 | 2 [SEP] #3 | 8 | 22 [SEP] #4 | 10 | 16 [SEP] #4 | 27 | 4 [SEP] #60 [SEP] #60a [SEP] #99j [SEP] #9a | 60 [SEP] #p14 | 613 [SEP] #p18 | 613 [SEP] #p6 | 60 [SEP] #t6 | 613 [SEP] #4 | 6 | 24 [SEP] #6 | 14 | 26 [SEP] Tape in Hair Extensions, Moresoo Human Hair Extensions Tape in Seamless Hair Extensions 20 Inch Color #1B Off Black Mixed #18 Ash Blonde with #60 Blonde Straight Extensions Tape Ins 50G/20Pcs Per Pack [SEP] Price: $69.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the '20 inch (pack of 1)' option to select the desired length of hair extensions.\nAction: click[20 inch (pack of 1)]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm interested in one pack of 20-inch hair extensions that are easy to apply, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size [SEP] 12 inch (pack of 1) [SEP] 14 inch (pack of 1) [SEP] 16 inch (pack of 1) [SEP] 18 inch (pack of 1) [SEP] 20 inch (pack of 1) [SEP] 22 inch (pack of 1) [SEP] 24 inch (pack of 1) [SEP] color [SEP] #1 [SEP] #1b [SEP] #1b | 18 | 60 [SEP] #1b | 4 | 14 [SEP] #1b | silver | 1b [SEP] #2 [SEP] #2 | 27 | 613 [SEP] #2 | 6 | 2 [SEP] #3 | 8 | 22 [SEP] #4 | 10 | 16 [SEP] #4 | 27 | 4 [SEP] #60 [SEP] #60a [SEP] #99j [SEP] #9a | 60 [SEP] #p14 | 613 [SEP] #p18 | 613 [SEP] #p6 | 60 [SEP] #t6 | 613 [SEP] #4 | 6 | 24 [SEP] #6 | 14 | 26 [SEP] Tape in Hair Extensions, Moresoo Human Hair Extensions Tape in Seamless Hair Extensions 20 Inch Color #1B Off Black Mixed #18 Ash Blonde with #60 Blonde Straight Extensions Tape Ins 50G/20Pcs Per Pack [SEP] Price: $69.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the 20-inch hair extensions that meet my criteria.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B07ZHVW6S2 [SEP] options [SEP] {\"size\": \"20 inch (pack of 1)\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.6 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

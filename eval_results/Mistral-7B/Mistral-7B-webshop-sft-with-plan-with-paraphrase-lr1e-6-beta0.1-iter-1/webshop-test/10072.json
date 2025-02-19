@@ -1,0 +1,48 @@
+{
+    "meta": {
+        "steps": 3,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i am looking for dried coconut that is gluten free, and price lower than 60.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"gluten-free dried coconut\");\nStep 2. click(selected_item);\nStep 3. buy().\nI think I should use the search bar to look for gluten-free dried coconut.\nAction: search[gluten-free dried coconut]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for dried coconut that is gluten free, and price lower than 60.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B01KNLONK8 [SEP] Next Organics Dried Coconut 6 oz Bag (Pack of 6) [SEP] $27.45 [SEP] B09122V2MH [SEP] Mrs. Barr\u2019s Natural Foods Granola Bars | Honey Strawberry | Certified Organic Gluten Free Oats | Soft Texture | Small Batch | Gourmet Quality | Real Ingredients | 2.2 Ounces (12 Pack) [SEP] $44.99 [SEP] B0714FR3S8 [SEP] Pillsbury BEST Organic Coconut Flour, 16 Ounce, Gluten Free [SEP] $13.18 [SEP] B08DX9WXGK [SEP] OliveNation Coconut Chunks, Dehydrated Fresh Diced Coconut, Non-GMO, Kosher, Vegan - 1 pound [SEP] $14.97 [SEP] B00HUCGO6K [SEP] New England Naturals Organic Unsweetened Gluten-Free Berry Coconut Granola, 12 Ounce Pouch Berry Coconut High Fiber Omega-3 Granola Breakfast Cereal, Non-GMO, USDA Organic, Kosher [SEP] $11.99 [SEP] B016P4FCHK [SEP] Southern Grove Dried Fruit Medley 7.5 Oz [SEP] $8.95 [SEP] B07WP968BC [SEP] Coconut Cloud: Dairy Free Vegan Coffee Creamer | Vanilla Flavor + MCT Oil = Energy. Lightly Sweetened Coconut Powder Milk. (US Made! Plant Based,Gluten, Lactose & Soy Free, Keto Friendly), Vanilla, 20 Sticks [SEP] $18.95 [SEP] B0779DBB1B [SEP] Living Intentions Organic Superfood Cereal - Radiant Raspberry \u2013 NonGMO \u2013 Gluten Free \u2013 Vegan \u2013 Paleo \u2013 Kosher \u2013 9 Oz [SEP] $10.39 [SEP] B08FRQ5X67 [SEP] Paradise Green Vegan Dried Young Coconut 24oz, 1 Pack [SEP] $100.0 [SEP] B09QBZX17T [SEP] WELLGREEN Dried Coconut Chips Strips Baked Crunchy Sweetened,Toasted Coconut Chips, Vegan and Keto Friendly, All Natural | No Added Sugar | Gluten Free | Non-GMO | 3.52 oz Bag (Pack of 4) [SEP] $15.96"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the product that meets my criteria, which is B01KNLONK8 - Next Organics Dried Coconut 6 oz bag (Pack of 6) priced at $27.45.\nAction: click[B01KNLONK8]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for dried coconut that is gluten free, and price lower than 60.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] flavor name [SEP] crystallized ginger [SEP] dried mango [SEP] dried coconut [SEP] size [SEP] 6 ounce (pack of 1) [SEP] 6 ounce (pack of 3) [SEP] 6 ounce (pack of 6) [SEP] Next Organics Dried Coconut 6 oz Bag (Pack of 6) [SEP] Price: $27.45 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the Next Organics Dried Coconut.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B01KNLONK8 [SEP] options [SEP] {} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

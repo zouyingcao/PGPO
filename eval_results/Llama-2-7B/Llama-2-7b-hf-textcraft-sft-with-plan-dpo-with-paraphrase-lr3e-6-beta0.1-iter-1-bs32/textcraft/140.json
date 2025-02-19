@@ -1,0 +1,104 @@
+{
+    "meta": {
+        "steps": 10,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 flint and steel using 1 iron ingot, 1 flint\ncraft 4 birch planks using 1 birch logs\ncraft 4 stick using 2 planks\ncraft 4 arrow using 1 stick, 1 flint, 1 feather\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 4 warped planks using 1 warped stems\ncraft 4 acacia planks using 1 acacia logs\ncraft 4 crimson planks using 1 crimson stems\ncraft 4 jungle planks using 1 jungle logs\ncraft 3 acacia fence using 2 stick, 4 acacia planks\ncraft 1 green bed using 3 green wool, 3 planks\ncraft 1 cyan bed using 3 cyan wool, 3 planks\ncraft 1 stick using 2 bamboo\ncraft 4 spruce planks using 1 spruce logs\ncraft 1 golden sword using 1 stick, 2 gold ingot\ncraft 4 oak planks using 1 oak logs\ncraft 1 crafting table using 4 planks\ncraft 1 bow using 3 stick, 3 string\ncraft 1 wooden hoe using 2 stick, 2 planks\ncraft 1 fletching table using 4 planks, 2 flint\ncraft 1 writable book using 1 book, 1 ink sac, 1 feather\n\nGoal: craft arrow."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"1 stick\" not in had_objects: find_flag = get(\"1 stick\");\nStep 3. if find_flag == False: \"craft 1 stick using 2 bamboo\" = choose_crafting_commands(\"1 stick\"), needed_ingredients = \"2 bamboo\", get(needed_ingredients);\nStep 4. craft 1 stick using 2 bamboo;\nStep 5. if \"1 flint\" not in had_objects: get(\"1 flint\");\nStep 6. if \"1 feather\" not in had_objects: get(\"1 feather\");\nStep 7. craft 4 arrow using 1 stick, 1 flint, 1 feather\nI should check if I can get arrows directly from the environment or the inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are no arrows in my inventory. I should try to get them from the environment.\nAction: get 4 arrow"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find arrow"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get arrows directly, I need to craft them. From the crafting commands, I can use: craft 4 arrow using 1 stick, 1 flint, 1 feather. Ingredients needed: 1 stick, 1 flint, 1 feather. I should check if I have these in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients: 1 stick, 1 flint, 1 feather first.\nAction: get 1 stick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get a stick directly, I need to craft it. From the crafting commands, I can craft 1 stick using 2 bamboo or 1 stick using 1 flint and 1 steel. I should check if I have these in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients: 2 bamboo or 1 flint and 1 steel first.\nAction: get 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 bamboo"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the ingredients: 2 bamboo. I can use these to craft a stick.\nAction: craft 1 stick using 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted a stick. Now, I need to get the ingredients: 1 flint and 1 feather to craft arrows.\nAction: get 1 flint"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 flint"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the ingredient: 1 flint. Now, I need to get the last ingredient: 1 feather to craft arrows.\nAction: get 1 feather"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 feather"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got all the ingredients: 1 stick, 1 flint, 1 feather. I can now craft arrows.\nAction: craft 4 arrow using 1 stick, 1 flint, 1 feather"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:arrow"
+        }
+    ]
+}

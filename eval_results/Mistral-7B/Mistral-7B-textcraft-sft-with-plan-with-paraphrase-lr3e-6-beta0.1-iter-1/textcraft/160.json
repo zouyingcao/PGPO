@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 blue ice using 9 packed ice\ncraft 1 packed ice using 9 ice\n\nGoal: craft blue ice."
+        },
+        {
+            "from": "gpt",
+            "value": "First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"9 packed ice\" not in had_objects: find_flag = get(\"9 ice\");\nStep 3. if find_flag == True: craft 1 packed ice using 9 ice;\nStep 4. craft 1 blue ice using 9 packed ice\nI should check if I have the necessary ingredients to craft blue ice in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to get the ingredients to craft blue ice.\nAction: get 9 ice"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 9 ice"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the necessary ingredients to craft blue ice. I should proceed with the crafting command: craft 1 blue ice using 9 packed ice.\nAction: craft 1 blue ice using 9 packed ice"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:blue_ice"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to craft blue ice using packed ice, but I don't have enough packed ice. I should first craft packed ice using ice. I\nAction: get 9 ice"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 9 ice"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the necessary ingredients to craft packed ice. I should proceed with the crafting command: craft 1 packed ice using 9 ice.\nAction: craft 1 packed ice using 9 ice"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:packed_ice"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted packed ice. Now, I can use it to craft blue ice. I should proceed with the crafting command: craft 1 blue ice using 9 packed ice.\nAction: craft 1 blue ice using 9 packed ice"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:blue_ice"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to craft blue ice using packed ice, but I don't have enough packed ice. I should get more packed ice.\nAction: get 9 ice"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 9 ice"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the necessary ingredients to craft more packed ice. I should proceed with the crafting command: craft 1 packed ice using 9 ice.\nAction: craft 1 packed ice using 9 ice"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:packed_ice"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted more packed ice. Now, I can use it to craft more blue ice. I should proceed with the crafting command: craft 1 blue ice using 9 packed ice.\nAction: craft 1 blue ice using 9 packed ice"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:blue_ice"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to craft blue ice using packed ice, but I don't have enough packed ice. I should get more packed ice.\nAction: get 9 ice"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 9 ice"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the necessary ingredients to craft more packed ice. I should proceed with the crafting command: craft 1 packed ice using 9 ice.\nAction: craft 1 packed ice using 9 ice"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:packed_ice"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted more packed ice. Now, I can use it to craft more blue ice. I should proceed with the crafting command: craft 1 blue ice using 9 packed ice.\nAction: craft 1 blue ice using 9 packed ice"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:blue_ice"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to craft blue ice using packed ice, but I don't have enough packed ice. I should get more packed ice.\nAction: get 9 ice"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 9 ice"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the necessary ingredients to craft more packed ice. I should proceed with the crafting command: craft 1 packed ice using 9 ice.\nAction: craft 1 packed ice using 9 ice"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:packed_ice"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted more packed ice. Now, I can use it to craft more blue ice. I should proceed with the crafting command: craft 1 blue ice using 9 packed ice.\nAction: craft 1 blue ice using 9 packed ice"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:blue_ice"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to craft blue ice using packed ice, but I don't have enough packed ice. I should get more packed ice.\nAction: get 9 ice"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 9 ice"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the necessary ingredients to craft more packed ice. I should proceed with the crafting command: craft 1 packed ice using 9 ice.\nAction: craft 1 packed ice using 9 ice"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:packed_ice"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted more packed ice. Now, I can use it to craft more blue ice. I should proceed with the crafting command: craft 1 blue ice using 9 packed ice.\nAction: craft 1 blue ice using 9 packed ice"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:blue_ice"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to craft blue ice using packed ice, but I don't have enough packed ice. I should get more packed ice.\nAction: get 9 ice"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 9 ice"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the necessary ingredients to craft more packed ice. I should proceed with the crafting command: craft 1 packed ice using 9 ice.\nAction: craft 1 packed ice using 9 ice"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:packed_ice"
+        }
+    ]
+}

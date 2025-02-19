@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 0.5,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i am looking for a canvas for living room with size of 12x18 inch. also ready to hang, and price lower than 50.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"canvas for living room with size of 12x18 inch, ready to hang, and price lower than 50.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_size(\"12x18 inch\");\nStep 4. buy().\nI think I should use the search bar to find a canvas for the living room with the specific size of 12x18 inches.\nAction: search[12x18 inch canvas for the living room]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for a canvas for living room with size of 12x18 inch. also ready to hang, and price lower than 50.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B09BVBTD95 [SEP] Odin Wall Decor Poster Norse Mythology Contemporary Wall Decor Giclee Canvas Wall Art Modern Prints Rectangle Rectangle Canvas Painting Pictures for Living Room Unframed 12x18 inch(30x45cm) [SEP] $15.99 [SEP] B09CV5841S [SEP] Maldora Personalized Billiards Pool Hall Poster Custom Name Poster Billiards Player Gift, Game Room Decor, Man Cave Wall Art Home Decor Poster Canvas Framed, 24 x 36 Inch [SEP] $16.95 [SEP] B09CGWLM66 [SEP] Personalized You are Beautiful Poster -Black Girl Canvas Wall Art - Black Queen Canvas - African American Wall Art Print - Daisy Melanin Girl Wall D\u00e9cor for Bedroom - Living Room [SEP] $100.0 [SEP] B09JM1MQV8 [SEP] PARIS THEMED BEDROOM DECOR red bedroom decor baby boy bedroom decor Corinthians 57 For We Live By Faith Not By Sight Bible Quote Print (No frame)The size is: 20X28 inch Modern Canvas Wall Art [SEP] $18.98 [SEP] B099WH1RTM [SEP] African American Wall Art Get Naked Fashion Black Girl And Bathtub Canvas Prints Gray Pink Painting Picture Modern Artwork For Bathroom Living Room Home Wall Decor Framed Ready To Hang 16x24 Inch [SEP] $39.99 [SEP] B093WXZTZD [SEP] TIMUBA MJ Canvas Wall Art - God of Basketball Poster Pictures for Men Boys Room Decor Gift, Modern #23 Flying Man Dunk Paintings Framed Artwork for Home Wall Decor Easy to Hang (12x18 Inches) [SEP] $31.98 [SEP] B0953KMWJM [SEP] Drawpro African American Wall Art Black Silhouette Black King Black Queen Canvas Wall Art Hanging Painting afro american wall art Watercolor Living Classroom Home Decor 12x18 Inch [SEP] $24.97 [SEP] B095G3VQ3C [SEP] familypers Buddha Wall Art Zen Canvas Wall Decor Gold Foil Lotus Inspirational Quotes Giclee Prints Artwork Modern Home Decoration for Spa Yoga Studio Or Meditation Room 12x18 Inch [SEP] $28.97 [SEP] B08XQHKKVQ [SEP] Black And White Line Canvas Wall Art Grey Donkey Poster Nice Arse Donkey Grey Full Body Funny PET Wall Hanger Paintings Vintage Retro Art Picture for Bathroom Wall Decor Living Room Kitchen Bathroom NO Frame 12x18 Inch [SEP] $16.56 [SEP] B091XW25T7 [SEP] SEEQOCO Banksy Canvas Wall Art Black Red Wall Picture Graffiti Street Art Canvas Wall Inspirational Quote Canvas Prints Home Decoration Framed Pictures For Living Room Office Wall Decor 16x24 Inch [SEP] $31.49"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the option that fits the criteria of being ready to hang and priced below $50.00.\nAction: click[B09BVBTD95]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for a canvas for living room with size of 12x18 inch. also ready to hang, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size [SEP] framed 12x18 [SEP] unframed 12x18 [SEP] framed 16x24 [SEP] unframed 16x24 [SEP] color [SEP] ares god of war [SEP] freyja [SEP] goddess athena [SEP] goddess hecate [SEP] greek aphrodite [SEP] greek apollo [SEP] hades and persephone [SEP] norse fenrir wolf [SEP] norse odin [SEP] odin [SEP] poseidon [SEP] titan atlas [SEP] Odin Wall Decor Poster Norse Mythology Contemporary Wall Decor Giclee Canvas Wall Art Modern Prints Rectangle Rectangle Canvas Painting Pictures for Living Room Unframed 12x18 inch(30x45cm) [SEP] Price: $15.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the '12x18 inch' option to select the specific size I need for the canvas.\nAction: click[12x18 inch]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for a canvas for living room with size of 12x18 inch. also ready to hang, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size [SEP] framed 12x18 [SEP] unframed 12x18 [SEP] framed 16x24 [SEP] unframed 16x24 [SEP] color [SEP] ares god of war [SEP] freyja [SEP] goddess athena [SEP] goddess hecate [SEP] greek aphrodite [SEP] greek apollo [SEP] hades and persephone [SEP] norse fenrir wolf [SEP] norse odin [SEP] odin [SEP] poseidon [SEP] titan atlas [SEP] Odin Wall Decor Poster Norse Mythology Contemporary Wall Decor Giclee Canvas Wall Art Modern Prints Rectangle Rectangle Canvas Painting Pictures for Living Room Unframed 12x18 inch(30x45cm) [SEP] Price: $15.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the canvas that meets my criteria.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B09BVBTD95 [SEP] options [SEP] {} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.5 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

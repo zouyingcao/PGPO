@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 0.5,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i want to find one messy synthetic hair bun piece in a light auburn color, and price lower than 20.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"messy synthetic hair bun piece in a light auburn color, and price lower than 20.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_color(\"light auburn\");\nStep 4. buy().\nI think I should use the search bar to look for the specific hair bun piece I need.\nAction: search[messy synthetic hair bun piece light auburn]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i want to find one messy synthetic hair bun piece in a light auburn color, and price lower than 20.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B097WR65WJ [SEP] GIRLSHOW Tousled Updo Messy Bun Hairpieces Hair Extension Ponytail with Elastic Rubber Band Synthetic Hair Scrunchies Hair Piece for Women Girls (Tousled Updo Messy Bun, Ash Platinum Blonde -#36) [SEP] $9.98 [SEP] B09NZHM16W [SEP] BARSDAR Messy Bun Hair Piece, Messy Curly Wavy Hair Buns Hair Piece Synthetic Chignon Updo Hair Bun Extension Hairpiece for Women(10#-Medium Ash Brown\uff09 [SEP] $7.99 [SEP] B083BQNKCF [SEP] careonline Tousled Updo Messy Bun Hair Piece Synthetic Wavy Bun Extensions Rubber Band Elastic Fluffy Scrunchie Donut Chignon Ponytail Hairpiece for Women(Dark Black) [SEP] $4.59 [SEP] B07VTNV37R [SEP] Messy Bun Hair Piece For Women Wavy Hair Scrunchies Synthetic Hair Bun Hairpiece Fluffy Tousled Updo Scrunchie Chignon Wrap On Scrunchy Bun Extensions Donut Instant Ponytail for Women 45g #12H24 [SEP] $11.98 [SEP] B09J43KQGT [SEP] ELAINE Tousled Updo Hair Buns Hair Piece Messy Scrunchies Extension Ponytail with Elastic Rubber Band Mix Curly and Straight Synthetic Hairpieces for Women Girls (Tousled Updo Bun, Medium Ash Brown Tip White -#81A) [SEP] $9.99 [SEP] B07Z4CMM8R [SEP] FOCUSSEXY Hair Bun Extensions Messy Synthetic Chignon Hairpiece Easy Bun Hair Pieces for Women Hair Updos(30g) [SEP] $6.98 [SEP] B0828QN4TX [SEP] SLLIE 1/2/3 PCS Messy Bun Hair Piece Wavy Hair Bun Extensions Chignons Hair Donut Hair Scrunchie Scrunchy Updo Hairpiece Bun Ponytail Extension for Women [SEP] $6.59 [SEP] B07YF7NV25 [SEP] MORICA 2PCS Messy Bun Hair Scrunchies Messy Bun Hair Piece for Women Curly Wavy Scrunchy Updo Bun Extensions [SEP] $13.49 [SEP] B083FF9KK7 [SEP] FESHFEN Messy Hair Bun Hairpiece, Tousled Updo Fluffy Hair Bun Extension with Elastic Rubber Band Messy Bun Hair Piece Synthetic Ponytail Hair Scrunchies Hairpieces for Women Girls [SEP] $8.99 [SEP] B0851WBQMT [SEP] FORESTATE Messy Bun Hair Piece Hair Accessories for Women Hair Extension Buns Instant Rose Scrunchy Updos Donut Hair Chignons For Girls\u2026 [SEP] $7.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the option that matches the criteria of one messy synthetic hair bun piece in a light auburn color and price lower than 20.00 dollars.\nAction: click[B09NZHM16W]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i want to find one messy synthetic hair bun piece in a light auburn color, and price lower than 20.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] 10#-medium ash brown [SEP] 12h24#-light golden brown & pale golden blonde [SEP] 16h613#-light ash brown & bleach blonde [SEP] 1b#-off black [SEP] 2#-darkest brown near black [SEP] 2 | 33#-natural black & dark auburn mixed [SEP] 33#-dark auburn [SEP] 4#-dark brown [SEP] 4 | 30#-dark brown & light auburn [SEP] 6#- light ash brown [SEP] 60b#-ash platiunm blonde [SEP] BARSDAR Messy Bun Hair Piece, Messy Curly Wavy Hair Buns Hair Piece Synthetic Chignon Updo Hair Bun Extension Hairpiece for Women(10#-Medium Ash Brown\uff09 [SEP] Price: $7.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'light auburn' color option to filter the search results.\nAction: click[light auburn]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i want to find one messy synthetic hair bun piece in a light auburn color, and price lower than 20.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] 10#-medium ash brown [SEP] 12h24#-light golden brown & pale golden blonde [SEP] 16h613#-light ash brown & bleach blonde [SEP] 1b#-off black [SEP] 2#-darkest brown near black [SEP] 2 | 33#-natural black & dark auburn mixed [SEP] 33#-dark auburn [SEP] 4#-dark brown [SEP] 4 | 30#-dark brown & light auburn [SEP] 6#- light ash brown [SEP] 60b#-ash platiunm blonde [SEP] BARSDAR Messy Bun Hair Piece, Messy Curly Wavy Hair Buns Hair Piece Synthetic Chignon Updo Hair Bun Extension Hairpiece for Women(10#-Medium Ash Brown\uff09 [SEP] Price: $7.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the BARSDAR Messy Bun Hair Piece in light auburn color.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B09NZHM16W [SEP] options [SEP] {} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.5 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

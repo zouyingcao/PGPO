@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": false,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": "/home/caozouying.czy/IPR/eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_cool_then_place_in_recep-Apple-None-GarbageCan-2/trial_T20190906_195943_081289/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 2, a countertop 1, a drawer 13, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 6, a stoveburner 5, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: put a cool apple in garbagecan."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. apple_name, location_name = locate_an_apple(candidate_locations);\nStep 2. take_apple(apple_name, location_name);\nStep 3. go_to_fridge();\nStep 4. open_fridge();\nStep 5. cool_apple_with_fridge(apple_name);\nStep 6. go_to_garbagecan();\nStep 7. put_apple_in_garbagecan(apple_name).\nI need to locate an apple to complete the task. I will start by checking common places where food items are stored, such as the fridge or cabinets.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see a cup 2, a mug 1, a spatula 2, and a tomato 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The sink basin usually isn't a place to store cool items like apples, but I should check to make sure nothing is there.\nAction: go to microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The microwave 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The microwave is another place where food items might be temporarily placed. I should open it to check for an apple.\nAction: open microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the microwave 1. The microwave 1 is open. In it, you see a egg 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's no apple in the microwave, only an egg. I should close the microwave since I found nothing relevant here.\nAction: close microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the microwave 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The garbage can is not a place to find a cool apple, but I should check it to ensure there isn't anything I need to move before I dispose of the apple.\nAction: go to garbagecan 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the garbagecan 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The garbage can is empty, as expected. I will now need to find an apple, which is unlikely to be in the fridge, but I should check all possibilities.\nAction: go to fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The fridge 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The fridge is the most likely place to find a cool apple. I need to open the fridge to check for an apple.\nAction: open fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the fridge 1. The fridge 1 is open. In it, you see a egg 2, a plate 2, a potato 2, and a tomato 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no apple in the fridge. I should close the fridge to maintain its temperature and energy efficiency.\nAction: close fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the fridge 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I still need to find an apple. I will check the cabinets next, starting with cabinet 1.\nAction: go to cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The cabinet 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The cabinet is closed. I need to open it to see if there's an apple inside.\nAction: open cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the cabinet 1. The cabinet 1 is open. In it, you see a soapbottle 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's no apple in cabinet 1, just a soap bottle. I should close this cabinet and continue searching.\nAction: close cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the cabinet 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I still need to find an apple. I'll check cabinet 2 next.\nAction: go to cabinet 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Nothing happens."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Cabinet 2 is empty and there's nothing to interact with. I should move on to the next cabinet.\nAction: go to cabinet 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The cabinet 3 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Cabinet 3 is also closed. I'll open it to look for an apple.\nAction: open cabinet 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the cabinet 3. The cabinet 3 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Cabinet 3 is empty. I'll close it and keep searching for the apple.\nAction: close cabinet 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the cabinet 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I haven't found an apple yet. I'll check cabinet 4 next.\nAction: go to cabinet 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Nothing happens."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Cabinet 4 is empty on top, but I should check inside just in case.\nAction: open cabinet 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the cabinet 4. The cabinet 4 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's nothing in cabinet 4. I'll close it and continue my search.\nAction: close cabinet 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the cabinet 4."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I still need to find an apple. I'll check cabinet 5 next.\nAction: go to cabinet 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The cabinet 5 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to open cabinet 5 to see if the apple is inside.\nAction: open cabinet 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the cabinet 5. The cabinet 5 is open. In it, you see nothing."
+        }
+    ]
+}

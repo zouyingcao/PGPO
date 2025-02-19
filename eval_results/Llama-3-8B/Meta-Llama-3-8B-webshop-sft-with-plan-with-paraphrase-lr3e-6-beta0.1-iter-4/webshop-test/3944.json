@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 0.03333333333333333,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i need a 15 feet coaxial cable that is compatible with apple tv, and price lower than 80.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"15 feet coaxial cable for Apple TV compatible with price lower than 80.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_length(\"15 feet\");\nStep 4. buy().\nI think I should use the search bar to find the 15 feet coaxial cable for Apple TV within the price range.\nAction: search[15 feet coaxial cable for Apple TV]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a 15 feet coaxial cable that is compatible with apple tv, and price lower than 80.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B08M3MPD7S [SEP] GTOTd Digital Optical Audio Toslink Cable for Sound Bar TV -15 Feet -with Female to Female Audio Extension Cable Coupler Connector Adapter Digital Optical Extension [SEP] $9.99 [SEP] B002DN4U8U [SEP] GE RG6 Coaxial Cable, 50 ft. F-Type Connectors, Double Shielded Coax, Input Output, Low Loss Coax, Ideal for TV Antenna, DVR, VCR, Satellite Receiver, Cable Box, Home Theater, White, 33605 [SEP] $18.59 [SEP] B06WGY31BQ [SEP] GE RG6 Coaxial Cable, 25 Ft. F-Type Connectors, Double Shielded Coax, Input output, Low Loss Coax, Ideal for TV Antenna, DVR, VCR, Satellite Receiver, Cable Box, Home Theater, Black, 33598 [SEP] $10.12 [SEP] B06W5B4QFZ [SEP] GE RG6 Coaxial Cable, 6 Ft. F-Type Connectors, Double Shielded Coax, Input output, Low Loss Coax, Ideal for TV Antenna, DVR, VCR, Satellite Receiver, Cable Box, Home Theater, Black, 33626 [SEP] $6.99 [SEP] B07G2N4WJ2 [SEP] Philips Accessories RG6 Dual Shield Coaxial Cable, 15 ft. Ideal for TV Antenna DVR VCR Satellite Cable, F-Type Connectors, 3Ghz Digital, Black, SWX9245A/27 [SEP] $7.49 [SEP] B07L9GDSCP [SEP] GE RG6 Coaxial Cable, 100 ft. F-Type Connectors, Double Shielded Coax, Input Output, Low Loss Coax, Ideal for TV Antenna, DVR, VCR, Satellite Receiver, Cable Box, Home Theater, Black, 33601 [SEP] $19.99 [SEP] B07CC98HH9 [SEP] 150 Feet Black - Solid Copper Coax Cable - RG6 Coaxial Cable with Connectors, F81 / RF, Digital Coax for Audio/Video, Cable TV, Antenna, Internet, & Satellite [SEP] $34.97 [SEP] B07DVRW4NN [SEP] 35 Feet Black - Solid Copper Coax Cable - RG6 Coaxial Cable with Connectors, F81 / RF, Digital Coax for Audio/Video, Cable TV, Antenna, Internet, & Satellite [SEP] $15.97 [SEP] B07DVQSMRX [SEP] 125 Feet Direct Burial Coaxial Cable 70 Ohm RF RG6 Coax Cable Rubber Boot - Outdoor Connectors - (Orange) - Designed for Waterproof and to Be Buried [SEP] $34.97 [SEP] B07DVZN1R7 [SEP] 30 Feet Direct Burial Coaxial Cable 70 Ohm RF RG6 Coax Cable Rubber Boot - Outdoor Connectors - (Orange) - Designed for Waterproof and to Be Buried [SEP] $17.97"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 15 feet coaxial cable that is compatible with Apple TV and within the price range.\nAction: click[B08M3MPD7S]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a 15 feet coaxial cable that is compatible with apple tv, and price lower than 80.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size [SEP] 3ft [SEP] 6ft [SEP] 10ft [SEP] 15ft [SEP] 25ft [SEP] color [SEP] female to female c [SEP] mini-toslink c [SEP] GTOTd Digital Optical Audio Toslink Cable for Sound Bar TV -15 Feet -with Female to Female Audio Extension Cable Coupler Connector Adapter Digital Optical Extension [SEP] Price: $9.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the '15ft' option to select the length I need for the coaxial cable.\nAction: click[15ft]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a 15 feet coaxial cable that is compatible with apple tv, and price lower than 80.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size [SEP] 3ft [SEP] 6ft [SEP] 10ft [SEP] 15ft [SEP] 25ft [SEP] color [SEP] female to female c [SEP] mini-toslink c [SEP] GTOTd Digital Optical Audio Toslink Cable for Sound Bar TV -15 Feet -with Female to Female Audio Extension Cable Coupler Connector Adapter Digital Optical Extension [SEP] Price: $9.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the 15 feet coaxial cable for Apple TV.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B08M3MPD7S [SEP] options [SEP] {\"size\": \"15ft\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.03333333333333333 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

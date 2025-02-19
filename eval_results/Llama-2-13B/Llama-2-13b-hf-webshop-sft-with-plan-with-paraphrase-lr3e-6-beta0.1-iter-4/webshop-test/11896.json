@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i am looking for butter from grass fed cows i need something non gmo, and gluten free. glass jar 16 oz if possible, and price lower than 50.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"butter from grass fed cows, non-GMO, gluten-free, 16 oz glass jar, price lower than 50.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_size(\"16 oz (pack of 1)\");\nStep 4. buy().\nI need to find butter that meets specific criteria, including coming from grass-fed cows, being non-GMO, gluten-free, in a 16 oz glass jar, and under $50.\nAction: search[butter from grass fed cows, non-GMO, gluten-free, 16 oz glass jar]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for butter from grass fed cows i need something non gmo, and gluten free. glass jar 16 oz if possible, and price lower than 50.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B012JD9X26 [SEP] Keto Friendly Grass Fed Ghee Clarified Butter From Grass-Fed Cows - Paleo, Ayurvedic, Gluten-Free, and Non-GMO - Made in USA (Glass Jar) [SEP] $19.95 [SEP] B012JRTWBY [SEP] Grass Fed Organic Ghee Clarified Butter From Grass-fed Cows Paleo Ayurvedic Gluten-Free NON-GMO - Made in USA (Glass Jar) [SEP] $36.95 [SEP] B07CP1DDDZ [SEP] Primal Ghee - Grass Fed Organic Unsalted Clarified Butter - Pure GMO Free Desi Ghee from Grassfed Cows for Butter Coffee, Indian Recipes, Paleo and Keto Diet - a Heart Healthy Cooking Oil - 16 oz Jar [SEP] $19.95 [SEP] B07FFD3618 [SEP] Spring Sunrise Organic Grass Fed Ghee Butter - USDA Certified Organic Clarified Butter - Paleo, Keto Friendly, Non-GMO, Gluten, & Casein Free Cooking Oil - Sustainably Sourced (32oz Jar) [SEP] $35.95 [SEP] B08K3R45TS [SEP] 32oz/ 2Lb PREMIUM Organic Cow Ghee Grass-Fed Clarified Butter Non-GMO Lactose FREE Ghee Oil [SEP] $29.97 [SEP] B008QRVH74 [SEP] Banyan Botanicals Ghee \u2013 Certified Organic Gourmet Clarified Butter \u2013 From Grass-Fed Cows \u2013 For Cooking, Baking, and Topical Use \u2013 7.5 oz. \u2013 non-GMO Sustainably Sourced Gluten Free Vegetarian [SEP] $16.99 [SEP] B07Y9GFFG5 [SEP] Julian's Valleys Ghee Butter - Made with Unsalted Clarified Butter - 16OZ Glass Jar - Non-GMO - Lactose & Gluten Free - Paleo & Keto Friendly - Grass Fed in Spring & Summer - Organic Fed in Winter & Autumn [SEP] $19.99 [SEP] B09HH5F5Y3 [SEP] Nanak Organic Grass-fed Ghee, Keto, Clarified Butter, 56 oz., USDA Organic, Non-GMO, Pasture Raised, Lactose - Casein - Gluten FREE (56 Ounce) [SEP] $44.99 [SEP] B07WG3N254 [SEP] Earth\u00b4s Finest Ghee Clarified Butter\u2013 32 Oz. Gluten Free, Lactose Free, Non GMO. Rich in Vitamins A, E and K, Omega 3, CLA and butyric acid. Smooth and creamy. [SEP] $37.29 [SEP] B08FRV67TH [SEP] Himalayan Pink Salt Grass-Fed Ghee Butter by 4th & Heart, 16 Ounce & Original Grass-Fed Ghee by 4th & Heart, 16 Ounce, Keto, Pasture Raised, Non-GMO, Lactose Free, Certified Paleo [SEP] $38.5"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The search results are in, and there are several options. The first one listed, B012JD9X26, seems to match my criteria and is priced well under $50. I'll check this one out first.\nAction: click[b012jd9x26]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for butter from grass fed cows i need something non gmo, and gluten free. glass jar 16 oz if possible, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size [SEP] 13 ounce [SEP] 16 fl oz (pack of 1) [SEP] 16 ounce (pack of 2) [SEP] 32 ounce (pack of 1) [SEP] Keto Friendly Grass Fed Ghee Clarified Butter From Grass-Fed Cows - Paleo, Ayurvedic, Gluten-Free, and Non-GMO - Made in USA (Glass Jar) [SEP] Price: $19.95 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The product details are up, and it's available in a 16 oz glass jar. The price is also within my budget. I need to confirm the size to make sure it's the 16 oz I'm looking for.\nAction: click[16 fl oz (pack of 1)]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for butter from grass fed cows i need something non gmo, and gluten free. glass jar 16 oz if possible, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size [SEP] 13 ounce [SEP] 16 fl oz (pack of 1) [SEP] 16 ounce (pack of 2) [SEP] 32 ounce (pack of 1) [SEP] Keto Friendly Grass Fed Ghee Clarified Butter From Grass-Fed Cows - Paleo, Ayurvedic, Gluten-Free, and Non-GMO - Made in USA (Glass Jar) [SEP] Price: $19.95 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The size is correct, and it meets all my requirements. The price is right, and it's the kind of butter I want. I'm ready to make the purchase.\nAction: click[buy now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B012JD9X26 [SEP] options [SEP] {\"size\": \"16 fl oz (pack of 1)\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

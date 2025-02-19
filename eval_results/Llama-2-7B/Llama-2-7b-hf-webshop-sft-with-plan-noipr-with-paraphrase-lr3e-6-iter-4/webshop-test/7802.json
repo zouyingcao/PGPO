@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 0.1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i would like a green tea mask, and price lower than 30.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"green tea mask under 30.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_color(\"green\");\nStep 4. buy().\nI think I should use the search bar to look for a green tea mask within my price range.\nAction: search[green tea mask under 30.00 dollars]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i would like a green tea mask, and price lower than 30.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B09LG76LML [SEP] Under Eye Mask for Puffy Eyes, Dark Circles, Eye Bags, Puffiness, Wrinkles with Collagen - Hydrating Under Eye Patches - Green Tea Skincare - Anti-Aging Eye Patch Treatment Masks - 60 Under Eye Gel Pads [SEP] $11.95 [SEP] B07PJYLM6N [SEP] Hebepe Green Tea Matcha Under Eye Mask 60 Patches, with Collagen and Aloe Vera, Anti Wrinkle, Cooling, Moisturizing, Rejuvenating Eye Treatment for Under Eye Bags, Puffy Eyes, and Dark Circles [SEP] $14.99 [SEP] B07XQBXZDQ [SEP] LILY SADO Dead Sea Mud Mask with Black Tea for Acne, Oily Skin & Blackheads - Best Anti-Aging Defense Against Wrinkles & Under-eye Dark Circles - Best Natural Pore Reducer - 4.23 oz [SEP] $15.95 [SEP] B08JYJHQJP [SEP] Green Tea Under Eye Patches, 30 Pairs Eye Gel Pads Matcha Eye Mask Treatment with Anti-Aging Hyaluronic Acid For Moisturizing Reducing Dark Circles Puffiness Wrinkles Fine Lines-Treatment Gel Bags [SEP] $14.89 [SEP] B09NL3DZ8F [SEP] Collagen Eye Mask 60 pcs, Matcha Green Tea Extract Under Eye Patches, Eye Mask for Puffy Eyes, Undereye Dark Circles Treatments, Anti-Wrinkle Gel Pads, Under Eye Pads [SEP] $12.99 [SEP] B09JGNN2RW [SEP] Under Eye Mask for Puffy Eyes, Dark Circles, Eye Bags, Wrinkles, Puffiness with Collagen - Hydrating Under Eye Patches - Green Tea Skincare - Anti-Aging Eye Patch Treatment Masks - Under Eye Gel Pads [SEP] $16.95 [SEP] B07FNVWJFN [SEP] Green Tea Matcha Firming Eye Mask, 30 Pairs Collagen Patches For Fine Lines, Wrinkles, Under Eye Bags & Puffy Eyes Treatment, Face Gel Pads That Reduce The Signs Of Aging [SEP] $14.95 [SEP] B08YNMD4HB [SEP] Under Eye Patches, Klinamei Premium Korean Eye Patches, Eye mask with Snake Peptide for Dark Circles, Puffy Eyes, Undereye Bags, Wrinkles, Eye Pads, 60 pcs [SEP] $16.19 [SEP] B0764K78R3 [SEP] HD Beauty Mango & Green Tea Firming Eye Mask with Mango Butter, Apple Extract and Caffeine For Dark Circles, Fine Lines, Puffiness and Under Eye Treatment 0.5 oz. [SEP] $100.0 [SEP] B092QSCWWB [SEP] Green Tea Mask Stick for Face, Poreless Deep Cleanser Green Tea Mask, Green Tea Clay Mask Stick Blackhead Remover, Face Moisturizer, Oil Control, Deep Clean Pore for All Skin Types (2 Pack) [SEP] $12.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the product that meets my criteria, which is B09LG76LML.\nAction: click[B09LG76LML]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i would like a green tea mask, and price lower than 30.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] Under Eye Mask for Puffy Eyes, Dark Circles, Eye Bags, Puffiness, Wrinkles with Collagen - Hydrating Under Eye Patches - Green Tea Skincare - Anti-Aging Eye Patch Treatment Masks - 60 Under Eye Gel Pads [SEP] Price: $11.95 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'green' color option to select the color I want.\nAction: click[green]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i would like a green tea mask, and price lower than 30.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] Under Eye Mask for Puffy Eyes, Dark Circles, Eye Bags, Puffiness, Wrinkles with Collagen - Hydrating Under Eye Patches - Green Tea Skincare - Anti-Aging Eye Patch Treatment Masks - 60 Under Eye Gel Pads [SEP] Price: $11.95 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the green tea mask.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B09LG76LML [SEP] options [SEP] {} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.1 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

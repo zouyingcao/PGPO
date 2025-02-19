@@ -1,0 +1,120 @@
+{
+    "meta": {
+        "steps": 12,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_unseen/pick_cool_then_place_in_recep-Mug-None-CoffeeMachine-10/trial_T20190907_183807_477267/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 3, a countertop 2, a countertop 1, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a shelf 3, a shelf 2, a shelf 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: cool some mug and put it in coffeemachine."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. mug_name, location_name = locate_a_mug(candidate_locations);\nStep 2. take_a_mug(mug_name, location_name);\nStep 3. go_to_the_fridge();\nStep 4. cool_mug_using_fridge();\nStep 5. go_to_the_coffeemachine();\nStep 6. put_cooled_mug_in_coffeemachine().\nI need to find a mug to cool and put in the coffee machine. I should start by looking on the shelves where mugs are usually kept.\nAction: go to shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 1, you see a dishsponge 1, a statue 1, and a vase 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no mug on shelf 1, only a dishsponge, a statue, and a vase. I should check the next shelf for a mug.\nAction: go to shelf 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 2, you see a peppershaker 3, and a vase 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 2 also does not have a mug. I need to continue searching the remaining shelves.\nAction: go to shelf 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 3, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 3 is empty, which means I need to look elsewhere. Mugs are sometimes kept in drawers or on countertops.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is closed. I need to open it to see if there's a mug inside.\nAction: open drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 1. The drawer 1 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is empty. I should close it and look on the countertops where mugs are often placed.\nAction: close drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'll start with countertop 1 and check for a mug there.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a cellphone 2, a mug 1, and a spoon 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I found a mug on countertop 1. I should pick it up to proceed with the task.\nAction: take mug 1 from countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the mug 1 from the countertop 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to cool the mug. The fridge is the best place to do this quickly.\nAction: go to fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The fridge 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I will cool the mug using the fridge. This will involve opening the fridge and placing the mug inside or holding it against the cooling vent.\nAction: cool mug 1 with fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You cool the mug 1 using the fridge 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that the mug is cooled, I need to put it in the coffee machine to complete the task.\nAction: go to coffeemachine 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the coffeemachine 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I will place the cooled mug in or on the coffee machine as required to finish the task.\nAction: put mug 1 in/on coffeemachine 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the mug 1 in/on the coffeemachine 1."
+        }
+    ]
+}

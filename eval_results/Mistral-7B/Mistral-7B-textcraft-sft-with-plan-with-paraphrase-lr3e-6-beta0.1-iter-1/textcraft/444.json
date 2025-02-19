@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 6 scaffolding using 1 string, 6 bamboo\ncraft 4 jungle planks using 1 jungle logs\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 1 brown bed using 3 brown wool, 3 planks\ncraft 1 yellow bed using 3 yellow wool, 3 planks\ncraft 4 oak planks using 1 oak logs\ncraft 1 brown bed using 1 white bed, 1 brown dye\ncraft 1 white wool using 4 string\ncraft 1 brown dye using 1 cocoa beans\ncraft 4 crimson planks using 1 crimson stems\ncraft 4 acacia planks using 1 acacia logs\ncraft 1 crafting table using 4 planks\ncraft 1 fishing rod using 3 stick, 2 string\ncraft 4 warped planks using 1 warped stems\ncraft 1 brown banner using 6 brown wool, 1 stick\ncraft 1 green wool using 1 green dye, 1 white wool\ncraft 4 birch planks using 1 birch logs\ncraft 4 spruce planks using 1 spruce logs\ncraft 1 bow using 3 stick, 3 string\ncraft 1 brown wool using 1 brown dye, 1 white wool\ncraft 1 white bed using 3 white wool, 3 planks\ncraft 1 lime bed using 1 white bed, 1 lime dye\ncraft 3 brown carpet using 2 brown wool\ncraft 1 light gray bed using 3 light gray wool, 3 planks\n\nGoal: craft brown bed."
+        },
+        {
+            "from": "gpt",
+            "value": "First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"3 brown wool\" not in had_objects: get(\"3 brown wool\");\nStep 3. if \"3 planks\" not in had_objects: find_flag = get(\"3 planks\");\nStep 4. if find_flag == False: \"craft 4 oak planks using 1 oak logs\" = choose_crafting_commands(\"3 planks\"), needed_ingredients = \"1 oak logs\", get(\"1 oak logs\");\nStep 5. craft 4 oak planks using 1 oak logs;\nStep 6. craft 1 brown bed using 3 brown wool, 3 oak planks\nI need to craft a brown bed. The ingredients needed are 3 brown wool and 3 planks. I should check if these ingredients are in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients to craft a brown bed, which are 3 brown wool and 3 planks.\nAction: get 3 brown wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find brown wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find brown wool in the environment. I need to craft it using 1 brown dye and 1 white wool. I should check if these ingredients are in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients to craft brown wool, which are 1 brown dye and 1 white wool.\nAction: get 1 brown dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find brown dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find brown dye in the environment. It appears I'll have to craft it. Brown dye can be crafted using 1 cocoa beans or 1 craft 1 brown dye using 1 cocoa beans. I should check if these ingredients are in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients to craft brown dye, which are 1 cocoa beans or 1 craft 1 brown dye using 1 cocoa beans.\nAction: get 1 cocoa beans"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 cocoa beans"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got 1 cocoa beans from the environment. I will use this to craft brown dye.\nAction: craft 1 brown dye using 1 cocoa beans"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:brown_dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted the brown dye. Now, I need to get the other ingredient for brown wool, which is 1 white wool.\nAction: get 1 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find white wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find white wool in the environment. I need to craft it using 4 string. I should check if these ingredients are in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [brown dye] (1)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I only have brown dye in my inventory. I need white wool to craft brown wool. White wool can be crafted using 4 string.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got 4 string from the environment. I will use these to craft white wool.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted the white wool. Now, I can craft the brown wool by combining the brown dye and white wool.\nAction: craft 1 brown wool using 1 brown dye, 1 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:brown_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted the brown wool. Now, I need to get the other ingredient for the brown bed, which is 3 planks.\nAction: get 3 planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find planks in the environment. I need to craft them. There are several types of logs that can be converted to planks. I'll first check my inventory to see if I have any of these logs.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [brown wool] (1)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I only have brown wool in my inventory. I need planks to craft the brown bed. There are several types of logs that can be converted to planks. Let's start with oak logs.\nAction: get 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 oak logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got 1 oak logs from the environment. I will use these to craft oak planks.\nAction: craft 4 oak planks using 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:oak_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted the oak planks. Now, I can craft the brown bed by combining the brown wool and oak planks.\nAction: craft 1 brown bed using 3 brown wool, 3 oak planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:brown_bed"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I thought I had enough of each ingredient to craft the brown bed, but I wasn't able to craft it. I think I need to check my inventory again to confirm what I have.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [brown wool] (1) [oak planks] (4)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have confirmed that I have the necessary ingredients in my inventory to craft the brown bed. Let's try crafting it again.\nAction: craft 1 brown bed using 3 brown wool, 3 oak planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:brown_bed"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm not sure what the issue is, but I'm not able to craft the brown bed. It could be a crafting command issue. Let's try crafting it using different wording.\nAction: craft 1 brown bed using 3 brown wool, 3 oak planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:brown_bed"
+        }
+    ]
+}

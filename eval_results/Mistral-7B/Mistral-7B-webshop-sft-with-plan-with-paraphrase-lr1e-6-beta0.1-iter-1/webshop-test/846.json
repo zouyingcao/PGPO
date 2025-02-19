@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] looking for table sofa table for kitchen dining room and also choose colour antique blue, and price lower than 260.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"table sofa table for kitchen dining room antique blue price lower than 260.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_color(\"antique blue\");\nStep 4. buy().\nI need to find a table sofa that fits in the kitchen dining room, is antique blue in color, and costs less than $260. I'll start by searching for \"table sofa table for kitchen dining room antique blue\" to see what options are available.\nAction: search[table sofa table for kitchen dining room antique blue]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] looking for table sofa table for kitchen dining room and also choose colour antique blue, and price lower than 260.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B08M9MF85H [SEP] wang JESS Wood Console Table, Entryway Sofa Table with Bottom Shelf Home Collection Buffet Sideboard with Storage Cabinet and Drawers for Living Room Antique White [SEP] $279.99 [SEP] B09NVWZSXX [SEP] 40\" Retro Solid Wood Console Table Sofa Table with 2 Door Cabinet and Adjusted Shelves, Accent Storage Cabinet Buffet Sideboard for Living Room, Entryway, Kitchen Dining Room (Antique Gray-w) [SEP] $259.0 [SEP] B09KZ7LH75 [SEP] Console Table Sofa Table with 2 Cabinets and 4 Drawers, 46\" Buffet Sideboard with Bottom Shelf, Retro Console Table for Kitchen Hallways Living Room (Antique Gray-2) [SEP] $259.0 [SEP] B09MCSVR1V [SEP] 46\" Solid Wood Console Table Series Buffet Sideboard Sofa Table with 4 Drawers/2 Doors Cabinet/Bottom Display Shelf for Living Room, Kitchen, Dining Room, Entryway and Hallway (Retro Blue\u2002+\u2002Wood) [SEP] $269.0 [SEP] B09MCT548J [SEP] 46\" Solid Wood Console Table Series Buffet Sideboard Sofa Table with 4 Drawers/2 Doors Cabinet/Bottom Display Shelf for Living Room, Kitchen, Dining Room, Entryway and Hallway (Espresso\u2002+\u2002Wood) [SEP] $269.0 [SEP] B099MC9HR4 [SEP] Harper & Bright Designs Rustic Console Table Buffet Sideboard Sofa Table with 3-Tier Open Storage Shelf and Two Drawers for Living Room, Entryway, Hallway, Bedroom and Dining Room\uff08Antique Blue\uff09 [SEP] $197.99 [SEP] B08ZCMP78K [SEP] Rustic Wood Console Table, Classic Sofa Table with 3-Tier Open Storage Shelves and Two Drawers, Buffets & Sideboards for Living Room, Hallway, Dining Room, Easy to Assemble (Grey and Walnut) [SEP] $100.0 [SEP] B09NVQ1666 [SEP] 40\" Console Table Sofa Table with 2 Door Cabinet and Adjusted Shelves, Wood Accent Buffet Sideboard Serving Storage Cabinet for Living Room, Entryway, Kitchen Dining Room (Antique Blue-n) [SEP] $269.0 [SEP] B07YT5X7GZ [SEP] East West Furniture ANT-ABK-TP Antique Dining Table Made of Rubber Wood, 36 Inch Round, Wirebrushed Black Finish [SEP] $100.0 [SEP] B08GHZB5TJ [SEP] SSLine Console Table,Modern Sofa Table with 4 Drawers,1 Cabinet and 1 Shelf,Buffet Table Sideboard Living Room Kitchen Dining Room Furniture (White) [SEP] $239.89"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are several options, but I need to find one that is antique blue and within my budget. The Harper & Bright Designs Rustic Console Table Buffet Sideboard Sofa Table is antique blue and priced at $197.99, which is under my budget. I'll check this one out.\nAction: click[b099mc9hr4]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] looking for table sofa table for kitchen dining room and also choose colour antique blue, and price lower than 260.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] antique blue [SEP] antique gray [SEP] antique white [SEP] dark blue [SEP] navy blue [SEP] white [SEP] Harper & Bright Designs Rustic Console Table Buffet Sideboard Sofa Table with 3-Tier Open Storage Shelf and Two Drawers for Living Room, Entryway, Hallway, Bedroom and Dining Room\uff08Antique Blue\uff09 [SEP] Price: $197.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The details of the Harper & Bright Designs Rustic Console Table Buffet Sideboard Sofa Table confirm it's the right color and within my budget. It looks good, and there's no rating available, but the price and color match what I'm looking for. I'll go ahead and select the antique blue color option.\nAction: click[antique blue]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] looking for table sofa table for kitchen dining room and also choose colour antique blue, and price lower than 260.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] antique blue [SEP] antique gray [SEP] antique white [SEP] dark blue [SEP] navy blue [SEP] white [SEP] Harper & Bright Designs Rustic Console Table Buffet Sideboard Sofa Table with 3-Tier Open Storage Shelf and Two Drawers for Living Room, Entryway, Hallway, Bedroom and Dining Room\uff08Antique Blue\uff09 [SEP] Price: $197.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've confirmed the color and price, and everything looks good. The table sofa is a good fit for my needs and budget. I'm ready to make the purchase.\nAction: click[buy now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B099MC9HR4 [SEP] options [SEP] {\"color\": \"antique blue\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

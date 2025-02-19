@@ -1,0 +1,48 @@
+{
+    "meta": {
+        "steps": 3,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i need a bottle of fresh breath mouth wash for bad breath and oral hygeine, and price lower than 50.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"bottle of fresh breath mouth wash for bad breath and oral hygiene, and price lower than 50.00 dollars\");\nStep 2. click(selected_item);\nStep 3. buy().\nI think I should use the search bar to look for a bottle of fresh breath mouth wash for bad breath and oral hygiene within my price range.\nAction: search[fresh breath mouth wash bad breath oral hygiene price < 50.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a bottle of fresh breath mouth wash for bad breath and oral hygeine, and price lower than 50.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B09PDVR77G [SEP] Yuanl Tongue Scraper for Adults Stainless Steel Tounge Scrappers Fresh Breath Tongue Cleaner Easy to Clean Better Than Plastic Reduce Bad Breath Reusable Fight Bad Breath Healthy Oral Care [SEP] $5.49 [SEP] B099NV3MV3 [SEP] 2021 New Version Tongue Scraper Cleaner for Adults & Kids Metal Tongue Brushes Set for Fresh Breath Dental Eliminate Bad Breath in Seconds 2PC [SEP] $1.17 [SEP] B09PDVC8ZJ [SEP] Yuanl 2 Pcs New Stainless Steel Tongue Scraper For Adults Professional Metal Tounge Scrappers, Anti-rust, Great for Oral Care, Reduce Bad Breath, Easy To Clean, Fresher Breath in Seconds [SEP] $5.39 [SEP] B09PDTY47Y [SEP] Yuanl Stainless Steel Tongue Scraper For Adults, Professional Metal Tounge Scrappers, Reduce Bad Breath, Durable, Fresher Breath In Seconds, Easy to Clean, Better Than Plastic [SEP] $5.49 [SEP] B09PDVGQWD [SEP] Yuanl Stainless Steel Tongue Scraper For Adults, Professional Metal Tounge Scrappers, Better Than Plastic, Fresher Breath In Seconds, Reduce Bad Breath,Easy to Clean [SEP] $5.39 [SEP] B09PDVMKRS [SEP] Yuanl Stainless Steel Tongue Scraper For Adults, Professional Metal Tounge Scrappers, Fresher Breath In Seconds, Easy to Clean, Better Than Plastic, Reduce Bad Breath, Durable [SEP] $5.39 [SEP] B09PDVPBQW [SEP] Yuanl Stainless Steel Tongue Scraper For Adults And Kids, Professional Metal Tounge Scrappers, Fresher Breath In Seconds, Easy to Clean, Better Than Plastic, Reduce Bad Breath [SEP] $5.29 [SEP] B091YW86DP [SEP] Mouthwash, 10pcs Portable Daily Freshen Breath Care Mouthwash Oral Cleaning Care Mouth Wash 11ml(Mint) [SEP] $11.59 [SEP] B09N3384PT [SEP] 10ml x 20pcs Portable Mouthwash, Refresh Mouthwash, Fresh Mouthwash Breath Mouthwash Oral Cleaning Dental Care Odor Removal Mouthwash(Mint) [SEP] $100.0 [SEP] B09NNWPZPG [SEP] Portable Mouthwash, Refresh Mouthwash, Fresh Mouthwash Dental Care Odor Removal Mouthwash Breath Mouthwash Oral Cleaning 10ml x 20 Pieces(Mint) [SEP] $19.89"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the product that fits my criteria, which is B099NV3MV3.\nAction: click[B099NV3MV3]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i need a bottle of fresh breath mouth wash for bad breath and oral hygeine, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] gold(hole)+silver [SEP] gold-2pc-hole [SEP] gold-2pc [SEP] silver(hole)+silver [SEP] silver-2pc [SEP] silver-2pc-hole [SEP] 2021 New Version Tongue Scraper Cleaner for Adults & Kids Metal Tongue Brushes Set for Fresh Breath Dental Eliminate Bad Breath in Seconds 2PC [SEP] Price: $1.17 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the bottle of fresh breath mouth wash.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B099NV3MV3 [SEP] options [SEP] {} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

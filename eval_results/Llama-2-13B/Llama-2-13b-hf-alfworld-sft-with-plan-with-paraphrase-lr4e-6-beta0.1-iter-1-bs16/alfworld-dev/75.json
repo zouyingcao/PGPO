@@ -1,0 +1,128 @@
+{
+    "meta": {
+        "steps": 13,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_two_obj_and_place-Book-None-Desk-302/trial_T20190906_181233_363875/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 1, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a safe 1, a shelf 5, a shelf 4, a shelf 3, a shelf 2, a shelf 1, a sidetable 2, and a sidetable 1.\nYour task is to: find two book and put them in desk."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. book1_name, location1_name = locate_a_book(candidate_locations);\nStep 2. take_book(book1_name, location1_name);\nStep 3. go_to_the_desk();\nStep 4. put_book_on_desk(book1_name);\nStep 5. book2_name, location2_name = locate_a_book(candidate_locations);\nStep 6. take_book(book2_name, location2_name);\nStep 7. go_to_the_desk();\nStep 8. put_book_on_desk(book2_name).\nThe task requires finding two books and placing them on the desk. I should start by looking for books on nearby surfaces such as shelves or sidetables.\nAction: go to shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 1, you see a keychain 3, and a pen 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 1 does not have any books, only a keychain and a pen. I need to continue searching the other shelves.\nAction: go to shelf 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 2, you see a bowl 1, and a creditcard 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 2 also does not have any books. I should keep looking on the next shelf for any books.\nAction: go to shelf 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 3, you see a bowl 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no book on shelf 3, just another bowl. I'll move on to the next shelf to find a book.\nAction: go to shelf 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 4, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 4 is empty, which means there are no books here. I'll check the last shelf.\nAction: go to shelf 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 5, you see a alarmclock 2, a bowl 3, and a houseplant 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 5 doesn't have any books either. I should now consider looking on surfaces like the desk or sidetables where books are more likely to be found.\nAction: go to sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 1, you see a book 3, and a keychain 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I found a book on sidetable 1. I will take this book and then look for another one to complete the task.\nAction: take book 3 from sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the book 3 from the sidetable 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With one book in hand, I need to place it on the desk as instructed.\nAction: go to desk 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the desk 1, you see a alarmclock 1, a laptop 1, and a pencil 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am at the desk. I will place the book here and then search for the second book.\nAction: put book 3 in/on desk 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the book 3 in/on the desk 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The first book is now on the desk. I must find one more book to complete the task. I should look around the room again, starting with the closest surfaces where a book might be.\nAction: go to bed 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the bed 1, you see a book 2, a book 1, a pillow 1, and a teddybear 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are two books on the bed. I will take one of them to fulfill the task requirement of two books.\nAction: take book 2 from bed 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the book 2 from the bed 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the second book now. I need to place it on the desk with the first book.\nAction: go to desk 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the desk 1, you see a alarmclock 1, a book 3, a laptop 1, and a pencil 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am back at the desk with the second book. I will place it on the desk to complete the task.\nAction: put book 2 in/on desk 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the book 2 in/on the desk 1."
+        }
+    ]
+}

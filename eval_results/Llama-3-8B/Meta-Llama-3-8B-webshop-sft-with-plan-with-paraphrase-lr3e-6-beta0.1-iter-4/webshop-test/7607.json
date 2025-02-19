@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i am looking for wall mounted black metal coat hanger and hat tree rack, and price lower than 60.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"wall mounted black metal coat hanger and hat tree rack, price lower than 60.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_color(\"black\");\nStep 4. buy().\nI think I should use the search bar to find the wall mounted black metal coat hanger and hat tree rack within my price range.\nAction: search[wall mounted black metal coat hanger hat tree rack price < 60.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for wall mounted black metal coat hanger and hat tree rack, and price lower than 60.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B09HQZPJ7B [SEP] 24\" Black Doorway Hanger Coat Rack Hat Organizer Shelves Wall Mount w/ Hook Room Color:Black Shoe rack Shoe storage Clothes rack Entryway table Bedroom furniture Clothing rack Coat rack [SEP] $100.0 [SEP] B09KS9XSXB [SEP] Coat Rack Free Standing, Metal Hat and Coat Stand with 9 Hooks Tree Hanger for Jacket, Hats, Scarf, Clothes, Handbags, Umbrellas [SEP] $24.99 to $22.49 [SEP] B09P4KG17K [SEP] ZHONGHUA Portable Wall Mounted Coat Rack Wall Mounted Coat Rack Modern Iron Art Clothes Hat Hook Creative Entryway Wall Hall Tree Hanger Hook Rack Home Decor Wall Mounted (Color : C) [SEP] $75.35 [SEP] B095LC8JT2 [SEP] MyGift Wall Mounted Matte Black Metal 6-Hook Entryway Coat Hanger and Hat Tree Rack [SEP] $22.99 [SEP] B09P4K9QG7 [SEP] ZHONGHUA Portable Wall Mounted Coat Rack Wall Mounted Coat Rack Iron Wall Coat Hook Simple Wall Hanger Hook Rack Clothes Hook Closet Entryway Hooks Living Room Wall Mounted (Color : Black, Size : B) [SEP] $42.03 [SEP] B07QMG6R1Q [SEP] Cast Iron Tree Branch & Birds Wall Mounted 2 Coat Hook Clothing/Towel Hanger Storage Rack, Black [SEP] $11.99 [SEP] B09HR2K8ZW [SEP] Industrial Coat Rack Shoe Bench Hall Tree Entryway Home Shelf with 9 Hooks Color:Brown Shoe rack Shoe storage Clothes rack Entryway table Bedroom furniture Clothing rack Coat rack [SEP] $100.0 [SEP] B09HM9NQL4 [SEP] Coat Rack Shoe Bench Hall Tree Entryway Home Shelf with 9 Hooks Shoe rack Shoe storage Clothes rack Entryway table Bedroom furniture Clothing rack Coat rack Shoe rack for entryway Hat rack Wall hooks [SEP] $100.0 [SEP] B09P4JDYTR [SEP] ZHONGHUA Portable Wall Mounted Coat Rack Wall Mounted Coat Rack Creative Vivid Animal Wall Coat Hook Simple Wall Hanger Hook Rack for Door Wall Entryway Kitchen Wall Mounted (Color : Gold, Size : B) [SEP] $39.0 [SEP] B09HMS25NH [SEP] Coat Rack Stand, Coat Tree, Hall Tree Standing Color: Brown, Black Shoe rack Shoe storage Clothes rack Entryway table Bedroom furniture Clothing rack Coat rack Shoe rack for entryway Hat rack [SEP] $100.0"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the option that fits my criteria, which is B095LC8JT2 - MyGift Wall Mounted Matte Black Metal 6-Hook Entryway Coat Hanger and Hat Tree Rack.\nAction: click[B095LC8JT2]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for wall mounted black metal coat hanger and hat tree rack, and price lower than 60.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] MyGift Wall Mounted Matte Black Metal 6-Hook Entryway Coat Hanger and Hat Tree Rack [SEP] Price: $22.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'black' color option to select the color I need.\nAction: click[black]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for wall mounted black metal coat hanger and hat tree rack, and price lower than 60.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] MyGift Wall Mounted Matte Black Metal 6-Hook Entryway Coat Hanger and Hat Tree Rack [SEP] Price: $22.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the coat hanger and hat tree rack.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B095LC8JT2 [SEP] options [SEP] {} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

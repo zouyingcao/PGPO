@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 4 warped planks using 1 warped stems\ncraft 1 bone block using 9 bone meal\ncraft 4 acacia planks using 1 acacia logs\ncraft 4 oak planks using 1 oak logs\ncraft 1 pink banner using 6 pink wool, 1 stick\ncraft 1 white dye using 1 lily of the valley\ncraft 4 birch planks using 1 birch logs\ncraft 1 green bed using 1 white bed, 1 green dye\ncraft 4 crimson planks using 1 crimson stems\ncraft 3 bone meal using 1 bone\ncraft 3 crimson fence using 2 stick, 4 crimson planks\ncraft 8 white stained glass pane using 8 glass pane, 1 white dye\ncraft 4 bowl using 3 planks\ncraft 4 jungle planks using 1 jungle logs\ncraft 6 scaffolding using 1 string, 6 bamboo\ncraft 4 stick using 2 planks\ncraft 8 white concrete powder using 1 white dye, 4 sand, 4 gravel\ncraft 1 lime banner using 6 lime wool, 1 stick\ncraft 4 spruce planks using 1 spruce logs\ncraft 1 white wool using 4 string\ncraft 1 white dye using 1 bone meal\ncraft 1 pink wool using 1 pink dye, 1 white wool\ncraft 1 stick using 2 bamboo\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 8 lime carpet using 8 white carpet, 1 lime dye\ncraft 2 lime dye using 1 green dye, 1 white dye\ncraft 1 lime wool using 1 lime dye, 1 white wool\n\nGoal: craft lime banner."
+        },
+        {
+            "from": "gpt",
+            "value": "First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"lime banner\" not in had_objects: find_flag = get(\"lime banner\");\nStep 3. if find_flag == False: \"craft 1 lime banner using 6 lime wool, 1 stick\" = choose_crafting_commands(\"lime banner\"), needed_ingredients = \"6 lime wool, 1 stick\", find_flag = get(\"6 lime wool\");\nStep 4. if find_flag == False: \"craft 1 lime wool using 1 lime dye, 1 white wool\" = choose_crafting_commands(\"6 lime wool\"), needed_ingredients = \"6 lime dye, 6 white wool\", find_flag = get(\"6 lime dye\");\nStep 5. if find_flag == False: \"craft 2 lime dye using 1 green dye, 1 white dye\" = choose_crafting_commands(\"6 lime dye\"), needed_ingredients = \"6 green dye, 6 white dye\", get(\"6 green dye\");\nStep 6. find_flag = get(\"6 white dye\");\nStep 7. if find_flag == False: \"craft 1 white dye using 1 lily of the valley\" = choose_crafting_commands(\"6 white dye\"), needed_ingredients = \"6 lily of the valley\", get(\"6 lily of the valley\");\nStep 8. for i in range(6): craft 1 white dye using 1 lily of the valley;\nStep 9. for i in range(6): craft 2 lime dye using 1 green dye, 1 white dye;\nStep 10. find_flag = get(\"6 white wool\");\nStep 11. for i in range(6): craft 1 lime wool using 1 lime dye, 1 white wool;\nStep 12. if \"1 stick\" not in had_objects: find_flag = get(\"1 stick\");\nStep 13. if find_flag == False: \"craft 1 stick using 2 bamboo\" = choose_crafting"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Invalid format. The input must contains 'Action: '"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I made a mistake in the crafting command. The correct command is: craft 1 stick using 2 bamboo.\nStep 14. craft 1 stick using 2 bamboo;\nStep 15. craft 1 lime banner using 6 lime wool, 1 stick\nTo craft a lime banner, I need 6 lime wool and 1 stick. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have any items in my inventory. I need to get the ingredients to craft a lime banner, which are 6 lime wool and 1 stick.\nAction: get 6 lime wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find lime wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find lime wool in the environment. I need to craft it using the command: craft 1 lime wool using 1 lime dye, 1 white wool. Let's check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have any ingredients in my inventory that are needed to craft lime wool, which are 1 lime dye and 1 white wool. I should get these ingredients.\nAction: get 1 lime dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find lime dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find lime dye in the environment. I need to craft it using the command: craft 2 lime dye using 1 green dye, 1 white dye. Let's check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have any ingredients in my inventory that are needed to craft lime dye, which are 1 green dye and 1 white dye. I should get these ingredients.\nAction: get 1 green dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 green dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the green dye. Now, I need to get the white dye to be able to craft lime dye.\nAction: get 1 white dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find white dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find white dye in the environment. I need to craft it using the command: craft 1 white dye using 1 lily of the valley. Let's check if I have this ingredient in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [green dye] (1)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I only have green dye in my inventory. I need white dye to craft lime dye. I should try to get white dye from the environment.\nAction: get 1 white dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find white dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find white dye in the environment. I need to craft it using the command: craft 1 white dye using 1 lily of the valley. Let's try to get the lily of the valley from the environment.\nAction: get 1 lily of the valley"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 lily of the valley"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the lily of the valley. Now, I can craft the white dye using this lily of the valley.\nAction: craft 1 white dye using 1 lily of the valley"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have white dye, I can craft lime dye with the green dye I already have.\nAction: craft 2 lime dye using 1 green dye, 1 white dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 2 minecraft:lime_dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have lime dye, I need to make sure I have white wool to craft lime wool. I should check if I have white wool in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [lime dye] (2)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I only have lime dye in my inventory. I need white wool to craft lime wool. I should try to get white wool from the environment.\nAction: get 1 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find white wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find white wool in the environment. I need to craft it using the command: craft 1 white wool using 4 string. Let's check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [lime dye] (2)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I only have lime dye in my inventory. I need string to craft white wool. I should try to get string from the environment.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have string, I can craft white wool.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have white wool and lime dye, I can craft lime wool.\nAction: craft 1 lime wool using 1 lime dye, 1 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:lime_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted one piece of lime wool. I need to craft 5 more pieces to be able to craft a lime banner.\nAction: craft 5 lime wool using 5 lime dye, 5 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:lime_wool"
+        }
+    ]
+}

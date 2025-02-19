@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 0.1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i am looking for red color short sleeve shirts, and price lower than 70.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"red color short sleeve shirts, and price lower than 70.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_color(\"red\");\nStep 4. buy().\nI think I should use the search bar to find the red color short sleeve shirts within my price range.\nAction: search[red short sleeve shirts price < 70.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for red color short sleeve shirts, and price lower than 70.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B09QQ1F3XB [SEP] BYINTEK P7 Pocket Portable Pico Smart Android WiFi 1080P TV Laser Mini LED Home Theater DLP Projector for Smartphone [SEP] $100.0 [SEP] B098DQDDJY [SEP] Basic T-shirt-Women's Autumn O-Neck Loose Print Long-Sleeve Tops Blouse [SEP] $10.99 to $16.99 [SEP] B0969XMTMN [SEP] WANGPU Men's Color Block Polo Shirt Summer Short Sleeves Panel Cotton Golf Henley Shirts Modern Fit Pique Blouse Jersey Tops [SEP] $7.99 [SEP] B098P6KYY1 [SEP] Kuokuo Men's Plaid Flannel Shirts Oversize Short Sleeve Button Down Coat Shirt Casual Fashion Tops Blouses [SEP] $8.99 [SEP] B07SR4YJ4N [SEP] Women Blouse Short T Shirt Sleeve High Heels Printed Tops Beach Casual Loose Top [SEP] $0.69 to $4.99 [SEP] B09B1QPF9D [SEP] Women Blouse-Flower Prints Long Sleeve T-Shirts Tunic Button Round Neck Causal [SEP] $7.98 to $22.91 [SEP] B09RZHWQW1 [SEP] Men's Personalized Short Sleeve t-Shirt Tops 3D Monkey Big Face Digital Printed Shirts Plus Size Graphic Blouse [SEP] $3.99 to $16.99 [SEP] B0811757Y3 [SEP] LOCALMODE Men's Regular Fit Cotton Business Casual Shirt Solid Short Sleeve Button Down Dress Shirts [SEP] $14.44 to $23.99 [SEP] B09F8LPBSF [SEP] Women's Multicolor Printed Off-shoulder Long-sleeved Bottoming Shirt Top Sweater black cardigan [SEP] $10.99 to $15.99 [SEP] B09DYCNYP4 [SEP] USYFAKGH Women Fashion Solid Color Jacket Plush Sleeveless Lapel Vest Loose Coat henley shirts for men [SEP] $15.99 to $19.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'WANGPU Men's Color Block Polo Shirt Summer Short Sleeves Panel Cotton Golf Henley Shirts Modern Fit Pique Blouse Jersey Tops' as it seems to fit my criteria.\nAction: click[B0969XMTMN]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for red color short sleeve shirts, and price lower than 70.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size [SEP] small [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] 3x-large [SEP] 4x-large [SEP] 5x-large [SEP] color [SEP] 111 gray [SEP] 111 navy [SEP] 111 red [SEP] 211 black [SEP] 211 gray [SEP] 211 navy [SEP] 211 red [SEP] 211 white [SEP] WANGPU Men's Color Block Polo Shirt Summer Short Sleeves Panel Cotton Golf Henley Shirts Modern Fit Pique Blouse Jersey Tops [SEP] Price: $7.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the '111 red' option to select the red color for the shirt.\nAction: click[211 red]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i am looking for red color short sleeve shirts, and price lower than 70.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] size [SEP] small [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] 3x-large [SEP] 4x-large [SEP] 5x-large [SEP] color [SEP] 111 gray [SEP] 111 navy [SEP] 111 red [SEP] 211 black [SEP] 211 gray [SEP] 211 navy [SEP] 211 red [SEP] 211 white [SEP] WANGPU Men's Color Block Polo Shirt Summer Short Sleeves Panel Cotton Golf Henley Shirts Modern Fit Pique Blouse Jersey Tops [SEP] Price: $7.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the red color short sleeve shirt.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B0969XMTMN [SEP] options [SEP] {\"color\": \"211 red\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.1 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

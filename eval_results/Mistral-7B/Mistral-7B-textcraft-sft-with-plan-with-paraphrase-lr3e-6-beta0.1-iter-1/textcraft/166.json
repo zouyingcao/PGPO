@@ -1,0 +1,104 @@
+{
+    "meta": {
+        "steps": 10,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 item frame using 8 stick, 1 leather\ncraft 1 skull banner pattern using 1 paper, 1 wither skeleton skull\ncraft 1 sugar using 1 sugar cane\ncraft 3 paper using 3 sugar cane\ncraft 1 cartography table using 4 planks, 2 paper\ncraft 1 mojang banner pattern using 1 paper, 1 enchanted golden apple\ncraft 1 leather boots using 4 leather\ncraft 1 leather using 4 rabbit hide\ncraft 1 map using 8 paper, 1 compass\ncraft 1 flower banner pattern using 1 paper, 1 oxeye daisy\ncraft 1 leather helmet using 5 leather\ncraft 1 leather chestplate using 8 leather\ncraft 1 book using 3 paper, 1 leather\n\nGoal: craft book."
+        },
+        {
+            "from": "gpt",
+            "value": "First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"3 paper\" not in had_objects: find_flag = get(\"3 paper\");\nStep 3. if find_flag == False: \"craft 3 paper using 3 sugar cane\" = choose_crafting_commands(\"3 paper\"), needed_ingredients = \"3 sugar cane\", get(needed_ingredients);\nStep 4. craft 3 paper using 3 sugar cane;\nStep 5. if \"1 leather\" not in had_objects: find_flag = get(\"1 leather\");\nStep 6. if find_flag == False: \"craft 1 leather using 4 rabbit hide\" = choose_crafting_commands(\"1 leather\"), needed_ingredients = \"4 rabbit hide\", get(needed_ingredients);\nStep 7. craft 1 leather using 4 rabbit hide;\nStep 8. craft 1 book using 3 paper, 1 leather\nI should check if I have the necessary ingredients to craft a book in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to get the ingredients to craft a book.\nAction: get 3 paper, 1 leather"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find paper, 1 leather"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to find the ingredients to craft a book, but I couldn't find them in the environment. I should craft them.\nAction: craft 3 paper using 3 sugar cane"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:paper"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to craft paper using sugar cane, but I don't have enough sugar cane. I should get sugar cane first.\nAction: get 3 sugar cane"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 3 sugar cane"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the sugar cane, now I can craft the paper.\nAction: craft 3 paper using 3 sugar cane"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 3 minecraft:paper"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted the paper, now I need to craft the leather.\nAction: get 1 leather"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find leather"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to find the leather to craft a book, but I couldn't find it in the environment. I should craft it.\nAction: craft 1 leather using 4 rabbit hide"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:leather"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to craft leather using rabbit hide, but I don't have enough rabbit hide. I should get rabbit hide first.\nAction: get 4 rabbit hide"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 rabbit hide"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the rabbit hides, now I can craft the leather.\nAction: craft 1 leather using 4 rabbit hide"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:leather"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted the leather, now I can craft the book.\nAction: craft 1 book using 3 paper, 1 leather"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:book"
+        }
+    ]
+}

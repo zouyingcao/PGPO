@@ -1,0 +1,4 @@
+All tasks done.
+Output saved to outputs/Meta-Llama-3-8B-textcraft-sft-with-plan-try1-dpo-with-paraphrase-lr3e-6-beta0.1-iter-1-bs32/textcraft
+Average reward: 0.4600
+Success rate: 0.4600

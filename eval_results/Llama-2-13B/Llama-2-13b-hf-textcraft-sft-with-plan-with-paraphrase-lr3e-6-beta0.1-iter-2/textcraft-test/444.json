@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 brown wool using 1 brown dye, 1 white wool\ncraft 4 spruce planks using 1 spruce logs\ncraft 6 scaffolding using 1 string, 6 bamboo\ncraft 4 jungle planks using 1 jungle logs\ncraft 1 loom using 2 planks, 2 string\ncraft 4 oak planks using 1 oak logs\ncraft 4 crimson planks using 1 crimson stems\ncraft 1 brown bed using 1 white bed, 1 brown dye\ncraft 1 crossbow using 2 string, 3 stick, 1 iron ingot, 1 tripwire hook\ncraft 8 brown carpet using 8 white carpet, 1 brown dye\ncraft 1 brown dye using 1 cocoa beans\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 1 piston using 1 redstone, 4 cobblestone, 3 planks, 1 iron ingot\ncraft 4 acacia planks using 1 acacia logs\ncraft 1 brown bed using 3 brown wool, 3 planks\ncraft 4 warped planks using 1 warped stems\ncraft 1 gray bed using 1 white bed, 1 gray dye\ncraft 1 white bed using 3 white wool, 3 planks\ncraft 3 white carpet using 2 white wool\ncraft 4 birch planks using 1 birch logs\ncraft 1 grindstone using 2 stick, 1 stone slab, 2 planks\ncraft 1 green wool using 1 green dye, 1 white wool\ncraft 1 white wool using 4 string\ncraft 1 magenta wool using 1 magenta dye, 1 white wool\n\nGoal: craft brown bed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"brown bed\" not in had_objects: find_flag = get(\"brown bed\");\nStep 3. if find_flag == False: \"craft 1 brown bed using 1 white bed, 1 brown dye\" = choose_crafting_commands(\"brown bed\"), needed_ingredients = [\"1 white bed\", \"1 brown dye\"];\nStep 4. if \"white bed\" not in had_objects: find_flag = get(\"white bed\");\nStep 5. if find_flag == False: \"craft 1 white bed using 3 white wool, 3 planks\" = choose_crafting_commands(\"white bed\"), needed_ingredients = [\"3 white wool\", \"3 planks\"];\nStep 6. if \"planks\" not in had_objects: find_flag = get(\"planks\");\nStep 7. if find_flag == False: \"craft planks using various logs\" = choose_crafting_commands(\"planks\"), needed_ingredients = [\"1 oak logs\", \"1 spruce logs\", \"1 birch logs\", \"1 jungle logs\", \"1 dark oak logs\", \"1 acacia logs\", \"1 crimson stems\", \"1 warped stems\"];\nStep 8. if \"brown dye\" not in had_objects: find_flag = get(\"brown dye\");\nStep 9. if find_flag == False: \"craft brown dye using 1 cocoa beans\" = choose_crafting_commands(\"brown dye\"), needed_ingredients = [\"1 cocoa beans\"];\nStep 10. Similar to Step 1-9,  get_all_needed_ingredients(needed_ingredients);\nStep 11. craft 1 white bed using 3 white wool, 3 planks;\nStep 12. craft 1 brown dye using 1 cocoa beans;\nStep 13. craft 1 brown bed using 1 white bed, 1 brown dye\nI should check if I can get a brown bed directly from the environment or the inventory.\nAction: invent"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not execute invent"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get a brown bed directly, I need to craft it. From the crafting commands, I can use: craft 1 brown bed using 1 white bed, 1 brown dye. Ingredients needed: 1 white bed, 1 brown dye. I should check if I can get these ingredients directly from the environment or the inventory.\nAction: invent"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not execute invent"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get the ingredients directly, I need to craft them too. From the crafting commands, I can use: craft 1 white bed using 3 white wool, 3 planks and craft 1 brown dye using 1 cocoa beans. Ingredients needed: 3 white wool, 3 planks, 1 cocoa beans (for brown dye). I should get these ingredients first.\nAction: get 3 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find white wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get white wool directly, I need to craft it. From the crafting commands, I can use: craft 1 white wool using 4 string. Ingredients needed: 4 string. I should get these ingredients first.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the necessary string to craft white wool. Now I will proceed to craft the white wool.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted one white wool, but need two more to craft a white bed. I will craft more white wool.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I now have more string to craft more white wool. I will proceed to craft the next white wool.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted another white wool, but still need one more to craft a white bed. I will craft the final white wool.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I now have the last string I need to craft the final white wool. I will proceed to craft the last white wool.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have collected 3 white wools, I can proceed to craft a white bed. However, before crafting the white bed, I need to make sure I have enough planks.\nAction: get 3 planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get planks directly, I need to craft it. From the crafting commands, I can craft planks using various types of logs. I will first attempt to take 1 oak log from the environment.\nAction: get 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 oak logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have an oak log now. I can use it to craft planks which are required to create a white bed.\nAction: craft 4 oak planks using 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:oak_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the necessary planks, I can proceed to craft the white bed.\nAction: craft 1 white bed using 3 white wool, 3 planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:white_bed"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am unable to craft the white bed - it appears I may have miscalculated the amount of materials I have. I believe I have enough white wool and planks, but I am short on string. Perhaps I should get more string first.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have more string now. I will now try to craft the white bed again.\nAction: craft 1 white bed using 3 white wool, 3 planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:white_bed"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm surprised that I still can't craft the white bed. I have confirmed that I have enough white wool, planks, and string. Perhaps the issue is with the way I'm crafting the white wool.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted another white wool, but I still need two more white wools to craft a white bed. I will craft more white wool.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have more string now. I will proceed to craft the next white wool.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted another white wool, but I still need one more white wool to craft a white bed. I will craft the final white wool.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I now have the last string I need to craft the final white wool. I will proceed to craft the last white wool.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        }
+    ]
+}

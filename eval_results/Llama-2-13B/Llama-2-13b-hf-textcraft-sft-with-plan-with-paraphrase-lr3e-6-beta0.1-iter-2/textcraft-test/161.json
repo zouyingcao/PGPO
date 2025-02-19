@@ -1,0 +1,72 @@
+{
+    "meta": {
+        "steps": 6,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 8 blue carpet using 8 white carpet, 1 blue dye\ncraft 1 blue dye using 1 cornflower\ncraft 8 lime stained glass using 8 glass, 1 lime dye\ncraft 8 light gray stained glass using 8 glass, 1 light gray dye\ncraft 8 black stained glass using 8 glass, 1 black dye\ncraft 8 blue stained glass using 8 glass, 1 blue dye\ncraft 4 magenta dye using 1 blue dye, 2 red dye, 1 white dye\ncraft 1 blue dye using 1 lapis lazuli\ncraft 8 blue stained glass pane using 8 glass pane, 1 blue dye\ncraft 8 orange stained glass using 8 glass, 1 orange dye\ncraft 1 blue bed using 1 white bed, 1 blue dye\ncraft 3 magenta dye using 1 blue dye, 1 red dye, 1 pink dye\ncraft 2 purple dye using 1 blue dye, 1 red dye\n\nGoal: craft blue stained glass."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"8 glass\" not in had_objects: find_flag = get(\"8 glass\");\nStep 3. if find_flag == False: \"craft 8 glass using 1 glass pane\" = choose_crafting_commands(\"8 glass\"), needed_ingredients = \"1 glass pane\";\nStep 4. if \"1 blue dye\" not in had_objects: find_flag = get(\"1 blue dye\");\nStep 5. if find_flag == False: \"craft 1 blue dye using 1 lapis lazuli or 1 cornflower\" = choose_crafting_commands(\"1 blue dye\"), needed_ingredients = \"1 lapis lazuli or 1 cornflower\";\nStep 6. if \"1 lapis lazuli\" or \"1 cornflower\" not in had_objects: get(\"1 lapis lazuli or 1 cornflower\");\nStep 7. craft 1 blue dye using 1 lapis lazuli or 1 cornflower;\nStep 8. craft 8 blue stained glass using 8 glass, 1 blue dye\nTo craft blue stained glass, I need 8 glass and 1 blue dye. I should check my inventory to see if I have these items.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have the necessary items in my inventory to craft blue stained glass. I need to get 8 glass and 1 blue dye. I'll start by getting the glass.\nAction: get 8 glass"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 8 glass"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the 8 glass, I need to get 1 blue dye.\nAction: get 1 blue dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find blue dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find blue dye. I'll need to craft it. From the crafting commands, I can use: craft 1 blue dye using 1 lapis lazuli or craft 1 blue dye using 1 cornflower. Let's try to get a lapis lazuli from the environment first.\nAction: get 1 lapis lazuli"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 lapis lazuli"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have obtained a lapis lazuli, I can use it to craft the blue dye that I need.\nAction: craft 1 blue dye using 1 lapis lazuli"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:blue_dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the 8 glass and 1 blue dye, I can craft the blue stained glass.\nAction: craft 8 blue stained glass using 8 glass, 1 blue dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 8 minecraft:blue_stained_glass"
+        }
+    ]
+}

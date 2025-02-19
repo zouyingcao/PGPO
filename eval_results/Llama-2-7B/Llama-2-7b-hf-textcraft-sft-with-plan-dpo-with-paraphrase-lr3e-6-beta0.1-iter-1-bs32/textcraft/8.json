@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 granite using 1 diorite, 1 quartz\ncraft 1 dispenser using 1 redstone, 7 cobblestone, 1 bow\ncraft 6 granite wall using 6 granite\ncraft 1 dropper using 1 redstone, 7 cobblestone\ncraft 1 comparator using 3 redstone torch, 1 quartz, 3 stone\ncraft 4 polished granite using 4 granite\ncraft 1 quartz block using 4 quartz\ncraft 2 andesite using 1 diorite, 1 cobblestone\ncraft 4 granite stairs using 6 granite\ncraft 2 diorite using 2 quartz, 2 cobblestone\ncraft 4 cobblestone stairs using 6 cobblestone\ncraft 1 observer using 1 quartz, 2 redstone, 6 cobblestone\ncraft 1 daylight detector using 3 quartz, 3 glass, 3 wooden slabs\ncraft 6 polished granite slab using 3 polished granite\n\nGoal: craft polished granite slab."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"polished granite slab\" not in had_objects: find_flag = get(\"polished granite slab\");\nStep 3. if find_flag == False: \"craft 6 polished granite slab using 3 polished granite\" = choose_crafting_commands(\"polished granite slab\"), needed_ingredients = \"3 polished granite\", find_flag = get(\"3 polished granite\");\nStep 4. if find_flag == False: \"craft 4 polished granite using 4 granite\" = choose_crafting_commands(\"3 polished granite\"), needed_ingredients = \"4 granite\", get(\"4 granite\");\nStep 5. craft 4 polished granite using 4 granite;\nStep 6. craft 6 polished granite slab using 3 polished granite\nI should check if I can get polished granite slab directly from the environment or the inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Since I don't have anything in my inventory, I should try to get polished granite slab from the environment.\nAction: get polished granite slab"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not execute get polished granite slab"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get polished granite slab directly, I need to craft it. From the crafting commands, I can use: craft 6 polished granite slab using 3 polished granite. Ingredients needed: 3 polished granite. I should check if I have polished granite in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Since I don't have any polished granite in my inventory, I need to craft it first. From the crafting commands, I can use: craft 4 polished granite using 4 granite. Ingredients needed: 4 granite. I should check if I have granite in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Since I don't have any granite in my inventory, I need to get it from the environment first.\nAction: get 4 granite"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find granite"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get granite directly, I need to craft it. From the crafting commands, I can use: craft 2 diorite using 2 quartz, 2 cobblestone. Ingredients needed: 2 quartz, 2 cobblestone. I should check if I have quartz and cobblestone in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Since I don't have any quartz and cobblestone in my inventory, I need to get them from the environment first.\nAction: get 2 quartz"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 quartz"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the quartz. Now, I need to get the cobblestone to craft the granite.\nAction: get 2 cobblestone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 cobblestone"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have both quartz and cobblestone, I can craft the granite which is needed to craft the polished granite.\nAction: craft 2 diorite using 2 quartz, 2 cobblestone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 2 minecraft:diorite"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have crafted the diorite, I can use it to craft the polished granite which is needed to craft the polished granite slab.\nAction: craft 4 polished granite using 4 diorite"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:polished_granite"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I miscalculated the amount of diorite needed to craft polished granite. I need 4 diorite to craft 4 polished granite. I only have 2 diorite. I need to get more diorite from the environment.\nAction: get 2 diorite"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find diorite"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get more diorite directly, I need to craft it. From the crafting commands, I can use: craft 2 diorite using 2 quartz, 2 cobblestone. Ingredients needed: 2 quartz, 2 cobblestone. I should check if I have quartz and cobblestone in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [diorite] (2)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the diorite in my inventory. Now, I need to get the quartz and cobblestone to craft more diorite.\nAction: get 2 quartz"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 quartz"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the quartz. Now, I need to get the cobblestone to craft more diorite.\nAction: get 2 cobblestone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 cobblestone"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have both quartz and cobblestone, I can craft more diorite.\nAction: craft 2 diorite using 2 quartz, 2 cobblestone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 2 minecraft:diorite"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have crafted more diorite, I can use it to craft the polished granite which is needed to craft the polished granite slab.\nAction: craft 4 polished granite using 4 diorite"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find a valid recipe for ItemTagWithCount(item_tag=ItemTag(tag=None, item_id='minecraft:polished_granite'), count=4)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I miscalculated the amount of diorite needed to craft polished granite. I need 4 diorite to craft 4 polished granite. I only have 2 diorite. I need to get more diorite from the environment.\nAction: get 2 diorite"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find diorite"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get more diorite directly, I need to craft it. From the crafting commands, I can use: craft 2 diorite using 2 quartz, 2 cobblestone. Ingredients needed: 2 quartz, 2 cobblestone. I should check if I have quartz and cobblestone in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [diorite] (4)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the diorite in my inventory. Now, I need to get the quartz and cobblestone to craft more diorite.\nAction: get 2 quartz"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 quartz"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the quartz. Now, I need to get the cobblestone to craft more diorite.\nAction: get 2 cobblestone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 cobblestone"
+        }
+    ]
+}

@@ -1,0 +1,4 @@
+All tasks done.
+Output saved to outputs/Llama-2-7b-hf-alfworld-sft-with-plan-noipr-with-paraphrase-lr1e-6-iter-2/alfworld-test
+Average reward: 0.7687
+Success rate: 0.7687

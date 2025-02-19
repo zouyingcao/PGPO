@@ -1,0 +1,80 @@
+{
+    "meta": {
+        "steps": 7,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "/home/admin/workspace/aop_lab/ipr_plan/eval_agent/data/alfworld/json_2.1.1/valid_unseen/pick_clean_then_place_in_recep-Mug-None-CoffeeMachine-10/trial_T20190907_221300_362511/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 3, a countertop 2, a countertop 1, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a shelf 3, a shelf 2, a shelf 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: put a clean mug in coffeemachine."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. locate_mug(candidate_locations);\nStep 2. take_mug(mug_name, location_name);\nStep 3. go_to_sink();\nStep 4. clean_mug(mug_name, sink);\nStep 5. go_to_coffeemachine();\nStep 6. put_mug_in_coffeemachine(mug_name).\nI need to find a clean mug to put in the coffee machine. I'll start by checking the nearest countertop for any mugs.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a butterknife 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's no mug on countertop 1, but there are other items here. I should check the next countertop for a mug.\nAction: go to countertop 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 2, you see a butterknife 1, a cellphone 1, a dishsponge 2, a fork 1, a glassbottle 1, a lettuce 2, a mug 3, a papertowelroll 1, and a statue 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I see a mug on countertop 2. I'll pick it up so I can clean it and use it in the coffee machine.\nAction: take mug 3 from countertop 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the mug 3 from the countertop 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the mug, I need to clean it before putting it in the coffee machine. The sink is the best place to clean the mug.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see a cup 3, a egg 3, and a glassbottle 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm at the sink. I'll clean the mug thoroughly to ensure it's ready for use in the coffee machine.\nAction: clean mug 3 with sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You clean the mug 3 using the sinkbasin 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The mug is now clean. The next step is to place it in the coffee machine so it can be used to make coffee.\nAction: go to coffeemachine 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the coffeemachine 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've arrived at the coffee machine with the clean mug. I'll put the mug in the coffee machine, completing my task.\nAction: put mug 3 in/on coffeemachine 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the mug 3 in/on the coffeemachine 1."
+        }
+    ]
+}

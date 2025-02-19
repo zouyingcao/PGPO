@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "/home/caozouying.czy/IPR/eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_and_place_simple-Knife-None-SideTable-3/trial_T20190918_184236_557252/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 1, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sidetable 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: put a knife in sidetable."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. knife_name, location_name = locate_a_knife(candidate_locations);\nStep 2. take_a_knife(knife_name, location_name);\nStep 3. go_to_the_sidetable();\nStep 4. put_knife_on_sidetable().\nI need to locate a knife to place in the sidetable. The countertop is a common place where knives are kept, so I should check there first.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a apple 2, a bread 2, a bread 1, a dishsponge 2, a egg 1, a fork 3, a fork 2, a fork 1, a houseplant 1, a kettle 1, a knife 4, a knife 1, a lettuce 3, a lettuce 2, a pan 1, a papertowelroll 1, a peppershaker 3, a peppershaker 2, a potato 1, a saltshaker 1, a spatula 1, a spoon 2, and a spoon 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I'm at the countertop, I need to find a knife among the items here.\nAction: take knife 4 from countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the knife 4 from the countertop 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the knife, so the next step is to go to the sidetable where I am supposed to place the knife.\nAction: go to sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 1, you see a mug 1, a peppershaker 1, and a tomato 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm at the sidetable now. I should place the knife here in a manner that is safe and doesn't disrupt the other items.\nAction: put knife 4 in/on sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the knife 4 in/on the sidetable 1."
+        }
+    ]
+}

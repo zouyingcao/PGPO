@@ -1,0 +1,112 @@
+{
+    "meta": {
+        "steps": 11,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "/home/caozouying.czy/IPR/eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_and_place_simple-CellPhone-None-Bed-324/trial_T20190907_233817_198528/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a bed 1, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 1, a garbagecan 1, a shelf 7, a shelf 6, a shelf 5, a shelf 4, a shelf 3, a shelf 2, and a shelf 1.\nYour task is to: put some cellphone on bed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. cellphone_name, location_name = locate_a_cellphone(candidate_locations);\nStep 2. take_a_cellphone(cellphone_name, location_name);\nStep 3. go_to_the_bed();\nStep 4. put_cellphone_on_bed().\nThe task is to put a cellphone on the bed. I should start by looking for a cellphone in the most likely places where it could be placed, such as on shelves or dressers.\nAction: go to shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I did not find a cellphone on shelf 1. I should systematically check each shelf in turn to find the cellphone.\nAction: go to shelf 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 2, you see a keychain 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 2 only has a keychain. The cellphone is not here. I must continue searching the next shelf.\nAction: go to shelf 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 3, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 3 is empty. The cellphone is not here either. I'll move on to the next shelf.\nAction: go to shelf 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 4, you see a creditcard 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's a credit card on shelf 4, but no cellphone. I need to keep looking.\nAction: go to shelf 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 5, you see a mug 1, a window 2, and a window 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 5 has items like a mug and windows, but no cellphone. I'll check the next shelf.\nAction: go to shelf 6"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Nothing happens."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 6 is empty on top. I need to continue my search elsewhere.\nAction: go to shelf 7"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Nothing happens."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 7 is also empty. The next logical place to look for a cellphone would be the dresser, as it's another common place to keep such items.\nAction: go to dresser 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the dresser 1, you see a alarmclock 1, a cd 3, a cellphone 1, a creditcard 1, a desklamp 1, a pen 2, a pen 1, a pencil 2, and a pencil 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've found a cellphone on the dresser among other items. I should take it and place it on the bed as instructed.\nAction: take cellphone 1 from dresser 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the cellphone 1 from the dresser 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the cellphone, I need to go to the bed to complete the task.\nAction: go to bed 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the bed 1, you see a book 1, a laptop 2, a laptop 1, a pillow 2, and a pillow 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm at the bed and need to place the cellphone here carefully, making sure not to disturb the other items.\nAction: put cellphone 1 in/on bed 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the cellphone 1 in/on the bed 1."
+        }
+    ]
+}

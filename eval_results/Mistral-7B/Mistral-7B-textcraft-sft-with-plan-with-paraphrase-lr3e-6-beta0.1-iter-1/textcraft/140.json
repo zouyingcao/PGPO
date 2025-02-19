@@ -1,0 +1,128 @@
+{
+    "meta": {
+        "steps": 13,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 cyan bed using 3 cyan wool, 3 planks\ncraft 4 stick using 2 planks\ncraft 4 birch planks using 1 birch logs\ncraft 1 stick using 2 bamboo\ncraft 4 jungle planks using 1 jungle logs\ncraft 4 oak planks using 1 oak logs\ncraft 4 warped planks using 1 warped stems\ncraft 4 spruce planks using 1 spruce logs\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 1 black bed using 3 black wool, 3 planks\ncraft 3 spruce sign using 6 spruce planks, 1 stick\ncraft 1 light gray bed using 3 light gray wool, 3 planks\ncraft 4 acacia planks using 1 acacia logs\ncraft 4 arrow using 1 stick, 1 flint, 1 feather\ncraft 1 writable book using 1 book, 1 ink sac, 1 feather\ncraft 4 crimson planks using 1 crimson stems\ncraft 1 blue banner using 6 blue wool, 1 stick\ncraft 1 bow using 3 stick, 3 string\ncraft 3 acacia sign using 6 acacia planks, 1 stick\ncraft 3 acacia fence using 2 stick, 4 acacia planks\ncraft 1 crafting table using 4 planks\n\nGoal: craft arrow."
+        },
+        {
+            "from": "gpt",
+            "value": "First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"1 arrow\" not in had_objects: find_flag = get(\"1 arrow\");\nStep 3. if find_flag == False: \"craft 4 arrow using 1 stick, 1 flint, 1 feather\" = choose_crafting_commands(\"1 arrow\"), needed_ingredients = [\"1 stick\", \"1 flint\", \"1 feather\"], get(\"1 stick\");\nStep 4. find_flag = get(\"1 flint\");\nStep 5. find_flag = get(\"1 feather\");\nStep 6. if find_flag == False: \"craft 1 feather using 2 bamboo\" = choose_crafting_commands(\"1 feather\"), needed_ingredients = \"2 bamboo\", get(\"2 bamboo\");\nStep 7. for i in range(2): craft 1 feather using 2 bamboo;\nStep 8. if \"1 stick\" not in had_objects: craft 4 stick using 2 planks;\nStep 9. craft 4 arrow using 1 stick, 1 flint, 1 feather\nI should check if I can get arrow directly from the environment or the inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no arrow in my inventory. I should try to get it from the environment.\nAction: get 1 arrow"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find arrow"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get arrow directly, I need to craft it. From the crafting commands, I can use: craft 4 arrow using 1 stick, 1 flint, 1 feather. Ingredients needed: 1 stick, 1 flint, 1 feather. Input assumption: I have the ingredients needed in my inventory. Let me verify this first.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I don't have the ingredients needed to craft an arrow. I need to get 1 stick, 1 flint, and 1 feather.\nAction: get 1 stick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get the stick directly. I need to craft it. From the crafting commands, I can craft 4 stick using 2 planks. Let me check if I have planks in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I don't have the planks needed to craft a stick. I need to get 2 planks.\nAction: get 2 planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get the planks directly. I need to craft them. From the crafting commands, I can craft 4 acacia planks using 1 acacia log, or craft 4 oak planks using 1 oak log. Let me check if I have acacia or oak logs in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I don't have the logs needed to craft planks. I need to get 1 acacia or 1 oak log.\nAction: get 1 acacia logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 acacia logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have acacia logs in my inventory. I will use these to craft acacia planks.\nAction: craft 4 acacia planks using 1 acacia logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:acacia_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted acacia planks. Now I can craft the stick I need for crafting arrows.\nAction: craft 4 stick using 2 acacia planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted the stick. Now, I need to get 1 flint and 1 feather to craft the arrow.\nAction: get 1 flint"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 flint"
+        },
+        {
+            "from": "gpt",
+            "value": "Action: get 1 feather"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 feather"
+        },
+        {
+            "from": "gpt",
+            "value": "Action: craft 4 arrow using 1 stick, 1 flint, 1 feather"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:arrow"
+        }
+    ]
+}

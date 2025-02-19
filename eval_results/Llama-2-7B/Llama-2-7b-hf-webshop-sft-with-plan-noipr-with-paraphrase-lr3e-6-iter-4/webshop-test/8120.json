@@ -1,0 +1,48 @@
+{
+    "meta": {
+        "steps": 3,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i would like a set of fast charging noise cancelling headphones, and price lower than 110.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"fast charging noise cancelling headphones set price < 110.00 dollars\");\nStep 2. click(selected_item);\nStep 3. buy().\nI think I should use the search bar to find the headphones I need.\nAction: search[fast charging noise cancelling headphones set price < 110.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i would like a set of fast charging noise cancelling headphones, and price lower than 110.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B093X2LX7M [SEP] Mxzzand CVC Noise Cancellation Bone Conduction Headset Bluetooth Earphone Bluetooth 4.2 for Outdoor Sports with Reduce Noise Interference with Improve Sound Quality (Black) [SEP] $23.89 [SEP] B09LRJM42X [SEP] Lenovo Smart True Wireless Earbuds - Smart Switch Fast Pair - Active Noise Cancelling Earphones with Wireless Charging Case - 28 Hrs Playtime Headphones - 6 Built-in Mics - Bluetooth - Black [SEP] $59.99 [SEP] B09PN283R6 [SEP] Wireless Earbuds, Active Noise Cancelling Stereo Bluetooth Headphones with 30 Hours Playtime, IPX5 Waterproof Earphones with Immersive Premium Deep Bass,in-Ear Stereo Headset for iOS Android [SEP] $20.89 [SEP] B07T3G7L37 [SEP] DE Wireless Noise Cancelling Headphones Decibel H78 Wireless Over Ear Bluetooth Headphones Diamond Studio Active Noise Head Phones Wireless Headset for Work, Travel (Black) [SEP] $99.99 [SEP] B09J59RYC4 [SEP] Sony WH-XB910N Extra Bass Noise Cancelling Headphones (Black) with Kratos Power 40W 4-Port Charger Bundle (2 Items) [SEP] $100.0 [SEP] B07H24D18W [SEP] 1MORE Dual Driver BT ANC In-Ear Headphones Wireless Bluetooth Earphones with Active Noise Cancellation, ENC, Fast Charging, Magnetic Earbuds, Microphone and Volume Controls, Silver [SEP] $88.53 [SEP] B08HYXYC1R [SEP] 233621 Shell Noise Cancelling Headphones. Lightweight Over Ear ANC Bluetooth Headphones. Fast Charge, 60 Hours Playtime, Wireless Headphones with Call Noise Reduction for Improved Call Quality (Aqua) [SEP] $99.99 [SEP] B09STM9FTP [SEP] Wireless Earbud Bluetooth 5.2 Headphones Built in Mic in Ear Buds Noise Canceling 3D Stereo Air Buds Earbud Fast Charging, IPX7 Waterproof for Android/Samsung/Apple iPhone [SEP] $35.99 [SEP] B0988YB8PM [SEP] Active Noise Cancelling Headphones, HAOMUK Wireless Headphones Deep Bass Bluetooth Over Ear Headset with Mic, Fast Charge 30H Playtime with ANC Foldable for TV, Travel, Work, Home Office [SEP] $42.99 [SEP] B09KRN1NGV [SEP] Noise Cancelling Headphones, 45H Playtime Fast Charge, Over Ear Bluetooth Headphone with Microphone, HiFi Stereo Headphone, Deep Bass, Foldable Wireless Wired Headset for Adult, Home Office, Travel [SEP] $29.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the option that meets my criteria, which is B07T3G7L37 - DE Wireless Noise Cancelling Headphones Decibel H78 Wireless Over Ear Bluetooth Headphones.\nAction: click[B07T3G7L37]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i would like a set of fast charging noise cancelling headphones, and price lower than 110.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] DE Wireless Noise Cancelling Headphones Decibel H78 Wireless Over Ear Bluetooth Headphones Diamond Studio Active Noise Head Phones Wireless Headset for Work, Travel (Black) [SEP] Price: $99.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the DE Wireless Noise Cancelling Headphones.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B07T3G7L37 [SEP] options [SEP] {} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

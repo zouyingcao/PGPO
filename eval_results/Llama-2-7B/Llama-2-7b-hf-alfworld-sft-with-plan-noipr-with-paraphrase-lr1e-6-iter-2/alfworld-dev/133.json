@@ -1,0 +1,96 @@
+{
+    "meta": {
+        "steps": 9,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "/home/caozouying.czy/IPR/eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_two_obj_and_place-Knife-None-Drawer-18/trial_T20190907_065232_689984/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 16, a cabinet 15, a cabinet 14, a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 2, a countertop 1, a diningtable 1, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a safe 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: find two knife and put them in drawer."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. knife_name_1, location_name_1 = locate_a_knife(candidate_locations);\nStep 2. take_a_knife(knife_name_1, location_name_1);\nStep 3. go_to_the_drawer();\nStep 4. open_drawer();\nStep 5. put_knife_in_drawer(knife_name_1);\nStep 6. knife_name_2, location_name_2 = locate_a_knife(candidate_locations);\nStep 7. take_a_knife(knife_name_2, location_name_2);\nStep 8. go_to_the_drawer();\nStep 9. open_drawer();\nStep 10. put_knife_in_drawer(knife_name_2).\nI need to find two knives. The dining table is a common place where utensils are left, so I should check there first.\nAction: go to diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the diningtable 1, you see a apple 1, a bowl 3, a bread 2, a butterknife 1, a cup 3, a dishsponge 3, a dishsponge 2, a fork 3, a fork 2, a houseplant 1, a kettle 3, a knife 2, a knife 1, a lettuce 2, a peppershaker 2, a spatula 2, and a spoon 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are several items on the dining table. I see two knives, which are the items I need for the task.\nAction: take knife 1 from diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the knife 1 from the diningtable 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With one knife in hand, I need to place it in a drawer. Drawer 1 is the first drawer, so I'll start there.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is closed. I need to open it to put the knife inside.\nAction: open drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 1. The drawer 1 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is now open and empty, which is perfect for storing the knife I have.\nAction: put knife 1 in/on drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the knife 1 in/on the drawer 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've placed one knife in the drawer. I need to find the second knife to complete the task.\nAction: go to diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the diningtable 1, you see a apple 1, a bowl 3, a bread 2, a butterknife 1, a cup 3, a dishsponge 3, a dishsponge 2, a fork 3, a fork 2, a houseplant 1, a kettle 3, a knife 2, a lettuce 2, a peppershaker 2, a spatula 2, and a spoon 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm back at the dining table to retrieve the second knife.\nAction: take knife 2 from diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the knife 2 from the diningtable 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With the second knife in hand, I need to place it in the same drawer as the first one for organization.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 1 is open. In it, you see a knife 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is open and already contains the first knife. I can now place the second knife in here.\nAction: put knife 2 in/on drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the knife 2 in/on the drawer 1."
+        }
+    ]
+}

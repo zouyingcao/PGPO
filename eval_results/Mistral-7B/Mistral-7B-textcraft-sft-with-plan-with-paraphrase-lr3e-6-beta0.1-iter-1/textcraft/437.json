@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 4 birch planks using 1 birch logs\ncraft 4 acacia planks using 1 acacia logs\ncraft 3 black carpet using 2 black wool\ncraft 4 jungle planks using 1 jungle logs\ncraft 3 white carpet using 2 white wool\ncraft 1 orange bed using 1 white bed, 1 orange dye\ncraft 3 light gray dye using 1 black dye, 2 white dye\ncraft 4 warped planks using 1 warped stems\ncraft 1 white bed using 3 white wool, 3 planks\ncraft 1 lime bed using 1 white bed, 1 lime dye\ncraft 1 black wool using 1 black dye, 1 white wool\ncraft 1 fishing rod using 3 stick, 2 string\ncraft 1 black dye using 1 wither rose\ncraft 8 black terracotta using 8 terracotta, 1 black dye\ncraft 1 writable book using 1 book, 1 ink sac, 1 feather\ncraft 1 black bed using 3 black wool, 3 planks\ncraft 1 light blue wool using 1 light blue dye, 1 white wool\ncraft 1 crossbow using 2 string, 3 stick, 1 iron ingot, 1 tripwire hook\ncraft 4 spruce planks using 1 spruce logs\ncraft 1 black dye using 1 ink sac\ncraft 1 white wool using 4 string\ncraft 4 oak planks using 1 oak logs\ncraft 4 crimson planks using 1 crimson stems\ncraft 1 black bed using 1 white bed, 1 black dye\n\nGoal: craft black bed."
+        },
+        {
+            "from": "gpt",
+            "value": "First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"black bed\" not in had_objects: find_flag = get(\"black bed\");\nStep 3. if find_flag == False: \"craft 1 black bed using 3 black wool, 3 planks\" = choose_crafting_commands(\"black bed\"), needed_ingredients = [\"3 black wool\", \"3 planks\"], find_flag = get(\"3 black wool\");\nStep 4. if find_flag == False: \"craft 1 black wool using 1 black dye, 1 white wool\" = choose_crafting_commands(\"3 black wool\"), needed_ingredients = [\"3 black dye\", \"3 white wool\"], find_flag = get(\"3 black dye\");\nStep 5. if find_flag == False: \"craft 1 black dye using 1 wither rose\" = choose_crafting_commands(\"3 black dye\"), needed_ingredients = \"3 wither rose\", get(\"3 wither rose\");\nStep 6. for i in range(3): craft 1 black dye using 1 wither rose;\nStep 7. find_flag = get(\"3 white wool\");\nStep 8. for i in range(3): craft 1 black wool using 1 black dye, 1 white wool;\nStep 9. find_flag = get(\"3 planks\");\nStep 10. craft 1 black bed using 3 black wool, 3 planks\nI should check if I can get black bed directly from the environment or the inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no black bed in my inventory. I should try to get it from the environment.\nAction: get black bed"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not execute get black bed"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get black bed directly, I need to craft it. From the crafting commands, I can use: craft 1 black bed using 3 black wool, 3 planks. Ingredients needed: 3 black wool, 3 planks. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients: 3 black wool and 3 planks first.\nAction: get 3 black wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find black wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get black wool directly. I need to craft it. From the crafting commands, I can craft black wool using: craft 1 black wool using 1 black dye, 1 white wool. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients: 1 black dye and 1 white wool first to craft black wool.\nAction: get 1 black dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find black dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get black dye directly. I need to craft it. From the crafting commands, I can craft black dye using: craft 1 black dye using 1 wither rose. I should check if I have this ingredient in my inventory.\nAction: get 1 wither rose"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 wither rose"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the ingredient: 1 wither rose. I will use this to craft black dye.\nAction: craft 1 black dye using 1 wither rose"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:black_dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted black dye. Now, I need to get white wool to craft black wool.\nAction: get 1 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find white wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get white wool directly. I need to craft it. From the crafting commands, I can craft white wool using: craft 1 white wool using 4 string. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [black dye] (1)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I only have black dye in my inventory. I need to get string to craft white wool.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the ingredients: 4 string. I will use these to craft white wool.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted white wool. Now, I can craft black wool by combining the black dye and white wool.\nAction: craft 1 black wool using 1 black dye, 1 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:black_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted black wool. Now, I need to get planks to craft black bed.\nAction: get 3 planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get planks directly. I need to craft them. From the crafting commands, I can craft planks using: craft 4 oak planks using 1 oak logs. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [black wool] (1)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I only have black wool in my inventory. I need to get oak logs to craft oak planks.\nAction: get 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 oak logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the ingredient: 1 oak logs. I will use this to craft oak planks.\nAction: craft 4 oak planks using 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:oak_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted oak planks. Now, I can craft black bed by combining the black wool and oak planks.\nAction: craft 1 black bed using 3 black wool, 3 oak planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:black_bed"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I thought I had enough of each ingredient to craft the black bed, but I wasn't able to craft it. I think I need to check my inventory again to confirm what I have.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [black wool] (1) [oak planks] (4)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have confirmed that I have black wool and oak planks in my inventory. It appears there may have been a problem with the crafting command. I'll give it another try.\nAction: craft 1 black bed using 3 black wool, 3 oak planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:black_bed"
+        }
+    ]
+}

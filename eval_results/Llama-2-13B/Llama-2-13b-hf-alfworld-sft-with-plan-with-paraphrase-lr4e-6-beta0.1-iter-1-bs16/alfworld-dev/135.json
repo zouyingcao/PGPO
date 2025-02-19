@@ -1,0 +1,72 @@
+{
+    "meta": {
+        "steps": 6,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_and_place_simple-CreditCard-None-Drawer-227/trial_T20190909_010644_297017/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a armchair 2, a armchair 1, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeetable 2, a coffeetable 1, a diningtable 1, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 13, a shelf 12, a shelf 11, a shelf 10, a shelf 9, a shelf 8, a shelf 7, a shelf 6, a shelf 5, a shelf 4, a shelf 3, a shelf 2, a shelf 1, and a sofa 1.\nYour task is to: put some creditcard on drawer."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. creditcard_name, location_name = locate_a_creditcard(candidate_locations);\nStep 2. take_creditcard(creditcard_name, location_name);\nStep 3. go_to_drawer(drawer_number);\nStep 4. open_drawer(drawer_number);\nStep 5. put_creditcard_in_drawer(creditcard_name, drawer_number).\nI need to locate a credit card to complete the task. The task description doesn't specify where the credit card is, so I should look around the room for common places where a credit card might be placed, such as on tables or sofas.\nAction: go to sofa 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sofa 1, you see a pillow 1, a remotecontrol 2, and a remotecontrol 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: After observing the items on sofa 1, I did not find a credit card here. I should continue searching other areas where a credit card might be placed, such as dining tables or coffee tables.\nAction: go to diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the diningtable 1, you see a box 2, a box 1, a creditcard 1, a keychain 1, a laptop 1, a newspaper 1, a plate 1, a statue 4, a statue 3, a statue 2, a statue 1, and a vase 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have found a credit card on the dining table among other items. I need to pick it up to complete the task.\nAction: take creditcard 1 from diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the creditcard 1 from the diningtable 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the credit card, I need to find a drawer to place it in. Drawer 1 is the first drawer, so I will start there.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am at drawer 1, but it is closed. I need to open it to put the credit card inside.\nAction: open drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 1. The drawer 1 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is now open and empty, which is perfect for placing the credit card inside without misplacing it or causing clutter.\nAction: put creditcard 1 in/on drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the creditcard 1 in/on the drawer 1."
+        }
+    ]
+}

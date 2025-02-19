@@ -1,0 +1,64 @@
+{
+    "meta": {
+        "steps": 5,
+        "reward": 0.8,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i want to find a small purple bike tank top for men that has a classic fit, and price lower than 30.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"small purple bike tank top for men, criterias: classic fit; price lower than 30.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_color(\"purple\");\nStep 4. select_size(\"small\");\nStep 5. buy().\nI think I should use the search bar to look for the specific bike tank top I need.\nAction: search[small purple bike tank top for men]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i want to find a small purple bike tank top for men that has a classic fit, and price lower than 30.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B08W4FVVXC [SEP] Just Send It Motocross Cool Motorcycle Dirt Bike Biker Gift Tank Top [SEP] $19.9 [SEP] B07SMN7G3C [SEP] Will Bike for Beer Funny for Bike Lovers Biking Tank Top [SEP] $18.99 [SEP] B0822P18K8 [SEP] Italian Flag Italy Cycling Bike Bicycle Riding Biking Tank Top [SEP] $17.95 [SEP] B07TCVG38L [SEP] Is My Bike OK? Biker Cycling Funny Gift Tank Top [SEP] $15.99 [SEP] B096W3CFFX [SEP] Funny Downhill Mountain Bike Outfit I Do Stupid Things MTB Tank Top [SEP] $17.49 [SEP] B09PBY1KJG [SEP] Men's Vertical Striped Button Down Dress Shirt Long Sleeve Casual Comfort Regular Fit Business Oxford Shirts [SEP] $1.97 to $22.97 [SEP] B0856N7LKH [SEP] Cycologist Bike Rider | Funny Spin Class Cyclist Gift Tank Top [SEP] $19.99 [SEP] B09HMGLW8L [SEP] Eyelet top Women red Tops Blouses Plus Size Womens White Button Down Shirt Fancy t Shirts Women Tops for Women Yellow top Blouse Country Tops for Women Dressy Blusa buchona Long Sleeve Coffee Shirt [SEP] $19.33 [SEP] B08XWGFTNR [SEP] Funny Motorcycle Riding Women Girls Mascara Biker Tank Top [SEP] $17.99 [SEP] B08J2WHWVN [SEP] Sorry I Can't I Have To Ride Bike Cycling Cyclist Funny Bike Tank Top [SEP] $19.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Just Send It Motocross Cool Motorcycle Dirt Bike Biker Gift Tank Top' as it seems to match the criteria.\nAction: click[B08W4FVVXC]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i want to find a small purple bike tank top for men that has a classic fit, and price lower than 30.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] fit type [SEP] men [SEP] women [SEP] color [SEP] black [SEP] navy [SEP] royal blue [SEP] red [SEP] dark heather [SEP] sapphire [SEP] neon pink [SEP] purple [SEP] size [SEP] small [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] Just Send It Motocross Cool Motorcycle Dirt Bike Biker Gift Tank Top [SEP] Price: $19.9 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'purple' color option to filter the search results.\nAction: click[purple]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i want to find a small purple bike tank top for men that has a classic fit, and price lower than 30.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] fit type [SEP] men [SEP] women [SEP] color [SEP] black [SEP] navy [SEP] royal blue [SEP] red [SEP] dark heather [SEP] sapphire [SEP] neon pink [SEP] purple [SEP] size [SEP] small [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] Just Send It Motocross Cool Motorcycle Dirt Bike Biker Gift Tank Top [SEP] Price: $19.9 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the'small' size option to further narrow down the search.\nAction: click[small]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i want to find a small purple bike tank top for men that has a classic fit, and price lower than 30.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] fit type [SEP] men [SEP] women [SEP] color [SEP] black [SEP] navy [SEP] royal blue [SEP] red [SEP] dark heather [SEP] sapphire [SEP] neon pink [SEP] purple [SEP] size [SEP] small [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] Just Send It Motocross Cool Motorcycle Dirt Bike Biker Gift Tank Top [SEP] Price: $19.9 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the bike tank top that meets the criteria.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B08W4FVVXC [SEP] options [SEP] {\"color\": \"purple\", \"size\": \"small\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.8 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

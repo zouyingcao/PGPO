@@ -1,0 +1,120 @@
+{
+    "meta": {
+        "steps": 12,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "/home/caozouying.czy/IPR/eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_cool_then_place_in_recep-Cup-None-SideTable-21/trial_T20190906_192823_237997/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 1, a diningtable 3, a diningtable 2, a diningtable 1, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sidetable 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: put a cool cup in sidetable."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. cup_name, location_name = locate_a_cup(candidate_locations);\nStep 2. take_a_cup(cup_name, location_name);\nStep 3. go_to_the_fridge();\nStep 4. cool_cup_with_fridge(cup_name);\nStep 5. go_to_the_sidetable();\nStep 6. put_cup_on_sidetable(cup_name).\nI need to find a cup to put on the sidetable. I'll start by checking the toaster area for any cups or related items.\nAction: go to toaster 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the toaster 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's nothing on the toaster. I should check the stoveburners next for any cups or containers that might be there.\nAction: go to stoveburner 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the stoveburner 1, you see a pan 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's a pan on stoveburner 1, but no cup. I'll continue checking the other burners.\nAction: go to stoveburner 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the stoveburner 2, you see a pan 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Another pan is on stoveburner 2. Still no cup. I'll keep looking.\nAction: go to stoveburner 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the stoveburner 3, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Stoveburner 3 is empty. I'll check the last burner.\nAction: go to stoveburner 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the stoveburner 4, you see a pot 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's a pot on stoveburner 4, but no cup. I'll move on to the next area.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see a potato 1, and a tomato 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The sink has food items but no cup. I'll continue my search elsewhere.\nAction: go to sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 1, you see a apple 1, a cup 2, a dishsponge 1, a fork 1, a peppershaker 1, and a spoon 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've found a cup on the sidetable. I'll take it so I can cool it as per the task instructions.\nAction: take cup 2 from sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the cup 2 from the sidetable 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the cup, I need to cool it. The fridge is the best place to do this.\nAction: go to fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The fridge 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The fridge is closed. I'll open it and use it to cool the cup.\nAction: cool cup 2 with fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You cool the cup 2 using the fridge 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The cup is now cool. I need to return to the sidetable to complete the task.\nAction: go to sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sidetable 1, you see a apple 1, a dishsponge 1, a fork 1, a peppershaker 1, and a spoon 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm back at the sidetable. I'll place the cool cup here as instructed.\nAction: put cup 2 in/on sidetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the cup 2 in/on the sidetable 1."
+        }
+    ]
+}

@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 iron sword using 1 stick, 2 iron ingot\ncraft 4 birch planks using 1 birch logs\ncraft 1 orange bed using 3 orange wool, 3 planks\ncraft 6 scaffolding using 1 string, 6 bamboo\ncraft 4 oak planks using 1 oak logs\ncraft 1 blue bed using 3 blue wool, 3 planks\ncraft 1 bow using 3 stick, 3 string\ncraft 1 stick using 2 bamboo\ncraft 1 red bed using 3 red wool, 3 planks\ncraft 1 chest using 8 planks\ncraft 1 fishing rod using 3 stick, 2 string\ncraft 1 blue banner using 6 blue wool, 1 stick\ncraft 4 stick using 2 planks\ncraft 4 crimson planks using 1 crimson stems\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 4 acacia planks using 1 acacia logs\ncraft 4 spruce planks using 1 spruce logs\ncraft 1 oak fence gate using 4 stick, 2 oak planks\ncraft 4 warped planks using 1 warped stems\ncraft 4 jungle planks using 1 jungle logs\ncraft 1 black banner using 6 black wool, 1 stick\n\nGoal: craft bow."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"bow\" not in had_objects: find_flag = get(\"bow\");\nStep 3. if find_flag == False: \"craft 1 bow using 3 stick, 3 string\" = choose_crafting_commands(\"bow\"), needed_ingredients = \"3 stick, 3 string\", find_stick_flag = get(\"3 stick\");\nStep 4. if find_stick_flag == False: \"craft 1 stick using 2 bamboo\" = choose_crafting_commands(\"3 stick\"), needed_ingredients = \"6 bamboo\", get(\"6 bamboo\");\nStep 5. for i in range(3): craft 1 stick using 2 bamboo;\nStep 6. get(\"3 string\");\nStep 7. craft 1 bow using 3 stick, 3 string\nI should check if I can get a bow directly from the environment or the inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no bow in my inventory. I should try to get it from the environment.\nAction: get bow"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not execute get bow"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get a bow directly, I need to craft it. From the crafting commands, I can use: craft 1 bow using 3 stick, 3 string. Ingredients needed: 3 stick, 3 string. I should check if I have these in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients: 3 stick and 3 string first.\nAction: get 3 stick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get sticks directly, I need to craft them. From the crafting commands, I can craft 1 stick using 2 bamboo. I should check if I have bamboo in my inventory.\nAction: get 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 bamboo"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the bamboo, I can craft the sticks needed for the bow.\nAction: craft 1 stick using 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the sticks, I need to get the strings to craft the bow.\nAction: get 3 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 3 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the strings and the sticks, I can craft the bow.\nAction: craft 1 bow using 3 stick, 3 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:bow"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I was unable to craft the bow because I did not have enough items. I need to get more string to craft the bow.\nAction: get 1 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have more string, I can craft the bow.\nAction: craft 1 bow using 3 stick, 3 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:bow"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I was unable to craft the bow again because I did not have enough items. I need to get more sticks to craft the bow.\nAction: get 1 stick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get more sticks directly, I need to craft them. From the crafting commands, I can craft 1 stick using 2 bamboo. I should check if I have bamboo in my inventory.\nAction: get 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 bamboo"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the bamboo, I can craft the sticks needed for the bow.\nAction: craft 1 stick using 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the sticks, I can craft the bow again.\nAction: craft 1 bow using 3 stick, 3 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:bow"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I was unable to craft the bow again because I did not have enough items. I need to get more string to craft the bow.\nAction: get 1 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have more string, I can craft the bow again.\nAction: craft 1 bow using 3 stick, 3 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:bow"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I was unable to craft the bow again because I did not have enough items. I need to get more sticks to craft the bow.\nAction: get 1 stick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get more sticks directly, I need to craft them. From the crafting commands, I can craft 1 stick using 2 bamboo. I should check if I have bamboo in my inventory.\nAction: get 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 bamboo"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the bamboo, I can craft the sticks needed for the bow.\nAction: craft 1 stick using 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the sticks, I can craft the bow again.\nAction: craft 1 bow using 3 stick, 3 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:bow"
+        }
+    ]
+}

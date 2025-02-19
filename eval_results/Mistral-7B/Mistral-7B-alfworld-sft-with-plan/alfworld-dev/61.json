@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_clean_then_place_in_recep-Mug-None-CoffeeMachine-26/trial_T20190907_233056_022802/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 2, a countertop 1, a diningtable 2, a diningtable 1, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: clean some mug and put it in coffeemachine."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. mug_name, location_name = locate_a_mug(candidate_locations);\nStep 2. take_a_mug(mug_name, location_name);\nStep 3. go_to_the_sink();\nStep 4. clean_mug_using_sink();\nStep 5. go_to_the_coffeemachine();\nStep 6. put_cleaned_mug_in_coffeemachine().\nI need to find a mug to clean and put in the coffee machine. I'll start by checking the nearest countertop for any mugs.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a mug 2, a potato 1, a soapbottle 1, a spoon 1, and a tomato 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is a mug here on countertop 1. I should pick it up to clean it.\nAction: take mug 2 from countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the mug 2 from the countertop 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the mug, I need to clean it. The sink is the best place to do this, so I'll head there next.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see a egg 1, a plate 2, a spatula 3, and a spoon 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm at the sink. I should use it to clean the mug thoroughly before putting it in the coffee machine.\nAction: clean mug 2 with sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You clean the mug 2 using the sinkbasin 1."
+        }
+    ]
+}

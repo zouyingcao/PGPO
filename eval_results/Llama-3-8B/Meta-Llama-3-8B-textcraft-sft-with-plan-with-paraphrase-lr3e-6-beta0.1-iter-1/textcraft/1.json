@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 white wool using 4 string\ncraft 1 black dye using 1 wither rose\ncraft 1 gray wool using 1 gray dye, 1 white wool\ncraft 4 warped planks using 1 warped stems\ncraft 4 stick using 2 planks\ncraft 4 birch planks using 1 birch logs\ncraft 1 wooden axe using 2 stick, 3 planks\ncraft 8 gray stained glass using 8 glass, 1 gray dye\ncraft 4 jungle planks using 1 jungle logs\ncraft 4 acacia planks using 1 acacia logs\ncraft 1 lime bed using 3 lime wool, 3 planks\ncraft 2 gray dye using 1 black dye, 1 white dye\ncraft 6 activator rail using 1 redstone torch, 2 stick, 6 iron ingot\ncraft 4 spruce planks using 1 spruce logs\ncraft 1 white dye using 1 bone meal\ncraft 8 white concrete powder using 1 white dye, 4 sand, 4 gravel\ncraft 1 black dye using 1 ink sac\ncraft 1 red wool using 1 red dye, 1 white wool\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 1 crossbow using 2 string, 3 stick, 1 iron ingot, 1 tripwire hook\ncraft 4 oak planks using 1 oak logs\ncraft 8 black stained glass using 8 glass, 1 black dye\ncraft 3 bone meal using 1 bone\ncraft 4 crimson planks using 1 crimson stems\ncraft 1 brown wool using 1 brown dye, 1 white wool\ncraft 1 white dye using 1 lily of the valley\ncraft 1 blue wool using 1 blue dye, 1 white wool\ncraft 1 stick using 2 bamboo\ncraft 1 gray banner using 6 gray wool, 1 stick\n\nGoal: craft gray banner."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"1 stick\" not in had_objects: find_flag = get(\"1 stick\");\nStep 3. if find_flag == False: \"craft 1 stick using 2 bamboo\" = choose_crafting_commands(\"1 stick\"), needed_ingredients = \"2 bamboo\", get(needed_ingredients);\nStep 4. craft 1 stick using 2 bamboo;\nStep 5. if \"6 gray wool\" not in had_objects: find_flag = get(\"6 gray wool\");\nStep 6. if find_flag == False: \"craft 1 gray wool using 1 gray dye, 1 white wool\" = choose_crafting_commands(\"6 gray wool\"), needed_ingredients = \"2 gray dye, 2 white wool\", find_flag_grey_dye = get(\"2 gray dye\");\nStep 7. if find_flag_grey_dye == False: \"craft 2 gray dye using 1 black dye, 1 white dye\" = choose_crafting_commands(\"2 gray dye\"), needed_ingredients = \"1 black dye, 1 white dye\", find_flag_black_dye = get(\"1 black dye\");\nStep 8. if find_flag_black_dye == False: \"craft 1 black dye using 1 wither rose\" = choose_crafting_commands(\"1 black dye\"), needed_ingredients = \"1 wither rose\", get(needed_ingredients);\nStep 9. craft 1 black dye using 1 wither rose;\nStep 10. find_flag_white_dye = get(\"1 white dye\");\nStep 11. if find_flag_white_dye == False: \"craft 1 white dye using 1 bone meal\" = choose_crafting_commands(\"1 white dye\"), needed_ingredients = \"1 bone meal\", get(needed_ingredients);\nStep 12. craft 1 white dye using 1 bone meal;\nStep 13. craft 2 gray dye using 1 black dye, 1 white dye;\nStep 14. find_flag_white_wool = get(\"2 white wool\");\nStep 15. if find_flag_white_wool == False: \"craft 1 white wool using 4 string\" = choose_crafting_commands(\"2 white wool\"), needed_ingredients = \"4 string\", get(needed_ingredients);\nStep 16. for i in range(2): craft 1 white wool using"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Invalid format. The input must contains 'Action: '"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I should follow the instructions and try my best to solve the task.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to gather the ingredients to craft the gray banner.\nAction: get 6 gray wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find gray wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to gather more ingredients to craft the gray banner.\nAction: get 1 stick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to gather more ingredients to craft the gray banner.\nAction: get 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 bamboo"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have obtained the ingredients: 2 bamboo. Now I can craft the stick I need.\nAction: craft 1 stick using 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted the stick. Now I need to gather more ingredients to craft the gray banner.\nAction: get 2 gray dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find gray dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to gather more ingredients to craft the gray banner.\nAction: get 1 black dye, get 1 white dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find black dye, get 1 white dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to gather more ingredients to craft the gray banner.\nAction: get 1 wither rose, get 1 bone meal"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find wither rose, get 1 bone meal"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to gather more ingredients to craft the gray banner.\nAction: get 1 wither rose"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 wither rose"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have obtained the ingredient: 1 wither rose. Now I can craft the black dye I need.\nAction: craft 1 black dye using 1 wither rose"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:black_dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted the black dye. Now I need to gather more ingredients to craft the gray banner.\nAction: get 1 white dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find white dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to gather more ingredients to craft the gray banner.\nAction: get 1 bone meal"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find bone meal"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to gather more ingredients to craft the gray banner.\nAction: get 1 bone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 bone"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have obtained the ingredient: 1 bone. Now I can craft the white dye I need.\nAction: craft 1 white dye using 1 bone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 3 minecraft:bone_meal"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted the white dye. Now I can craft the gray dye I need using the black dye and white dye.\nAction: craft 2 gray dye using 1 black dye, 1 white dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:gray_dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to gather more ingredients to craft the gray banner.\nAction: get 1 black dye, get 1 white dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find black dye, get 1 white dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to gather more ingredients to craft the gray banner.\nAction: get 1 wither rose, get 1 bone meal"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find wither rose, get 1 bone meal"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to gather more ingredients to craft the gray banner.\nAction: get 1 wither rose"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 wither rose"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have obtained the ingredient: 1 wither rose. Now I can craft the black dye I need.\nAction: craft 1 black dye using 1 wither rose"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:black_dye"
+        }
+    ]
+}

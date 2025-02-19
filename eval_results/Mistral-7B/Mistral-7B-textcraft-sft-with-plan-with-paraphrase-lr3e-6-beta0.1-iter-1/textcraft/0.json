@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 cyan wool using 1 cyan dye, 1 white wool\ncraft 4 crimson planks using 1 crimson stems\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 1 magenta banner using 6 magenta wool, 1 stick\ncraft 6 scaffolding using 1 string, 6 bamboo\ncraft 8 green terracotta using 8 terracotta, 1 green dye\ncraft 4 acacia planks using 1 acacia logs\ncraft 8 cyan carpet using 8 white carpet, 1 cyan dye\ncraft 1 blue dye using 1 lapis lazuli\ncraft 1 white wool using 4 string\ncraft 4 spruce planks using 1 spruce logs\ncraft 1 pink wool using 1 pink dye, 1 white wool\ncraft 4 birch planks using 1 birch logs\ncraft 2 cyan dye using 1 blue dye, 1 green dye\ncraft 8 green stained glass pane using 8 glass pane, 1 green dye\ncraft 4 warped planks using 1 warped stems\ncraft 4 stick using 2 planks\ncraft 1 red wool using 1 red dye, 1 white wool\ncraft 1 yellow bed using 3 yellow wool, 3 planks\ncraft 4 oak planks using 1 oak logs\ncraft 1 cyan banner using 6 cyan wool, 1 stick\ncraft 4 jungle planks using 1 jungle logs\ncraft 1 yellow banner using 6 yellow wool, 1 stick\ncraft 1 stick using 2 bamboo\ncraft 8 blue stained glass pane using 8 glass pane, 1 blue dye\ncraft 1 blue dye using 1 cornflower\n\nGoal: craft cyan banner."
+        },
+        {
+            "from": "gpt",
+            "value": "First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"6 cyan wool\" not in had_objects: find_flag = get(\"6 cyan wool\");\nStep 3. if find_flag == False: \"craft 1 cyan wool using 1 cyan dye, 1 white wool\" = choose_crafting_commands(\"6 cyan wool\"), needed_ingredients = [\"6 cyan dye\", \"6 white wool\"], find_flag = get(\"6 cyan dye\");\nStep 4. if find_flag == False: \"craft 2 cyan dye using 1 blue dye, 1 green dye\" = choose_crafting_commands(\"6 cyan dye\"), needed_ingredients = [\"2 blue dye\", \"2 green dye\"], find_blue_dye_flag = get(\"2 blue dye\");\nStep 5. if find_blue_dye_flag == False: \"craft 1 blue dye using 1 lapis lazuli\" = choose_crafting_commands(\"2 blue dye\"), needed_ingredients = [\"2 lapis lazuli\"], get(\"2 lapis lazuli\");\nStep 6. for i in range(2): craft 1 blue dye using 1 lapis lazuli;\nStep 7. find_green_dye_flag = get(\"2 green dye\");\nStep 8. if find_green_dye_flag == False: \"craft 1 green dye using 1 cornflower\" = choose_crafting_commands(\"2 green dye\"), needed_ingredients = [\"2 cornflower\"], get(\"2 cornflower\");\nStep 9. for i in range(2): craft 1 green dye using 1 cornflower;\nStep 10. for i in range(2): craft 2 cyan dye using 1 blue dye, 1 green dye;\nStep 11. find_white_wool_flag = get(\"6 white wool\");\nStep 12. if find_white_wool_flag == False: \"craft 1 white wool using 4 string\" = choose_crafting_commands(\"6 white wool\"), needed_ingred"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Invalid format. The input must contains 'Action: '"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The input format is not correct. The crafting command requires 4 strings for each white wool. I should adjust the input to reflect this.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I do not have enough string to craft white wool. I should get more string.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have obtained the necessary string. I can now craft white wool.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted one piece of white wool. I need to craft five more pieces to have enough white wool for the cyan banner.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have obtained more string. I can now craft another piece of white wool.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted another piece of white wool. I need to craft four more pieces of white wool to have enough white wool for the cyan banner.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have obtained more string. I can now craft another piece of white wool.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted another piece of white wool. I need to craft three more pieces of white wool to have enough white wool for the cyan banner.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have obtained more string. I can now craft another piece of white wool.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted another piece of white wool. I need to craft two more pieces of white wool to have enough white wool for the cyan banner.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have obtained more string. I can now craft another piece of white wool.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted another piece of white wool. I need to craft one more piece of white wool to have enough white wool for the cyan banner.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have obtained more string. I can now craft the final piece of white wool.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted all the white wool needed. Now, I can craft the cyan banner.\nAction: craft 1 cyan banner using 6 cyan wool, 1 stick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:cyan_banner"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I do not have enough cyan wool to craft the cyan banner. I should get more cyan wool.\nAction: get 6 cyan wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find cyan wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get cyan wool directly from the environment. I need to craft it. To craft cyan wool, I need cyan dye and white wool. I should check if I have enough of these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [white wool] (6)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have enough white wool in my inventory. Now, I need to check if I have enough cyan dye to craft cyan wool.\nAction: get 6 cyan dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find cyan dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get cyan dye directly from the environment. I need to craft it. To craft cyan dye, I need blue dye and green dye. I should check if I have enough of these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [white wool] (6)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have the ingredients needed to craft cyan dye in my inventory: blue dye and green dye. I should check if I have enough blue dye to craft cyan dye.\nAction: get 2 blue dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find blue dye"
+        }
+    ]
+}

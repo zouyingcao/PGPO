@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 4 brick stairs using 6 bricks\ncraft 6 brick slab using 3 bricks\ncraft 1 bricks using 4 brick\ncraft 1 flower pot using 3 brick\ncraft 6 brick wall using 6 bricks\n\nGoal: craft brick wall."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"6 bricks\" not in had_objects: find_flag = get(\"6 bricks\");\nStep 3. if find_flag == False: \"craft 1 bricks using 4 brick\" = choose_crafting_commands(\"6 bricks\"), needed_ingredients = \"24 brick\", get(\"24 brick\");\nStep 4. for i in range(6): craft 1 bricks using 4 brick;\nStep 5. craft 6 brick wall using 6 bricks\nI need to craft brick wall. I should check if I have the necessary ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to craft brick wall, but I don't have any bricks in my inventory. I should try to get bricks from the environment.\nAction: get 6 bricks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot find bricks in the environment. I need to craft them. According to the crafting commands, I can craft 1 bricks using 4 brick. I need to check if I have bricks in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have bricks in my inventory as well. I should get bricks (or better to say, brick) from the environment to craft bricks that are required to craft the brick wall.\nAction: get 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 brick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have 4 bricks, I can craft 1 brick using 4 bricks.\nAction: craft 1 bricks using 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted one brick. I need to craft five more bricks to be able to craft the brick wall.\nAction: get 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 brick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have another set of 4 bricks, I can craft another brick.\nAction: craft 1 bricks using 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted another brick. I still need to craft three more bricks to be able to craft the brick wall.\nAction: get 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 brick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With another set of 4 bricks, I can craft another brick.\nAction: craft 1 bricks using 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted another brick. I need to craft one more brick to have enough bricks to craft the brick wall.\nAction: get 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 brick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The last set of 4 bricks I have allows me to craft the final brick I need.\nAction: craft 1 bricks using 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:bricks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have enough bricks, I can use them to craft the brick wall.\nAction: craft 6 brick wall using 6 bricks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:brick_wall"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have miscalculated the amount of bricks needed for the brick wall. I currently have 6 bricks, but the crafting command for the brick wall requires 6 bricks. I need to gather more brick from the environment.\nAction: get 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 brick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With the latest addition of 4 bricks, I now have 10 in total. I should be able to craft the brick wall now.\nAction: craft 6 brick wall using 6 bricks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:brick_wall"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: It seems like I am stuck here. I have miscalculated the amount of bricks needed for the brick wall again. I currently have 10 bricks, but the crafting command for the brick wall still requires 6 bricks. I need to rethink my strategy and get more brick from the environment.\nAction: get 4 brick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 brick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With the latest addition of 4 bricks, I now have 14 in total. I should have enough bricks to craft the brick wall now.\nAction: craft 6 brick wall using 6 bricks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:brick_wall"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I am surprised that I still can't craft the brick wall. It seems that I made a mistake in my calculations. I currently have 14 bricks, but the crafting command for the brick wall still requires 6 bricks. I need to check my work again.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [bricks] (4) [brick] (8)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have misinterpreted the crafting command for the brick wall. It requires 6 bricks, not each, but in total. I only have 4 bricks individually, but 8 collectively. Now I should have enough bricks to craft the brick wall.\nAction: craft 6 brick wall using 6 bricks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:brick_wall"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'm unsure why I can't craft the brick wall, as I now have the required 6 bricks. Perhaps there's an issue with the specific bricks I'm using. Let's try crafting the wall with one type of brick.\nAction: craft 6 brick wall using 6 bricks using"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:brick_wall"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: It seems that no matter which type of brick I try to use, I am unable to craft the brick wall. I'm out of ideas and will have to abandon my goal of crafting the brick wall for now.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [bricks] (4) [brick] (8)"
+        }
+    ]
+}

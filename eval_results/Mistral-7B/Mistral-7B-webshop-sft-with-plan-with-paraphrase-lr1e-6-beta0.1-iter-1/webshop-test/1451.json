@@ -1,0 +1,64 @@
+{
+    "meta": {
+        "steps": 5,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] hello, i'm looking for a sweater that's slim fit and comes in black? size medium too, please, and price lower than 60.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"sweater that's slim fit and comes in black? size medium too, please, and price lower than 60.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_color(\"black\");\nStep 4. select_size(\"medium\");\nStep 5. buy().\nI think I should use the search bar to find the sweater I need.\nAction: search[black slim fit sweater size medium]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] hello, i'm looking for a sweater that's slim fit and comes in black? size medium too, please, and price lower than 60.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B09L4TH1NP [SEP] Men's Soft V Neck Sweaters Relaxed Fit Long-Sleeve Soft Touch Sweater Classic Regular Slim Fit Pullover Top [SEP] $9.99 to $10.99 [SEP] B09L4WCFM1 [SEP] Men V Neck Knitting Pullover Sweaters Ribbed Knit Slim Fit Long Sleeve Sweater Classic Soft Comfortably Top [SEP] $7.11 to $7.99 [SEP] B09MP1PXYG [SEP] Men's V Neck Pullover Sweaters Long Sleeve Slim Fit Knitting Sweater Classic Lightweight Soft Ribbed Knitted Top [SEP] $9.21 to $9.99 [SEP] B09L623SVS [SEP] Aitesi2021 Turtleneck Mock Neck Sweater for Men Casual Slim Basic Knitted Sweaters Basic Long Sleeve Roll Collar Pullover [SEP] $17.11 to $17.99 [SEP] B09P2R1L5V [SEP] Mens Casual Slim Fit Basic Henley Shirt Solid Color Zipper Sweater Tops Fashion Business Shirt [SEP] $23.41 to $25.89 [SEP] B09L4Z3MRN [SEP] Men Soft Cotton Cable Knitted Sweater Crew Neck Slim Fit Knitted Twisted Pullover Long Sleeve Knitwear Sweaters [SEP] $17.11 to $17.99 [SEP] B09L4WKB8V [SEP] Men's V Neck Knitting Pullover Sweaters Ribbed Knit Long Sleeve Sweater Relaxed Fit Classic Soft Solid Color Top [SEP] $7.21 to $7.99 [SEP] B09MB1G8DN [SEP] Men's Buttons Sweater Vest Cardigan Shawl Collar Button-Down Kniited Vests Sleeveless V-Neck Slim Fit Knitwear [SEP] $15.11 to $16.99 [SEP] B09P39457D [SEP] KkSLirnhs Men's Casual Slim Fit Basic Henley T-Shirt Fashion Print Long Sleeve V Neck Pullover T-Shirt Blouse [SEP] $7.74 to $8.85 [SEP] B09QG1MP9L [SEP] KkSLirnhs Men's Casual Henley T Shirts Slim Fit Solid Color Short Sleeve Button Tops Blouse Summer Basic Tops [SEP] $19.09 to $20.12"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the Men's Soft V Neck Sweaters Relaxed Fit Long-Sleeve Soft Touch Sweater Classic Regular Slim Fit Pullover Top as it seems to meet my criteria.\nAction: click[B09L4TH1NP]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] hello, i'm looking for a sweater that's slim fit and comes in black? size medium too, please, and price lower than 60.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] blue [SEP] dark grey [SEP] dark purple [SEP] light brown [SEP] yellow [SEP] size [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] 3x-large [SEP] 4x-large [SEP] Men's Soft V Neck Sweaters Relaxed Fit Long-Sleeve Soft Touch Sweater Classic Regular Slim Fit Pullover Top [SEP] Price: $9.99 to $10.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'black' color option to filter the search results for a black sweater.\nAction: click[black]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] hello, i'm looking for a sweater that's slim fit and comes in black? size medium too, please, and price lower than 60.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] blue [SEP] dark grey [SEP] dark purple [SEP] light brown [SEP] yellow [SEP] size [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] 3x-large [SEP] 4x-large [SEP] Men's Soft V Neck Sweaters Relaxed Fit Long-Sleeve Soft Touch Sweater Classic Regular Slim Fit Pullover Top [SEP] Price: $9.99 to $10.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the'size medium' option to filter the search results for a medium-sized sweater.\nAction: click[medium]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] hello, i'm looking for a sweater that's slim fit and comes in black? size medium too, please, and price lower than 60.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] blue [SEP] dark grey [SEP] dark purple [SEP] light brown [SEP] yellow [SEP] size [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] 3x-large [SEP] 4x-large [SEP] Men's Soft V Neck Sweaters Relaxed Fit Long-Sleeve Soft Touch Sweater Classic Regular Slim Fit Pullover Top [SEP] Price: $9.99 to $10.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the Men's Soft V Neck Sweaters Relaxed Fit Long-Sleeve Soft Touch Sweater Classic Regular Slim Fit Pullover Top.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B09L4TH1NP [SEP] options [SEP] {\"color\": \"black\", \"size\": \"medium\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

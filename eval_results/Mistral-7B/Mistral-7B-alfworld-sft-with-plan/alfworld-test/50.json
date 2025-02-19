@@ -1,0 +1,96 @@
+{
+    "meta": {
+        "steps": 9,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_unseen/pick_cool_then_place_in_recep-Potato-None-Microwave-10/trial_T20190907_033228_194678/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 3, a countertop 2, a countertop 1, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a shelf 3, a shelf 2, a shelf 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: cool some potato and put it in microwave."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. potato_name, location_name = locate_a_potato(candidate_locations);\nStep 2. take_a_potato(potato_name, location_name);\nStep 3. go_to_the_fridge();\nStep 4. open_fridge();\nStep 5. cool_potato_using_fridge();\nStep 6. go_to_the_microwave();\nStep 7. open_microwave();\nStep 8. put_cooled_potato_in_microwave().\nI need to locate a potato to complete the task of cooling it and then putting it in the microwave. The sink basin is a common place for food items to be placed, so I should check there first.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see a bowl 3, a butterknife 2, a egg 2, a fork 2, a knife 1, and a potato 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I see a potato here on the sink basin. I should pick it up to proceed with the task.\nAction: take potato 2 from sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the potato 2 from the sinkbasin 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the potato, I need to cool it. The fridge is the appliance for cooling food items, so I should go there next.\nAction: go to fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The fridge 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The fridge is closed. I need to open it to cool the potato inside.\nAction: open fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the fridge 1. The fridge 1 is open. In it, you see a bowl 1, a cup 1, a lettuce 1, a plate 2, and a tomato 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've opened the fridge, but I realize I don't need to place the potato inside since the task only specifies to cool it, not to store it. I should close the fridge to conserve energy.\nAction: close fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the fridge 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With the fridge closed, I can now cool the potato using the fridge's external cooling feature.\nAction: cool potato 2 with fridge 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You cool the potato 2 using the fridge 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The potato is cooled. The next step is to put it in the microwave, so I need to go to the microwave.\nAction: go to microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The microwave 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The microwave is closed. I need to open it to place the potato inside.\nAction: open microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the microwave 1. The microwave 1 is open. In it, you see a egg 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The microwave is open, but there's an egg inside. I should remove the egg before placing the potato in the microwave, but the task doesn't specify this, so I will proceed with placing the potato in the microwave as instructed.\nAction: put potato 2 in/on microwave 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the potato 2 in/on the microwave 1."
+        }
+    ]
+}

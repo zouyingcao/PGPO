@@ -1,0 +1,64 @@
+{
+    "meta": {
+        "steps": 5,
+        "reward": 0.8,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] find me a x-small white slipknot t-shirt classic fit for men, and price lower than 60.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"white slipknot t-shirt classic fit men x-small price < 60.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_color(\"white\");\nStep 4. select_size(\"x-small\");\nStep 5. buy().\nI think I should use the search bar to look for the specific slipknot t-shirt I need.\nAction: search[white slipknot t-shirt classic fit men x-small price < 60.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] find me a x-small white slipknot t-shirt classic fit for men, and price lower than 60.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B07PHJ7GFH [SEP] Slipknot Official Snuff Flames T-Shirt [SEP] $27.99 [SEP] B07KRX3ZRZ [SEP] Slipknot Iowa Skull 1995 T-Shirt [SEP] $27.99 [SEP] B07PSSYVJ4 [SEP] Slipknot Official Wheel T-Shirt [SEP] $27.99 [SEP] B07KRQR3YK [SEP] Slipknot Outline Logo T-Shirt [SEP] $27.99 [SEP] B07PGQK3NV [SEP] Slipknot .5 The Gray Chapter Cover T-Shirt [SEP] $27.99 [SEP] B09QQ1F3XB [SEP] BYINTEK P7 Pocket Portable Pico Smart Android WiFi 1080P TV Laser Mini LED Home Theater DLP Projector for Smartphone [SEP] $100.0 [SEP] B07Q8JPC5Q [SEP] Slipknot Sketch Star Long Sleeve T-Shirt [SEP] $32.99 [SEP] B00S1MWIEU [SEP] Bravado Slipknot Skull & Tribal Black T-Shirt [SEP] $17.6 to $27.99 [SEP] B07DC3PVNV [SEP] Funcle T-Shirt Like A Dad Only Cooler Uncle Men Definition [SEP] $15.99 [SEP] B08WMBKZC8 [SEP] Amazon Brand - Goodthreads Women's Flannel Relaxed Fit Belted Shirt Dress [SEP] $41.79 to $43.8"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the Slipknot Official Snuff Flames T-Shirt, as it meets the criteria.\nAction: click[B07PHJ7GFH]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] find me a x-small white slipknot t-shirt classic fit for men, and price lower than 60.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] fit type [SEP] men [SEP] women [SEP] youth [SEP] color [SEP] black [SEP] royal blue [SEP] white [SEP] dark heather [SEP] heather grey [SEP] size [SEP] small [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] 3x-large [SEP] 2t [SEP] 3t [SEP] 4t [SEP] x-small [SEP] Slipknot Official Snuff Flames T-Shirt [SEP] Price: $27.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'white' color option to filter the search results.\nAction: click[white]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] find me a x-small white slipknot t-shirt classic fit for men, and price lower than 60.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] fit type [SEP] men [SEP] women [SEP] youth [SEP] color [SEP] black [SEP] royal blue [SEP] white [SEP] dark heather [SEP] heather grey [SEP] size [SEP] small [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] 3x-large [SEP] 2t [SEP] 3t [SEP] 4t [SEP] x-small [SEP] Slipknot Official Snuff Flames T-Shirt [SEP] Price: $27.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'x-small' size option to further narrow down the search.\nAction: click[x-small]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] find me a x-small white slipknot t-shirt classic fit for men, and price lower than 60.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] fit type [SEP] men [SEP] women [SEP] youth [SEP] color [SEP] black [SEP] royal blue [SEP] white [SEP] dark heather [SEP] heather grey [SEP] size [SEP] small [SEP] medium [SEP] large [SEP] x-large [SEP] xx-large [SEP] 3x-large [SEP] 2t [SEP] 3t [SEP] 4t [SEP] x-small [SEP] Slipknot Official Snuff Flames T-Shirt [SEP] Price: $27.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the Slipknot Official Snuff Flames T-Shirt.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B07PHJ7GFH [SEP] options [SEP] {\"color\": \"white\", \"size\": \"x-small\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.8 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

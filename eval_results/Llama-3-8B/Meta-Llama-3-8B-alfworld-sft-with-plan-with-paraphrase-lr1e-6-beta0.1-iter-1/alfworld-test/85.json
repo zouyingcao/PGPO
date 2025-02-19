@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": false,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": "/home/admin/workspace/aop_lab/ipr_plan/eval_agent/data/alfworld/json_2.1.1/valid_unseen/pick_two_obj_and_place-CD-None-Safe-308/trial_T20190907_050942_897916/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a bed 1, a desk 2, a desk 1, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a laundryhamper 1, a safe 1, a shelf 6, a shelf 5, a shelf 4, a shelf 3, a shelf 2, and a shelf 1.\nYour task is to: put two cd in safe."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. cd1, cd1_location = locate_cd(candidate_locations);\nStep 2. take_cd(cd1, cd1_location);\nStep 3. cd2, cd2_location = locate_cd(candidate_locations);\nStep 4. take_cd(cd2, cd2_location);\nStep 5. go_to_safe();\nStep 6. open_safe();\nStep 7. put_cd_in_safe(cd1);\nStep 8. put_cd_in_safe(cd2).\nI need to locate two CDs to put in the safe. I'll start by checking the nearest storage areas, which are the shelves.\nAction: go to shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 1, you see a alarmclock 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's only an alarm clock here on shelf 1. I need to continue searching for CDs.\nAction: go to shelf 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 2, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 2 is empty. I'll move on to the next shelf to find the CDs.\nAction: go to shelf 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 3, you see a bowl 1, and a desklamp 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: No CDs on shelf 3, just a bowl and a desk lamp. I'll check the next shelf.\nAction: go to shelf 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 4, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 4 is also empty. I need to keep looking.\nAction: go to shelf 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 5, you see a keychain 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Only a keychain on shelf 5. The CDs are not here, so I'll go to the last shelf.\nAction: go to shelf 6"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 6, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 6 is empty as well. I'll check the drawers next, starting with drawer 5.\nAction: go to drawer 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the drawer 5, you see a cd 3, and a pen 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I found a CD in drawer 5. I'll take it and then look for the second CD.\nAction: take cd 3 from drawer 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the cd 3 from the drawer 5."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With one CD in hand, I should put it in the safe before searching for the second CD. However, I've already initiated the search for the second CD, so I'll complete that trajectory first.\nAction: go to shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 1, you see a alarmclock 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've already checked shelf 1, but I'm passing by it on my way to check the other shelves again. This is for consistency and completeness, even though it's unnecessary.\nAction: go to shelf 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 2, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've already checked shelf 2, but I'm passing by it to ensure I don't miss anything on my second pass.\nAction: go to shelf 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 3, you see a bowl 1, and a desklamp 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've already checked shelf 3, but I'm passing by it to maintain order in my search.\nAction: go to shelf 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 4, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've already checked shelf 4, but I'm revisiting it to keep the search tidy.\nAction: go to shelf 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 5, you see a keychain 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've already checked shelf 5, but I'm passing by it as part of my overall strategy.\nAction: go to shelf 6"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 6, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've already checked shelf 6, but I'm passing by it to complete the search trajectory.\nAction: go to drawer 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the drawer 5, you see a pen 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've already checked drawer 5, but I'm passing by it on my way to check the remaining drawers.\nAction: go to drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 1 is closed. I need to open it to check for the second CD.\nAction: open drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 1. The drawer 1 is open. In it, you see a creditcard 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's no CD in drawer 1, just a credit card. I'll close it and keep looking.\nAction: close drawer 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I'll continue searching the drawers for the second CD, moving on to drawer 2.\nAction: go to drawer 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the drawer 2, you see a creditcard 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: No CD in drawer 2, only a credit card. I'll proceed to the next drawer.\nAction: go to drawer 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Nothing happens."
+        }
+    ]
+}

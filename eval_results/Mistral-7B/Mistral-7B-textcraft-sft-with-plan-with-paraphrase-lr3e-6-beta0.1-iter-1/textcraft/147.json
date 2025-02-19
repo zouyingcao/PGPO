@@ -1,0 +1,80 @@
+{
+    "meta": {
+        "steps": 7,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 orange banner using 6 orange wool, 1 stick\ncraft 3 birch fence using 2 stick, 4 birch planks\ncraft 4 stick using 2 planks\ncraft 4 warped planks using 1 warped stems\ncraft 4 spruce planks using 1 spruce logs\ncraft 1 gray bed using 3 gray wool, 3 planks\ncraft 4 birch planks using 1 birch logs\ncraft 1 painting using 8 stick, 1 wool\ncraft 4 crimson planks using 1 crimson stems\ncraft 4 jungle planks using 1 jungle logs\ncraft 1 crossbow using 2 string, 3 stick, 1 iron ingot, 1 tripwire hook\ncraft 4 acacia planks using 1 acacia logs\ncraft 1 wooden pickaxe using 2 stick, 3 planks\ncraft 1 stick using 2 bamboo\ncraft 1 birch pressure plate using 2 birch planks\ncraft 6 scaffolding using 1 string, 6 bamboo\ncraft 4 oak planks using 1 oak logs\ncraft 3 warped sign using 6 warped planks, 1 stick\ncraft 1 crafting table using 4 planks\ncraft 1 birch fence gate using 4 stick, 2 birch planks\ncraft 4 dark oak planks using 1 dark oak logs\n\nGoal: craft birch fence gate."
+        },
+        {
+            "from": "gpt",
+            "value": "First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"4 birch planks\" not in had_objects: find_flag = get(\"1 birch logs\");\nStep 3. if find_flag == True: craft 4 birch planks using 1 birch logs;\nStep 4. if \"4 stick\" not in had_objects: craft 4 stick using 2 birch planks;\nStep 5. craft 1 birch fence gate using 4 stick, 2 birch planks\nI need to craft birch fence gate. Let me check if I have the necessary ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have any ingredients in my inventory. I need to get the ingredients to craft birch fence gate.\nAction: get 4 stick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find any sticks in the environment. I need to craft them. According to the crafting commands, I can craft 4 sticks using 2 planks.\nAction: get 2 planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find any planks in the environment. I need to craft them. According to the crafting commands, I can craft 4 birch planks using 1 birch log, or other various types of planks using different types of logs. Let's start with birch logs.\nAction: get 1 birch logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 birch logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got 1 birch log. Now I can craft birch planks using this birch log.\nAction: craft 4 birch planks using 1 birch logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:birch_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted birch planks. Now I can use these to craft birch sticks.\nAction: craft 4 stick using 2 birch planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted birch sticks. Now I can use these to craft birch fence gate.\nAction: craft 1 birch fence gate using 4 stick, 2 birch planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:birch_fence_gate"
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+{
+    "meta": {
+        "steps": 5,
+        "reward": 0.5,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i'm looking for a silicone band compatible with my apple watch that's 40 mm and white, and price lower than 30.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"silicone band for Apple Watch Series 7 40mm white price < 30.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_color(\"white\");\nStep 4. select_size(\"40mm\");\nStep 5. buy().\nI think I should use the search bar to find a silicone band for my Apple Watch that meets the criteria.\nAction: search[silicone band Apple Watch Series 7 40mm white price < 30.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for a silicone band compatible with my apple watch that's 40 mm and white, and price lower than 30.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B09P7ZWLWR [SEP] [8 Pack] MNBVCXZ Bands Compatible with Apple Watch iWatch Bands 45mm 44mm 42mm 41mm 40mm 38mm for Women Men, Soft Silicone Replacement Sport Strap for Apple Watch Series SE 7 6 5 4 3 2 1 [SEP] $15.99 [SEP] B09N6S3CWT [SEP] 5 PACK Slim Band Compatible with Apple Watch Band 38mm 40mm 41mm 42mm 44mm 45mm for Women Men, Thin Narrow Soft Silicone Replacement Strap Band for iwatch SE/Series 7/6/5/4/3/2/1 [SEP] $11.98 to $14.98 [SEP] B09876ZYR8 [SEP] [8 Pack] Replacement Bands Compatible with Apple Watch Bands 45mm 44mm 42mm for Women Men, Soft Sport Bands Compatible with iWatch SE & Series 7 6 5 4 3 2 1 [SEP] $17.99 [SEP] B09K3MCN99 [SEP] ZALAVER Bands Compatible with Apple Watch Band 45mm 44mm 42mm 41mm 40mm 38mm, Soft Silicone Sport Wristbands Replacement Buckle Clasp Strap for iWatch Series SE 7 6 5 4 3 2 1 Women Men Black/Navy Blue [SEP] $5.58 [SEP] B09N3HMMPY [SEP] Luxury Slim Silicone Bands Compatible with Apple Watch Band 38mm 40mm 41mm 42mm 44mm 45mm for Women Men,Sport Thin Narrow Soft Strap Wristbands Circle Chain Design for iWatch Series 7 6 5 4 3 2 1 SE [SEP] $9.98 [SEP] B08SVQ8XQ9 [SEP] iTecFree Compatible for Apple Watch Band with Case 40mm White,Soft Silicone Sport Bands Wrist Strap with Protective Bumper for iWatch SE Series 7 6 5 4 Accessories (40mm/41mm,White) [SEP] $9.99 [SEP] B08NP6WYKN [SEP] Unnite Stretchy Solo Loop Bands Compatible for Apple Watch Band 38mm 40mm 41mm 42mm 44mm 45mm, Silicone Sports Band Elastic Replacement Wristband for iWatch Series SE/7/6/5/4/3/2/1 Women Men [SEP] $7.99 to $15.99 [SEP] B09BVM2YJN [SEP] [8 Pack] Sport Band Compatible with Apple Watch Bands 38mm 40mm 41mm 42mm 44mm 45mm Women Men,Soft Silicone Waterproof Replacement Strap Wristband for iWatch Series 7 SE 6 5 4 3 2 1 [SEP] $18.98 [SEP] B08X45TX4N [SEP] Lerobo 3 Pack Compatible for Apple Watch Bands 40mm 38mm 41mm 45mm 44mm 42mm,Soft Silicone Breathable Sport Band for Apple Watch SE iWatch Series 7 6,Series 5 4 3 2 1 Women Men,38mm/40mm/41mm-M/L [SEP] $13.59 [SEP] B08NPGLH8D [SEP] Relting Solo Loop Strap Compatible with Apple Watch iWatch Bands 45mm 44mm 42mm 41mm 40mm 38mm,No Clasps,Buckles, Or Overlapping Parts Soft Silicone Band for Apple Watch Series7/6/5/4/3/2/1/SE [SEP] $8.99"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the product that meets my criteria, which is B08SVQ8XQ9.\nAction: click[B08SVQ8XQ9]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for a silicone band compatible with my apple watch that's 40 mm and white, and price lower than 30.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] green [SEP] orange [SEP] purple [SEP] red [SEP] white [SEP] size [SEP] 40mm | 41mm [SEP] 44mm | 45mm [SEP] iTecFree Compatible for Apple Watch Band with Case 40mm White,Soft Silicone Sport Bands Wrist Strap with Protective Bumper for iWatch SE Series 7 6 5 4 Accessories (40mm/41mm,White) [SEP] Price: $9.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'white' color option to select the white color for the silicone band.\nAction: click[white]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for a silicone band compatible with my apple watch that's 40 mm and white, and price lower than 30.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] green [SEP] orange [SEP] purple [SEP] red [SEP] white [SEP] size [SEP] 40mm | 41mm [SEP] 44mm | 45mm [SEP] iTecFree Compatible for Apple Watch Band with Case 40mm White,Soft Silicone Sport Bands Wrist Strap with Protective Bumper for iWatch SE Series 7 6 5 4 Accessories (40mm/41mm,White) [SEP] Price: $9.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the '40mm | 41mm' size option to select the size I need for the silicone band.\nAction: click[40mm | 41mm]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for a silicone band compatible with my apple watch that's 40 mm and white, and price lower than 30.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] green [SEP] orange [SEP] purple [SEP] red [SEP] white [SEP] size [SEP] 40mm | 41mm [SEP] 44mm | 45mm [SEP] iTecFree Compatible for Apple Watch Band with Case 40mm White,Soft Silicone Sport Bands Wrist Strap with Protective Bumper for iWatch SE Series 7 6 5 4 Accessories (40mm/41mm,White) [SEP] Price: $9.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the silicone band that meets my criteria.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B08SVQ8XQ9 [SEP] options [SEP] {\"color\": \"white\", \"size\": \"40mm | 41mm\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.5 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

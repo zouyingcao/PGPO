@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 red wool using 1 red dye, 1 white wool\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 4 jungle planks using 1 jungle logs\ncraft 1 light gray bed using 3 light gray wool, 3 planks\ncraft 1 brown banner using 6 brown wool, 1 stick\ncraft 4 birch planks using 1 birch logs\ncraft 1 black wool using 1 black dye, 1 white wool\ncraft 4 oak planks using 1 oak logs\ncraft 3 oak fence using 2 stick, 4 oak planks\ncraft 1 brown dye using 1 cocoa beans\ncraft 4 acacia planks using 1 acacia logs\ncraft 1 stick using 2 bamboo\ncraft 1 grindstone using 2 stick, 1 stone slab, 2 planks\ncraft 1 brown wool using 1 brown dye, 1 white wool\ncraft 4 spruce planks using 1 spruce logs\ncraft 1 magenta bed using 3 magenta wool, 3 planks\ncraft 4 warped planks using 1 warped stems\ncraft 4 stick using 2 planks\ncraft 1 gray wool using 1 gray dye, 1 white wool\ncraft 8 brown concrete powder using 1 brown dye, 4 sand, 4 gravel\ncraft 4 crimson planks using 1 crimson stems\ncraft 1 white wool using 4 string\ncraft 8 brown stained glass pane using 8 glass pane, 1 brown dye\ncraft 8 cookie using 2 wheat, 1 cocoa beans\n\nGoal: craft brown banner."
+        },
+        {
+            "from": "gpt",
+            "value": "First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"1 brown banner\" not in had_objects: find_flag = get(\"1 brown banner\");\nStep 3. if find_flag == False: \"craft 1 brown banner using 6 brown wool, 1 stick\" = choose_crafting_commands(\"1 brown banner\"), needed_ingredients = [\"6 brown wool\", \"1 stick\"], get(\"6 brown wool\");\nStep 4. find_flag = get(\"1 stick\");\nStep 5. if find_flag == False: \"craft 1 stick using 2 bamboo\" = choose_crafting_commands(\"1 stick\"), sub_needed_ingredients = \"2 bamboo\", get(\"2 bamboo\");\nStep 6. craft 1 stick using 2 bamboo;\nStep 7. craft 1 brown banner using 6 brown wool, 1 stick\nI should check if I can get a brown banner directly from the environment or the inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no brown banner in my inventory. I should try to get it from the environment.\nAction: get 1 brown banner"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find brown banner"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get a brown banner directly, I need to craft it. From the crafting commands, I can use: craft 1 brown banner using 6 brown wool, 1 stick. Ingredients needed: 6 brown wool, 1 stick. Input assumption: I have the ingredients needed in my inventory. Let me verify this first.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I do not have the ingredients needed to craft a brown banner. I should get the ingredients: 6 brown wool, 1 stick.\nAction: get 6 brown wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find brown wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get brown wool directly from the environment. I need to craft it. From the crafting commands, I can craft brown wool using: craft 1 brown wool using 1 brown dye, 1 white wool. Ingredients needed: 1 brown dye, 1 white wool. Input assumption: I have the ingredients needed in my inventory. Let me verify this first.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I do not have the ingredients needed to craft brown wool. I should get the ingredients: 1 brown dye, 1 white wool.\nAction: get 1 brown dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find brown dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get brown dye directly from the environment. I need to craft it. From the crafting commands, I can craft brown dye using: craft 1 brown dye using 1 cocoa beans. Ingredient needed: 1 cocoa beans. Input assumption: I have the ingredient needed in my inventory. Let me verify this first.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I do not have the ingredient needed to craft brown dye. I should get the ingredient: 1 cocoa beans.\nAction: get 1 cocoa beans"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 cocoa beans"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the ingredient: 1 cocoa beans. I will use the crafting command: craft 1 brown dye using 1 cocoa beans\nAction: craft 1 brown dye using 1 cocoa beans"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:brown_dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted the brown dye. Now, I need to get the white wool to craft brown wool.\nAction: get 1 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find white wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get white wool directly from the environment. I need to craft it. From the crafting commands, I can craft white wool using: craft 1 white wool using 4 string. Ingredients needed: 4 string. Input assumption: I have the ingredients needed in my inventory. Let me verify this first.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [brown dye] (1)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I only have brown dye in my inventory. I do not have the ingredient needed to craft white wool, which is 4 string. I should get the string.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the ingredients: 4 string. I will use the crafting command: craft 1 white wool using 4 string\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted the white wool. Now, I can craft the brown wool by combining the brown dye and white wool.\nAction: craft 1 brown wool using 1 brown dye, 1 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:brown_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted the brown wool. Now, I need to get the stick to craft the brown banner.\nAction: get 1 stick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get the stick directly from the environment. I need to craft it. From the crafting commands, I can craft a stick using: craft 1 stick using 2 bamboo. Ingredients needed: 2 bamboo. Input assumption: I have the ingredients needed in my inventory. Let me verify this first.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [brown wool] (1)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I only have brown wool in my inventory. I do not have the ingredient needed to craft the stick, which is 2 bamboo. I should get the bamboo.\nAction: get 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 2 bamboo"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the ingredients: 2 bamboo. I will use the crafting command: craft 1 stick using 2 bamboo\nAction: craft 1 stick using 2 bamboo"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:stick"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have crafted the stick. Now, I have all the ingredients needed to craft the brown banner: 6 brown wool, 1 stick.\nAction: craft 1 brown banner using 6 brown wool, 1 stick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:brown_banner"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I thought I had enough of each ingredient to craft the brown banner, but I wasn't able to craft it. I think I should check my inventory again to confirm what I have.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [brown wool] (1) [stick] (1)"
+        }
+    ]
+}

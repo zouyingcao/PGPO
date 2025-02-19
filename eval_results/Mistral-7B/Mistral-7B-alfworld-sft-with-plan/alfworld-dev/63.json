@@ -1,0 +1,72 @@
+{
+    "meta": {
+        "steps": 6,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_clean_then_place_in_recep-Fork-None-CounterTop-23/trial_T20190908_233922_171295/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 1, a diningtable 1, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: put a clean fork in countertop."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. fork_name, location_name = locate_a_fork(candidate_locations);\nStep 2. take_a_fork(fork_name, location_name);\nStep 3. go_to_the_sink();\nStep 4. clean_fork(fork_name, sink_name);\nStep 5. go_to_the_countertop();\nStep 6. put_fork_on_countertop(fork_name).\nI need to find a clean fork to place on the countertop. The dining table is a common place where utensils are found, so I should check there first.\nAction: go to diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the diningtable 1, you see a bowl 2, a bowl 1, a butterknife 1, a fork 4, a fork 3, a fork 2, a fork 1, a knife 1, a pan 1, a pen 1, a pencil 2, a pencil 1, a peppershaker 1, a plate 1, a pot 1, a potato 1, a soapbottle 1, a spatula 1, a spoon 3, a spoon 2, a spoon 1, a tomato 1, and a winebottle 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are several items on the dining table, including multiple forks. I should take one of the forks to clean and then place it on the countertop.\nAction: take fork 2 from diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the fork 2 from the diningtable 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the fork, I need to clean it before placing it on the countertop. The sink is the appropriate place to wash utensils.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The sink is empty, which is good because I can use it without having to clear anything out of the way. I'll clean the fork now.\nAction: clean fork 2 with sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You clean the fork 2 using the sinkbasin 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The fork is clean, and now I need to place it on the countertop as instructed. I should head over to the countertop.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a bread 1, a knife 2, a lettuce 1, and a peppershaker 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've arrived at the countertop and there are a few items here, but there's space to place the clean fork. I'll put the fork down here.\nAction: put fork 2 in/on countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the fork 2 in/on the countertop 1."
+        }
+    ]
+}

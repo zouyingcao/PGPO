@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 0.5,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i'm looking for a lactose free and gluten free nutrition bar.  i want to get the one that is available in the 24 count, and price lower than 50.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"lactose free gluten free nutrition bar 24 count price < 50.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_size(\"24 count\");\nStep 4. buy().\nI think I should use the search bar to find the lactose-free and gluten-free nutrition bar in the 24 count with a price lower than 50.00 dollars.\nAction: search[lactose free gluten free nutrition bar 24 count price < 50.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for a lactose free and gluten free nutrition bar.  i want to get the one that is available in the 24 count, and price lower than 50.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B088GYH5FR [SEP] NuGo Dark Variety - Chocolate Pretzel 12 bars & Mint Chocolate Chip 12 bars, Vegan, 200 Calorie, Gluten Free, 24 count [SEP] $34.99 [SEP] B01M7MI7Y7 [SEP] Compleat Organic Blends Plant Based, 10.1 fl oz Pouch, 24 Count [SEP] $124.95 [SEP] B08XZJGBSN [SEP] Organic Gluten free Bars - Buckwheat Based Fiber Snack Bars - Gluten Free Food Granola Bars (Mix, 20 count) [SEP] $39.99 [SEP] B07B8VWX3M [SEP] Compleat Organic Blends Chicken-Garden, 10.1 fl oz Pouch, 24 Count [SEP] $149.97 [SEP] B01B7L0SDO [SEP] Orgain Organic Vegan Plant Based Nutritional Shake, Smooth Chocolate - Meal Replacement, 16g Protein, 21 Vitamins & Minerals, Non Dairy, Gluten Free, Lactose Free, 11 oz, 12 Count (Packaging May Vary) [SEP] $47.4 [SEP] B08FWG2NKD [SEP] Orgain Bundle - Chocolate Protein Powder and Chocolate Chip Cookie Dough Protein Bars (12 Count) - Made without Gluten, Non-GMO [SEP] $44.98 [SEP] B017Y60RIW [SEP] Stabilyze Nutrition Bars - Dark Chocolate Peanut Butter | Low Sugar Protein Bar w/ 21 Essential Vitamins & Minerals | Gluten Free, Non GMO | Keto Friendly Snacks | Individually Wrapped (12 Pack) [SEP] $28.59 [SEP] B09F6VV4LR [SEP] Earthshake Organic Kids Nutritional Protein Shake, Chocolate - Non GMO, Lactose Free, Soy Free, Gluten Free, Less than 1g of Sugar Per Serving, Amazing Taste | All Ages 2 & Up (Chocolate, 10 Count) [SEP] $35.99 [SEP] B09FYH7L1T [SEP] SlimFast Advanced Nutrition High Protein Meal Replacement Shake, Orange Cream Swirl, 20g of Ready to Drink Protein, 11 Fl. Oz Bottle, 4 Count [SEP] $100.0 [SEP] B00KQ0BN46 [SEP] PediaSure Grow & Gain with Immune Support, Kids Protein Shake, 27 Vitamins and Minerals, 7g Protein, Helps Kids Catch Up On Growth, Non-GMO, Gluten-Free, Banana 8-fl-oz Bottle, 24 Count [SEP] $100.0"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the product that meets my criteria, which is B088GYH5FR - NuGo Dark Variety Chocolate Pretzel 12 bars & Mint Chocolate Chip 12 bars, Vegan, 200 Calorie, Gluten Free, 24 count priced at $34.99.\nAction: click[B088GYH5FR]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for a lactose free and gluten free nutrition bar.  i want to get the one that is available in the 24 count, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] flavor name [SEP] 24 ct variety - mint and chocolate chip [SEP] 24 ct variety - pretzel & new! almond w | ... [SEP] 24 ct variety - pretzel and choco chip [SEP] 24 ct variety - pretzel and coconut [SEP] 24 ct variety - pretzel and mint chocola... [SEP] 24 ct variety - pretzel and peanut butte... [SEP] NuGo Dark Variety - Chocolate Pretzel 12 bars & Mint Chocolate Chip 12 bars, Vegan, 200 Calorie, Gluten Free, 24 count [SEP] Price: $34.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the '24 ct variety - pretzel & new! almond w | 24 count' option to select the 24 count option.\nAction: click[24 ct variety - pretzel & new! almond w | 24 count]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for a lactose free and gluten free nutrition bar.  i want to get the one that is available in the 24 count, and price lower than 50.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] flavor name [SEP] 24 ct variety - mint and chocolate chip [SEP] 24 ct variety - pretzel & new! almond w | ... [SEP] 24 ct variety - pretzel and choco chip [SEP] 24 ct variety - pretzel and coconut [SEP] 24 ct variety - pretzel and mint chocola... [SEP] 24 ct variety - pretzel and peanut butte... [SEP] NuGo Dark Variety - Chocolate Pretzel 12 bars & Mint Chocolate Chip 12 bars, Vegan, 200 Calorie, Gluten Free, 24 count [SEP] Price: $34.99 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the NuGo Dark Variety Chocolate Pretzel 12 bars & Mint Chocolate Chip 12 bars.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B088GYH5FR [SEP] options [SEP] {} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.5 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

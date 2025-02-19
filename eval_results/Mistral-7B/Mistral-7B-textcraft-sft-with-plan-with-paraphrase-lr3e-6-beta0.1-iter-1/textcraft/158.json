@@ -1,0 +1,144 @@
+{
+    "meta": {
+        "steps": 15,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 iron ingot using 9 iron nugget\ncraft 1 iron block using 9 iron ingot\ncraft 6 smooth stone slab using 3 smooth stone\ncraft 1 blast furnace using 3 smooth stone, 1 furnace, 5 iron ingot\ncraft 1 soul lantern using 1 soul torch, 8 iron nugget\ncraft 1 bucket using 3 iron ingot\ncraft 1 furnace using 8 stone crafting materials\ncraft 1 lantern using 1 torch, 8 iron nugget\ncraft 1 minecart using 5 iron ingot\ncraft 1 furnace minecart using 1 furnace, 1 minecart\ncraft 1 brewing stand using 1 blaze rod, 3 stone crafting materials\ncraft 1 smoker using 4 logs, 1 furnace\ncraft 1 piston using 1 redstone, 4 cobblestone, 3 planks, 1 iron ingot\n\nGoal: craft blast furnace."
+        },
+        {
+            "from": "gpt",
+            "value": "First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"3 smooth stone\" not in had_objects: get(\"3 smooth stone\");\nStep 3. if \"1 furnace\" not in had_objects: find_flag = get(\"1 furnace\");\nStep 4. if find_flag == False: \"craft 1 furnace using 8 stone crafting materials\" = choose_crafting_commands(\"1 furnace\"), needed_ingredients = \"8 stone crafting materials\", get(\"8 stone crafting materials\");\nStep 5. craft 1 furnace using 8 stone crafting materials;\nStep 6. if \"5 iron ingot\" not in had_objects: get(\"5 iron ingot\");\nStep 7. craft 1 blast furnace using 3 smooth stone, 1 furnace, 5 iron ingot\nI should check if I have the necessary ingredients to craft a blast furnace in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to get the ingredients to craft a blast furnace.\nAction: get 3 smooth stone"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 3 smooth stone"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the smooth stone, now I need to get the furnace.\nAction: get 1 furnace"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find furnace"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find a furnace, I need to craft one using the crafting command: craft 1 furnace using 8 stone crafting materials.\nAction: get 8 stone crafting materials"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 8 stone crafting materials"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the stone crafting materials, now I can craft the furnace.\nAction: craft 1 furnace using 8 stone crafting materials"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:furnace"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted the furnace. Now, I need to get the remaining ingredient which is 5 iron ingots.\nAction: get 5 iron ingot"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find iron ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find the iron ingots. I need to craft them using the crafting command: craft 1 iron ingot using 9 iron nugget.\nAction: get 45 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 45 iron nugget"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the iron nuggets, now I can craft the iron ingots.\nAction: craft 5 iron ingot using 45 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find a valid recipe for ItemTagWithCount(item_tag=ItemTag(tag=None, item_id='minecraft:iron_ingot'), count=5)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I attempted to craft 5 iron ingots at once and it wasn't successful. I'll have to craft them one at a time.\nAction: craft 1 iron ingot using 9 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:iron_ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted one iron ingot. I need to repeat this process 4 more times to have enough iron ingots for the blast furnace.\nAction: craft 1 iron ingot using 9 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:iron_ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted another iron ingot. I need to repeat this process 3 more times to have enough iron ingots for the blast furnace.\nAction: craft 1 iron ingot using 9 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:iron_ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted another iron ingot. I need to repeat this process 2 more times to have enough iron ingots for the blast furnace.\nAction: craft 1 iron ingot using 9 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:iron_ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted another iron ingot. I need to repeat this process 1 more time to have enough iron ingots for the blast furnace.\nAction: craft 1 blast furnace using 3 smooth stone, 1 furnace, 5 iron ingot"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:blast_furnace"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I miscalculated the iron ingots. I thought I had 5 but I actually only had 4. I need 5 iron ingots to craft a blast furnace. I must craft one more iron ingot.\nAction: craft 1 iron ingot using 9 iron nugget"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:iron_ingot"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted the required 5 iron ingots. Now I can proceed to craft the blast furnace.\nAction: craft 1 blast furnace using 3 smooth stone, 1 furnace, 5 iron ingot"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:blast_furnace"
+        }
+    ]
+}

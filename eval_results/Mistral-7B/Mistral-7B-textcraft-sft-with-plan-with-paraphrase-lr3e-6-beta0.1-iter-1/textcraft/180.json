@@ -1,0 +1,104 @@
+{
+    "meta": {
+        "steps": 10,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 4 crimson planks using 1 crimson stems\ncraft 4 dark oak planks using 1 dark oak logs\ncraft 4 acacia planks using 1 acacia logs\ncraft 4 jungle planks using 1 jungle logs\ncraft 4 birch planks using 1 birch logs\ncraft 1 mojang banner pattern using 1 paper, 1 enchanted golden apple\ncraft 1 wooden shovel using 2 stick, 1 planks\ncraft 1 smithing table using 4 planks, 2 iron ingot\ncraft 1 book using 3 paper, 1 leather\ncraft 1 sugar using 1 sugar cane\ncraft 1 cartography table using 4 planks, 2 paper\ncraft 3 paper using 3 sugar cane\ncraft 4 bowl using 3 planks\ncraft 1 lime bed using 3 lime wool, 3 planks\ncraft 4 stick using 2 planks\ncraft 1 flower banner pattern using 1 paper, 1 oxeye daisy\ncraft 1 skull banner pattern using 1 paper, 1 wither skeleton skull\ncraft 4 warped planks using 1 warped stems\ncraft 4 oak planks using 1 oak logs\ncraft 4 spruce planks using 1 spruce logs\n\nGoal: craft cartography table."
+        },
+        {
+            "from": "gpt",
+            "value": "First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"cartography table\" not in had_objects: find_flag = get(\"cartography table\");\nStep 3. if find_flag == False: \"craft 1 cartography table using 4 planks, 2 paper\" = choose_crafting_commands(\"cartography table\"), needed_ingredients = [\"4 planks\", \"2 paper\"], find_flag = get(\"4 planks\");\nStep 4. if find_flag == False: \"craft 4 oak planks using 1 oak logs\" = choose_crafting_commands(\"4 planks\"), needed_ingredients = \"1 oak logs\", get(\"1 oak logs\");\nStep 5. craft 4 oak planks using 1 oak logs;\nStep 6. if \"2 paper\" not in had_objects: find_flag = get(\"2 paper\");\nStep 7. if find_flag == False: \"craft 3 paper using 3 sugar cane\" = choose_crafting_commands(\"3 paper\"), needed_ingredients = \"3 sugar cane\", get(\"3 sugar cane\");\nStep 8. craft 3 paper using 3 sugar cane;\nStep 9. craft 1 cartography table using 4 oak planks, 2 paper\nI should check if I can get cartography table directly from the environment or the inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is no cartography table in my inventory. I should try to get it from the environment.\nAction: get cartography table"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not execute get cartography table"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot get cartography table directly, I need to craft it. From the crafting commands, I can use: craft 1 cartography table using 4 planks, 2 paper. Ingredients needed: 4 planks, 2 paper. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to get the ingredients: 4 planks and 2 paper first. Let's start with getting planks.\nAction: get 4 planks"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot find planks directly in the environment. I need to craft them. From the crafting commands, I can craft planks using logs. Let's start with getting oak logs.\nAction: get 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 oak logs"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got 1 oak logs from the environment. Now I can craft oak planks using the crafting command: craft 4 oak planks using 1 oak logs.\nAction: craft 4 oak planks using 1 oak logs"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 4 minecraft:oak_planks"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted oak planks. Now, I need to get paper to craft the cartography table. Let's start with getting paper.\nAction: get 2 paper"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find paper"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I cannot find paper directly in the environment. I need to craft it. From the crafting commands, I can craft 3 paper using 3 sugar cane. Let's start with getting sugar cane.\nAction: get 3 sugar cane"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 3 sugar cane"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got 3 sugar cane from the environment. Now I can craft paper using the crafting command: craft 3 paper using 3 sugar cane.\nAction: craft 3 paper using 3 sugar cane"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 3 minecraft:paper"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted paper. Now, I have all the ingredients needed to craft the cartography table: 4 oak planks and 2 paper.\nAction: craft 1 cartography table using 4 oak planks, 2 paper"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:cartography_table"
+        }
+    ]
+}

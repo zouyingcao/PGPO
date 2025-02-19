@@ -1,0 +1,64 @@
+{
+    "meta": {
+        "steps": 5,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 8 light gray terracotta using 8 terracotta, 1 light gray dye\ncraft 8 brown terracotta using 8 terracotta, 1 brown dye\ncraft 1 brown wool using 1 brown dye, 1 white wool\ncraft 8 orange terracotta using 8 terracotta, 1 orange dye\ncraft 8 brown carpet using 8 white carpet, 1 brown dye\ncraft 8 blue terracotta using 8 terracotta, 1 blue dye\ncraft 8 brown stained glass using 8 glass, 1 brown dye\ncraft 8 magenta terracotta using 8 terracotta, 1 magenta dye\ncraft 8 black terracotta using 8 terracotta, 1 black dye\ncraft 1 brown dye using 1 cocoa beans\ncraft 8 brown concrete powder using 1 brown dye, 4 sand, 4 gravel\ncraft 8 purple terracotta using 8 terracotta, 1 purple dye\n\nGoal: craft brown terracotta."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"8 terracotta\" not in had_objects: find_terracotta = get(\"8 terracotta\");\nStep 3. if find_terracotta == False: \"craft 8 terracotta using 24 terracotta\" = choose_crafting_commands(\"8 terracotta\"), needed_ingredients = \"24 terracotta\";\nStep 4. Similar to Step 1-3, get_all_needed_ingredients(needed_ingredients);\nStep 5. craft 8 terracotta using 24 terracotta;\nStep 6. if \"1 brown dye\" not in had_objects: find_brown_dye = get(\"1 brown dye\");\nStep 7. if find_brown_dye == False: \"craft 1 brown dye using 1 cocoa beans\" = choose_crafting_commands(\"1 brown dye\"), needed_ingredients = \"1 cocoa beans\";\nStep 8. Similar to Step 1-3, get_all_needed_ingredients(needed_ingredients);\nStep 9. craft 1 brown dye using 1 cocoa beans;\nStep 10. craft 8 brown terracotta using 8 terracotta, 1 brown dye\nTo craft brown terracotta, I need 8 terracotta and 1 brown dye. I should first check if these items are in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: My inventory is empty. I need to gather the ingredients to craft brown terracotta. First, I need to get 8 terracotta.\nAction: get 8 terracotta"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 8 terracotta"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the 8 terracotta, I also need 1 brown dye. To craft the brown dye, I need 1 cocoa beans.\nAction: get 1 cocoa beans"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 cocoa beans"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the cocoa beans, I can craft the brown dye.\nAction: craft 1 brown dye using 1 cocoa beans"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:brown_dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the 8 terracotta and 1 brown dye, I can craft the brown terracotta.\nAction: craft 8 brown terracotta using 8 terracotta, 1 brown dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 8 minecraft:brown_terracotta"
+        }
+    ]
+}

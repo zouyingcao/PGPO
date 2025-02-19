@@ -1,0 +1,72 @@
+{
+    "meta": {
+        "steps": 6,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 16 glass pane using 6 glass\ncraft 8 lime stained glass using 8 glass, 1 lime dye\ncraft 3 light gray dye using 1 black dye, 2 white dye\ncraft 1 writable book using 1 book, 1 ink sac, 1 feather\ncraft 8 black stained glass using 8 glass, 1 black dye\ncraft 1 black dye using 1 ink sac\ncraft 1 beacon using 1 nether star, 5 glass, 3 obsidian\ncraft 2 gray dye using 1 black dye, 1 white dye\ncraft 8 magenta stained glass using 8 glass, 1 magenta dye\ncraft 8 light gray stained glass using 8 glass, 1 light gray dye\ncraft 1 black dye using 1 wither rose\ncraft 8 orange stained glass using 8 glass, 1 orange dye\ncraft 8 black stained glass pane using 8 glass pane, 1 black dye\n\nGoal: craft black stained glass."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"black dye\" not in had_objects: find_flag_black_dye = get(\"black dye\");\nStep 3. if find_flag_black_dye == False: \"craft 1 black dye using 1 ink sac\" = choose_crafting_commands(\"black dye\"), needed_ingredients = \"1 ink sac\", get(needed_ingredients);\nStep 4. craft 1 black dye using 1 ink sac;\nStep 5. if \"8 glass\" not in had_objects: get(\"8 glass\");\nStep 6. craft 8 black stained glass using 8 glass, 1 black dye\nTo craft black stained glass, I need black dye and glass. I don't know if I have these ingredients in my inventory, so I should check.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have any ingredients in my inventory. I need black dye and glass to craft black stained glass. Let's try to get these items.\nAction: get 1 black dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find black dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I could not find black dye in the environment. I need to craft it. From the crafting commands, I can make black dye using an ink sac or a wither rose. Let's try to get one of those.\nAction: get 1 ink sac"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 ink sac"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got an ink sac. Now I can use it to craft black dye.\nAction: craft 1 black dye using 1 ink sac"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:black_dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have successfully crafted black dye. Now, I need to get glass to craft black stained glass.\nAction: get 8 glass"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 8 glass"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have got the necessary ingredients: black dye and glass. Now I can use them to craft black stained glass.\nAction: craft 8 black stained glass using 8 glass, 1 black dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 8 minecraft:black_stained_glass"
+        }
+    ]
+}

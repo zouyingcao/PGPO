@@ -1,0 +1,72 @@
+{
+    "meta": {
+        "steps": 6,
+        "reward": 0.6666666666666666,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i'm looking for tablet pc with 32gb storage, android 9.0, dual sim slots and dual camera, and price lower than 240.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"tablet pc 32gb storage android 9.0 dual sim slots dual camera price < 240.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_style(\"tablet\");\nStep 4. select_size(\"32gb\");\nStep 5. select_version(\"android 9.0\");\nStep 6. buy().\nI think I should use the search bar to find a tablet PC that meets the criteria.\nAction: search[tablet PC 32GB storage Android 9.0 dual sim slots dual camera]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for tablet pc with 32gb storage, android 9.0, dual sim slots and dual camera, and price lower than 240.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B09BZVMMVW [SEP] EBTOOLS 10.1 inch Android Tablet PC, Octa Core 2G RAM + 32GB ROM, Android 9.0 4G USB C Rose Gold LTE Tablet, Dual SIM Slot Dual Camera(US-Plug) [SEP] $168.79 [SEP] B08TB7HMMS [SEP] ELLENS Tablet PC with 32GB Storage,10 inch Android 9.0,Dual SIM Card Slots and Dual Camera,WiFi, Bluetooth, GPS (Black, Silver) [SEP] $201.42 [SEP] B09K36MPML [SEP] ciciglow Tablet PC, 10.1\" Full HD Tablet, Android 9.0, 3G Phone Tablets with 32GB Storage Dual Memory Card 5MP Camera, Spare Tablet for Work(Black)(US Plug) [SEP] $168.79 [SEP] B09K3M15BM [SEP] ciciglow Tablet PC, 10.1\" Full HD Tablet, Android 9.0, 3G Phone Tablets with 32GB Storage Dual Memory Card 5MP Camera, Spare Tablet for Work(Silver)(US Plug) [SEP] $168.79 [SEP] B09BVJ5K2T [SEP] 10.1\" Tablet PC 4G LTE Tablet Octa\u2011Core CPU 2G + 32GB Memory Dual SIM Dual Standby Portable Tablet for Study Play Work, Silver Color, 100\u2011240V(us plug) [SEP] $168.79 [SEP] B09BVJ9BDV [SEP] 10.1\" Tablet PC 4G LTE Tablet with 1280x800 Resolution 10.1 inch IPS LCD Screen, Octa\u2011Core CPU 2G RAM 32GB ROM Dual SIM Dual Standby Portable Tablet for Study Play Work, Black(us plug) [SEP] $168.79 [SEP] B09BZXB41L [SEP] EBTOOLS 10.1'' Inch Android Tablet PC, Android 9.0 Tablet Octa\u2011Core Pad with 2GB RAM 32GB ROM, Dual Camera, WiFi, Bluetooth, 1280x800 HD IPS Screen(US-Plug) [SEP] $168.79 [SEP] B08T8ZZ2K6 [SEP] ELLENS 10.1 Inch Tablet Android 9.0, 32GB ROM 2GB RAM, 3G Call Phone Tablet PC, Dual Camera Dual SIM Card Slots Unlocked,Bluetooth, GPS, WiFi [SEP] $195.22 [SEP] B09K3PRT7F [SEP] ciciglow Tablet PC, 10.1\" Full HD Tablet, Android 9.0, 3G Phone Tablets with 32GB Storage Dual Memory Card 5MP Camera, Spare Tablet for Work(Rose Gold)(US Plug) [SEP] $168.79 [SEP] B07WHHXN4B [SEP] Lectrus 10 inch Tablet Android 9.0 Pie, Quad-Core, Android Tablets with Sim Card Slot/Micro SD Slot, Dual Cameras & Speakers, 2GB RAM, 32GB Storage, IPS Full Display, 3G/WiFi, Bluetooth, GPS, FM [SEP] $105.77"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the ELLENS Tablet PC with 32GB Storage,10 inch Android 9.0,Dual SIM Card Slots and Dual Camera,WiFi, Bluetooth, GPS (Black, Silver) as it meets the criteria.\nAction: click[B08TB7HMMS]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for tablet pc with 32gb storage, android 9.0, dual sim slots and dual camera, and price lower than 240.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] silver [SEP] ELLENS Tablet PC with 32GB Storage,10 inch Android 9.0,Dual SIM Card Slots and Dual Camera,WiFi, Bluetooth, GPS (Black, Silver) [SEP] Price: $201.42 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'tablet' option under style to convert the ELLENS Tablet PC from a phone to a tablet style.\nAction: click[tablet]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for tablet pc with 32gb storage, android 9.0, dual sim slots and dual camera, and price lower than 240.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] silver [SEP] ELLENS Tablet PC with 32GB Storage,10 inch Android 9.0,Dual SIM Card Slots and Dual Camera,WiFi, Bluetooth, GPS (Black, Silver) [SEP] Price: $201.42 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the '32gb' option under size to ensure the ELLENS Tablet PC has the required storage.\nAction: click[32gb]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for tablet pc with 32gb storage, android 9.0, dual sim slots and dual camera, and price lower than 240.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] silver [SEP] ELLENS Tablet PC with 32GB Storage,10 inch Android 9.0,Dual SIM Card Slots and Dual Camera,WiFi, Bluetooth, GPS (Black, Silver) [SEP] Price: $201.42 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'android 9.0' option under version to confirm the ELLENS Tablet PC is running the latest version of Android.\nAction: click[android 9.0]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i'm looking for tablet pc with 32gb storage, android 9.0, dual sim slots and dual camera, and price lower than 240.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] color [SEP] black [SEP] silver [SEP] ELLENS Tablet PC with 32GB Storage,10 inch Android 9.0,Dual SIM Card Slots and Dual Camera,WiFi, Bluetooth, GPS (Black, Silver) [SEP] Price: $201.42 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I think I should click on the 'Buy Now' button to purchase the ELLENS Tablet PC.\nAction: click[Buy Now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B08TB7HMMS [SEP] options [SEP] {} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 0.6666666666666666 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

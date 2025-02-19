@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": false,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": "/home/caozouying.czy/IPR/eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_clean_then_place_in_recep-Ladle-None-DiningTable-16/trial_T20190909_183724_205399/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a cabinet 27, a cabinet 26, a cabinet 25, a cabinet 24, a cabinet 23, a cabinet 22, a cabinet 21, a cabinet 20, a cabinet 19, a cabinet 18, a cabinet 17, a cabinet 16, a cabinet 15, a cabinet 14, a cabinet 13, a cabinet 12, a cabinet 11, a cabinet 10, a cabinet 9, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeemachine 1, a countertop 2, a countertop 1, a diningtable 1, a drawer 12, a drawer 11, a drawer 10, a drawer 9, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a fridge 1, a garbagecan 1, a microwave 1, a sinkbasin 1, a stoveburner 4, a stoveburner 3, a stoveburner 2, a stoveburner 1, and a toaster 1.\nYour task is to: put a clean ladle in diningtable."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. locate_a_ladle(candidate_locations);\nStep 2. take_ladle(ladle_name, location_name);\nStep 3. go_to_sink();\nStep 4. clean_ladle(ladle_name, sink);\nStep 5. go_to_dining_table();\nStep 6. put_ladle_on_dining_table(ladle_name).\nI need to locate a ladle to place on the dining table. The first step is to find where the ladles are kept, which is likely in a drawer.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see a dishsponge 2, a egg 3, a fork 2, and a mug 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I see various items on the sink basin, but no ladle. I should check the drawers for the ladle.\nAction: go to drawer 12"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 12 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is closed. I need to open it to see if the ladle is inside.\nAction: open drawer 12"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 12. The drawer 12 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The drawer is empty. I should close it and check the next drawer for the ladle.\nAction: close drawer 12"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 12."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Moving on to the next drawer to continue searching for the ladle.\nAction: go to drawer 11"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 11 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: This drawer is also closed. I'll open it to check for the ladle.\nAction: open drawer 11"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 11. The drawer 11 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Another empty drawer. I'll close it and keep looking in the next one.\nAction: close drawer 11"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 11."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Next is drawer 10, which could potentially have the ladle.\nAction: go to drawer 10"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 10 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Let's open this drawer and see if the ladle is inside.\nAction: open drawer 10"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 10. The drawer 10 is open. In it, you see a butterknife 3, and a peppershaker 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: This drawer doesn't contain a ladle, just a butterknife and a peppershaker. I'll close it and continue searching.\nAction: close drawer 10"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 10."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Moving on to drawer 9, hopefully, the ladle is in there.\nAction: go to drawer 9"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 9 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Let's open drawer 9 and check for the ladle.\nAction: open drawer 9"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 9. The drawer 9 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Another empty drawer. I'll close it and keep looking in the next one.\nAction: close drawer 9"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 9."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 8 is next. Maybe the ladle is in there.\nAction: go to drawer 8"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 8 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Let's open drawer 8 and see if the ladle is inside.\nAction: open drawer 8"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 8. The drawer 8 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: This drawer is also empty. I'll close it and move on.\nAction: close drawer 8"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 8."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Drawer 7 might have the ladle. Let's check it out.\nAction: go to drawer 7"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 7 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need to open drawer 7 to search for the ladle.\nAction: open drawer 7"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the drawer 7. The drawer 7 is open. In it, you see a knife 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: No ladle here, just a knife. I'll close this drawer and continue the search.\nAction: close drawer 7"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You close the drawer 7."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Moving on to drawer 6, hopefully, the ladle is in there.\nAction: go to drawer 6"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The drawer 6 is closed."
+        }
+    ]
+}

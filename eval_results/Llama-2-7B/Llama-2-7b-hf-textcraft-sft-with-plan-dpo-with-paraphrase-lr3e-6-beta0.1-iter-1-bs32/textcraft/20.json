@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": 0,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 1 blue wool using 1 blue dye, 1 white wool\ncraft 6 scaffolding using 1 string, 6 bamboo\ncraft 4 stick using 2 planks\ncraft 4 oak planks using 1 oak logs\ncraft 2 cyan dye using 1 blue dye, 1 green dye\ncraft 1 white wool using 4 string\ncraft 1 grindstone using 2 stick, 1 stone slab, 2 planks\ncraft 4 crimson planks using 1 crimson stems\ncraft 4 jungle planks using 1 jungle logs\ncraft 4 spruce planks using 1 spruce logs\ncraft 1 blue dye using 1 cornflower\ncraft 4 warped planks using 1 warped stems\ncraft 4 birch planks using 1 birch logs\ncraft 3 blue carpet using 2 blue wool\ncraft 1 crafting table using 4 planks\ncraft 1 stick using 2 bamboo\ncraft 3 white carpet using 2 white wool\ncraft 1 blue banner using 6 blue wool, 1 stick\ncraft 6 activator rail using 1 redstone torch, 2 stick, 6 iron ingot\ncraft 1 blue dye using 1 lapis lazuli\ncraft 1 dark oak fence gate using 4 stick, 2 dark oak planks\ncraft 1 loom using 2 planks, 2 string\ncraft 1 blue bed using 1 white bed, 1 blue dye\ncraft 4 acacia planks using 1 acacia logs\ncraft 4 dark oak planks using 1 dark oak logs\n\nGoal: craft blue banner."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"6 blue wool\" not in had_objects: find_flag = get(\"6 blue wool\");\nStep 3. if find_flag == False: \"craft 1 blue wool using 1 blue dye, 1 white wool\" = choose_crafting_commands(\"6 blue wool\"), needed_ingredients = [\"6 blue dye\", \"6 white wool\"], find_flag = get(\"6 blue dye\");\nStep 4. if find_flag == False: \"craft 1 blue dye using 1 cornflower\" = choose_crafting_commands(\"6 blue dye\"), needed_ingredients = \"6 cornflower\", get(\"6 cornflower\");\nStep 5. for i in range(6): craft 1 blue dye using 1 cornflower;\nStep 6. find_flag = get(\"6 white wool\");\nStep 7. if find_flag == False: \"craft 1 white wool using 4 string\" = choose_crafting_commands(\"6 white wool\"), needed_ingredients = \"24 string\", get(\"24 string\");\nStep 8. for i in range(6): craft 1 white wool using 4 string;\nStep 9. craft 3 blue carpet using 2 blue wool;\nStep 10. craft 1 blue banner using 6 blue wool, 1 stick\nTo craft a blue banner, I need 6 blue wool and 1 stick according to the crafting commands. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Since I don't have anything in my inventory, I need to gather the ingredients to craft a blue banner. The first ingredient I need is 6 blue wool. I should check if I can get blue wool directly from the environment or the inventory of another player.\nAction: get 6 blue wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find blue wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Since I couldn't find blue wool in the environment or another player's inventory, I need to craft it. According to the crafting commands, I can craft 1 blue wool using 1 blue dye and 1 white wool. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Since I don't have anything in my inventory, I need to gather the ingredients to craft blue wool. The first ingredient I need is 1 blue dye. I should check if I can get blue dye directly from the environment or the inventory of another player.\nAction: get 1 blue dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find blue dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Since I couldn't find blue dye in the environment or another player's inventory, I need to craft it. According to the crafting commands, I can craft 1 blue dye using 1 cornflower or 1 lapis lazuli. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Since I don't have anything in my inventory, I need to gather the ingredients to craft blue dye. The first ingredient I need is 1 cornflower. I should check if I can get cornflower directly from the environment.\nAction: get 1 cornflower"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 cornflower"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have cornflower, I can craft blue dye. After that, I will need white wool to craft blue wool. I should check if I can get white wool directly from the environment or the inventory of another player.\nAction: get 1 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find white wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Since I couldn't find white wool in the environment or another player's inventory, I need to craft it. According to the crafting commands, I can craft 1 white wool using 4 string. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [cornflower] (1)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Since I only have cornflower in my inventory, I need to gather the ingredients to craft white wool. The first ingredient I need is 4 string. I should check if I can get string directly from the environment.\nAction: get 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 4 string"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have string, I can craft white wool. After that, I will have the ingredients needed to craft blue wool.\nAction: craft 1 white wool using 4 string"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:white_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have white wool and blue dye, I can craft blue wool. After that, I will have all the ingredients needed to craft a blue banner.\nAction: craft 1 blue wool using 1 white wool, 1 blue dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:blue_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: It seems like I don't have enough white wool to craft blue wool. I need 1 white wool and 1 blue dye, but I only have 1 white wool. I should try to get more white wool from the environment or the inventory of another player.\nAction: get 3 white wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find white wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Since I couldn't find more white wool in the environment or another player's inventory, I need to craft it. According to the crafting commands, I can craft 1 white wool using 4 string. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [cornflower] (1) [white wool] (1)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I already have white wool in my inventory, so I don't need to craft it again. However, I still need blue dye to craft blue wool. I should check if I can get blue dye directly from the environment or the inventory of another player.\nAction: get 1 blue dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find blue dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Since I couldn't find blue dye in the environment or another player's inventory, I need to craft it. According to the crafting commands, I can craft 1 blue dye using 1 cornflower or 1 lapis lazuli. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [cornflower] (1) [white wool] (1)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I have cornflower in my inventory, so I can use it to craft blue dye. After that, I will have the ingredients needed to craft blue wool.\nAction: craft 1 blue dye using 1 cornflower"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:blue_dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have blue dye and white wool, I can craft blue wool. After that, I will have all the ingredients needed to craft a blue banner.\nAction: craft 1 blue wool using 1 white wool, 1 blue dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:blue_wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have blue wool and a blue banner, I can craft a blue banner.\nAction: craft 1 blue banner using 6 blue wool, 1 stick"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find enough items to craft minecraft:blue_banner"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: It seems like I don't have enough blue wool to craft a blue banner. I need 6 blue wool and 1 stick, but I only have 1 blue wool. I should try to get more blue wool from the environment or the inventory of another player.\nAction: get 5 blue wool"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find blue wool"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Since I couldn't find more blue wool in the environment or another player's inventory, I need to craft it. According to the crafting commands, I can craft 4 blue wool using 1 blue dye and 1 white wool. I should check if I have these ingredients in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [blue wool] (1)"
+        }
+    ]
+}

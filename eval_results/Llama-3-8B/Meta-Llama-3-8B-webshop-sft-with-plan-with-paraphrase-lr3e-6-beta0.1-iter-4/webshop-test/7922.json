@@ -1,0 +1,56 @@
+{
+    "meta": {
+        "steps": 4,
+        "reward": 1.0,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are web shopping.\nI will give you instructions about what to do.\nYou have to follow the instructions.\nEvery round I will give you an observation and a list of available actions, you have to respond an action based on the state and instruction.\nYou can use search action if search is available.\nYou can click one of the buttons in clickables.\nAn action should be of the following structure:\nsearch[keywords]\nclick[value]\nIf the action is not valid, perform nothing.\nKeywords in search are up to you, but the value in click must be a value in the list of available actions.\nRemember that your keywords in search should be carefully designed.\nYour response should use the following format:\n\nThought: I think ...\nAction: click[something]"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "WebShop [SEP] Instruction: [SEP] i want a facial serum with antioxidants, oil free, clinically proven, in a 1.7 ounce just one pack, and price lower than 40.00 dollars [SEP] Search"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. selected_item = search_item(\"facial serum with antioxidants, oil free, clinically proven, 1.7 ounce just one pack, price lower than 40.00 dollars\");\nStep 2. click(selected_item);\nStep 3. select_size(\"1.7 ounce (pack of 1)\");\nStep 4. buy().\nI need to find a facial serum that meets specific criteria\nAction: search[antioxidant facial serum oil free clinically proven 1.7 ounce just one pack price < 40.00]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i want a facial serum with antioxidants, oil free, clinically proven, in a 1.7 ounce just one pack, and price lower than 40.00 dollars [SEP] Back to Search [SEP] Page 1 (Total results: 50) [SEP] Next > [SEP] B08936CZHQ [SEP] Neutrogena Hydro Boost Purified Hyaluronic Acid Pressed Night Serum, Facial Serum with Antioxidants & Hyaluronic Acid for Dry Skin, Oil-Free & Non-Comedogenic, 1.7 oz [SEP] $15.3 [SEP] B0067H6KW2 [SEP] Neutrogena Rapid Wrinkle Repair Retinol Anti-Wrinkle Face Serum with Hyaluronic Acid, Daily Anti-Aging Facial Serum for Fine Lines & Wrinkles, Mineral Oil- & Dye-Free, 1 fl. oz [SEP] $13.99 [SEP] B089394PCY [SEP] Neutrogena Rapid Tone Repair 20% Vitamin C Brightening Serum Capsules, Antioxidant Face Serum to Brighten Look of Dark Spots & Even Skin Tone, Oil-Free, 30 Serum Capsules [SEP] $15.89 [SEP] B097NNR535 [SEP] Neutrogena Hydro Boost Hyaluronic Acid Facial Moisturizer with Broad Spectrum SPF 50 Sunscreen, Daily Water Gel Face Moisturizer to Hydrate & Soothe Dry Skin, Fragrance-Free, 1.7 fl. Oz [SEP] $13.99 [SEP] B016OIV7IU [SEP] Aveeno Absolutely Ageless Anti-Wrinkle Facial Moisturizer with Broad Spectrum SPF 30 Sunscreen, Antioxidant-Rich Blackberry Complex, Non-Comedogenic & Oil-Free Face Moisturizer, 1.7 fl. oz [SEP] $22.0 [SEP] B07GPZYZBC [SEP] Neutrogena Rapid Wrinkle Repair Retinol Anti-Wrinkle Oil, Lightweight Anti-Wrinkle Face Serum to Fight Dark Spots, Deep Wrinkle Treatment, 0.3% Concentrated Retinol, 1.0 fl. oz [SEP] $17.95 [SEP] B07RV2LQV1 [SEP] Rapid Wrinkle Repair Face Oil Retinol Serum, 1.0 fl. oz (2 Pack) [SEP] $100.0 [SEP] B00LOZBR2A [SEP] Balance of Nature Antioxidant Face Serum Anti Aging, .35 Ounce Skin Firming Serum, Reduces Pore Holes, Wrinkles, Eye Puffiness, Dark Circles, Facial, Neck, Organic, All Natural Gold Basket Dropper Cap [SEP] $15.88 [SEP] B01J74MZVG [SEP] iRestore Anti-Hair Loss Serum w/Redensyl and Vitamin E & B \u2013 Advanced Thickening Formula for Hair Loss, Balding & Thinning Hair \u2013 Promotes Regrowth for All Hair Types, Men and Women (2oz / 60ml) [SEP] $29.99 [SEP] B00WQJ8BK4 [SEP] Nourish Beaute Hair Regrowth Treatment Serum for Hair Loss, Volume and Thickening with Caffeine for Men and Women, 1.7 Oz [SEP] $22.85"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The search results are in, and there are several options. The Neutrogena Hydro Boost Purified Hyaluronic Acid Pressed Night Serum seems to match all the criteria, including the price. I'll click on it for more details.\nAction: click[b08936czhq]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i want a facial serum with antioxidants, oil free, clinically proven, in a 1.7 ounce just one pack, and price lower than 40.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] style [SEP] eye cream [SEP] large size water gel [SEP] new gift set [SEP] night pressed serum [SEP] water gel [SEP] water gel with trial cleanser [SEP] size [SEP] 0.5 fl oz (pack of 1) [SEP] 3.6 fl oz [SEP] 3 piece set [SEP] 7 count [SEP] 1.7 ounce (pack of 1) [SEP] 1.7 & 2.0 fl oz [SEP] Neutrogena Hydro Boost Purified Hyaluronic Acid Pressed Night Serum, Facial Serum with Antioxidants & Hyaluronic Acid for Dry Skin, Oil-Free & Non-Comedogenic, 1.7 oz [SEP] Price: $15.3 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I'm looking at the product details, I need to confirm that the size is correct. The option for 1.7 ounce (pack of 1) matches the size requirement perfectly. I'll select this size.\nAction: click[1.7 ounce (pack of 1)]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nInstruction: [SEP] i want a facial serum with antioxidants, oil free, clinically proven, in a 1.7 ounce just one pack, and price lower than 40.00 dollars [SEP] Back to Search [SEP] < Prev [SEP] style [SEP] eye cream [SEP] large size water gel [SEP] new gift set [SEP] night pressed serum [SEP] water gel [SEP] water gel with trial cleanser [SEP] size [SEP] 0.5 fl oz (pack of 1) [SEP] 3.6 fl oz [SEP] 3 piece set [SEP] 7 count [SEP] 1.7 ounce (pack of 1) [SEP] 1.7 & 2.0 fl oz [SEP] Neutrogena Hydro Boost Purified Hyaluronic Acid Pressed Night Serum, Facial Serum with Antioxidants & Hyaluronic Acid for Dry Skin, Oil-Free & Non-Comedogenic, 1.7 oz [SEP] Price: $15.3 [SEP] Rating: N.A. [SEP] Description [SEP] Features [SEP] Reviews [SEP] Buy Now"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Everything checks out \u2013 it's the right style, size, and it's within the price range. I'm ready to make the purchase, so I'll click on 'Buy Now'.\nAction: click[buy now]"
+        },
+        {
+            "from": "human",
+            "value": "Observation:\nThank you for shopping with us! [SEP] Your code: [SEP] None [SEP] (Paste it in your MTurk interface.) [SEP] Purchased [SEP] asin [SEP] B08936CZHQ [SEP] options [SEP] {\"size\": \"1.7 ounce (pack of 1)\"} [SEP] attrs [SEP] None [SEP] category [SEP] None [SEP] query [SEP] None [SEP] product category [SEP] None [SEP] Target [SEP] asin [SEP] options [SEP] attrs [SEP] price upper [SEP] instuction text [SEP] category [SEP] product category [SEP] query [SEP] Goal [SEP] None [SEP] Reward [SEP] Your score (min 0.0, max 1.0) [SEP] 1.0 [SEP] Reward Details [SEP] None"
+        }
+    ]
+}

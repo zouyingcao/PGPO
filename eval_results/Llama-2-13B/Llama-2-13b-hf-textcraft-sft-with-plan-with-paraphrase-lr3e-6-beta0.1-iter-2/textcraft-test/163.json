@@ -1,0 +1,80 @@
+{
+    "meta": {
+        "steps": 7,
+        "reward": 1,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "done",
+        "error": null
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "You are given few useful crafting recipes to craft items in Minecraft. \nCrafting commands are of the format \"craft [target object] using [input ingredients]\".\n\nEvery round I will give you an observation, you have to respond an action based on the state and instruction. \nYou can \"get\" an object (ingredients) from the inventory or the environment, look-up the game inventory by \"inventory\", or \"craft\" (target) using any of the crafting commands. \nYou can use ONLY these crafting commands provided, do not use your own crafting commands. \nHowever, if the crafting command uses a generic ingredient like \"planks\", you can use special types of the same ingredient e.g. \"dark oak planks\" in the command instead.\n\nYour response should use the following format:\n\nThought: ... \nAction: ..."
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "Crafting commands:\ncraft 2 light blue dye using 1 blue dye, 1 white dye\ncraft 8 magenta terracotta using 8 terracotta, 1 magenta dye\ncraft 2 purple dye using 1 blue dye, 1 red dye\ncraft 8 yellow terracotta using 8 terracotta, 1 yellow dye\ncraft 8 brown terracotta using 8 terracotta, 1 brown dye\ncraft 1 blue dye using 1 lapis lazuli\ncraft 8 blue stained glass pane using 8 glass pane, 1 blue dye\ncraft 8 blue terracotta using 8 terracotta, 1 blue dye\ncraft 8 pink terracotta using 8 terracotta, 1 pink dye\ncraft 1 blue dye using 1 cornflower\ncraft 8 blue carpet using 8 white carpet, 1 blue dye\ncraft 1 blue bed using 1 white bed, 1 blue dye\ncraft 8 red terracotta using 8 terracotta, 1 red dye\n\nGoal: craft blue terracotta."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. had_objects = inventory();\nStep 2. if \"8 terracotta\" not in had_objects: find_terracotta = get(\"8 terracotta\");\nStep 3. if \"1 blue dye\" not in had_objects:\n    Step 3.1. if \"1 lapis lazuli\" not in had_objects:\n        Step 3.2. find_lapis = get(\"1 lapis lazuli\");\n    Step 3.3. if find_lapis == False:\n        Step 3.4. find_cornflower = get(\"1 cornflower\");\n        Step 3.5. if find_cornflower == True:\n            Step 3.6. craft 1 blue dye using 1 cornflower;\n    Step 3.7. craft 8 blue terracotta using 8 terracotta, 1 blue dye\nI need to craft blue terracotta. From the crafting commands, I need 8 terracotta and 1 blue dye. I should first check if I have these in my inventory.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: You are not carrying anything."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have the necessary materials in my inventory. I'll have to gather the materials. I need to start by getting the terracotta.\nAction: get 8 terracotta"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 8 terracotta"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the terracotta, I need to get the blue dye.\nAction: get 1 blue dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Could not find blue dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I couldn't find the blue dye in the environment. I'll have to craft it. From the crafting commands, I can use: craft 1 blue dye using 1 lapis lazuli or craft 1 blue dye using 1 cornflower. I'll check my inventory for any of these ingredients.\nAction: inventory"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Inventory: [terracotta] (8)"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I don't have the necessary ingredients to craft blue dye in my inventory. I'll have to gather the ingredients. I'll start by trying to find lapis lazuli to craft the blue dye.\nAction: get 1 lapis lazuli"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Got 1 lapis lazuli"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have obtained lapis lazuli, I can use it to craft the blue dye.\nAction: craft 1 blue dye using 1 lapis lazuli"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 1 minecraft:blue_dye"
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the blue dye and the terracotta, I can craft the blue terracotta.\nAction: craft 8 blue terracotta using 8 terracotta, 1 blue dye"
+        },
+        {
+            "from": "human",
+            "value": "Observation: Crafted 8 minecraft:blue_terracotta"
+        }
+    ]
+}

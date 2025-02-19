@@ -1,0 +1,96 @@
+{
+    "meta": {
+        "steps": 9,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_two_obj_and_place-TissueBox-None-Toilet-426/trial_T20190909_044602_338962/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a bathtubbasin 1, a countertop 1, a drawer 8, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a handtowelholder 1, a sinkbasin 1, a toilet 1, a toiletpaperhanger 1, a towelholder 2, and a towelholder 1.\nYour task is to: find two tissuebox and put them in toilet."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. tissuebox_name_1, location_name_1 = locate_a_tissuebox(candidate_locations);\nStep 2. take_tissuebox(tissuebox_name_1, location_name_1);\nStep 3. go_to_the_toilet();\nStep 4. put_tissuebox_on_toilet(tissuebox_name_1);\nStep 5. tissuebox_name_2, location_name_2 = locate_a_tissuebox(candidate_locations);\nStep 6. take_tissuebox(tissuebox_name_2, location_name_2);\nStep 7. go_to_the_toilet();\nStep 8. put_tissuebox_on_toilet(tissuebox_name_2).\nI need to find two tissue boxes to complete the task. The first place to check is the countertop 1, as it is a common place to keep such items.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a soapbottle 1, a spraybottle 2, a spraybottle 1, a tissuebox 3, a tissuebox 2, and a tissuebox 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are three tissue boxes here. I will take tissuebox 1 as it is the first one I noticed.\nAction: take tissuebox 1 from countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the tissuebox 1 from the countertop 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: With the tissue box in hand, I need to place it in the toilet 1 as instructed.\nAction: go to toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the toilet 1, you see a candle 1, and a toiletpaper 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I will place the tissue box on the toilet without disturbing the other items.\nAction: put tissuebox 1 in/on toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the tissuebox 1 in/on the toilet 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I need one more tissue box to complete the task. I should look around for another one. The garbage can is a place where items are sometimes discarded, so I'll check there next.\nAction: go to garbagecan 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the garbagecan 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There is nothing on the garbage can. I should return to the countertop where I saw additional tissue boxes.\nAction: go to countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the countertop 1, you see a soapbottle 1, a spraybottle 2, a spraybottle 1, a tissuebox 3, and a tissuebox 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There are still tissue boxes here. I'll take tissuebox 2 this time.\nAction: take tissuebox 2 from countertop 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the tissuebox 2 from the countertop 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now that I have the second tissue box, I need to place it in the toilet with the first one.\nAction: go to toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the toilet 1, you see a candle 1, a tissuebox 1, and a toiletpaper 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I will carefully place the second tissue box in the toilet to complete the task.\nAction: put tissuebox 2 in/on toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the tissuebox 2 in/on the toilet 1."
+        }
+    ]
+}

@@ -1,0 +1,104 @@
+{
+    "meta": {
+        "steps": 10,
+        "reward": true,
+        "finished": true,
+        "success": true,
+        "terminate_reason": "success",
+        "error": "/home/caozouying.czy/IPR/eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_clean_then_place_in_recep-SoapBar-None-Cabinet-402/trial_T20190908_055221_984342/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a bathtubbasin 1, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a countertop 1, a garbagecan 1, a handtowelholder 2, a handtowelholder 1, a shelf 1, a sinkbasin 2, a sinkbasin 1, a toilet 1, a toiletpaperhanger 1, a towelholder 2, and a towelholder 1.\nYour task is to: put a clean soapbar in cabinet."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. soapbar_name, location_name = locate_a_soapbar(candidate_locations);\nStep 2. take_soapbar(soapbar_name, location_name);\nStep 3. go_to_sinkbasin();\nStep 4. clean_soapbar(soapbar_name, sinkbasin_name);\nStep 5. go_to_cabinet();\nStep 6. open_cabinet();\nStep 7. put_soapbar_in_cabinet(soapbar_name, cabinet_name).\nI need to locate a clean soapbar to place in a cabinet. The task description doesn't specify where the soapbar is, so I should look around the room for one.\nAction: go to toilet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the toilet 1, you see a toiletpaper 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I see toiletpaper on the toilet, but no soapbar here. I should continue searching other areas.\nAction: go to sinkbasin 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's nothing on sinkbasin 1. I need to keep looking for a soapbar in other locations.\nAction: go to sinkbasin 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 2, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Sinkbasin 2 is also empty. I should check other places where a soapbar might be found, such as the shelf or cabinets.\nAction: go to shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 1, you see a cloth 1, a soapbar 2, a soapbar 1, a soapbottle 1, a spraybottle 1, and a tissuebox 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've found two soapbars on the shelf. I will take one of them to place in the cabinet as instructed.\nAction: take soapbar 2 from shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the soapbar 2 from the shelf 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Before placing the soapbar in the cabinet, I should ensure it's clean. I'll go to a sink to clean it.\nAction: go to sinkbasin 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sinkbasin 2, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Now at sinkbasin 2, I can clean the soapbar to ensure it's suitable for storage in the cabinet.\nAction: clean soapbar 2 with sinkbasin 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You clean the soapbar 2 using the sinkbasin 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The soapbar is now clean. I need to find a cabinet to store the soapbar in.\nAction: go to cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: The cabinet 1 is closed."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've reached cabinet 1, but it's closed. I need to open it to put the soapbar inside.\nAction: open cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You open the cabinet 1. The cabinet 1 is open. In it, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The cabinet is open and empty, which is perfect for storing the clean soapbar.\nAction: put soapbar 2 in/on cabinet 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You put the soapbar 2 in/on the cabinet 1."
+        }
+    ]
+}

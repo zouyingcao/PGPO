@@ -1,0 +1,184 @@
+{
+    "meta": {
+        "steps": 20,
+        "reward": false,
+        "finished": true,
+        "success": false,
+        "terminate_reason": "max_steps",
+        "error": "eval_agent/data/alfworld/json_2.1.1/valid_seen/pick_and_place_simple-CreditCard-None-Drawer-227/trial_T20190909_010644_297017/game.tw-pddl"
+    },
+    "conversations": [
+        {
+            "from": "human",
+            "value": "Interact with a household to solve a task. Imagine you are an intelligent agent in a household environment and your target is to perform actions to complete the task goal. At the beginning of your interactions, you will be given the detailed description of the current environment and your goal to accomplish. \nFor each of your turn, you will be given the observation of the last turn. You should first think about the current condition and plan for your future actions, and then output your action in this turn. Your output must strictly follow this format:\"Thought: your thoughts.\\nAction: your next action\".\n\nThe available actions are:\n1. go to {recep}\n2. take {obj} from {recep}\n3. put {obj} in/on {recep}\n4. open {recep}\n5. close {recep}\n6. toggle {obj} {recep}\n7. clean {obj} with {recep}\n8. heat {obj} with {recep}\n9. cool {obj} with {recep}\nwhere {obj} and {recep} correspond to objects and receptacles.\nAfter your each turn, the environment will give you immediate feedback based on which you plan your next few steps. if the envrionment output \"Nothing happened\", that means the previous action is invalid and you should try more options.\n\nYour response should use the following format:\n\nThought: <your thoughts>\nAction: <your next action>"
+        },
+        {
+            "from": "gpt",
+            "value": "OK"
+        },
+        {
+            "from": "human",
+            "value": "You are in the middle of a room. Looking quickly around you, you see a armchair 2, a armchair 1, a cabinet 8, a cabinet 7, a cabinet 6, a cabinet 5, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a coffeetable 2, a coffeetable 1, a diningtable 1, a drawer 7, a drawer 6, a drawer 5, a drawer 4, a drawer 3, a drawer 2, a drawer 1, a garbagecan 1, a shelf 13, a shelf 12, a shelf 11, a shelf 10, a shelf 9, a shelf 8, a shelf 7, a shelf 6, a shelf 5, a shelf 4, a shelf 3, a shelf 2, a shelf 1, and a sofa 1.\nYour task is to: put some creditcard on drawer."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: First, I devise a plan for solving the task:\nStep 1. creditcard_name, location_name = locate_a_creditcard(candidate_locations);\nStep 2. take_a_creditcard(creditcard_name, location_name);\nStep 3. go_to_a_drawer();\nStep 4. open_the_drawer();\nStep 5. put_creditcard_in_drawer().\nI need to locate a credit card to complete the task. I will start by checking nearby furniture for any items that match the description of a credit card.\nAction: go to sofa 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the sofa 1, you see a pillow 1, a remotecontrol 2, and a remotecontrol 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: The sofa does not have the credit card I'm looking for, but I should remember that there are remote controls and a pillow here in case I need them later.\nAction: go to shelf 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 1 is empty, which means the credit card is not here. I'll continue searching the other shelves systematically.\nAction: go to shelf 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 2, you see a vase 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's only a vase on shelf 2. I need to keep looking for the credit card on the other shelves.\nAction: go to shelf 3"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 3, you see a statue 5."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 3 has a statue, but no credit card. I'll move on to the next shelf.\nAction: go to shelf 4"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 4, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 4 is also empty. The credit card must be on one of the remaining shelves.\nAction: go to shelf 5"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 5, you see a vase 3."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Another vase on shelf 5, but still no credit card. I'll continue with the next shelf.\nAction: go to shelf 6"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 6, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 6 is empty as well. I'm getting closer to finding the credit card.\nAction: go to shelf 7"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 7, you see a statue 6."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's a statue on shelf 7, but no credit card. The next shelf might have it.\nAction: go to shelf 8"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 8, you see a plate 3, and a plate 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 8 has plates, but no credit card. I'll check the next shelf.\nAction: go to shelf 9"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 9, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 9 is empty. I'm getting more and more likely to find the credit card on the remaining shelves.\nAction: go to shelf 10"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 10, you see a vase 4."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 10 has a vase, but I'm looking for a credit card. I'll continue to the next shelf.\nAction: go to shelf 11"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 11, you see a vase 5."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: There's a vase on shelf 11, but still no credit card. I'll keep searching the remaining shelves.\nAction: go to shelf 12"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 12, you see a vase 6."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Another vase on shelf 12. I need to check all possible locations for the credit card.\nAction: go to shelf 13"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the shelf 13, you see a statue 7."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Shelf 13 has a statue, but no credit card. I've checked all the shelves now.\nAction: go to coffeetable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the coffeetable 1, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Coffeetable 1 is empty. The next logical place to look for the credit card would be the other coffee table.\nAction: go to coffeetable 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the coffeetable 2, you see a laptop 2, and a newspaper 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Coffeetable 2 has a laptop and a newspaper, but no credit card. I'll continue searching other areas of the room.\nAction: go to armchair 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the armchair 1, you see a pillow 2."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Armchair 1 has a pillow on it, but no credit card. I'll check the next armchair.\nAction: go to armchair 2"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the armchair 2, you see nothing."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: Armchair 2 is empty. I'll check the dining table next, as it's another common place where items are placed.\nAction: go to diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: On the diningtable 1, you see a box 2, a box 1, a creditcard 1, a keychain 1, a laptop 1, a newspaper 1, a plate 1, a statue 4, a statue 3, a statue 2, a statue 1, and a vase 1."
+        },
+        {
+            "from": "gpt",
+            "value": "Thought: I've found a credit card on the dining table among other items. This is what I need to complete the task.\nAction: take creditcard 1 from diningtable 1"
+        },
+        {
+            "from": "human",
+            "value": "Observation: You pick up the creditcard 1 from the diningtable 1."
+        }
+    ]
+}
