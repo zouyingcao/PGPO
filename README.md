@@ -44,7 +44,8 @@ if is_accelerate_available("1.0.0"):
 ## Plan Generation Pipeline
 The ```plan_generation_pipeline.ipynb``` implements the P-code Plan Generation Pipeline for reference. 
 
-![图片](https://github.com/user-attachments/assets/ac0bf4b3-5d02-41ca-b439-77800f9d5be0)
+![image](https://github.com/user-attachments/assets/691e74c3-76df-4492-88df-acee6970bec8)
+
 
 ## P-code Plan-guided Preference Optimization Pipeline
 
@@ -68,7 +69,10 @@ run_pgpo_pipeline.sh
 ```
 Moreover, the bash script ```run_eval.sh``` is used for agent task evaluation (```Optional tasks: alfworld, webshop, textcraft, sciworld```).
 
-![图片](https://github.com/user-attachments/assets/38fe92eb-30df-466c-a76e-0f62abc92c09)
+![image](https://github.com/user-attachments/assets/e77bdf3d-f13c-42e5-893d-f59899fd67b8)
+
+
+
 
 
 ## Acknowledgement
