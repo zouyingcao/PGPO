@@ -115,6 +115,67 @@ def trainer_save_model_safe(trainer: transformers.Trainer):
 
 
 def mask_labels(conversation, target, tokenizer, conv):
+    
+    if conv.sep_style == SeparatorStyle.MISTRAL3:
+        sep = conv.roles[1]  # "[/INST]"
+        # "▁": 29473
+        # sep2: </s>
+        # [INST] {user_message}[/INST] {assistant_message}</s>[INST] new_user_message[/INST]
+        
+        total_len = int(target.ne(tokenizer.pad_token_id).sum())
+
+        turns = conversation.split(conv.sep2)
+        cur_len = 1
+        target[:cur_len] = IGNORE_TOKEN_ID  # <s>
+        for i, turn in enumerate(turns):
+            if turn=="":
+                break
+
+            turn_len = len(tokenizer(turn, add_special_tokens=False).input_ids)
+                
+            parts = turn.split(sep)
+
+            if len(parts) != 2:
+                break
+                
+            parts[0] += sep
+
+            instruction_len = len(tokenizer(parts[0], add_special_tokens=False).input_ids)
+                
+            if i != 0:
+                # for the beginning"_": 29473
+                turn_len -= 1
+                instruction_len -= 1
+                
+            target[cur_len : cur_len + instruction_len] = IGNORE_TOKEN_ID
+                
+            cur_len += turn_len + 1 # 1: </s>
+
+        target[cur_len:] = IGNORE_TOKEN_ID
+            
+        if False:  # Inspect and check the correctness of masking
+            z = target.clone()
+            z = torch.where(z == IGNORE_TOKEN_ID, tokenizer.unk_token_id, z)
+            rank0_print(conversation)
+            rank0_print(tokenizer.decode(z))
+            exit()
+
+        if cur_len < tokenizer.model_max_length:
+            if cur_len != total_len:
+                z = target.clone()
+                z = torch.where(z == IGNORE_TOKEN_ID, tokenizer.unk_token_id, z)
+                rank0_print("*"*50)
+                rank0_print(conversation)
+                rank0_print("#" * 50)
+                rank0_print(tokenizer.decode(z))
+                rank0_print("*"*50)
+                target[:] = IGNORE_TOKEN_ID
+                rank0_print(
+                    f"WARNING: tokenization mismatch: {cur_len} vs. {total_len}."
+                    f" #turn = {len(turns) - 1}. (ignored)"
+                )
+        return target
+
     if conv.sep_style == SeparatorStyle.ADD_COLON_TWO:
         sep = conv.sep + conv.roles[1] + ": "
     elif conv.sep_style == SeparatorStyle.LLAMA2:
