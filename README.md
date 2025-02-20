@@ -9,10 +9,21 @@
 
 - **`eval_results`**: output files about the evaluation results of our PGPO agent.
 
-- **`fastchat`**: training scripts for SFT and DPO. Our experiments are based on Llama-2, Llama-3, Mistral-v0.1/v0.2, Qwen-2.5. We have modified the original [FastChat](https://github.com/lm-sys/FastChat) to support Llama-3 and Qwen-2.5. TODO: support Mistral-v0.3.
+- **`fastchat`**: training scripts for SFT and DPO. Our experiments are based on Llama-2, Llama-3, Mistral-v0.1/v0.2, Qwen-2.5. We have modified the original [FastChat](https://github.com/lm-sys/FastChat) to support Llama-3, Qwen-2.5 and Mistral-v0.3.
 
 > [!NOTE]  
 > This repo is under construction.
+
+## News
+
+- [25/02/20] We tried to support the **[Mistral-7B-v0.3](https://huggingface.co/mistralai/Mistral-7B-v0.3)** and **[Mistral-7B-Instruct-v0.3](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3)** using FastChat.
+
+- [25/02/18] We tried to support the **[Qwen2.5](https://huggingface.co/collections/Qwen/qwen25-66e81a666513e518adb90d9e)** using FastChat.
+
+- [25/02/17] The PGPO code is released, including the dataset, benchmark, and training implementations.
+
+> [!IMPORTANT]
+> We welcome discussions for supporting more models using FastChat.
 
 ## Installation
 
