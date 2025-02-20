@@ -23,7 +23,7 @@
 - [25/02/17] The PGPO code is released, including the dataset, benchmark, and training implementations.
 
 > [!IMPORTANT]
-> We welcome discussions for supporting more models using FastChat.
+> We welcome discussions about supporting more models using FastChat.
 
 ## Installation
 
