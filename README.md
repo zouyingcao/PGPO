@@ -16,9 +16,9 @@
 
 ## News
 
-- [25/02/20] We tried to support the **[Mistral-7B-v0.3](https://huggingface.co/mistralai/Mistral-7B-v0.3)** and **[Mistral-7B-Instruct-v0.3](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3)** using FastChat.
+- [25/02/20] We tried to support the [Mistral-7B-v0.3](https://huggingface.co/mistralai/Mistral-7B-v0.3) and [Mistral-7B-Instruct-v0.3](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3) using FastChat.
 
-- [25/02/18] We tried to support the **[Qwen2.5](https://huggingface.co/collections/Qwen/qwen25-66e81a666513e518adb90d9e)** using FastChat.
+- [25/02/18] We tried to support the [Qwen2.5](https://huggingface.co/collections/Qwen/qwen25-66e81a666513e518adb90d9e) using FastChat.
 
 - [25/02/17] The PGPO code is released, including the dataset, benchmark, and training implementations.
 
