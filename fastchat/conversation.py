@@ -21,6 +21,7 @@ class SeparatorStyle(IntEnum):
     ADD_NEW_LINE_SINGLE = auto()
     LLAMA2 = auto()
     LLAMA3 = auto()
+    MISTRAL3 = auto()
     CHATGLM = auto()
     CHATML = auto()
     CHATINTERN = auto()
@@ -153,6 +154,22 @@ class Conversation:
                     ret += f"{message.strip()}<|eot_id|>"
                 else:
                     ret += f"<|start_header_id|>{role}<|end_header_id|>\n\n"
+            return ret
+        elif self.sep_style == SeparatorStyle.MISTRAL3:
+            seps = [self.sep, self.sep2] # sep="", sep2="</s>"
+            if self.system_message:
+                ret = system_prompt
+            else:
+                ret = "[INST] "
+            for i, (role, message) in enumerate(self.messages):
+                tag = self.roles[i % 2] # [INST], [/INST]
+                if message:
+                    if i == 0:
+                        ret += message 
+                    else:
+                        ret += tag + " " + message + seps[i % 2]
+                else:
+                    ret += tag
             return ret
         elif self.sep_style == SeparatorStyle.CHATGLM:
             # source: https://huggingface.co/THUDM/chatglm-6b/blob/1d240ba371910e9282298d4592532d7f0f3e9f3e/modeling_chatglm.py#L1302-L1308
@@ -986,6 +1003,18 @@ register_conv_template(
         roles=("[INST]", "[/INST]"),
         sep_style=SeparatorStyle.LLAMA2,
         sep=" ",
+        sep2="</s>",
+    )
+)
+
+# ref to: https://github.com/mistralai/cookbook/blob/main/concept-deep-dive/tokenization/chat_templates.md
+register_conv_template(
+    Conversation(
+        name="mistral-v0.3",
+        system_template="[INST] {system_message}\n",
+        roles=("[INST]", "[/INST]"),
+        sep_style=SeparatorStyle.MISTRAL3,
+        sep="",
         sep2="</s>",
     )
 )
