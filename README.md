@@ -16,7 +16,7 @@
 </p>
 
 <div align="center">
-[![ACL 2025 Findings](https://img.shields.io/badge/Paper-ACL%202025%20Findings-b31b1b)](https://arxiv.org/abs/2506.xxxx)
+<a href="https://arxiv.org/abs/2506.xxxx"><img src="https://img.shields.io/badge/arXiv-ACL 2025 Findings-b31b1b.svg" alt="Paper"></a>
 </div>
 
 <!-- <p align='center';> -->
