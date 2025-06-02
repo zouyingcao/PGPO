@@ -1,4 +1,4 @@
-# PGPO
+# PGPO: Enhancing Agent Reasoning via Pseudocode-style Planning Guided Preference Optimization 
 ## Structure of This Project
 
 - **`data`**: we include our used ReAct-style expert trajectory data in ```data/ReAct_style_data```. Following the p-code plan generation pipeline, we collect our new expert trajectory data with the incorporation of p-code plans in ```<TASK_NAME>_with_plan.json```. Some prompt examples are provided in ```data/p-code_plan_prompts```. Moreover, we conduct comparitive experiments between p-code plans and nl plans. Generated nl plans are in ```data/sft_data_with_nl_plan``` using prompts in ```data/nl_plan_prompts```.
@@ -15,6 +15,7 @@
 > This repo is under construction.
 
 ## News
+- [25/03/15] Our paper was accepted to ACL 2025 conference.
 
 - [25/02/20] We tried to support the [Mistral-7B-v0.3](https://huggingface.co/mistralai/Mistral-7B-v0.3) and [Mistral-7B-Instruct-v0.3](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3) using FastChat.
 
