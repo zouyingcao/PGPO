@@ -1,5 +1,27 @@
-# PGPO: Enhancing Agent Reasoning via Pseudocode-style Planning Guided Preference Optimization 
-## Structure of This Project
+<h1 align='center' style="text-align:center; font-weight:bold; font-size:2.0em;letter-spacing:2.0px;"> PGPO: Enhancing Agent Reasoning via Pseudocode-style Planning Guided Preference Optimization  </h1>
+
+<p align='center' style="text-align:center;font-size:1.25em;">
+    <a href="https://scholar.google.com/citations?user=IIA4hMEAAAAJ&hl=zh-CN" target="_blank" style="text-decoration: none;">Zouying Cao<sup>1,3,4</sup></a>&nbsp;,&nbsp;
+    <a href="https://orcid.org/0000-0003-3059-1238" target="_blank" style="text-decoration: none;">RunZe Wang<sup>2</sup></a>&nbsp;,&nbsp;
+    <a href="https://scholar.google.com.hk/citations?user=UxAb3eQAAAAJ&hl=zh-CN" target="_blank" style="text-decoration: none;">Yifei Yang<sup>1,3,4</sup></a>&nbsp;,&nbsp;
+    <a href="https://scholar.google.com/citations?user=LpUi3EgAAAAJ" target="_blank" style="text-decoration: none;">Xinbei Ma<sup>1,3,4</sup></a>&nbsp;,&nbsp;
+    <a href="https://openreview.net/profile?id=~Xiaoyong_Zhu1" target="_blank" style="text-decoration: none;">Xiaoyong Zhu<sup>2</sup></a>&nbsp;,&nbsp;
+    <a href="https://scholar.google.com/citations?user=3gHhO9QAAAAJ&hl=en" target="_blank" style="text-decoration: none;">Bo Zheng<sup>2†</sup></a>&nbsp;&nbsp;
+    <a href="https://scholar.google.co.jp/citations?user=H6vHKJoAAAAJ&hl=zh-TW" target="_blank" style="text-decoration: none;">Hai Zhao<sup>1,3,4†</sup></a>&nbsp;&nbsp;
+	<br>
+<sup>1</sup>School of Computer Science, Shanghai Jiao Tong University&nbsp;&nbsp;&nbsp;<sup>2</sup>Taobao & Tmail Group of Alibaba&nbsp;&nbsp;&nbsp;<br>
+<sup>3</sup>Key Laboratory of Shanghai Education Commission for Intelligent Interaction and Cognitive Engineering, Shanghai Jiao Tong University&nbsp;&nbsp;&nbsp;<br>
+<sup>4</sup>Shanghai Key Laboratory of Trusted Data Circulation and Governance in Web3&nbsp;&nbsp;&nbsp;<br>
+† Corresponding authors&nbsp;&nbsp;&nbsp;
+</p>
+
+<p align='center';>
+<b>
+<em>ACL, 2025, Findings</em> <br>
+</b>
+</p>
+
+## 📃 Structure of This Project
 
 - **`data`**: we include our used ReAct-style expert trajectory data in ```data/ReAct_style_data```. Following the p-code plan generation pipeline, we collect our new expert trajectory data with the incorporation of p-code plans in ```<TASK_NAME>_with_plan.json```. Some prompt examples are provided in ```data/p-code_plan_prompts```. Moreover, we conduct comparitive experiments between p-code plans and nl plans. Generated nl plans are in ```data/sft_data_with_nl_plan``` using prompts in ```data/nl_plan_prompts```.
 
@@ -14,7 +36,7 @@
 > [!NOTE]  
 > This repo is under construction.
 
-## News
+## 🔥 News
 - [25/03/15] Our paper was accepted as ACL 2025 Findings.
 
 - [25/02/20] We tried to support the [Mistral-7B-v0.3](https://huggingface.co/mistralai/Mistral-7B-v0.3) and [Mistral-7B-Instruct-v0.3](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3) using FastChat.
@@ -26,7 +48,7 @@
 > [!IMPORTANT]
 > We welcome discussions about supporting more models using FastChat.
 
-## Installation
+## 👀 Installation
 
 ```bash
 git clone https://github.com/zouyingcao/PGPO.git
@@ -55,13 +77,13 @@ if is_accelerate_available("1.0.0"):
 > [!TIP]
 > You can ref to: [PyTorch](https://pytorch.org/get-started/previous-versions/), [Flash-attention](https://github.com/Dao-AILab/flash-attention/releases/)
 
-## Plan Generation Pipeline
+## 🔎 Plan Generation Pipeline
 The ```plan_generation_pipeline.ipynb``` implements the P-code Plan Generation Pipeline for reference. 
 
 ![image](https://github.com/user-attachments/assets/691e74c3-76df-4492-88df-acee6970bec8)
 
 
-## P-code Plan-guided Preference Optimization Pipeline
+## 💡 P-code Plan-guided Preference Optimization Pipeline
 
 First, launch the controller of FastChat
 ```bash
@@ -86,9 +108,13 @@ Moreover, the bash script ```run_eval.sh``` is used for agent task evaluation (`
 ![image](https://github.com/user-attachments/assets/e77bdf3d-f13c-42e5-893d-f59899fd67b8)
 
 
+## 🔗 Citation
 
+If you find this repo useful for your research, please consider citing the paper
 
+```
+```
 
-## Acknowledgement
+## 🌈 Acknowledgement
 
 This repo benefits from [ETO](https://github.com/huggingface/peft), [IPR](https://github.com/huggingface/trl), [AgentGym](https://github.com/WooooDyy/AgentGym) and [FastChat](https://github.com/lm-sys/FastChat). Thanks for their inspiring works.
