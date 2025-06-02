@@ -17,6 +17,8 @@
 
 <div align="center">
 <a href="https://arxiv.org/abs/2506.xxxx"><img src="https://img.shields.io/badge/arXiv-ACL 2025 Findings-b31b1b.svg" alt="Paper"></a>
+<a href="https://github.com/zouyingcao/PGPO/blob/main/data"> <img alt="Data" src="https://img.shields.io/badge/poster-PDF-teal"></a>
+<a href="https://github.com/zouyingcao/PGPO/blob/main/data"> <img alt="Data" src="https://img.shields.io/badge/data-GitHub-green"></a>
 </div>
 
 <!-- <p align='center';> -->
