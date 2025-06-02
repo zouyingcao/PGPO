@@ -12,16 +12,23 @@
 <sup>1</sup>School of Computer Science, Shanghai Jiao Tong University&nbsp;&nbsp;&nbsp;<sup>2</sup>Taobao & Tmail Group of Alibaba&nbsp;&nbsp;&nbsp;<br>
 <sup>3</sup>Key Laboratory of Shanghai Education Commission for Intelligent Interaction and Cognitive Engineering, Shanghai Jiao Tong University&nbsp;&nbsp;&nbsp;<br>
 <sup>4</sup>Shanghai Key Laboratory of Trusted Data Circulation and Governance in Web3&nbsp;&nbsp;&nbsp;<br>
-† Corresponding authors&nbsp;&nbsp;&nbsp;
+<sup>†</sup>Corresponding authors&nbsp;&nbsp;&nbsp;
 </p>
 
-<p align='center';>
-<b>
-<em>ACL, 2025, Findings</em> <br>
-</b>
-</p>
+<div align="center">
+[![ACL 2025 Findings](https://img.shields.io/badge/Paper-ACL%202025%20Findings-b31b1b)](https://arxiv.org/abs/2506.xxxx)
+</div>
 
-## 📃 Structure of This Project
+<!-- <p align='center';> -->
+<!-- <b> -->
+<!-- <em>ACL, 2025, Findings</em> <br> -->
+<!-- </b> -->
+<!-- </p> -->
+
+## 📌 Abstract
+Large Language Model (LLM) agents have demonstrated impressive capabilities in handling complex interactive problems. Existing LLM agents mainly generate natural language plans to guide reasoning, which is verbose and inefficient. NL plans are also tailored to specific tasks and restrict agents’ ability to generalize across similar tasks. To this end, we explore pseudocode-style plans (P-code Plan) to capture the structural logic of reasoning. We find that P-code Plan empowers LLM agents with stronger generalization ability and more efficiency. Inspired by this finding, we propose a pseudocode-style <u><b>P</b></u>lanning **G**uided **P**reference **O**ptimization method called **PGPO** for effective agent learning. With two planning-oriented rewards, PGPO further enhances LLM agents’ ability to generate high-quality P-code Plans and subsequent reasoning. Experiments show that PGPO achieves superior performance on representative agent benchmarks and outperforms the current leading baselines. Analyses reveal the advantage of PGPO in reducing action errors and omissions during reasoning.
+
+## 📄 Structure of This Project
 
 - **`data`**: we include our used ReAct-style expert trajectory data in ```data/ReAct_style_data```. Following the p-code plan generation pipeline, we collect our new expert trajectory data with the incorporation of p-code plans in ```<TASK_NAME>_with_plan.json```. Some prompt examples are provided in ```data/p-code_plan_prompts```. Moreover, we conduct comparitive experiments between p-code plans and nl plans. Generated nl plans are in ```data/sft_data_with_nl_plan``` using prompts in ```data/nl_plan_prompts```.
 
