@@ -46,7 +46,7 @@ Large Language Model (LLM) agents have demonstrated impressive capabilities in h
 > This repo is under construction.
 
 ## 🔥 News
-- [25/03/15] Our paper was accepted as ACL 2025 Findings.
+- [25/03/15] Our paper was accepted by ACL 2025 Findings.
 
 - [25/02/20] We tried to support the [Mistral-7B-v0.3](https://huggingface.co/mistralai/Mistral-7B-v0.3) and [Mistral-7B-Instruct-v0.3](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3) using FastChat.
 
