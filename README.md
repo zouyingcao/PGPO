@@ -122,6 +122,15 @@ Moreover, the bash script ```run_eval.sh``` is used for agent task evaluation (`
 If you find this repo useful for your research, please consider citing the paper
 
 ```
+@misc{cao2025pgpo,
+      title={PGPO: Enhancing Agent Reasoning via Pseudocode-style Planning Guided Preference Optimization}, 
+      author={Zouying Cao and Runze Wang and Yifei Yang and Xinbei Ma and Xiaoyong Zhu and Bo Zheng and Hai Zhao},
+      year={2025},
+      eprint={2506.01475},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2506.01475}, 
+}
 ```
 
 ## 🌈 Acknowledgement
